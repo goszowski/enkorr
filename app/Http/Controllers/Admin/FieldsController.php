@@ -22,6 +22,7 @@ class FieldsController extends Controller {
       'type_id'               => 'required|integer|exists:field_types,id',
       'group_id'              => 'integer|exists:field_groups,id',
       'class_id'              => 'integer|exists:classes,id',
+      'hint'                  => 'max:255',
     ];
   }
 
@@ -33,6 +34,7 @@ class FieldsController extends Controller {
       'type_id'               => 'required|integer|exists:field_types,id',
       'group_id'              => 'integer|exists:field_groups,id',
       'class_id'              => 'integer|exists:classes,id',
+      'hint'                  => 'max:255',
     ];
   }
 

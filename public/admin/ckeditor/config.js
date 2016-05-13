@@ -56,6 +56,7 @@ config.toolbar_runsite = [
 { name: 'others', items: [ '-' ] },
 '/',
 { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike', '-', 'RemoveFormat' ] },
+{ name: 'colors', items : [ 'TextColor','BGColor' ] },
 { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
 { name: 'styles', items: [ 'Styles', 'Format' ] }
 ];

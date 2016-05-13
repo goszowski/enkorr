@@ -64,6 +64,8 @@ class NodesController extends Controller {
     $_NODE_DEPENDENCIES = Node_dependencies::where('node_id', $_NODE->id)->with('classes')->get();
 
 
+
+
     // CHILDREN
     if(!empty(Request::get('class'))) {
       // Якщо клас передано параметром
@@ -308,9 +310,11 @@ class NodesController extends Controller {
     return \Redirect::route('admin.nodes.settings', $node->id);
   }
 
+
+
   public function destroy($id, Classes $classes) {
-    $node = Node::find($id);
-    $class = $classes->find($node->id);
+    $node = Nodes::find($id);
+    $class = $classes->find($node->class_id);
     $data = new Data;
 
     $data->init($classes->prefix.$class->shortname, []);

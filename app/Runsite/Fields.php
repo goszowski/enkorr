@@ -28,6 +28,7 @@ class Fields extends Model
       'shown',
       'sort',
       'ignore_language',
+      'hint',
     ];
 
     /**
@@ -84,6 +85,7 @@ class Fields extends Model
       $this->shown                = $request->input('shown') ? true : false; // checkbox input
       if(! $update) $this->sort   = $this->where('class_id', $request->input('class_id'))->count() + 1;
       $this->ignore_language      = $request->input('ignore_language') ? true : false; // checkbox input
+      $this->hint                 = $request->input('hint');
 
       return $this;
     }

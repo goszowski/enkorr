@@ -6,6 +6,7 @@
       <input type="checkbox" name="langs[{{$field_lang}}][{{$field_name}}]" value="1" @if($field_value) checked @endif >
       <i></i>
       {{$field_label}}
+      <small class="text-muted">[{{$field_name}}]</small>
     </label>
   </div>
 </div>

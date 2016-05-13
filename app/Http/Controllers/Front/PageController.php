@@ -2,12 +2,13 @@
 
 /* test */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Controllers\RunsiteController;
 
-class HomeController extends RunsiteController
+class PageController extends RunsiteController
 {
 
     public function index()

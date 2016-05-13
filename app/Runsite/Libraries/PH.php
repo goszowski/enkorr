@@ -48,8 +48,10 @@ class PH
       $controllerParts = explode('@', $controller);
       //$RunsiteNode = ['id' => $node->id, 'parent_id' => $node->parent_id];
       //Request::input('RunsiteNode', $node);
-      $GLOBALS['RunsiteNode'] = $node;
-      return App::make('App\Http\Controllers'.'\\'.$controllerParts[0])->$controllerParts[1](1,2);
+      PH::setGlobal('RunsiteNode', $node);
+      $c = $controllerParts[0];
+      $m = $controllerParts[1];
+      return App::make('App\Http\Controllers\Front'.'\\'.$c)->$m(1,2);
     }
     else {
       abort(404);
@@ -65,6 +67,17 @@ class PH
 
   public static function setGlobal($name, $val) {
     $GLOBALS['runsite_cms'][$name] = $val;
+  }
+
+  public static function formatDate($date, $hideYear=false) {
+    $dateParts = explode('-', $date);
+
+    $y = $dateParts[0];
+    $m = $dateParts[1];
+    $d = $dateParts[2];
+
+    if(!$hideYear) return $d . ' ' . trans('public.months.'.$m) . ' ' . $y;
+    else return $d . ' ' . trans('public.months.'.$m);
   }
 
 }

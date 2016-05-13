@@ -6,8 +6,12 @@
       <li role="presentation" class="@if($dep->subclass_id == $class->id) active @endif">
         <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">{{$dep->classes->name_more}}</a>
       </li>
+    @endforeach
 
-
+    @foreach($NodeDependencies as $dk=>$dep)
+      <li role="presentation" class="@if($dep->subclass_id == $class->id) active @endif">
+        <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">{{$dep->classes->name_more}}</a>
+      </li>
     @endforeach
   </ul>
   <div class="b-a no-b-t bg-white m-b tab-content">
@@ -43,6 +47,10 @@
             @endforeach
           </tbody>
         </table>
+      </div>
+    @else
+      <div class="alert">
+        Розділ порожній
       </div>
     @endif
 

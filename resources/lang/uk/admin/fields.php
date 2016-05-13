@@ -51,4 +51,5 @@ return [
   'full' => 'Full',
   'require_css_file' => 'Підключити CSS файл',
   'runsite' => 'Runsite',
+  'hint' => 'Підказка',
 ];

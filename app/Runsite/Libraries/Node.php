@@ -71,8 +71,8 @@ class Node {
     $dataObject = new Data;
     $dataObject->init($classes->prefix.$currentClass->shortname, $currentClassFillable);
 
-    $dataObject->where('node_id', $node_id);
-    $dataObject->where('is_active', true);
+    $dataObject = $dataObject->where('node_id', $node_id);
+    $dataObject = $dataObject->where('is_active', true);
 
     // Якщо мова вказана явно, то вибираємо по ній
     if($lang_id) {
@@ -80,8 +80,12 @@ class Node {
     }
     else {
       // Ящо ж мова явно не вказана то вибираємо по дефолтовій локалізації
-      $defaultLocale = Languages::where('is_default', true)->first();
-      $dataObject->where('language_id', (int) $defaultLocale->id);
+      // $defaultLocale = Languages::where('is_default', true)->first();
+      // $dataObject->where('language_id', (int) $defaultLocale->id);
+
+      // EDIT: Якщо мова не вказана то вибираємо по активній локалізації.
+      $activeLocale = Languages::where('locale', \LaravelLocalization::getCurrentLocale())->first();
+      $dataObject = $dataObject->where('language_id', (int) $activeLocale->id);
     }
 
     $node = $dataObject->first();
@@ -118,7 +122,13 @@ class Node {
 
     if($where_add) {
       foreach($where_add as $k=>$v) {
-        $dataObject = $dataObject->where($k, $v);
+        if(is_array($v)) {
+          $dataObject = $dataObject->where($k, $v[0], $v[1]);
+        }
+        else {
+          $dataObject = $dataObject->where($k, $v);
+        }
+
       }
     }
 
@@ -135,8 +145,12 @@ class Node {
     }
     else {
       // Ящо ж мова явно не вказана то вибираємо по дефолтовій локалізації
-      $defaultLocale = Languages::where('is_default', true)->first();
-      $dataObject = $dataObject->where('language_id', (int) $defaultLocale->id);
+      // $defaultLocale = Languages::where('is_default', true)->first();
+      // $dataObject = $dataObject->where('language_id', (int) $defaultLocale->id);
+
+      // EDIT: Якщо мова не вказана то вибираємо по активній локалізації.
+      $activeLocale = Languages::where('locale', \LaravelLocalization::getCurrentLocale())->first();
+      $dataObject = $dataObject->where('language_id', (int) $activeLocale->id);
     }
 
     $dataObject = $dataObject->where('is_active', true);

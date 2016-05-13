@@ -23,6 +23,7 @@
             'ignore_language' => $field->ignore_language,
             'lang_key' => $lg,
             'settings' => $field->settings,
+            'hint' => $field->hint,
           ])
         @endif
       @endforeach
@@ -41,6 +42,7 @@
             'ignore_language' => $field->ignore_language,
             'lang_key' => $lg,
             'settings' => $field->settings,
+            'hint' => $field->hint,
           ])
         @endif
       @endforeach
