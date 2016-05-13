@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>503 Page not found</title>
+        <title>404 Page not found</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+        <link href="{{asset('admin/admin-lte/AdminLTE.css')}}" rel="stylesheet" type="text/css">
 
         <style>
             html, body {
@@ -40,7 +41,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">503</div>
+                <div class="title">404</div>
                 <p>
                   <b>Page not found</b>
                 </p>

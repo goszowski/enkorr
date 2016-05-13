@@ -17,9 +17,12 @@ class RunsiteController extends Controller {
   public $currentFields;
 
   public function __construct() {
-    $this->currentNode = PH::getGlobal('RunsiteNode'); //$GLOBALS['RunsiteNode'];
-    $this->currentClass = Classes::find($this->currentNode->class_id);
-    $this->currentFields = Node::get($this->currentClass->shortname, $this->currentNode->id);
+    $this->currentNode = PH::getGlobal('RunsiteNode') or abort(404); //$GLOBALS['RunsiteNode'];
+    $this->currentClass = Classes::find($this->currentNode->class_id) or abort(404);
+    $this->currentFields = Node::get($this->currentClass->shortname, $this->currentNode->id) or abort(404);
+
+    if(!$this->currentFields->is_active)
+      return abort(404);
   }
 
   public function getSimpleList()
