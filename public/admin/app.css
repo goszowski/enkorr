@@ -1,0 +1,43 @@
+.alert {
+  border-radius: 0;
+}
+
+.alert-danger {
+  background: #e11144;
+  border-color: #e11144;
+  color: #fff;
+}
+
+.alert-success {
+  background: #4bb622;
+  border-color: #4bb622;
+  color: #fff;
+}
+
+.panel-danger {
+  border-color: #e11144;
+}
+
+.panel-danger .panel-heading {
+  background: #e11144;
+  color: #fff;
+}
+
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: -1px;
+}
+
+
+.navmenu, .navbar-offcanvas {
+  width: 350px;
+}
+
+
+a.sign-out {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  display: block;
+  padding: 15px;
+}

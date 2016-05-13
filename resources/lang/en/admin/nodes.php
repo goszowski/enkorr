@@ -1,0 +1,22 @@
+<?php
+return [
+  'main' => 'Main',
+  'update' => 'Update',
+  'remove' => 'Remove',
+  'yes' => 'Yes',
+  'no' => 'No',
+  'create' => 'Create',
+  'dependencies' => 'Dependencies',
+  'settings' => 'Settings',
+  'nodes' => 'Nodes',
+  'node' => 'Node',
+  'access' => 'Access',
+  'edit' => 'Edit',
+  'shortname' => 'Shortname',
+  'controller' => 'Controller',
+  'absolute_path' => 'Absolute path',
+  'name' => 'Name',
+  'action' => 'Action',
+  'go_to_linked_section' => 'Go to linked section',
+  'can not get items of class' => 'Can not get items of class',
+];
