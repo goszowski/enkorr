@@ -1,4 +1,5 @@
 <?php
+/* test2 */
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
