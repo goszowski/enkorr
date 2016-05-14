@@ -23,9 +23,13 @@
 
     <link rel="stylesheet" href="{{asset('admin/font-awesome-4.5.0/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/bootstrap-3.3.6-dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker-standalone.css')}}">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="{{asset('admin/bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('admin/moment-develop/min/moment-with-locales.min.js')}}"></script>
+    <script src="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
     <script src="{{asset('admin/bootstrap-notify.min.js')}}"></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -53,6 +57,13 @@
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('admin/app.js')}}"></script>
 
-
+    <script type="text/javascript">
+      $(function(){
+        $('.datetimepicker').datetimepicker({
+          locale: '{{config('app.locale')}}',
+          format: 'YYYY-MM-DD hh:mm:ss'
+        });
+      });
+    </script>
   </head>
   <body>

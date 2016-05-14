@@ -52,4 +52,5 @@ return [
   'require_css_file' => 'Підключити CSS файл',
   'runsite' => 'Runsite',
   'hint' => 'Підказка',
+  'datetime' => 'Datetime',
 ];

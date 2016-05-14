@@ -75,12 +75,16 @@ class NodesController extends Controller {
     else {
       // Якщо не передано то пробуємо завантажити клас зі списку залежностей
       $dependencies       = $_DEPENDENCIES->first();
+      $nodedependencies   = $_NODE_DEPENDENCIES->first();
       if($dependencies) {
         // якшо є залежності то ок
         $class_id         = $_DEPENDENCIES->first()->subclass_id;
       }
-      else {
+      elseif($nodedependencies) {
         // якшо нема то нема
+        $class_id = $nodedependencies->subclass_id;
+      }
+      else {
         $class_id = false;
       }
     }

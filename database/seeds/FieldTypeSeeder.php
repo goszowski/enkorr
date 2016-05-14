@@ -435,11 +435,6 @@ class FieldTypeSeeder extends Seeder
 
 
 
-
-
-
-
-
       // bool
       $id = DB::table('field_types')->insertGetId([
           'name' => 'Boolean',
@@ -495,6 +490,59 @@ class FieldTypeSeeder extends Seeder
       DB::table('field_html_control_types')->insert([
           'type_id' => $id,
           'type_variant' => 'switch',
+          'created_at' => $date,
+          'updated_at' => $date,
+      ]);
+
+      DB::table('field_html_control_types')->insert([
+          'type_id' => $id,
+          'type_variant' => 'readonly',
+          'created_at' => $date,
+          'updated_at' => $date,
+      ]);
+
+
+      // datetime
+      $id = DB::table('field_types')->insertGetId([
+          'name' => 'Datetime',
+          'input_controller' => 'datetime',
+          'created_at' => $date,
+          'updated_at' => $date,
+      ]);
+
+      DB::table('field_settings_default')->insert([
+          'type_id' => $id,
+          '_parameter' => 'db_field_type',
+          '_value' => 'datetime',
+          'created_at' => $date,
+          'updated_at' => $date,
+          'control' => 'string',
+      ]);
+
+      DB::table('field_settings_default')->insert([
+          'type_id' => $id,
+          '_parameter' => 'db_field_size',
+          '_value' => '',
+          'created_at' => $date,
+          'updated_at' => $date,
+          'control' => 'string',
+      ]);
+
+
+
+      DB::table('field_settings_default')->insert([
+          'type_id' => $id,
+          '_parameter' => 'type_of_html_control',
+          '_value' => 'datetime',
+          'created_at' => $date,
+          'updated_at' => $date,
+          'control' => 'select',
+      ]);
+
+      // HTML CONTROLS
+      DB::table('field_html_control_types')->insert([
+          'type_id' => $id,
+          'type_variant' => 'datetime',
           'created_at' => $date,
           'updated_at' => $date,
       ]);
