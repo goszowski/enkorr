@@ -20,7 +20,7 @@ use Excel;
 
 class NodesController extends Controller {
 
-  protected $pagination_limit = 2;
+  protected $pagination_limit = 35;
 
 
   protected function dependenciesAddRules($node_id) {
