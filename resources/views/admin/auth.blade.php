@@ -23,6 +23,7 @@
     <script type="text/javascript" src="{{asset('admin/iCheck/icheck.min.js')}}"></script>
 
     <script type="text/javascript">
+    if (top.location.href != self.location.href) { top.location.href = self.location.href; }
     $(function () {
       $('input').iCheck({
         checkboxClass: 'icheckbox_square-blue',
