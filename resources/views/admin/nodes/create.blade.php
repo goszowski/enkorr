@@ -2,7 +2,7 @@
 @section('content')
 @include('admin.nodes.partials.items_nav')
 
-{!! Form::open(['route' => 'admin.nodes.store', 'class' => 'form-horizontal']) !!}
+{!! Form::open(['route' => 'admin.nodes.store', 'class' => 'form-horizontal', 'files' => true]) !!}
 <input type="hidden" name="class_id" value="{{$class->id}}">
 <input type="hidden" name="parent_id" value="{{$parent->id}}">
 <div class="p-md">

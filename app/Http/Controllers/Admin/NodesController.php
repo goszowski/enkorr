@@ -146,9 +146,10 @@ class NodesController extends Controller {
   }
 
 
-  public function update($values = false) {
+  public function update($values = false, $node_id = false) {
     $_LNG = new Languages;
     if(!$values) $values = Request::all();
+    if(!isset($values['node_id']) and $node_id) $values['node_id'] = $node_id;
     $node       = Nodes::find($values['node_id']);
     $class      = Classes::find($node->class_id);
     $fields     = Fields::where('class_id', $class->id)->with('type')->get();
@@ -164,24 +165,45 @@ class NodesController extends Controller {
 
         // MIDDLEWARE IMAGE
         if($field->type->input_controller == 'image') {
-          $imageFile = Request::file('langs.'.$language->id.'.'.$field->shortname);
-          if($imageFile != NULL and $imageFile->isValid()) {
-            // зображення передано і валідне
-            $filename = str_slug(time().'-'.$values['langs'][$def_lang][$field->shortname]).'.jpg';
-            $settings = Field_settings::pull(Field_settings::where('field_id', $field->id)->get(), 'image_sizes');
-            $settings = explode('/', $settings);
-            foreach($settings as $size_key=>$size) {
-              if(!$size_key) $folder_name = 'full';
-              elseif(++$size_key == count($settings)) $folder_name = 'thumb';
-              else $folder_name = $size.'px';
-              if(!is_dir( public_path('imglib/' . $folder_name . '/') )) mkdir(public_path('imglib/' . $folder_name . '/'));
-              $path = public_path('imglib/' . $folder_name . '/' . $filename);
-              $img = Image::make($imageFile->getRealPath());
-              $img->resize($size, null, function($constraint) {
-                  $constraint->aspectRatio();
-              });
-              $img->save($path);
-              $values['langs'][$language->id][$field->shortname] = $filename;
+
+          if(isset($values['langs'][$language->id][$field->shortname.'_remove']) and $values['langs'][$language->id][$field->shortname.'_remove']) {
+            $values['langs'][$language->id][$field->shortname] = NULL;
+          }
+          else {
+            $imageFile = Request::file('langs.'.$language->id.'.'.$field->shortname);
+            if($imageFile != NULL and $imageFile->isValid()) {
+              // зображення передано і валідне
+              $filename = str_slug(time().'-'.str_random(25)).'.png';
+              $settings = Field_settings::pull(Field_settings::where('field_id', $field->id)->get(), 'image_sizes');
+              $settings = explode('/', $settings);
+              foreach($settings as $size_key=>$size) {
+                if(!$size_key) $folder_name = 'full';
+                elseif(++$size_key == count($settings)) $folder_name = 'thumb';
+                else $folder_name = $size.'px';
+                if(!is_dir( public_path('imglib/' . $folder_name . '/') )) mkdir(public_path('imglib/' . $folder_name . '/'));
+                $path = public_path('imglib/' . $folder_name . '/' . $filename);
+
+                list($originalWidth, $originalHeight) = getimagesize($imageFile->getRealPath());
+                $ratio = $originalWidth / $originalHeight;
+                $targetWidth = $targetHeight = min($size, max($originalWidth, $originalHeight));
+
+                if ($ratio < 1) {
+                    $targetWidth = $targetHeight * $ratio;
+                } else {
+                    $targetHeight = $targetWidth / $ratio;
+                }
+
+                $new_height =
+                $background = Image::canvas($targetWidth, $targetHeight);
+                $img = Image::make($imageFile->getRealPath());
+                $img->resize($targetWidth, $targetHeight, function($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $background->insert($img, 'center');
+
+                $background->save($path);
+                $values['langs'][$language->id][$field->shortname] = $filename;
+              }
             }
           }
         }
@@ -202,6 +224,9 @@ class NodesController extends Controller {
             if($field->type->input_controller != 'image') {
               $dataEx->{$field->shortname}  = $value;
             }
+            elseif(isset($values['langs'][$language->id][$field->shortname.'_remove']) and $values['langs'][$language->id][$field->shortname.'_remove']) {
+              $dataEx->{$field->shortname}  = $value;
+            }
           }
         }
         else {
@@ -210,6 +235,9 @@ class NodesController extends Controller {
           }
           else {
             if($field->type->input_controller != 'image') {
+              $data->{$field->shortname}  = $value;
+            }
+            elseif(isset($values['langs'][$language->id][$field->shortname.'_remove']) and $values['langs'][$language->id][$field->shortname.'_remove']) {
               $data->{$field->shortname}  = $value;
             }
           }
@@ -257,9 +285,9 @@ class NodesController extends Controller {
     ]);
 
     $values = Request::all();
-    $values['node_id'] = $newNode->id;
+    //$values['node_id'] = $newNode->id;
 
-    $this->update($values);
+    $this->update($values, $newNode->id);
     return redirect()->route('admin.nodes.edit', $newNode->id);
   }
 
