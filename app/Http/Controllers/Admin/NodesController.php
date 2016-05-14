@@ -16,6 +16,7 @@ use Request;
 use Debugbar;
 use Validator;
 use Image;
+use Excel;
 
 class NodesController extends Controller {
 
@@ -89,6 +90,7 @@ class NodesController extends Controller {
     $_FIELDS_TO_SHOW = false;
     $_CHILDREN = false;
     $showChildren = false;
+    $all_fields = false;
 
     if($class_id) {
       // якшо є клас то присвоюємо змінним значення
@@ -96,6 +98,9 @@ class NodesController extends Controller {
       $_FIELDS_TO_SHOW    = Fields::where('class_id', $_CLASS->id)->where('shown', true)->with('type')->get();
       $_CHILDREN          = Nodes::where('parent_id', $_NODE->id)->where('class_id', $class_id)->paginate($this->pagination_limit);
       $showChildren       = true;
+
+      // Отримуємо всі поля класу
+      $all_fields         = Fields::where('class_id', $_CLASS->id)->get();
     }
 
     // будуємо хлібні крихти
@@ -113,7 +118,8 @@ class NodesController extends Controller {
             ->withClass($_CLASS)
             ->withFields($_FIELDS_TO_SHOW)
             ->withBreadcrumb($breadcrumb)
-            ->with('showChildren', $showChildren);
+            ->with('showChildren', $showChildren)
+            ->with('all_fields', $all_fields);
 
   }
 
@@ -305,6 +311,7 @@ class NodesController extends Controller {
     }
 
     $node->controller = Request::input('controller');
+    $node->can_export_children = Request::input('can_export_children');
     $node->save();
 
     return \Redirect::route('admin.nodes.settings', $node->id);
@@ -322,6 +329,59 @@ class NodesController extends Controller {
     $node->delete();
 
     return \Redirect::route('admin.nodes.edit', $node->parent_id);
+  }
+
+  public function export() {
+    //header('Content-Type: text/html; charset=utf-8');
+    $class_to_export = Classes::find(Request::input('class_id'));
+    $parent_node = Nodes::where('parent_id', Request::input('parent_id'));
+    $fields = Fields::where('class_id', Request::input('class_id'))->get();
+    if(Request::input('limit') and Request::input('limit') > 0) {
+      $parent_node = $parent_node->paginate(Request::input('limit'));
+    }
+    else {
+      $parent_node = $parent_node->get();
+    }
+
+    if($parent_node)
+    {
+      $ids = false;
+      foreach($parent_node as $item) {
+        $ids[] = $item->id;
+      }
+    }
+    $data = new Data;
+    $data->init($class_to_export->prefix.$class_to_export->shortname, []);
+
+    $records = $data->where('language_id', Request::input('language_id'))->whereIn('node_id', $ids)->get();
+    $d = false;
+
+    foreach($fields as $k=>$field) {
+      foreach(Request::input('fields') as $f) {
+        if($field->shortname == $f) {
+          $d[0][] = $field->name;
+        }
+      }
+    }
+
+
+    if($records) {
+      foreach($records as $k=>$record) {
+        ++$k;
+        foreach(Request::input('fields') as $f) {
+          $d[$k][] = $record->{$f};
+        }
+      }
+    }
+
+
+
+    Excel::create($class_to_export->name_more.'_'.date('Y_m_d_H_i_s'), function($excel) use($d) {
+      $excel->sheet('Sheetname', function($sheet) use($d) {
+          $sheet->fromArray($d, null, 'A1', false, false);
+      });
+    })->download(Request::input('type'));
+
   }
 
 

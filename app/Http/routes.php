@@ -131,6 +131,7 @@ Route::group(['middleware' => 'web'], function(){
         Route::post('store',                                        ['as'=>'admin.nodes.store',                     'uses'=>'NodesController@store']);
         Route::post('settings',                                     ['as'=>'admin.nodes.settings.update',           'uses'=>'NodesController@settings_update']);
         Route::get('destroy{id}',                                   ['as'=>'admin.nodes.destroy',                   'uses'=>'NodesController@destroy']);
+        Route::post('export',                                       ['as'=>'admin.nodes.export',                    'uses'=>'NodesController@export']);
       });
 
     });

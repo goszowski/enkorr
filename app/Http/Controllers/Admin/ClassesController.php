@@ -27,6 +27,7 @@ class ClassesController extends Controller {
     'shortname'             => 'required|unique:classes|max:255|alpha_dash',
     'default_controller'    => 'max:255',
     'nodename_label'        => 'max:255',
+    'can_export'            => 'integer',
   ];
 
   protected $updateRules = [
@@ -35,6 +36,7 @@ class ClassesController extends Controller {
     'shortname'             => 'required|max:255|alpha_dash',
     'default_controller'    => 'max:255',
     'nodename_label'        => 'max:255',
+    'can_export'            => 'integer',
   ];
 
   protected $removeRules = [

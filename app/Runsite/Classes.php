@@ -33,6 +33,7 @@ class Classes extends Model
       'limited_users_can_delete',
       'show_in_admin_tree',
       'cache',
+      'can_export',
     ];
 
     /**
@@ -79,6 +80,7 @@ class Classes extends Model
       $this->limited_users_can_delete    = $request->input('limited_users_can_delete')   ? true : false; // checkbox input
       $this->show_in_admin_tree          = $request->input('show_in_admin_tree')         ? true : false; // checkbox input
       $this->cache                       = $request->input('cache')                      ? true : false; // checkbox input
+      $this->can_export                  = $request->input('can_export');
 
       return $this;
     }

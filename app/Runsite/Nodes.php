@@ -25,6 +25,7 @@ class Nodes extends Model
       'shortname',
       'absolute_path',
       'controller',
+      'can_export_children',
     ];
 
     /**

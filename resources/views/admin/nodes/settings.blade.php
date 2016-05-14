@@ -29,6 +29,17 @@
         </div>
       </div>
 
+      <div class="form-group  @if($errors->has('shortname')) has-warning @endif">
+        <label for="field_shortname" class="col-md-2 control-label">{{trans('admin/nodes.children_can_export')}}</label>
+        <div class="col-md-10">
+          <label class="ui-switch ui-switch-md bg-primary m-t-xs m-r">
+            <input type="hidden" name="can_export_children" value="0">
+            <input type="checkbox" name="can_export_children" @if($node->can_export_children) checked @endif value="1" >
+            <i></i>
+          </label>
+        </div>
+      </div>
+
       <div class="form-group  @if($errors->has('controller')) has-warning @endif">
         <div class="col-md-10 col-md-push-2">
           <button type="submit" class="btn btn-dark">{{trans('admin/nodes.update')}}</button>

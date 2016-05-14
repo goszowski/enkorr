@@ -30,4 +30,8 @@ return [
   'name_more' => 'Назва (багато)',
   'name_create' => 'Назва (створити)',
   'controller@method' => 'controller@method',
+  'can_export' => 'Можливість експорту',
+  'can_export_no' => 'Ні',
+  'can_export_yes' => 'Так',
+  'can_export_yes_if_node_can' => 'Так, якщо дозволено в розділі',
 ];

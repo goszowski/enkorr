@@ -1,5 +1,90 @@
 @if($showChildren)
 
+@if(count($children) and count($all_fields))
+
+  @if($class->can_export == 1 or ($class->can_export == 2 and $node->can_export_children))
+    <!-- Modal window for select export fields -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-export">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          {{Form::open(['route'=>'admin.nodes.export'])}}
+          <input type="hidden" name="parent_id" value="{{$node->id}}">
+          <input type="hidden" name="class_id" value="{{$class->id}}">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">{{trans('admin/nodes.export_data')}}</h4>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <div class="modal-body">
+                <span class="badge bg-primary">1</span> {{trans('admin/nodes.select_fields_to_export')}}
+              </div>
+              <table class="table table-striped">
+                @foreach($all_fields as $field)
+                  <tr>
+                    <td>
+                      <label class="ui-checks">
+                        <input type="checkbox" name="fields[]" value="{{$field->shortname}}" @if($field->shortname == 'name') checked @endif >
+                        <i></i>
+                        {{$field->name}}
+                      </label>
+                    </td>
+                  </tr>
+                @endforeach
+              </table>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <p><span class="badge bg-primary">2</span> {{trans('admin/nodes.select_language')}}</p>
+                      <select class="selectpicker" name="language_id">
+                        @foreach($languages as $lang)
+                          <option value="{{$lang->id}}">{{$lang->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <p><span class="badge bg-primary">3</span> {{trans('admin/nodes.select_count')}}</p>
+                      <select class="selectpicker" name="limit">
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                        <option value="0">Всі записи</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <p><span class="badge bg-primary">4</span> {{trans('admin/nodes.file_type')}}</p>
+                      <select class="selectpicker" name="type">
+                        <option value="xls">Excel5 (xls)</option>
+                        <option value="xlsx">Excel2007 (xlsx)</option>
+                        <option value="csv">CSV</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{trans('admin/nodes.close')}}</button>
+            <button type="submit" class="btn btn-dark">{{trans('admin/nodes.export')}}</button>
+          </div>
+          {{Form::close()}}
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- [end] Modal window for select export fields -->
+  @endif
+@endif
+
 <div class="p-md" style="padding-bottom: 0;">
   <ul class="nav nav-sm nav-tabs">
     @foreach($dependencies as $dk=>$dep)
@@ -13,6 +98,14 @@
         <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">{{$dep->classes->name_more}}</a>
       </li>
     @endforeach
+
+    @if(count($children))
+      @if($class->can_export == 1 or ($class->can_export == 2 and $node->can_export_children))
+        <div class="pull-right">
+          <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal-export"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export</button>
+        </div>
+      @endif
+    @endif
   </ul>
   <div class="b-a no-b-t bg-white m-b tab-content">
     @if(count($children))

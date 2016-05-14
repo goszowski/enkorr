@@ -47,6 +47,36 @@
   </div>
 </div>
 
+<div class="form-group @if($errors->has('nodename_label')) has-warning @endif">
+  <label for="can_export" class="col-md-2 control-label">{{trans('admin/classes.can_export')}}</label>
+  <div class="col-md-10" style="padding-top: 8px;">
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="togglebutton">
+          <label class="ui-checks" style="margin-right: 10px">
+            <input type="radio" name="can_export" value="1" id="can_export" @if(isset($class) and $class->can_export == 1) checked @endif>
+            <i></i>
+            {{trans('admin/classes.can_export_yes')}}
+          </label>
+          <label class="ui-checks" style="margin-right: 10px">
+            <input type="radio" name="can_export" value="0" id="can_export" @if(isset($class) and $class->can_export == 0) checked @endif>
+            <i></i>
+            {{trans('admin/classes.can_export_no')}}
+          </label>
+          <label class="ui-checks">
+            <input type="radio" name="can_export" value="2" id="can_export" @if(isset($class) and $class->can_export == 2) checked @endif>
+            <i></i>
+            {{trans('admin/classes.can_export_yes_if_node_can')}}
+          </label>
+        </div>
+      </div>
+    </div>
+    @if($errors->first('nodename_label'))<small class="text-danger">{{$errors->first('nodename_label')}}</small>@endif
+  </div>
+</div>
+
+
+
 <div class="form-group"><label class="col-md-2 control-label">&nbsp;</label>
   <div class="col-md-10">
     <div class="checkbox">
@@ -118,6 +148,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
