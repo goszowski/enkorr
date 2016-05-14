@@ -47,7 +47,7 @@
       </div>
     </form>
 
-    <a href="href="{{ url('/password/reset') }}"">Відновити пароль</a>
+    {{-- <a href="href="{{ url('/password/reset') }}"">Відновити пароль</a> --}}
   </div>
 </div>
 
