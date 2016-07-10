@@ -61,7 +61,7 @@ return array(
             'host'      => 'runsite2.ftp.ukraine.com.ua',
             'user'      => 'runsite2_cms',
             'pass'      => 'am29t89v',
-            'path'      => '/',
+            'path'      => '/www/',
             'port'      => 21,
             'passive'   => true
         ),
