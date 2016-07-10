@@ -96,6 +96,7 @@ class NodesController extends Controller {
     $_CHILDREN = false;
     $showChildren = false;
     $all_fields = false;
+    $_CHILDREN_LAST_ORDER = false;
 
     if($class_id) {
       // якшо є клас то присвоюємо змінним значення

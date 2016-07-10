@@ -163,6 +163,7 @@ return [
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Fadion\Maneuver\ManeuverServiceProvider::class,
 
     ],
 
