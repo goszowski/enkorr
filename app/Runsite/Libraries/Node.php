@@ -10,7 +10,12 @@ use App\Runsite\Universal;
 
 class Node {
 
-  public static function getUniversal($class_name) {
+  public static function getUniversal($class_name=false, $class_id=false) {
+    $universalModel = false;
+    if(!$class_name and $class_id) {
+      $class = Classes::find($class_id);
+      $class_name = $class->shortname;
+    }
     $universalModel = new Universal('_class_'.$class_name);
     return $universalModel;
   }

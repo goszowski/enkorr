@@ -75,7 +75,6 @@ class Classes extends Model
       $this->name_create                 = $request->input('name_create');
       $this->shortname                   = str_slug($request->input('shortname'), '_');
       $this->default_controller          = $request->input('default_controller');
-      $this->nodename_label              = $request->input('nodename_label');
       $this->access_edit_name            = $request->input('access_edit_name')           ? true : false; // checkbox input
       $this->access_edit_shortname       = $request->input('access_edit_shortname')      ? true : false; // checkbox input
       $this->limited_users_can_create    = $request->input('limited_users_can_create')   ? true : false; // checkbox input
@@ -83,6 +82,7 @@ class Classes extends Model
       $this->show_in_admin_tree          = $request->input('show_in_admin_tree')         ? true : false; // checkbox input
       $this->cache                       = $request->input('cache')                      ? true : false; // checkbox input
       $this->can_export                  = $request->input('can_export');
+      $this->order_by                    = $request->input('order_by');
 
       return $this;
     }

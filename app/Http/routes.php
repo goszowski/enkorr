@@ -131,6 +131,8 @@ Route::get('/_debugbar/assets/javascript', [
         Route::post('settings',                                     ['as'=>'admin.nodes.settings.update',           'uses'=>'NodesController@settings_update']);
         Route::get('destroy{id}',                                   ['as'=>'admin.nodes.destroy',                   'uses'=>'NodesController@destroy']);
         Route::post('export',                                       ['as'=>'admin.nodes.export',                    'uses'=>'NodesController@export']);
+        Route::get('sort/up/{id}/{class_id}/{parent_id}',           ['as'=>'admin.nodes.sort_up',                   'uses'=>'NodesController@sort_up']);
+        Route::get('sort/down/{id}/{class_id}/{parent_id}',         ['as'=>'admin.nodes.sort_down',                 'uses'=>'NodesController@sort_down']);
       });
 
     });

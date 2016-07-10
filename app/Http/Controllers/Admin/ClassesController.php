@@ -26,7 +26,6 @@ class ClassesController extends Controller {
     'name'                  => 'required|max:255|string',
     'shortname'             => 'required|unique:classes|max:255|alpha_dash',
     'default_controller'    => 'max:255',
-    'nodename_label'        => 'max:255',
     'can_export'            => 'integer',
   ];
 
@@ -35,7 +34,6 @@ class ClassesController extends Controller {
     'name'                  => 'required|max:255|string',
     'shortname'             => 'required|max:255|alpha_dash',
     'default_controller'    => 'max:255',
-    'nodename_label'        => 'max:255',
     'can_export'            => 'integer',
   ];
 

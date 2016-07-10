@@ -34,4 +34,5 @@ return [
   'can_export_no' => 'Ні',
   'can_export_yes' => 'Так',
   'can_export_yes_if_node_can' => 'Так, якщо дозволено в розділі',
+  'default_order_by' => 'Сортування по замовчуванню',
 ];

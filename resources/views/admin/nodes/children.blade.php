@@ -118,23 +118,34 @@
                 {{$field->name}}
               </th>
               @endforeach
+              @if(!$class->order_by)
+                <th class="text-center">{{trans('admin/nodes.order')}}</th>
+              @endif
               <th class="text-right">{{trans('admin/nodes.action')}}</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($children as $child)
+            @foreach($children as $k=>$child)
             <tr>
               <?php
-                $locale = Locale::getDefByNode($child->id);
+                // $locale = Locale::getDefByNode($child->id);
               ?>
               @foreach($fields as $field)
               <td>
-                @include('admin.nodes.partials.visualization.'.$field->type->input_controller, ['value'=> $locale ? $locale->{$field->shortname} : '---'])
+                @include('admin.nodes.partials.visualization.'.$field->type->input_controller, ['value'=> $child->{$field->shortname}])
               </td>
               @endforeach
 
+              @if(!$class->order_by)
+                <td class="text-center">
+                  <div class="btn-group" role="group">
+                    <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if($k < 1) disabled @endif><i class="fa fa-chevron-up"></i></a>
+                    <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if(++$k == count($children)) disabled @endif><i class="fa fa-chevron-down"></i></a>
+                  </div>
+                </td>
+              @endif
               <td class="text-right">
-                <a href="{{route('admin.nodes.edit', $child->id)}}" class="btn btn-sm btn-dark"><i class="fa fa-pencil-square-o"></i> {{trans('admin/nodes.edit')}}</a>
+                <a href="{{route('admin.nodes.edit', $child->node_id)}}" class="btn btn-sm btn-dark"><i class="fa fa-pencil-square-o"></i> {{trans('admin/nodes.edit')}}</a>
               </td>
             </tr>
             @endforeach

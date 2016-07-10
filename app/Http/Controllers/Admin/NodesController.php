@@ -17,6 +17,7 @@ use Debugbar;
 use Validator;
 use Image;
 use Excel;
+use App\Runsite\Libraries\Node;
 
 class NodesController extends Controller {
 
@@ -100,7 +101,17 @@ class NodesController extends Controller {
       // якшо є клас то присвоюємо змінним значення
       $_CLASS             = Classes::find($class_id);
       $_FIELDS_TO_SHOW    = Fields::where('class_id', $_CLASS->id)->where('shown', true)->with('type')->get();
-      $_CHILDREN          = Nodes::where('parent_id', $_NODE->id)->where('class_id', $class_id)->paginate($this->pagination_limit);
+      // $_CHILDREN          = Nodes::where('parent_id', $_NODE->id)->where('class_id', $class_id)->paginate($this->pagination_limit);
+      $_CHILDREN          = Node::getUniversal(false, $class_id)->where('parent_id', $_NODE->id)->where('language_id', 1);
+      if($_CLASS->order_by)
+      {
+        $order_by_parts = explode(' ', $_CLASS->order_by);
+        $_CHILDREN = $_CHILDREN->orderBy($order_by_parts[0], $order_by_parts[1])->paginate($this->pagination_limit);
+      }
+      else
+      {
+        $_CHILDREN = $_CHILDREN->orderBy('orderby', 'asc')->paginate($this->pagination_limit);
+      }
       $showChildren       = true;
 
       // Отримуємо всі поля класу
@@ -156,6 +167,7 @@ class NodesController extends Controller {
     $fields     = Fields::where('class_id', $class->id)->with('type')->get();
     $languages  = Languages::where('is_active', true)->get();
     $def_lang   = $_LNG->getDefault()->id;
+    $last_order = Node::getUniversal($class->shortname)->where('parent_id', $parent_id)->orderBy('orderby', 'desc')->first();
 
     foreach($languages as $language) {
       $data = new Data;
@@ -246,8 +258,10 @@ class NodesController extends Controller {
       }
       if($dataEx) $dataEx->save();
       else {
+
         $data->node_id = $node->id;
         if($parent_id) $data->parent_id = $parent_id;
+        $data->orderby = $last_order ? ($last_order->orderby) + 1 : 1;
         $data->language_id = $language->id;
         $data->save();
       }
@@ -416,6 +430,47 @@ class NodesController extends Controller {
       });
     })->download(Request::input('type'));
 
+  }
+
+
+  public function sort_up($id, $class_id, $parent_id) {
+    $languages = Languages::all();
+    $languages_count = count($languages);
+
+    $nodeData = Node::getUniversal(false, $class_id)->where('node_id', $id)->where('parent_id', $parent_id)->skip(0)->take($languages_count)->get();
+    // dd($nodeData);
+    $nodeDataReplaced = Node::getUniversal(false, $class_id)->where('parent_id', $parent_id)->where('orderby', '<', $nodeData[0]->orderby)->orderBy('orderby', 'desc')->skip(0)->take($languages_count)->get();
+    // dd($nodeDataReplaced);
+
+    $old_sort = $nodeData[0]->orderby;
+
+    Node::getUniversal(false, $class_id)->where('node_id', $id)
+      ->update(['orderby'=>$nodeDataReplaced[0]->orderby]);
+
+    Node::getUniversal(false, $class_id)->where('node_id', $nodeDataReplaced[0]->node_id)
+      ->update(['orderby'=>$old_sort]);
+
+    return redirect()->back();
+  }
+
+  public function sort_down($id, $class_id, $parent_id) {
+    $languages = Languages::all();
+    $languages_count = count($languages);
+
+    $nodeData = Node::getUniversal(false, $class_id)->where('node_id', $id)->where('parent_id', $parent_id)->skip(0)->take($languages_count)->get();
+    // dd($nodeData);
+    $nodeDataReplaced = Node::getUniversal(false, $class_id)->where('parent_id', $parent_id)->where('orderby', '>', $nodeData[0]->orderby)->orderBy('orderby', 'asc')->skip(0)->take($languages_count)->get();
+    // dd($nodeDataReplaced);
+
+    $old_sort = $nodeData[0]->orderby;
+
+    Node::getUniversal(false, $class_id)->where('node_id', $id)
+      ->update(['orderby'=>$nodeDataReplaced[0]->orderby]);
+
+    Node::getUniversal(false, $class_id)->where('node_id', $nodeDataReplaced[0]->node_id)
+      ->update(['orderby'=>$old_sort]);
+
+    return redirect()->back();
   }
 
 
