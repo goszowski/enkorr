@@ -14,13 +14,9 @@
         <ul class="nav navbar-nav">
 
           @if(isset($node))
-            @if($node->parent_id)
-            <li>
-              <a href="{{route('admin.nodes.edit', $node->parent_id)}}"><i class="fa fa-chevron-circle-left"></i></a>
-            </li>
-            @endif
+            
             <li @if(\Request::route()->getName() == 'admin.nodes.edit') class="active" @endif>
-              <a href="{{route('admin.nodes.edit', $node->id)}}"><i class="fa fa-refresh"></i></a>
+              <a href="{{route('admin.nodes.edit', $node->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{trans('admin/nodes.edit')}}</a>
             </li>
           @endif
 

@@ -75,6 +75,18 @@
             <input type="hidden" name="shortname" value="description">
           {!! Form::close() !!}
           <li><a href="#" onclick="$(this).parent().parent().find('.create_seo_description').submit(); return false;">SEO Description</a></li>
+
+          <li role="separator" class="divider"></li>
+
+          {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'hidden create_image')) !!}
+            <input type="hidden" name="class_id" value="{{$class->id}}">
+            <input type="hidden" name="type_id" value="6">
+            <input type="hidden" name="group_id" value="">
+            <input type="hidden" name="name" value="{{trans('admin/fields.template.image')}}">
+            <input type="hidden" name="hint" value="">
+            <input type="hidden" name="shortname" value="image">
+          {!! Form::close() !!}
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_image').submit(); return false;">Image</a></li>
         </ul>
       </div>
     </div>

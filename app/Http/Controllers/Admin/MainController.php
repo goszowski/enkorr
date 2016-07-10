@@ -24,7 +24,7 @@ class MainController extends Controller {
     $classesToShow = Classes::where('show_in_admin_tree', true)->get();
 
     $out = false;
-    $items = Nodes::where('parent_id', $parent_id)->whereIn('class_id', $classesToShow->lists('id'))->get();
+    $items = Nodes::where('parent_id', $parent_id)->whereIn('class_id', $classesToShow->lists('id'))->skip(0)->take(30)->get();
     if(! $parent_id) {
       foreach($items as $k=>$item) {
         $items[$k]['children'] = Nodes::where('parent_id', $item->id)->whereIn('class_id', $classesToShow->lists('id'))->get();

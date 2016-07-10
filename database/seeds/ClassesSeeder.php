@@ -437,6 +437,8 @@ class ClassesSeeder extends Seeder
 
               $table->increments('id');
               $table->integer('node_id');
+              $table->integer('parent_id');
+              $table->integer('orderby');
               $table->integer('language_id');
 
               foreach($class_fields as $fkey => $field) {

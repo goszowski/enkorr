@@ -139,8 +139,8 @@
               @if(!$class->order_by)
                 <td class="text-center">
                   <div class="btn-group" role="group">
-                    <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if($k < 1) disabled @endif><i class="fa fa-chevron-up"></i></a>
-                    <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if(++$k == count($children)) disabled @endif><i class="fa fa-chevron-down"></i></a>
+                    <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if($child->orderby <= 1) disabled @endif><i class="fa fa-chevron-up"></i></a>
+                    <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
                   </div>
                 </td>
               @endif

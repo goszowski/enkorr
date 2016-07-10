@@ -80,4 +80,14 @@ class PH
     else return $d . ' ' . trans('public.months.'.$m);
   }
 
+  public static function formatDateTime($date, $hideYear=false, $show_time=false) {
+    $tmp = explode(' ', $date);
+    if(!$show_time)
+      return PH::formatDate($tmp[0], $hideYear);
+    else {
+      $time = explode(':', $tmp[1]);
+      return PH::formatDate($tmp[0], $hideYear) . ', ' . $time[0] . ':' . $time[1];
+    }
+  }
+
 }

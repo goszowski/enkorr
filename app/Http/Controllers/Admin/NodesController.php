@@ -21,7 +21,7 @@ use App\Runsite\Libraries\Node;
 
 class NodesController extends Controller {
 
-  protected $pagination_limit = 35;
+  protected $pagination_limit = 20;
 
 
   protected function dependenciesAddRules($node_id) {
@@ -112,6 +112,9 @@ class NodesController extends Controller {
       {
         $_CHILDREN = $_CHILDREN->orderBy('orderby', 'asc')->paginate($this->pagination_limit);
       }
+
+      $_CHILDREN_LAST_ORDER = Node::getUniversal(false, $class_id)->where('parent_id', $_NODE->id)->orderBy('orderby', 'desc')->first();
+      if($_CHILDREN_LAST_ORDER) $_CHILDREN_LAST_ORDER = $_CHILDREN_LAST_ORDER->orderby;
       $showChildren       = true;
 
       // Отримуємо всі поля класу
@@ -134,7 +137,8 @@ class NodesController extends Controller {
             ->withFields($_FIELDS_TO_SHOW)
             ->withBreadcrumb($breadcrumb)
             ->with('showChildren', $showChildren)
-            ->with('all_fields', $all_fields);
+            ->with('all_fields', $all_fields)
+            ->with('children_last_order', $_CHILDREN_LAST_ORDER);
 
   }
 
@@ -267,9 +271,23 @@ class NodesController extends Controller {
       }
     }
 
-    // test
 
-    return redirect()->route('admin.nodes.edit', $values['node_id']);
+    switch ($values['do_after']) {
+      case 'stay':
+        return redirect()->route('admin.nodes.edit', $values['node_id']);
+        break;
+
+      case 'go_up':
+        if($node->parent_id)
+          return redirect()->route('admin.nodes.edit', $node->parent_id);
+        else
+          return redirect()->route('admin.nodes.edit', $values['node_id']);
+        break;
+
+      default:
+        return redirect()->route('admin.nodes.edit', $values['node_id']);
+        break;
+    }
 
   }
 
@@ -293,6 +311,10 @@ class NodesController extends Controller {
     $nodes = new Nodes;
     $absolute_path = $nodes->generateAbsulutePath(Request::input('parent_id'), $shortname);
 
+    if(Nodes::where('absolute_path', $absolute_path)->count()) {
+      $absolute_path .= time();
+    }
+
     $newNode = Nodes::create([
       'parent_id' => Request::input('parent_id'),
       'class_id' => Request::input('class_id'),
@@ -304,7 +326,29 @@ class NodesController extends Controller {
     //$values['node_id'] = $newNode->id;
 
     $this->update($values, $newNode->id, Request::input('parent_id'));
-    return redirect()->route('admin.nodes.edit', $newNode->id);
+
+    // dd(Request::input('go_up'));
+    switch (Request::input('do_after')) {
+      case 'stay':
+        return redirect()->route('admin.nodes.edit', $newNode->id);
+        break;
+
+      case 'go_up':
+        if($newNode->parent_id)
+          return redirect()->route('admin.nodes.edit', $newNode->parent_id);
+        else
+          return redirect()->route('admin.nodes.edit', $newNode->id);
+        break;
+
+      case 'create':
+        return redirect()->route('admin.nodes.create', [$newNode->class_id, $newNode->parent_id]);
+        break;
+
+      default:
+        return redirect()->route('admin.nodes.edit', $newNode->id);
+        break;
+    }
+
   }
 
 

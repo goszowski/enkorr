@@ -54,8 +54,8 @@ body {
   <div class="navbar">
     <div class="navbar-header bg-dark dk" style="width: 100%;">
       <!-- brand -->
-      <a class="navbar-brand text-lt text-left" style="width: 100%;" href="http://runsite.com.ua" target="_blank">
-        <span class="hidden-folded">runsite::CMS<sup class="text-xs font-thin">1.0</sup></span>
+      <a class="navbar-brand text-lt text-left" style="width: 100%;" href="/" target="_blank">
+        <span class="hidden-folded">runsite::CMS<sup class="text-xs font-thin">1.1</sup></span>
       </a>
 
       <a href="{{route('admin.auth.logout')}}" class="sign-out"><i class="fa fa-sign-out"></i></a>
@@ -110,5 +110,5 @@ body {
   </script>
 
 </div>
-<iframe src="" class="app-iframe" name="app_iframe"></iframe>
+<iframe class="app-iframe" src="/panel-admin/nodes/edit/1" name="app_iframe"></iframe>
 @include('admin.partials._foot')

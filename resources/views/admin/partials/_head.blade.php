@@ -63,7 +63,7 @@
       $(function(){
         $('.datetimepicker').datetimepicker({
           locale: '{{config('app.locale')}}',
-          format: 'YYYY-MM-DD hh:mm:ss'
+          format: 'YYYY-MM-DD HH:mm:ss'
         });
 
         $('.magnific-wrapper').each(function(){

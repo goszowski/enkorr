@@ -31,11 +31,42 @@ class NodesSeeder extends Seeder
       ]);
 
       $data->node_id = 1;
+      $data->orderby = 1;
+      $data->parent_id = 0;
       $data->language_id = 1;
       $data->name = 'Назва сайту - головна сторінка';
       $data->title = 'The title';
       $data->keywords = 'The keywords';
       $data->description = 'The description';
+      $data->is_active = true;
+
+      $data->save();
+
+
+
+      // ---
+
+
+
+      $data = new Data;
+      $data->init('_class_index', [
+        'node_id',
+        'language_id',
+        'name',
+        'title',
+        'keywords',
+        'description',
+      ]);
+
+      $data->node_id = 1;
+      $data->orderby = 1;
+      $data->parent_id = 0;
+      $data->language_id = 2;
+      $data->name = 'Website name - main page';
+      $data->title = 'The title';
+      $data->keywords = 'The keywords';
+      $data->description = 'The description';
+      $data->is_active = true;
 
       $data->save();
 

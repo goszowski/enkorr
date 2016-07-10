@@ -61,5 +61,6 @@ return [
     'seo_title' => 'SEO Title',
     'seo_keywords' => 'SEO Keywords',
     'seo_description' => 'SEO Description',
+    'image' => 'Зображення',
   ],
 ];
