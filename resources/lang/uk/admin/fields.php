@@ -53,4 +53,13 @@ return [
   'runsite' => 'Runsite',
   'hint' => 'Підказка',
   'datetime' => 'Datetime',
+  'from_template' => 'З шаблону',
+
+  'template' => [
+    'name' => 'Назва',
+    'is_active' => 'Активно',
+    'seo_title' => 'SEO Title',
+    'seo_keywords' => 'SEO Keywords',
+    'seo_description' => 'SEO Description',
+  ],
 ];

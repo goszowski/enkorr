@@ -102,7 +102,7 @@ class FieldsController extends Controller {
     $field = $fields->find((int) $field_id);
     $settings = $field_settings->where('field_id', $field_id)->get();
     $html_controls = $html_control_types->where('type_id', $field->type_id)->get();
-    
+
     return view('admin.fields.settings')
             ->withField($field)
             ->withClass($class)

@@ -20,7 +20,6 @@ Route::get('/_debugbar/assets/javascript', [
     'uses' => '\Barryvdh\Debugbar\Controllers\AssetController@js'
 ]);
 
-Route::group(['middleware' => 'web'], function(){
   Route::group(['prefix'=>'panel-admin', 'namespace'=>'Admin'], function(){
 
     // Route::get('/signup', [
@@ -154,7 +153,3 @@ Route::group(['middleware' => 'web'], function(){
 
 
   });
-
-
-
-});

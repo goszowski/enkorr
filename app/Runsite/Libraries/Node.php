@@ -6,8 +6,14 @@ use App\Runsite\Nodes;
 use App\Runsite\Fields;
 use App\Runsite\Data;
 use App\Runsite\Languages;
+use App\Runsite\Universal;
 
 class Node {
+
+  public static function getUniversal($class_name) {
+    $universalModel = new Universal('_class_'.$class_name);
+    return $universalModel;
+  }
 
   public static function push($class_id, $parent_id, $shortname=NULL, $fields) {
 
@@ -156,6 +162,11 @@ class Node {
     $dataObject = $dataObject->where('is_active', true);
     $dataObject = $dataObject->with('node');
 
+    if($order) {
+      $order = explode(' ', $order);
+      $dataObject = $dataObject->orderBy($order[0], $order[1]);
+    }
+
     if($paginate) {
       $data = $dataObject->paginate($paginate);
     }
@@ -167,4 +178,7 @@ class Node {
     return $data;
 
   }
+
+
+
 }

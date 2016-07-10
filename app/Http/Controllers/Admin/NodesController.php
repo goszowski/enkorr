@@ -146,10 +146,11 @@ class NodesController extends Controller {
   }
 
 
-  public function update($values = false, $node_id = false) {
+  public function update($values = false, $node_id = false, $parent_id = false) {
     $_LNG = new Languages;
     if(!$values) $values = Request::all();
     if(!isset($values['node_id']) and $node_id) $values['node_id'] = $node_id;
+    if(!isset($values['parent_id']) and $parent_id) $values['parent_id'] = $parent_id;
     $node       = Nodes::find($values['node_id']);
     $class      = Classes::find($node->class_id);
     $fields     = Fields::where('class_id', $class->id)->with('type')->get();
@@ -246,6 +247,7 @@ class NodesController extends Controller {
       if($dataEx) $dataEx->save();
       else {
         $data->node_id = $node->id;
+        if($parent_id) $data->parent_id = $parent_id;
         $data->language_id = $language->id;
         $data->save();
       }
@@ -287,7 +289,7 @@ class NodesController extends Controller {
     $values = Request::all();
     //$values['node_id'] = $newNode->id;
 
-    $this->update($values, $newNode->id);
+    $this->update($values, $newNode->id, Request::input('parent_id'));
     return redirect()->route('admin.nodes.edit', $newNode->id);
   }
 

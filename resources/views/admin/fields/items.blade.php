@@ -14,6 +14,69 @@
         <i class="fa fa-plus fa-fw"></i>
         {{trans('admin/fields.create_field')}}
       </a>
+      <div class="btn-group">
+        <button type="button" class="btn btn-warning dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{trans('admin/fields.from_template')}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+
+          {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'hidden create_name')) !!}
+            <input type="hidden" name="class_id" value="{{$class->id}}">
+            <input type="hidden" name="type_id" value="1">
+            <input type="hidden" name="group_id" value="">
+            <input type="hidden" name="name" value="{{trans('admin/fields.template.name')}}">
+            <input type="hidden" name="hint" value="">
+            <input type="hidden" name="shortname" value="name">
+            <input type="hidden" name="required" value="on">
+            <input type="hidden" name="shown" value="on">
+          {!! Form::close() !!}
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_name').submit(); return false;">Name</a></li>
+
+          {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'hidden create_is_active')) !!}
+            <input type="hidden" name="class_id" value="{{$class->id}}">
+            <input type="hidden" name="type_id" value="7">
+            <input type="hidden" name="group_id" value="">
+            <input type="hidden" name="name" value="{{trans('admin/fields.template.is_active')}}">
+            <input type="hidden" name="hint" value="">
+            <input type="hidden" name="shortname" value="is_active">
+            <input type="hidden" name="shown" value="on">
+            <input type="hidden" name="ignore_language" value="on">
+          {!! Form::close() !!}
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_is_active').submit(); return false;">Is Active</a></li>
+
+          <li role="separator" class="divider"></li>
+
+          {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'hidden create_seo_title')) !!}
+            <input type="hidden" name="class_id" value="{{$class->id}}">
+            <input type="hidden" name="type_id" value="1">
+            <input type="hidden" name="group_id" value="">
+            <input type="hidden" name="name" value="{{trans('admin/fields.template.seo_title')}}">
+            <input type="hidden" name="hint" value="">
+            <input type="hidden" name="shortname" value="title">
+          {!! Form::close() !!}
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_seo_title').submit(); return false;">SEO Title</a></li>
+
+          {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'hidden create_seo_keywords')) !!}
+            <input type="hidden" name="class_id" value="{{$class->id}}">
+            <input type="hidden" name="type_id" value="1">
+            <input type="hidden" name="group_id" value="">
+            <input type="hidden" name="name" value="{{trans('admin/fields.template.seo_keywords')}}">
+            <input type="hidden" name="hint" value="">
+            <input type="hidden" name="shortname" value="keywords">
+          {!! Form::close() !!}
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_seo_keywords').submit(); return false;">SEO Keywords</a></li>
+
+          {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'hidden create_seo_description')) !!}
+            <input type="hidden" name="class_id" value="{{$class->id}}">
+            <input type="hidden" name="type_id" value="3">
+            <input type="hidden" name="group_id" value="">
+            <input type="hidden" name="name" value="{{trans('admin/fields.template.seo_description')}}">
+            <input type="hidden" name="hint" value="">
+            <input type="hidden" name="shortname" value="description">
+          {!! Form::close() !!}
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_seo_description').submit(); return false;">SEO Description</a></li>
+        </ul>
+      </div>
     </div>
     @if(count($fields))
       <table class="table table-striped table-hover table-condensed">

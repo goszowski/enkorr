@@ -53,6 +53,8 @@ class Classes extends Model
       {
           $table->increments('id');
           $table->integer('node_id');
+          $table->integer('parent_id');
+          $table->integer('orderby');
           $table->integer('language_id');
           $table->dateTime('created_at');
           $table->dateTime('updated_at');
