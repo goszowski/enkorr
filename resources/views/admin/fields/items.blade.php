@@ -42,7 +42,7 @@
             <input type="hidden" name="shown" value="on">
             <input type="hidden" name="ignore_language" value="on">
           {!! Form::close() !!}
-          <li><a href="#" onclick="$(this).parent().parent().find('.create_is_active').submit(); return false;">Is Active <small class="text-muted">[boolea]</small></a></li>
+          <li><a href="#" onclick="$(this).parent().parent().find('.create_is_active').submit(); return false;">Is Active <small class="text-muted">[boolean]</small></a></li>
 
           <li role="separator" class="divider"></li>
 
