@@ -11,9 +11,21 @@ class UsersSeeder extends Seeder
     public function run()
     {
       User::create([
-        'name' => 'Runsite Developer',
+        'name' => 'Ярослав Гошовський',
         'email' => 'goszowski@gmail.com',
         'password' => Hash::make('altertable025'),
+      ]);
+
+      User::create([
+        'name' => 'Ігор Гошовський',
+        'email' => 'pr@runsite.com.ua',
+        'password' => Hash::make('09101983zoriana'),
+      ]);
+
+      User::create([
+        'name' => 'Максим Крищанович',
+        'email' => 'tornhold@gmail.com',
+        'password' => Hash::make('garoth11'),
       ]);
 
     }
