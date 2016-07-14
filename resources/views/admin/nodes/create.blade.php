@@ -2,7 +2,7 @@
 @section('content')
 @include('admin.nodes.partials.items_nav')
 
-{!! Form::open(['route' => 'admin.nodes.store', 'class' => 'form-horizontal', 'files' => true]) !!}
+{!! Form::open(['route' => 'admin.nodes.store', 'class' => 'form-horizontal verification-form', 'files' => true]) !!}
 <input type="hidden" name="class_id" value="{{$class->id}}">
 <input type="hidden" name="parent_id" value="{{$parent->id}}">
 <div class="p-md">
@@ -66,6 +66,9 @@
       <div class="col-md-10 col-md-push-2">
         <div class="form-group">
           <div class="container-fluid">
+            <p class="text-danger">
+              {{trans('admin/nodes.Не всі обовязклві поля заповнені')}}
+            </p>
             <button type="submit" class="btn btn-dark">{{trans('admin/nodes.create')}}</button>
           </div>
         </div>

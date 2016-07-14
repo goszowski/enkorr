@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav">
 
           @if(isset($node))
-            
+
             <li @if(\Request::route()->getName() == 'admin.nodes.edit') class="active" @endif>
               <a href="{{route('admin.nodes.edit', $node->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{trans('admin/nodes.edit')}}</a>
             </li>
@@ -52,3 +52,45 @@
       </div><!-- /.navbar-collapse -->
   </nav>
 </div>
+
+
+<script type="text/javascript">
+  $(function() {
+    $('.verification-form').on('submit', function() {
+      $('.group-tabs li span.label').html('');
+      var errorsExists = false;
+      var errorsCount = [];
+      $(this).find('.required').each(function() {
+        var object = $(this);
+        object.parent().removeClass('has-error');
+        var thisValue = object.val();
+        var dataGroup = object.data('group');
+        var dataLang = object.data('lang');
+        var label = $('[data-info="group-'+dataGroup+'-lang-'+dataLang+'"]').find('.label');
+        //label.html('');
+
+        if(! thisValue) {
+
+          if(dataLang == 1) {
+
+
+            //console.log(label.html());
+            //var dataCount = label.data('count');
+            if(errorsCount[dataGroup] == undefined)
+              errorsCount[dataGroup] = 0;
+            errorsCount[dataGroup] += 1;
+            label.html(errorsCount[dataGroup]);
+            object.parent().addClass('has-error');
+            errorsExists = true;
+          }
+
+          //alert('not value in ' + dataLang + ' of lang, and group is ' + dataGroup);
+        }
+      });
+
+      if(errorsExists) {
+        return false;
+      }
+    });
+  });
+</script>

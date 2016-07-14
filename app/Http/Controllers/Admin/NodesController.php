@@ -18,6 +18,7 @@ use Validator;
 use Image;
 use Excel;
 use App\Runsite\Libraries\Node;
+use Session;
 
 class NodesController extends Controller {
 
@@ -272,6 +273,7 @@ class NodesController extends Controller {
       }
     }
 
+    Session::flash('success', 'saved');
 
     switch ($values['do_after']) {
       case 'stay':

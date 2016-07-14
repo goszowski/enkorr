@@ -30,7 +30,7 @@ class FieldsController extends Controller {
     return [
       'id'                    => 'integer|exists:fields,id',
       'name'                  => 'required|max:255',
-      'shortname'             => 'required|unique:fields,shortname,NULL,id,class_id,'.$field_id.'|max:255|alpha_dash',
+      'shortname'             => 'required|unique:fields,id,'.$field_id.'|max:255|alpha_dash',
       'type_id'               => 'required|integer|exists:field_types,id',
       'group_id'              => 'integer|exists:field_groups,id',
       'class_id'              => 'integer|exists:classes,id',
