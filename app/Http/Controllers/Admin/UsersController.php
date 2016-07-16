@@ -23,7 +23,7 @@ class UsersController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|min:6',
         ]);
     }
 
@@ -109,7 +109,12 @@ class UsersController extends Controller
     {
 
         $user = User::findOrFail($id);
-        $user->update($request->all());
+        //$user->update($request->all());
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $request->input('password') ? $user->password = bcrypt($request->input('password')) : null;
+        $user->is_limited = $request->input('is_limited');
+        $user->save();
 
         Session::flash('flash_message', 'User updated!');
 
