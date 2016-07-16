@@ -2,7 +2,7 @@
 @section('content')
 @include('admin.nodes.partials.items_nav')
 
-{!! Form::open(['route' => 'admin.nodes.store', 'class' => 'form-horizontal verification-form', 'files' => true]) !!}
+{!! Form::open(['route' => 'admin.nodes.store', 'class' => 'form-horizontal verification-form ctrl-s-auto-save', 'files' => true]) !!}
 <input type="hidden" name="class_id" value="{{$class->id}}">
 <input type="hidden" name="parent_id" value="{{$parent->id}}">
 <div class="p-md">
@@ -105,4 +105,5 @@
 
 </div>
 {!! Form::close() !!}
+@include('admin.nodes.partials.ctrl-s-auto-save')
 @stop

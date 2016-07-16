@@ -14,7 +14,7 @@
   </script>
 @endif
 
-{!! Form::open(['route' => 'admin.nodes.update', 'class' => 'form-horizontal verification-form', 'files' => true]) !!}
+{!! Form::open(['route' => 'admin.nodes.update', 'class' => 'form-horizontal verification-form ctrl-s-auto-save', 'files' => true]) !!}
 
 <input type="hidden" name="node_id" value="{{ $node->id }}">
 <div class="p-md">
@@ -34,5 +34,6 @@
 {!! Form::close() !!}
 
 
+@include('admin.nodes.partials.ctrl-s-auto-save')
 @include('admin.nodes.children')
 @stop
