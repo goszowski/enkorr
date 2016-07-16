@@ -164,6 +164,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Fadion\Maneuver\ManeuverServiceProvider::class,
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
 
     ],
 

@@ -17,7 +17,8 @@
         "maatwebsite/excel": "~2.1.0",
         "barryvdh/laravel-dompdf": "0.6.*",
         "tecnick.com/tcpdf": "~6.0.0",
-        "fadion/maneuver": "dev-l5"
+        "fadion/maneuver": "dev-l5",
+        "snowfire/beautymail": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
