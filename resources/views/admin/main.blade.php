@@ -55,7 +55,7 @@ body {
     <div class="navbar-header bg-dark dk" style="width: 100%;">
       <!-- brand -->
       <a class="navbar-brand text-lt text-left" style="width: 100%;" href="/" target="_blank">
-        <span class="hidden-folded">runsite::CMS<sup class="text-xs font-thin">1.1</sup></span>
+        <span class="hidden-folded">runsite::CMS<sup class="text-xs font-thin">1.1.1</sup></span>
       </a>
 
       <a href="{{route('admin.auth.logout')}}" class="sign-out"><i class="fa fa-sign-out"></i></a>
