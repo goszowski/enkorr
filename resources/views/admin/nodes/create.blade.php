@@ -66,9 +66,6 @@
       <div class="col-md-10 col-md-push-2">
         <div class="form-group">
           <div class="container-fluid">
-            <p class="text-danger">
-              {{trans('admin/nodes.Не всі обовязклві поля заповнені')}}
-            </p>
             <button type="submit" class="btn btn-dark">{{trans('admin/nodes.create')}}</button>
           </div>
         </div>
