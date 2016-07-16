@@ -128,18 +128,18 @@
             <td>@if(isset($field->group))<span class="label bg-success">{{$field->group->name}}</span>@endif</td>
             <td class="text-center"><i class="fa @if($field->required) fa-check text-success @else fa-times text-muted @endif"></i></td>
             <td class="text-center"><i class="fa @if($field->shown) fa-check text-success @else fa-times text-muted @endif"></i></td>
-            <td class="text-center">
+            <td class="text-center" style="min-width: 100px;">
               <div class="btn-group" role="group">
                 <a href="{{route('admin.fields.moveup', ['class_id'=>$class->id, 'field_id'=>$field->id])}}" class="btn btn-sm btn-default" @if($k < 1) disabled @endif><i class="fa fa-chevron-up"></i></a>
                 <a href="{{route('admin.fields.movedown', ['class_id'=>$class->id, 'field_id'=>$field->id])}}" class="btn btn-sm btn-default" @if(++$k == count($fields)) disabled @endif><i class="fa fa-chevron-down"></i></a>
               </div>
             </td>
             <td class="text-center">
-              <a href="{{route('admin.fields.settings', ['class_id'=>$class->id, 'field_id'=>$field->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i> Settings</a>
+              <a href="{{route('admin.fields.settings', ['class_id'=>$class->id, 'field_id'=>$field->id])}}" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
             </td>
-            <td class="text-right">
+            <td class="text-right" style="min-width: 100px;">
               <div class="btn-group">
-                <a href="{{route('admin.fields.edit', ['class_id'=>$class->id, 'field_id'=>$field->id])}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil-square-o"></i> {{trans('admin/fields.edit')}}</a>
+                <a href="{{route('admin.fields.edit', ['class_id'=>$class->id, 'field_id'=>$field->id])}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil-square-o"></i></a>
                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="caret"></span>
                 </button>
