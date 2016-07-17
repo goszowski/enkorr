@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker-standalone.css')}}">
     <link rel="stylesheet" href="{{asset('admin/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/runsite-input-progress/style.css')}}">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="{{asset('admin/bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
@@ -33,6 +34,7 @@
     <script src="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
     <script src="{{asset('admin/bootstrap-notify.min.js')}}"></script>
     <script src="{{asset('admin/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('admin/runsite-input-progress/script.js')}}"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
