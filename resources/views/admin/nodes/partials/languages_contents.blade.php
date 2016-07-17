@@ -3,7 +3,7 @@
 <div class="tab-pane @if(! $lg) active @endif" id="lang-tab-{{$lang->id}}">
   @include('admin.nodes.partials.groups_tabs')
   <div class="tab-content">
-    <div class="tab-pane active" id="group-main-lang-{{$lang->id}}">
+    <div class="tab-pane @if(! Session::has('active_group') or session('active_group') == 0) active @endif" id="group-main-lang-{{$lang->id}}">
 
       <div class="form-group">
         <label class="col-md-2 control-label" style="padding-top: 0;"><div class="text-left text-xs">{{trans('admin/nodes.absolute_path')}}:</div></label>
@@ -30,7 +30,7 @@
 
     </div>
     @foreach($groups as $rg=>$group)
-    <div class="tab-pane" id="group-{{$group->id}}-lang-{{$lang->id}}">
+    <div class="tab-pane @if(Session::has('active_group') and session('active_group') == $group->id) active @endif" id="group-{{$group->id}}-lang-{{$lang->id}}">
 
       @foreach($node->_class->_fields as $field)
         @if($field->group and $field->group->id == $group->id)

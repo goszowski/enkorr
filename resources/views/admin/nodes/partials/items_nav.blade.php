@@ -92,5 +92,10 @@
         return false;
       }
     });
+
+
+    $('.group-tabs li a').on('click', function() {
+      $('[name="active_group_id"]').val($(this).data('group'));
+    });
   });
 </script>
