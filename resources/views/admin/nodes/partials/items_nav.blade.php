@@ -34,7 +34,7 @@
           </li>
           @endif
 
-          @if(isset($node) and !isset($parent))
+          @if(isset($node) and !isset($parent) and !Auth::user()->is_limited)
           <li @if(\Request::route()->getName() == 'admin.nodes.settings') class="active" @endif>
             <a href="{{route('admin.nodes.settings', $node->id)}}"><i class="fa fa-cog"></i> {{trans('admin/nodes.settings')}}</a>
           </li>
@@ -52,7 +52,6 @@
       </div><!-- /.navbar-collapse -->
   </nav>
 </div>
-
 
 <script type="text/javascript">
   $(function() {

@@ -12,7 +12,13 @@ use Request;
 class MainController extends Controller {
 
   public function execute() {
-    $_APPS = Apps::get();
+    $auth_user = \Auth::user();
+    if($auth_user->is_limited) {
+      $_APPS = Apps::where('limited_access', true)->get();
+    }
+    else {
+      $_APPS = Apps::get();
+    }
     return view('admin.main')
             ->withApps($_APPS);
   }
