@@ -146,7 +146,9 @@
               @endif
               <td class="text-right">
                 {{-- <a href="{{route('admin.nodes.edit', $child->node_id)}}" class="btn btn-sm btn-dark"><i class="fa fa-pencil-square-o"></i> {{trans('admin/nodes.edit')}}</a> --}}
-                <a href="{{route('admin.nodes.destroy', $child->node_id)}}" class="btn btn-raised btn-sm btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i> {{trans('admin/nodes.remove')}}</a>
+                @if(!Auth::user()->is_limited or $class->limited_users_can_delete)
+                  <a href="{{route('admin.nodes.destroy', $child->node_id)}}" class="btn btn-raised btn-sm btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i> {{trans('admin/nodes.remove')}}</a>
+                @endif
               </td>
             </tr>
             @endforeach
