@@ -309,7 +309,7 @@ class FieldTypeSeeder extends Seeder
       DB::table('field_settings_default')->insert([
           'type_id' => $id,
           '_parameter' => 'type_of_html_control',
-          '_value' => 'radio_vertical',
+          '_value' => 'select_with_search',
           'created_at' => $date,
           'updated_at' => $date,
           'control' => 'select',
