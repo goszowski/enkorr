@@ -12,21 +12,6 @@
 */
 
 
-Route::get('/mail-test', function()
-{
-    $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
-    $beautymail->send('admin.emails.welcome', [], function($message)
-    {
-        $message
-            ->from('info@runsite.com.ua')
-            ->to('goszowski@gmail.com', 'John Smith')
-            ->subject('Welcome!');
-    });
-
-});
-
-
-
 Route::get('/_debugbar/assets/stylesheets', [
     'as' => 'debugbar-css',
     'uses' => '\Barryvdh\Debugbar\Controllers\AssetController@css'

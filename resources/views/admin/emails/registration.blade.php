@@ -8,7 +8,7 @@
         <p>Для Вас щойно було створено аккаунт в адмін панелі на сайті http://runsite.com.ua/panel-admin</p>
         <p>
           Логін: goszowski@gmail.com<br>
-          Пароль: as7sss
+          Пароль: {{$password}}
         </p>
 
     @include('beautymail::templates.widgets.articleEnd')

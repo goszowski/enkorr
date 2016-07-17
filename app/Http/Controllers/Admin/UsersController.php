@@ -9,6 +9,7 @@ use App\Runsite\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
+use App\Runsite\Libraries\Mailing;
 
 class UsersController extends Controller
 {
@@ -57,13 +58,15 @@ class UsersController extends Controller
     public function store(Request $request)
     {
 
-        return User::create([
+        User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
 
       #  User::create($request->all());
+
+        //Mailing::sendRegistration($request['email'], $request['name'], $request['password']);
 
         Session::flash('flash_message', 'User added!');
 
