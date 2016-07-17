@@ -14,6 +14,7 @@
     // instance, using default configuration.
     CKEDITOR.replace('field_{{ $field_name }}_{{ $field_lang }}', {
       language: '{{Config::get('app.locale')}}',
+      extraPlugins: 'imageuploader',
       skin: 'office2013',
       toolbar: 'runsite',
 
