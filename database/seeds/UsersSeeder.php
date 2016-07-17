@@ -20,6 +20,7 @@ class UsersSeeder extends Seeder
         'name' => 'Ігор Гошовський',
         'email' => 'pr@runsite.com.ua',
         'password' => Hash::make('09101983zoriana'),
+        'is_limited' => true,
       ]);
 
       User::create([
