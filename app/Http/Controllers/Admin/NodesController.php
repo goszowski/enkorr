@@ -41,6 +41,8 @@ class NodesController extends Controller {
 
   public function edit($id) {
 
+    $authUser = \Auth::user();
+
     // Отримуємо вузол
     $_NODE        = Nodes::with('_class._fields.type.group.settings')->find($id) or abort(404);
     // Отримуємо список активних мов
@@ -63,8 +65,23 @@ class NodesController extends Controller {
 
     // Отримуємо підкласи класів
     $_DEPENDENCIES      = Class_dependencies::where('class_id', $_NODE->_class->id)->with('classes')->get();
+    if($authUser->is_limited) {
+      foreach($_DEPENDENCIES as $k=>$v) {
+        if(! $v->classes->limited_users_can_create) {
+          unset($_DEPENDENCIES[$k]);
+        }
+      }
+    }
+
     // Отримуємо підкласи вузла
     $_NODE_DEPENDENCIES = Node_dependencies::where('node_id', $_NODE->id)->with('classes')->get();
+    if($authUser->is_limited) {
+      foreach($_NODE_DEPENDENCIES as $k=>$v) {
+        if(! $v->classes->limited_users_can_create) {
+          unset($_NODE_DEPENDENCIES[$k]);
+        }
+      }
+    }
 
 
 
