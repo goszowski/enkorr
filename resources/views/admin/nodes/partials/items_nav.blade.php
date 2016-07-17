@@ -97,5 +97,9 @@
     $('.group-tabs li a').on('click', function() {
       $('[name="active_group_id"]').val($(this).data('group'));
     });
+
+    $('.lang-tabs li a').on('click', function() {
+      $('[name="active_lang_id"]').val($(this).data('lang'));
+    });
   });
 </script>

@@ -275,6 +275,7 @@ class NodesController extends Controller {
 
     Session::flash('success', 'saved');
     Session::flash('active_group', $values['active_group_id']);
+    Session::flash('active_lang', $values['active_lang_id']);
 
     switch ($values['do_after']) {
       case 'stay':
