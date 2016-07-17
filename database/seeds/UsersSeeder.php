@@ -24,7 +24,7 @@ class UsersSeeder extends Seeder
       ]);
 
       User::create([
-        'name' => 'Максим Крищанович',
+        'name' => 'Максим Кріщанович',
         'email' => 'tornhold@gmail.com',
         'password' => Hash::make('garoth11'),
       ]);
