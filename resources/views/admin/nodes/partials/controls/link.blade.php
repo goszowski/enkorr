@@ -4,6 +4,17 @@
 <?php
 $linked_class = \App\Runsite\Field_settings::pull($settings, 'linked_class');
 $parent_id = \App\Runsite\Field_settings::pull($settings, 'parent_id');
+
+if($parent_id == 'near') {
+  if(isset($parent)) {
+    $parent_id = $parent->id;
+  }
+  elseif(isset($node)) {
+    $parent_id = $node->parent_id;
+  }
+
+}
+
 $variants = \App\Runsite\Classes::mapItems($linked_class, $parent_id);
 $type_of_html_control = \App\Runsite\Field_settings::pull($settings, 'type_of_html_control');
 ?>
