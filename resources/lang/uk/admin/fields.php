@@ -54,6 +54,8 @@ return [
   'hint' => 'Підказка',
   'datetime' => 'Datetime',
   'from_template' => 'З шаблону',
+  'check_vertical' => 'Ckeck Vertical',
+  'check_columns' => 'Ckeck Columns',
 
   'template' => [
     'name' => 'Назва',

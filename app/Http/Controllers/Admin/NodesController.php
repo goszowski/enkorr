@@ -245,6 +245,20 @@ class NodesController extends Controller {
         }
         // [END] MIDDLEWARE IMAGE
 
+        if($field->type->input_controller == 'link_group') {
+          if(isset($values['langs'][$language->id][$field->shortname]) and is_array($values['langs'][$language->id][$field->shortname])) {
+            $tmp_val = '';
+            foreach($values['langs'][$language->id][$field->shortname] as $tmp_k=>$tmp_item) {
+              $tmp_val .= $tmp_item;
+              if(++$tmp_k < count($values['langs'][$language->id][$field->shortname])) {
+                $tmp_val .= ',';
+              }
+            }
+            $values['langs'][$language->id][$field->shortname] = $tmp_val;
+            unset($tmp_val);
+          }
+        }
+
         if(isset($values['langs'][$language->id][$field->shortname])) {
           $value = $values['langs'][$language->id][$field->shortname];
         }
