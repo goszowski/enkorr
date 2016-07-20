@@ -57,6 +57,7 @@ class Node {
       $dataObject->language_id    = $lang_id;
       $dataObject->node_id        = $nodesModel->id;
 
+      $dataObject->parent_id = $parent_id;
       foreach($field as $field_name=>$value) {
         $dataObject->{$field_name} = $value;
       }
