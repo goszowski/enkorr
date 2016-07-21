@@ -95,6 +95,7 @@ class PH
     $record = PH::getGlobal('getActiveLocalId');
     if(!$record) {
       $record = Languages::where('locale', LaravelLocalization::getCurrentLocale())->first();
+      PH::setGlobal('getActiveLocalId', $record);
     }
 
     if(count($record)) {
