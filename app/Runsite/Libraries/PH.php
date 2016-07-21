@@ -90,4 +90,19 @@ class PH
     }
   }
 
+  public static function getActiveLocalId() {
+
+    $record = PH::getGlobal('getActiveLocalId');
+    if(!$record) {
+      $record = Languages::where('locale', LaravelLocalization::getCurrentLocale())->first();
+    }
+
+    if(count($record)) {
+      return $record->id;
+    }
+    else {
+      return false;
+    }
+  }
+
 }
