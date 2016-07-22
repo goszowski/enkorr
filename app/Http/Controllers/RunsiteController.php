@@ -34,7 +34,7 @@ class RunsiteController extends Controller {
     return Node::getList($class_name, $this->currentNode->id, $where_add, $order, $paginate, $lang_id);
   }
 
-  public function view($view, $params=false) {
+  public function make_view($view, $params=false) {
     $p = [
       'currentNode'     => $this->currentNode,
       'currentFields'   => $this->currentFields,

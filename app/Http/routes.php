@@ -137,6 +137,9 @@ Route::get('/_debugbar/assets/javascript', [
         Route::get('sort/down/{id}/{class_id}/{parent_id}',         ['as'=>'admin.nodes.sort_down',                 'uses'=>'NodesController@sort_down']);
       });
 
+      // FILEMANAGER
+      Route::get('filemanager', ['as'=>'filemanager', 'uses'=>'FilemanagerController@index']);
+
     });
 
   });

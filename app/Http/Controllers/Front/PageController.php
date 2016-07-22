@@ -13,7 +13,7 @@ class PageController extends RunsiteController
 
     public function index()
     {
-        return view('pages.home', [
+        return $this->make_view('pages.home', [
           'currentNode'     => $this->currentNode,
           'currentFields'   => $this->currentFields,
         ]);

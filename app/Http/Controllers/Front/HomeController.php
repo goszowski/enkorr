@@ -14,7 +14,7 @@ class HomeController extends RunsiteController
     public function index()
     {
       $pages = $this->children('page');
-      return $this->view('pages.home', [
+      return $this->make_view('pages.home', [
         'pages' => $pages,
       ]);
     }
