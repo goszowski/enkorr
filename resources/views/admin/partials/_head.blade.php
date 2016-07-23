@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Panel Admin - runsite::CMS</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 
     {{--
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker-standalone.css')}}">
     <link rel="stylesheet" href="{{asset('admin/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/runsite-input-progress/style.css')}}">
 
     <!-- Latest compiled and minified JavaScript -->
@@ -34,6 +35,7 @@
     <script src="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
     <script src="{{asset('admin/bootstrap-notify.min.js')}}"></script>
     <script src="{{asset('admin/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.js')}}"></script>
     <script src="{{asset('admin/runsite-input-progress/script.js')}}"></script>
 
     <!-- Latest compiled and minified CSS -->

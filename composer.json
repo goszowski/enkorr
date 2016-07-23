@@ -18,7 +18,8 @@
         "barryvdh/laravel-dompdf": "0.6.*",
         "tecnick.com/tcpdf": "~6.0.0",
         "fadion/maneuver": "dev-l5",
-        "snowfire/beautymail": "dev-master"
+        "snowfire/beautymail": "dev-master",
+        "barryvdh/laravel-elfinder": "^0.3.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -166,6 +166,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Fadion\Maneuver\ManeuverServiceProvider::class,
         Snowfire\Beautymail\BeautymailServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
     ],
 
