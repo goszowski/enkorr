@@ -7,13 +7,13 @@
     @if($field_value)
 
     @endif
-    <div class="input-group" style="max-width: 350px;">
+    <div class="input-group" style="max-width: 450px;">
       <input type="text" class="form-control" id="field_{{ $field_name }}_{{ $field_lang }}_visual" placeholder="File from server" readonly="readonly" value="{{ $field_value }}">
       <span class="input-group-btn">
         @if($field_value)
-          <a href="{{$field_value}}" class="btn btn-default" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View</a>
+          <a href="{{$field_value}}" class="btn btn-default" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> Переглянути</a>
         @endif
-        <button type="button" class="btn btn-primary" data-toggle="modal" href="#mFiles{{$field_lang}}-{{$field_name}}"><i class="fa fa-server" aria-hidden="true"></i> Select file</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" href="#mFiles{{$field_lang}}-{{$field_name}}"><i class="fa fa-server" aria-hidden="true"></i> Вибрати файл</button>
       </span>
     </div>
 
