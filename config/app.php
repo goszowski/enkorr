@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'app_version' => '1.2.0',
+  'app_version' => '1.2.2',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +166,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Fadion\Maneuver\ManeuverServiceProvider::class,
         Snowfire\Beautymail\BeautymailServiceProvider::class,
+        Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
     ],
 

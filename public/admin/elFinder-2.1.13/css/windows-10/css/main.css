@@ -5,7 +5,7 @@
 .elfinder .elfinder-toolbar .elfinder-buttonset .elfinder-button-menu {
   background: #fff;
   border: 0px solid #69bcee;
-  box-shadow: 0 0 5px #cdcdcd;
+  /*box-shadow: 0 0 5px #cdcdcd;*/
   border-radius: 0;
 }
 

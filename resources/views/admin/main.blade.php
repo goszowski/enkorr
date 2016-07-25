@@ -98,7 +98,7 @@ body {
           'data': {
             'url': '{{route("admin.tree")}}',
             'data': function(node) {
-              console.log(node);
+              // console.log(node);
               return { 'parent_id' : node.id }
             }
           }

@@ -18,8 +18,8 @@
 
 /* Hovered buttons */
 .elfinder .elfinder-toolbar .elfinder-buttonset .elfinder-button:hover {
-  background: #cce8ff;
-  border: 1px solid #99d1ff;
+  background: #cce8ff!important;
+  border: 1px solid #99d1ff!important;
 }
 
 /* Disabled buttons */

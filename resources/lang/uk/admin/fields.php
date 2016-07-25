@@ -56,6 +56,9 @@ return [
   'from_template' => 'З шаблону',
   'check_vertical' => 'Ckeck Vertical',
   'check_columns' => 'Ckeck Columns',
+  'custom_path' => 'Власний шлях',
+  'explore' => 'Explore',
+  'read_only' => 'Тільки для читання',
 
   'template' => [
     'name' => 'Назва',
