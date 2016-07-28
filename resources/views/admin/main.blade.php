@@ -69,7 +69,7 @@ body {
       @if($apps)
       <ul>
         @foreach($apps as $app)
-        <li><a href="{{route($app->execute)}}" target="app_iframe">{{$app->name}}</a></li>
+        <li><a href="{{route($app->execute)}}" target="app_iframe">{{trans($app->name)}}</a></li>
         @endforeach
       </ul>
       @endif

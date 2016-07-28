@@ -14,4 +14,5 @@ return [
   'are_you_sure' => 'Ви впевнені?',
   'created_at' => 'Створено',
   'updated_at' => 'Оновлено',
+  'app_name' => 'Мови',
 ];
