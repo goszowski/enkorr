@@ -210,7 +210,7 @@ class ClassesController extends Controller {
    * @param  Validator $validator [description]
    * @return void
    */
-  public function remove(Request $request, Classes $classes, Validator $validator, Fields $fields, Field_settings $field_settings, Field_groups $groups) {
+  public function remove(Request $request, Classes $classes, Validator $validator, Fields $fields, Field_settings $field_settings, Field_groups $groups, Class_dependencies $Class_dependencies, Node_dependencies $Node_dependencies) {
 
     // validation request
     if($v = $validator::make($request->all(), $this->removeRules) and $v->fails()) {
@@ -222,6 +222,8 @@ class ClassesController extends Controller {
     $fields->where('class_id', $class->id)->delete();
     $field_settings->where('class_id', $class->id)->delete();
     $groups->where('class_id', $class->id)->delete();
+    $$Class_dependencies->where('class_id', $class->id)->orWhere('subclass_id', $class->id)->delete();
+
     $class->delete();
 
     return \Redirect::route('admin.classes.items');
