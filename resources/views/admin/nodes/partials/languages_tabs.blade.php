@@ -6,4 +6,4 @@
   @endforeach
 </ul>
 
-<input type="hidden" name="active_lang_id" @if(Session::has('active_lang')) value="{{session('active_lang')}}" @else value="1" @endif>
+<input type="hidden" name="active_lang_id" @if(Session::has('active_lang')) value="{{session('active_lang')}}" @else value="{{\App\Runsite\Languages::where('is_default', true)->first()->id}}" @endif>

@@ -63,7 +63,7 @@ class MainController extends Controller {
     $out = $this->getTreeItems($parent_id);
     // $items = Nodes::where('parent_id', $parent_id)->whereIn('class_id', $classesToShow->lists('id'))->take(30)->get();
 
-    if($parent_id == 0 and count($out)) {
+    if($parent_id == 0 and count($out) and isset($out[0])) {
       $out[0]['children'] = $this->getTreeItems($out[0]->node_id);
     }
     //$childrenCount = Nodes::where('parent_id', $parent_id)->count();
