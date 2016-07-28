@@ -63,7 +63,7 @@
                 {{trans('admin/classes.can_export_yes')}}
               </label>
               <label class="ui-checks" style="margin-right: 10px">
-                <input type="radio" name="can_export" value="0" checked id="can_export" @if(isset($class) and $class->can_export == 0) checked @endif>
+                <input type="radio" name="can_export" value="0" id="can_export" @if(isset($class) and $class->can_export == 0) checked @endif @if(!isset($class)) checked @endif>
                 <i></i>
                 {{trans('admin/classes.can_export_no')}}
               </label>
