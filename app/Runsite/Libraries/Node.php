@@ -11,13 +11,28 @@ use App\Runsite\Libraries\PH;
 
 class Node {
 
-  public static function getUniversal($class_name=false, $class_id=false) {
+  public static function getUniversal($class_name=false, $class_id=false, $fields=[]) {
     $universalModel = false;
     if(!$class_name and $class_id) {
       $class = Classes::find($class_id);
       $class_name = $class->shortname;
     }
-    $universalModel = new Universal('_class_'.$class_name);
+
+    $arrOut = [];
+
+    if($fields === true) {
+      if(! isset($class)) {
+        $class = Classes::where('shortname', $class_name)->first();
+      }
+      $fields = Fields::where('class_id', $class->id)->get();
+
+      $arrOut = array();
+      foreach($fields->lists('shortname') as $k=>$subArr){
+        array_push($arrOut, $subArr);
+      }
+    }
+    // dd($arrOut);
+    $universalModel = new Universal('_class_'.$class_name, $arrOut);
     return $universalModel;
   }
 

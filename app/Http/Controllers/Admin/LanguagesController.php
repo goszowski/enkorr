@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Runsite\Languages;
 use App\Runsite\Nodes;
 use App\Runsite\Classes;
+use App\Runsite\Libraries\Node;
 
 class LanguagesController extends Controller {
 
@@ -59,13 +60,33 @@ class LanguagesController extends Controller {
     }
   }
 
-  public function store(Request $request, Languages $languagesModel, Validator $validator) {
+  public function store(Request $request, Validator $validator) {
     // validation request
     if($v = $validator::make($request->all(), $this->storeRules) and $v->fails()) {
       return redirect()->back()->withInput()->withErrors($v->errors()); // errors exists
     }
 
-    $languagesModel->setValues($request)->save();
+    $language = Languages::create($request->all());
+
+    // Node::push(1, 0, '/', [
+    //   $language->id => [
+    //     'name' => 'Main page',
+    //     'is_active' => true,
+    //   ],
+    // ]);
+
+    $node = Node::getUniversal('index', false, true);
+
+    $node->node_id = 1;
+    $node->parent_id = 0;
+    $node->parent_id = 0;
+    $node->language_id = $language->id;
+    $node->name = 'Main page';
+    $node->is_active = true;
+
+    $node->save();
+
+    //dd($language);
     // return items view
     return \Redirect::route('admin.languages.items');
   }

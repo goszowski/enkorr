@@ -46,7 +46,7 @@ class NodesController extends Controller {
     // Отримуємо вузол
     $_NODE        = Nodes::with('_class._fields.type.group.settings')->find($id) or abort(404);
     // Отримуємо список активних мов
-    $_LANGUAGES   = Languages::where('is_active', true)->get();
+    $_LANGUAGES   = Languages::where('is_active', true)->orderBy('is_default', 'desc')->get();
     // Отримуємо групи полей даного класу вузла
     $_GROUPS      = Field_groups::where('class_id', $_NODE->class_id)->get();
 

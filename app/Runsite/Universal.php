@@ -20,9 +20,10 @@ class Universal extends Model
      */
     protected $fillable = [];
 
-    public function __construct($tablename='') {
+    public function __construct($tablename='', $fields=[]) {
       parent::__construct();
       $this->table = $tablename;
+      $this->fillable = $fields;
     }
 
 

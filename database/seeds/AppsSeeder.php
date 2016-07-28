@@ -11,17 +11,17 @@ class AppsSeeder extends Seeder
     public function run()
     {
       Apps::create([
-        'name' => 'Типи розділів',
+        'name' => 'admin/classes.app_name',
         'execute' => 'admin.classes.items',
       ]);
 
       Apps::create([
-        'name' => 'Мовні версії', // Назва в меню
+        'name' => 'admin/languages.app_name', // Назва в меню
         'execute' => 'admin.languages.items', // Ім'я роута
       ]);
 
       Apps::create([
-        'name' => 'Користувачі', // Назва в меню
+        'name' => 'admin/users.app_name', // Назва в меню
         'execute' => 'panel-admin.users.index', // Ім'я роута
       ]);
     }
