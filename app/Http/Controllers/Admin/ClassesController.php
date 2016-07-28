@@ -16,6 +16,8 @@ use App\Runsite\Field_settings;
 use App\Runsite\Field_groups;
 use App\Runsite\Nodes;
 use App\Runsite\Languages;
+use App\Runsite\Class_dependencies;
+use App\Runsite\Node_dependencies;
 
 use App\Runsite\Libraries\Node;
 
@@ -222,7 +224,8 @@ class ClassesController extends Controller {
     $fields->where('class_id', $class->id)->delete();
     $field_settings->where('class_id', $class->id)->delete();
     $groups->where('class_id', $class->id)->delete();
-    $$Class_dependencies->where('class_id', $class->id)->orWhere('subclass_id', $class->id)->delete();
+    $Class_dependencies->where('class_id', $class->id)->orWhere('subclass_id', $class->id)->delete();
+    $Node_dependencies->where('subclass_id', $class->id)->delete();
 
     $class->delete();
 
