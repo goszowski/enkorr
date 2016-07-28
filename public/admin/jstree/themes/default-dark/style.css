@@ -18,6 +18,7 @@
   padding: 0 4px 0 1px;
   margin: 0;
   vertical-align: top;
+  font-size: 13px;
 }
 .jstree-anchor:focus {
   outline: 0;
@@ -374,18 +375,18 @@
   min-width: 24px;
 }
 .jstree-default-dark .jstree-anchor {
-  line-height: 24px;
-  height: 24px;
+  line-height: 20px;
+  height: 20px;
 }
 .jstree-default-dark .jstree-icon {
-  width: 24px;
+  width: 22px;
   height: 24px;
-  line-height: 24px;
+  line-height: 22px;
 }
 .jstree-default-dark .jstree-icon:empty {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
+  width: 22px;
+  height: 20px;
+  line-height: 20px;
 }
 .jstree-default-dark.jstree-rtl .jstree-node {
   margin-right: 24px;
@@ -398,23 +399,27 @@
   background-image: url("32px.png");
 }
 .jstree-default-dark .jstree-node {
-  background-position: -292px -4px;
+  background-position: -292px -6px;
   background-repeat: repeat-y;
 }
 .jstree-default-dark .jstree-last {
   background: transparent;
 }
 .jstree-default-dark .jstree-open > .jstree-ocl {
-  background-position: -132px -4px;
+  background-position: -132px -6px;
 }
 .jstree-default-dark .jstree-closed > .jstree-ocl {
-  background-position: -100px -4px;
+  background-position: -100px -6px;
 }
 .jstree-default-dark .jstree-leaf > .jstree-ocl {
-  background-position: -68px -4px;
+  background-position: -68px -6px;
+}
+
+.jstree-default-dark .jstree-leaf > a > .jstree-icon {
+  background-position: -101px -72px;
 }
 .jstree-default-dark .jstree-themeicon {
-  background-position: -260px -4px;
+  background-position: -260px -6px;
 }
 .jstree-default-dark > .jstree-no-dots .jstree-node,
 .jstree-default-dark > .jstree-no-dots .jstree-leaf > .jstree-ocl {
@@ -1063,7 +1068,7 @@
   background: transparent;
 }
 .jstree-default-dark .jstree-anchor {
-  color: #999;
+  color: #a3a3a3;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 .jstree-default-dark .jstree-clicked,
@@ -1078,7 +1083,7 @@
   background: transparent;
 }
 .jstree-default-dark .jstree-anchor > .jstree-icon {
-  opacity: 0.75;
+  opacity: 0.65;
 }
 .jstree-default-dark .jstree-clicked > .jstree-icon,
 .jstree-default-dark .jstree-hovered > .jstree-icon,

@@ -3,11 +3,11 @@
   <div class="col-md-10 ">
 
     <div class="thumbnail" style="width: 210px; margin-bottom: 5px;">
-      <a href="https://www.youtube.com/watch?v={{$field_value}}" target="_blank">
+      <a href="https://www.youtube.com/watch?v={{$field_value}}" target="_blank" class="youtube-link">
         @if($field_value)
-          <img src="https://i.ytimg.com/vi/{{$field_value}}/mqdefault.jpg">
+          <img class="youtube-img" src="https://i.ytimg.com/vi/{{$field_value}}/mqdefault.jpg">
         @else
-          <img src="{{asset('admin/youtube_placeholder.jpg')}}">
+          <img class="youtube-img" src="{{asset('admin/youtube_placeholder.jpg')}}">
         @endif
       </a>
       <div class="caption runsite-input-progress text-center">
@@ -23,3 +23,30 @@
 
   </div>
 </div>
+
+
+<script type="text/javascript">
+  $(function() {
+
+    $('#field_{{ $field_name }}_{{ $field_lang }}').bind('paste', function(e) {
+      var current = $(this);
+      var video_id = youtube_parser(e.originalEvent.clipboardData.getData('Text'));
+      if(video_id && video_id != '') {
+        setTimeout(function() {
+          current.val(video_id);
+          current.parent().parent().find('.youtube-img').attr('src', 'https://i.ytimg.com/vi/'+video_id+'/mqdefault.jpg');
+          current.parent().parent().find('.youtube-link').attr('href', 'https://www.youtube.com/watch?v='+video_id);
+        }, 100);
+      }
+      else {
+        setTimeout(function() {
+          current.val('');
+          current.parent().parent().find('.youtube-img').attr('src', '{{asset('admin/youtube_placeholder.jpg')}}');
+          current.parent().parent().find('.youtube-link').attr('href', 'https://www.youtube.com');
+        }, 100);
+      }
+
+    });
+
+  });
+</script>

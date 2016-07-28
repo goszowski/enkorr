@@ -6,10 +6,14 @@ use App\Runsite\Apps;
 use App\Runsite\Nodes;
 use App\Runsite\Classes;
 use App\Runsite\Libraries\Locale;
+use App\Runsite\Libraries\Node;
+use App\Runsite\Libraries\PH;
 use Response;
 use Request;
 
 class MainController extends Controller {
+
+  protected $classesToShow = false;
 
   public function execute() {
     $auth_user = \Auth::user();
@@ -23,30 +27,51 @@ class MainController extends Controller {
             ->withApps($_APPS);
   }
 
+  public function getTreeItems($parent_id) {
+
+    $out = false;
+
+    if(count($this->classesToShow)) {
+      foreach($this->classesToShow as $el) {
+        $items = Node::getUniversal($el->shortname)
+          ->where('language_id', PH::getActiveLocalId())
+          ->where('parent_id', $parent_id)
+          ->orderBy('orderby', 'asc')
+          ->take(30)
+          ->get();
+
+
+        if(count($items)) {
+          foreach($items as $item) {
+            $out[] = $item;
+          }
+        }
+      }
+    }
+
+    return $out;
+  }
+
   public function tree() {
     $parent_id = Request::input('parent_id') or $parent_id = 0;
     if($parent_id == '#') $parent_id = 0;
 
-    $classesToShow = Classes::where('show_in_admin_tree', true)->get();
-
-    $out = false;
-    $items = Nodes::where('parent_id', $parent_id)->whereIn('class_id', $classesToShow->lists('id'))->skip(0)->take(30)->get();
-    if(! $parent_id) {
-      foreach($items as $k=>$item) {
-        $items[$k]['children'] = Nodes::where('parent_id', $item->id)->whereIn('class_id', $classesToShow->lists('id'))->get();
-      }
+    if(!$this->classesToShow) {
+      $this->classesToShow = Classes::where('show_in_admin_tree', true)->get();
     }
 
-    foreach($items as $item) {
-      $out[] = $item;
-    }
+    $out = $this->getTreeItems($parent_id);
+    // $items = Nodes::where('parent_id', $parent_id)->whereIn('class_id', $classesToShow->lists('id'))->take(30)->get();
 
+    if($parent_id == 0 and count($out)) {
+      $out[0]['children'] = $this->getTreeItems($out[0]->node_id);
+    }
     //$childrenCount = Nodes::where('parent_id', $parent_id)->count();
 
     return view('admin.tree')
             ->withItems($out)
             ->withParent($parent_id)
-            ->with('classesToShow', $classesToShow);
+            ->with('classesToShow', $this->classesToShow);
   }
 
 }
