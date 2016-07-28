@@ -24,10 +24,22 @@
             <a href="javascript:;" data-toggle="dropdown"><i class="fa fa-plus"></i> {{trans('admin/nodes.create')}}</a>
             <ul class="dropdown-menu">
               @foreach($NodeDependencies as $item)
-              <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+                @if(\Auth::user()->is_limited)
+                  @if($item->classes->limited_users_can_create)
+                    <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+                  @endif
+                @else
+                  <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+                @endif
               @endforeach
               @foreach($dependencies as $item)
-              <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+                @if(\Auth::user()->is_limited)
+                  @if($item->classes->limited_users_can_create)
+                    <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+                  @endif
+                @else
+                  <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+                @endif
               @endforeach
             </ul>
           </li>
