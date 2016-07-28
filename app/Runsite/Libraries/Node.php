@@ -7,6 +7,7 @@ use App\Runsite\Fields;
 use App\Runsite\Data;
 use App\Runsite\Languages;
 use App\Runsite\Universal;
+use App\Runsite\Libraries\PH;
 
 class Node {
 
@@ -183,6 +184,17 @@ class Node {
 
     return $data;
 
+  }
+
+  public static function getU($class_name=false, $class_id=false) {
+    $universalModel = false;
+    if(!$class_name and $class_id) {
+      $class = Classes::find($class_id);
+      $class_name = $class->shortname;
+    }
+    $universalModel = new Universal('_class_'.$class_name);
+    $universalModel = $universalModel->where('is_active', true)->where('language_id', PH::getActiveLocalId());
+    return $universalModel;
   }
 
 
