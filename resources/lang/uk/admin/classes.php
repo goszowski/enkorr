@@ -36,4 +36,5 @@ return [
   'can_export_yes_if_node_can' => 'Так, якщо дозволено в розділі',
   'default_order_by' => 'Сортування по замовчуванню',
   'app_name' => 'Класи',
+  'close' => 'Закрити',
 ];

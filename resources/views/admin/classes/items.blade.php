@@ -1,6 +1,5 @@
 @extends('admin.app')
 @section('content')
-@include('admin.classes.partials.items_nav')
 <div class="p-md">
   <div class="panel panel-default">
     <div class="panel-heading bg-white">
@@ -9,6 +8,7 @@
     <div class="panel-body">
       {!! Form::open(array('route' => 'admin.classes.items', 'method'=>'get')) !!}
       <div class="row">
+        <a class="btn btn-success btn-sm" href="{{route('admin.classes.create')}}"><i class="fa fa-plus"></i> {{trans('admin/classes.create')}}</a>
         <div class="col-xs-12 col-sm-6 col-md-3">
           <div class="input-group">
             <input type="text" name="search" class="form-control input-sm" placeholder="{{trans('admin/classes.search')}}" value="{{\Input::get('search')}}">
@@ -19,6 +19,7 @@
         </div>
       </div>
       {!! Form::close() !!}
+
     </div>
       @if(count($classes))
         <table class="table table-striped table-hover">

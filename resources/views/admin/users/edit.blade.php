@@ -1,7 +1,7 @@
 @extends('admin.app')
 
 @section('content')
-  @include('admin.users._nav')
+  {{-- @include('admin.users._nav') --}}
 
   <div class="p-md">
     <div class="panel panel-default">
@@ -10,6 +10,9 @@
       </div>
 
       <div class="panel-body">
+
+        
+
         {!! Form::model($user, [
             'method' => 'PATCH',
             'url' => ['panel-admin/users', $user->id],

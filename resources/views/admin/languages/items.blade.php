@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('content')
-@include('admin.languages.partials.items_nav')
+{{-- @include('admin.languages.partials.items_nav') --}}
 
 <div class="p-md">
   <div class="panel panel-default">
@@ -9,6 +9,7 @@
     </div>
     <div class="panel-body">
       <div class="row">
+        <a class="btn btn-success btn-sm" href="{{route('admin.languages.create')}}"><i class="fa fa-plus"></i> {{trans('admin/languages.create')}}</a>
         <div class="col-xs-12 col-sm-6 col-md-3">
           <div class="input-group">
             <input type="text" name="search" class="form-control input-sm" placeholder="{{trans('admin/languages.search')}}" value="{{\Input::get('search')}}">
@@ -35,7 +36,7 @@
           @foreach($languages as $lang)
             <tr>
               <td>{{ $lang->id }}</td>
-              <td>{{ $lang->name }}</td>
+              <td><a href="{{route('admin.languages.edit', $lang->id)}}" >{{ $lang->name }}</a></td>
               <td><span class="label bg-warning">{{ $lang->locale }}</span></td>
               <td>@if($lang->is_active) <i class="fa fa-check text-success"></i> @else <i class="fa fa-times text-muted"></i> @endif</td>
               <td>@if($lang->is_default) <i class="fa fa-check text-success"></i> @else <i class="fa fa-times text-muted"></i> @endif</td>

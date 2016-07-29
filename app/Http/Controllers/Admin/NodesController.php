@@ -164,7 +164,7 @@ class NodesController extends Controller {
   public function create($class_id, $parent_id) {
 
     $_CLASS       = Classes::find($class_id) or abort(404);
-    $_LANGUAGES   = Languages::where('is_active', true)->get();
+    $_LANGUAGES   = Languages::where('is_active', true)->orderBy('is_default', 'desc')->get();
     $_GROUPS      = Field_groups::where('class_id', $class_id)->get();
     $_FIELDS      = Fields::where('class_id', $class_id)->get();
     $_PARENT      = Nodes::find($parent_id);

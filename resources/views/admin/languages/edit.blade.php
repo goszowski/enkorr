@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('content')
-@include('admin.languages.partials.items_nav')
+{{-- @include('admin.languages.partials.items_nav') --}}
 
 <div class="p-md">
   <div class="panel panel-default">
@@ -46,6 +46,7 @@
             <div class="col-md-10 col-md-offset-2">
               <button type="submit" class="btn btn-dark"><i class="fa fa-check"></i> {{trans('admin/languages.update')}}</button>
               <a href="{{route('admin.languages.remove_confirmation', $lang->id)}}" class="btn btn-raised btn-danger"><i class="fa fa-trash"></i> {{trans('admin/languages.remove')}}</a>
+              <a href="{{route('admin.languages.items')}}" class="btn btn-default">Close</a>
             </div>
           </div>
         </fieldset>

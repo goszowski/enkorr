@@ -1,0 +1,106 @@
+.rs-tree {
+  position: relative;
+}
+
+.rs-tree ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: 12px;
+}
+
+.rs-tree ul li {
+  display: block;
+  padding: 0; margin: 0;
+  font-size: 0;
+  position: relative;
+}
+
+.rs-tree ul li:before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10px;
+  bottom: 12px;
+  border-left: 1px dotted rgba(255,255,255, 0.2);
+}
+
+.rs-tree ul li:after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: -9px;
+  width: 10px;
+  border-top: 1px dotted rgba(255,255,255, 0.2);
+  z-index: -1;
+}
+
+.rs-tree > ul > li:after {
+  display: none;
+}
+
+.rs-tree ul li a {
+  font-weight: normal;
+  font-family: arial;
+  display: inline-block;
+  padding: 2px 3px;
+  position: relative;
+  background: #202a3a;
+}
+
+.rs-tree ul li a .label {
+  position: relative;
+  top: -1px;
+}
+.rs-tree ul li a:hover {
+  background: #151e2b;
+}
+
+.rs-tree .rs-tree-icon {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.rs-tree .rs-tree-label {
+  font-size: 13px;
+}
+
+.rs-tree ul li ul {
+  margin-left: 22px;
+}
+
+
+.rs-tree-controls {
+  position: absolute;
+  left: -15px;
+  top: 4px;
+  font-size: 12px;
+  color: rgba(255,255,255, 0.3);
+  font-size: 0;
+  line-height: 0;
+}
+.rs-tree-controls span {
+  cursor: pointer;
+  display: none;
+  padding: 0 2px;
+  background: #202a3a;
+}
+.rs-tree-controls span i {
+  font-size: 14px;
+}
+.rs-tree-controls span:hover {
+  color: rgba(255,255,255, 0.5);
+}
+
+.closed .rs-tree-plus {
+  display: inline-block;
+}
+
+.rs-tree-minus {
+  position: relative;
+  left: -2px;
+}
+
+.opened .rs-tree-minus {
+  display: inline-block;
+}

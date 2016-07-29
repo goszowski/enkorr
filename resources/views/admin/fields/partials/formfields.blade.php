@@ -1,6 +1,6 @@
 
 <div class="form-group  @if($errors->has('type_id')) has-warning @endif">
-  <label for="field_type_id" class="col-md-2 control-label">{{trans('admin/fields.field_type')}}</label>
+  <label for="field_type_id" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.field_type')}}</div></label>
   <div class="col-md-10">
     <select class="form-control" name="type_id" id="field_type_id">
       <option value="">-- {{trans('admin/fields.select_type')}} --</option>
@@ -15,7 +15,7 @@
 </div>
 
 <div class="form-group  @if($errors->has('group_id')) has-warning @endif">
-  <label for="field_group_id" class="col-md-2 control-label">{{trans('admin/fields.group')}}</label>
+  <label for="field_group_id" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.group')}}</div></label>
   <div class="col-md-10">
     <select class="form-control" name="group_id" id="field_group_id">
       <option value="">-- {{trans('admin/fields.select_group')}} --</option>
@@ -30,7 +30,7 @@
 </div>
 
 <div class="form-group  @if($errors->has('name')) has-warning @endif">
-  <label for="field_name" class="col-md-2 control-label">{{trans('admin/fields.name')}}</label>
+  <label for="field_name" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.name')}}</div></label>
   <div class="col-md-10">
     <input class="form-control" type="text" name="name" id="field_name" value="@if(Request::old('name')){{Request::old('name')}}@else{{isset($field) ? $field->name : ''}}@endif">
     @if($errors->first('name'))<small class="text-danger">{{$errors->first('name')}}</small>@endif
@@ -38,7 +38,7 @@
 </div>
 
 <div class="form-group  @if($errors->has('shortname')) has-warning @endif">
-  <label for="field_shortname" class="col-md-2 control-label">{{trans('admin/fields.shortname')}}</label>
+  <label for="field_shortname" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.shortname')}}</div></label>
   <div class="col-md-10">
     <input class="form-control" type="text" name="shortname" id="field_shortname" value="@if(Request::old('shortname')){{Request::old('shortname')}}@else{{isset($field) ? $field->shortname : ''}}@endif">
     @if($errors->first('shortname'))<small class="text-danger">{{$errors->first('shortname')}}</small>@endif
@@ -46,7 +46,7 @@
 </div>
 
 <div class="form-group  @if($errors->has('hint')) has-warning @endif">
-  <label for="field_hint" class="col-md-2 control-label">{{trans('admin/fields.hint')}}</label>
+  <label for="field_hint" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.hint')}}</div></label>
   <div class="col-md-10">
     <input class="form-control" type="text" name="hint" id="field_hint" value="@if(Request::old('hint')){{Request::old('hint')}}@else{{isset($field) ? $field->hint : ''}}@endif">
     @if($errors->first('hint'))<small class="text-danger">{{$errors->first('hint')}}</small>@endif

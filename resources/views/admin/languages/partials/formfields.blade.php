@@ -28,7 +28,7 @@
 </div>
 
 
-@if(!isset($lang) or !$lang->is_default)
+@if(isset($lang) and !$lang->is_default)
 <div class="form-group"><label class="col-md-2 control-label">&nbsp;</label>
   <div class="col-md-10">
     <div class="checkbox">

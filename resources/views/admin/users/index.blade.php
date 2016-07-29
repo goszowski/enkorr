@@ -1,11 +1,18 @@
 @extends('admin.app')
 
 @section('content')
-  @include('admin.users._nav')
+  {{-- @include('admin.users._nav') --}}
   <div class="p-md">
     <div class="panel panel-default">
       <div class="panel-heading bg-white">
         <i class="fa fa-bars"></i> {{trans('admin/users.listing_items')}}
+      </div>
+
+      <div class="panel-body">
+        <a href="{{ url('panel-admin/users/create') }}" class="btn btn-sm btn-addon btn-success">
+          <i class="fa fa-plus fa-fw"></i>
+          {{trans('admin/users.create')}}
+        </a>
       </div>
       @if(count($users))
         <table class="table">
@@ -18,7 +25,7 @@
             @foreach($users as $item)
                 <tr>
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->name }}</td><td>{{ $item->email }}</td>
+                    <td><a href="{{ url('panel-admin/users/' . $item->id . '/edit') }}">{{ $item->name }}</a></td><td>{{ $item->email }}</td>
                     <td>
                       @if($item->is_limited)
                         <span class="label bg-danger">Yes</span>

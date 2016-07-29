@@ -1,4 +1,50 @@
 
+
+
+<div class="pull-right">
+  <div class="btn-group">
+
+    @if((isset($dependencies) and count($dependencies)) or (isset($NodeDependencies) and count($NodeDependencies)))
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-plus"></i> {{trans('admin/nodes.create')}}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          @foreach($NodeDependencies as $item)
+            @if(\Auth::user()->is_limited)
+              @if($item->classes->limited_users_can_create)
+                <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+              @endif
+            @else
+              <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+            @endif
+          @endforeach
+          @foreach($dependencies as $item)
+            @if(\Auth::user()->is_limited)
+              @if($item->classes->limited_users_can_create)
+                <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+              @endif
+            @else
+              <li><a href="{{route('admin.nodes.create', [$item->classes->id, $node->id])}}">{{$item->classes->name_create}}</a></li>
+            @endif
+          @endforeach
+        </ul>
+      </div>
+    @endif
+
+
+    @if(isset($node) and !isset($parent) and !Auth::user()->is_limited)
+      <a href="{{route('admin.nodes.settings', $node->id)}}" class="btn btn-default" title="{{trans('admin/nodes.settings')}}"><i class="fa fa-cog"></i></a>
+      <a href="{{route('admin.nodes.dependencies', $node->id)}}" class="btn btn-default" title="{{trans('admin/nodes.dependencies')}}"><i class="fa fa-sitemap"></i></a>
+    @endif
+
+
+  </div>
+</div>
+
+
+
 @foreach($languages as $lg=>$lang)
 <div class="tab-pane @if((! Session::has('active_lang') and !$lg) or (Session::has('active_lang') and session('active_lang') == $lang->id)) active @endif" id="lang-tab-{{$lang->id}}">
   @include('admin.nodes.partials.groups_tabs')

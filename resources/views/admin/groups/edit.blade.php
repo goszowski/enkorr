@@ -1,16 +1,13 @@
 @extends('admin.app')
 @section('content')
 
-@include('admin.classes.partials.edit_nav')
+{{-- @include('admin.classes.partials.edit_nav') --}}
 
 
 <div class="p-md">
   @include('admin.fields.partials.class_info')
-  <div class="panel panel-default">
-    <div class="panel-heading bg-white">
-      <i class="fa fa-pencil-square-o"></i> {{trans('admin/groups.edit')}} <small class="text-muted">({{$class->name}})</small>
-    </div>
-    <div class="panel-body">
+  @include('admin.classes.partials.new_nav')
+  <div class="p b-a no-b-t bg-white m-b tab-content">
       @if(Session::has('success'))
         <!-- <div class="alert alert-success">{!! session('success') !!}</div> -->
         <script type="text/javascript">
@@ -37,7 +34,7 @@
           <div class="form-group  @if($errors->has('name')) has-warning @endif">
             <label for="field_name" class="col-md-2 control-label">{{trans('admin/groups.name')}}</label>
             <div class="col-md-10">
-              <input class="form-control" type="text" name="name" id="field_name" value="@if(Request::old('name')){{Request::old('name')}}@else{{isset($group) ? $group->name : ''}}@endif">
+              <input class="form-control" type="text" name="name" id="field_name" value="@if(Request::old('name')){{Request::old('name')}}@else{{isset($group) ? $group->name : ''}}@endif" autofocus>
               @if($errors->first('name'))<small class="text-danger">{{$errors->first('name')}}</small>@endif
             </div>
           </div>
@@ -51,7 +48,6 @@
           </div>
         </fieldset>
       {!! Form::close() !!}
-    </div>
 
   </div>
 </div>

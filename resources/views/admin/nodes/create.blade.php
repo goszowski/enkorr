@@ -67,6 +67,7 @@
         <div class="form-group">
           <div class="container-fluid">
             <button type="submit" class="btn btn-dark">{{trans('admin/nodes.create')}}</button>
+            <a href="{{route('admin.nodes.edit', $parent->id)}}" class="btn btn-default">{{trans('admin/nodes.close')}}</a>
           </div>
         </div>
       </div>

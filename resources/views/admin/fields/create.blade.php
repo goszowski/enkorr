@@ -1,14 +1,11 @@
 @extends('admin.app')
 @section('content')
-@include('admin.classes.partials.edit_nav')
+{{-- @include('admin.classes.partials.edit_nav') --}}
 
 <div class="p-md">
   @include('admin.fields.partials.class_info')
-  <div class="panel panel-default">
-    <div class="panel-heading bg-white">
-      <i class="fa fa-plus"></i> {{trans('admin/fields.create')}} <small class="text-muted">({{$class->name}})</small>
-    </div>
-    <div class="panel-body">
+  @include('admin.classes.partials.new_nav')
+  <div class="p b-a no-b-t bg-white m-b tab-content">
       {!! Form::open(array('route' => ['admin.fields.store', $class->id], 'class' => 'form-horizontal')) !!}
         <input type="hidden" name="class_id" value="{{$class->id}}">
         <fieldset>
@@ -20,7 +17,6 @@
           </div>
         </fieldset>
       {!! Form::close() !!}
-    </div>
   </div>
 </div>
 

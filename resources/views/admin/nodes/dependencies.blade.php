@@ -2,6 +2,9 @@
 @section('content')
 @include('admin.nodes.partials.items_nav')
 <div class="p-md">
+  <div class="form-group">
+    <a href="{{route('admin.nodes.edit', $node->id)}}" class="btn btn-default">{{trans('admin/nodes.close')}}</a>
+  </div>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="panel panel-default">

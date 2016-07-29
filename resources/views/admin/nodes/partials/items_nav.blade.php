@@ -1,4 +1,4 @@
-<div class="app-header navbar bg-dark">
+{{-- <div class="app-header navbar">
   <nav class="navbar">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -15,13 +15,13 @@
           @if(isset($node))
 
             <li @if(\Request::route()->getName() == 'admin.nodes.edit') class="active" @endif>
-              <a href="{{route('admin.nodes.edit', $node->id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{trans('admin/nodes.edit')}}</a>
+              <a href="{{route('admin.nodes.edit', $node->id)}}" title="{{trans('admin/nodes.edit')}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             </li>
           @endif
 
           @if((isset($dependencies) and count($dependencies)) or (isset($NodeDependencies) and count($NodeDependencies)))
           <li class="dropdown">
-            <a href="javascript:;" data-toggle="dropdown"><i class="fa fa-plus"></i> {{trans('admin/nodes.create')}}</a>
+            <a href="javascript:;" data-toggle="dropdown" title="{{trans('admin/nodes.create')}}"><i class="fa fa-plus"></i></a>
             <ul class="dropdown-menu">
               @foreach($NodeDependencies as $item)
                 @if(\Auth::user()->is_limited)
@@ -47,22 +47,22 @@
 
           @if(isset($node) and !isset($parent) and !Auth::user()->is_limited)
           <li @if(\Request::route()->getName() == 'admin.nodes.settings') class="active" @endif>
-            <a href="{{route('admin.nodes.settings', $node->id)}}"><i class="fa fa-cog"></i> {{trans('admin/nodes.settings')}}</a>
+            <a href="{{route('admin.nodes.settings', $node->id)}}" title="{{trans('admin/nodes.settings')}}"><i class="fa fa-cog"></i></a>
           </li>
 
           {{-- <li @if(\Request::route()->getName() == 'admin.nodes.access') class="active" @endif>
             <a href="{{route('admin.nodes.edit', $node->id)}}"><i class="fa fa-users"></i> {{trans('admin/nodes.access')}}</a>
           </li> --}}
 
-          <li @if(\Request::route()->getName() == 'admin.nodes.dependencies') class="active" @endif>
-            <a href="{{route('admin.nodes.dependencies', $node->id)}}"><i class="fa fa-sitemap"></i> {{trans('admin/nodes.dependencies')}}</a>
+          {{-- <li @if(\Request::route()->getName() == 'admin.nodes.dependencies') class="active" @endif>
+            <a href="{{route('admin.nodes.dependencies', $node->id)}}" title="{{trans('admin/nodes.dependencies')}}"><i class="fa fa-sitemap"></i></a>
           </li>
           @endif
 
         </ul>
       </div><!-- /.navbar-collapse -->
   </nav>
-</div>
+</div> --}}
 
 <script type="text/javascript">
   $(function() {

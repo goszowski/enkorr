@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('content')
-@include('admin.languages.partials.items_nav')
+{{-- @include('admin.languages.partials.items_nav') --}}
 
 <div class="p-md">
   <div class="panel panel-default">
@@ -14,6 +14,7 @@
           <div class="form-group">
             <div class="col-md-10 col-md-offset-2">
               <button type="submit" class="btn btn-dark">{{trans('admin/languages.create')}}</button>
+              <a href="{{route('admin.languages.items')}}" class="btn btn-default">Close</a>
             </div>
           </div>
         </fieldset>

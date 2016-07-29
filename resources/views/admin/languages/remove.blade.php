@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('content')
-@include('admin.languages.partials.items_nav')
+{{-- @include('admin.languages.partials.items_nav') --}}
 
 <div class="p-md">
   <div class="panel panel-danger">

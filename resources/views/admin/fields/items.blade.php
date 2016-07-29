@@ -1,15 +1,13 @@
 @extends('admin.app')
 @section('content')
 
-@include('admin.classes.partials.edit_nav')
+{{-- @include('admin.classes.partials.edit_nav') --}}
 
 <div class="p-md">
   @include('admin.fields.partials.class_info')
-  <div class="panel panel-default">
-    <div class="panel-heading bg-white">
-      <i class="fa fa-bars"></i> {{trans('admin/fields.listing_items')}} <small class="text-muted">({{$class->name}})</small>
-    </div>
-    <div class="panel-body">
+  @include('admin.classes.partials.new_nav')
+  <div class="p b-a no-b-t bg-white m-b tab-content">
+    <div class="form-group">
       <a href="{{route('admin.fields.create', $class->id)}}" class="btn btn-sm btn-addon btn-success">
         <i class="fa fa-plus fa-fw"></i>
         {{trans('admin/fields.create_field')}}
@@ -122,7 +120,7 @@
           @foreach($fields as $k=>$field)
           <tr>
             <td>{{$field->id}}</td>
-            <td>{{$field->name}}</td>
+            <td><a href="{{route('admin.fields.edit', ['class_id'=>$class->id, 'field_id'=>$field->id])}}">{{$field->name}}</a></td>
             <td>{{$field->shortname}}</td>
             <td><span class="label bg-warning">{{$field->type->name}}</span></td>
             <td>@if(isset($field->group))<span class="label bg-success">{{$field->group->name}}</span>@endif</td>

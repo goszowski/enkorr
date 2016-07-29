@@ -1,14 +1,10 @@
 @extends('admin.app')
 @section('content')
 
-@include('admin.classes.partials.edit_nav')
 
 <div class="p-md">
-  <div class="panel panel-default">
-    <div class="panel-heading bg-white">
-      <i class="fa fa-pencil-square-o"></i> {{trans('admin/classes.editing_class')}}
-    </div>
-    <div class="panel-body">
+  @include('admin.classes.partials.new_nav')
+  <div class="p b-a no-b-t bg-white m-b tab-content">
       @if(Session::has('success'))
         <!-- <div class="alert alert-success">{!! session('success') !!}</div> -->
         <script type="text/javascript">
@@ -36,16 +32,20 @@
         <fieldset>
           @include('admin.classes.formfields')
 
-          <div class="form-group">
-            <div class="col-md-10 col-md-offset-2">
-              <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-check"></i> {{trans('admin/classes.update')}}</button>
-              <a href="{{route('admin.classes.remove_confirmation', $class->id)}}" class="btn btn-raised btn-danger"><i class="fa fa-trash"></i> {{trans('admin/classes.remove')}}</a>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <div class="col-md-10 col-md-offset-2">
+                  <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-check"></i> {{trans('admin/classes.update')}}</button>
+                  <a href="{{route('admin.classes.remove_confirmation', $class->id)}}" class="btn btn-raised btn-danger"><i class="fa fa-trash"></i> {{trans('admin/classes.remove')}}</a>
+                  <a href="{{route('admin.classes.items')}}" class="btn btn-raised btn-default">{{trans('admin/classes.close')}}</a>
+                </div>
+              </div>
             </div>
           </div>
 
         </fieldset>
       {!! Form::close() !!}
-    </div>
   </div>
 </div>
 

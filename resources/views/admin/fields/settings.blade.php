@@ -1,13 +1,10 @@
 @extends('admin.app')
 @section('content')
-@include('admin.classes.partials.edit_nav')
+{{-- @include('admin.classes.partials.edit_nav') --}}
 <div class="p-md">
   @include('admin.fields.partials.class_info')
-  <div class="panel panel-default">
-    <div class="panel-heading bg-white">
-      <i class="fa fa-cog"></i> {{trans('admin/fields.settings')}}
-    </div>
-    <div class="panel-body">
+  @include('admin.classes.partials.new_nav')
+  <div class="p b-a no-b-t bg-white m-b tab-content">
       @if(Session::has('success'))
         <!-- <div class="alert alert-success">{!! session('success') !!}</div> -->
         <script type="text/javascript">
@@ -50,7 +47,6 @@
         </div>
 
       {!! Form::close() !!}
-    </div>
   </div>
 </div>
 

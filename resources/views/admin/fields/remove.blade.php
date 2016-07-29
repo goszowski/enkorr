@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('content')
-@include('admin.classes.partials.edit_nav')
+{{-- @include('admin.classes.partials.edit_nav') --}}
 <div class="p-md">
   @include('admin.fields.partials.class_info')
   <div class="panel panel-danger">

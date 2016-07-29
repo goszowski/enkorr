@@ -9,4 +9,5 @@ return [
   'groups_not_exists' => 'Групи не знайдено',
   'update' => 'Оновити',
   'remove_confirmation' => 'Ви впевнені?',
+  'create' => 'Створити',
 ];

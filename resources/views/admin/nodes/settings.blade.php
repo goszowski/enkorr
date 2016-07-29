@@ -43,6 +43,7 @@
       <div class="form-group  @if($errors->has('controller')) has-warning @endif">
         <div class="col-md-10 col-md-push-2">
           <button type="submit" class="btn btn-dark">{{trans('admin/nodes.update')}}</button>
+          <a href="{{route('admin.nodes.edit', $node->id)}}" class="btn btn-default">{{trans('admin/nodes.close')}}</a>
         </div>
       </div>
 
