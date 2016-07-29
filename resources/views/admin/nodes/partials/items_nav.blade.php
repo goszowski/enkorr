@@ -81,7 +81,7 @@
 
         if(! thisValue) {
 
-          if(dataLang == 1) {
+          if(dataLang == {{\App\Runsite\Languages::where('is_default', true)->first()->id}}) {
 
 
             //console.log(label.html());
