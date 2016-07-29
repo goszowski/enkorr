@@ -3235,9 +3235,10 @@ table.text-center th {
 }
 .login-page,
 .register-page {
-  background: #d2d6de url(../../../../images/NSTexturedFullScreenBackgroundColor.png);
+  background: #d2d6de url(../../../../images/9817357d0103908d671eea3bb10b0f07.jpg);
   position: relative;
   height: 100vh;
+  background-size: cover;
 }
 .login-page:before,
 .register-page:before {
