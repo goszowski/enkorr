@@ -121,7 +121,7 @@ class NodesController extends Controller {
       $_CLASS             = Classes::find($class_id);
       $_FIELDS_TO_SHOW    = Fields::where('class_id', $_CLASS->id)->where('shown', true)->with('type')->get();
       // $_CHILDREN          = Nodes::where('parent_id', $_NODE->id)->where('class_id', $class_id)->paginate($this->pagination_limit);
-      $_CHILDREN          = Node::getUniversal(false, $class_id)->where('parent_id', $_NODE->id)->where('language_id', 1);
+      $_CHILDREN          = Node::getUniversal(false, $class_id)->where('parent_id', $_NODE->id)->where('language_id', Languages::where('is_default', true)->first()->id);
       if($_CLASS->order_by)
       {
         $order_by_parts = explode(' ', $_CLASS->order_by);
