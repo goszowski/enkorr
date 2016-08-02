@@ -4,7 +4,11 @@
     @if($bk < count($breadcrumb)-1)
       <li><a href="{{route('admin.nodes.edit', $bitem)}}" class="text-xs text-dark">@if(!$bk)<i class="fa fa-home"></i>@endif {{\App\Runsite\Libraries\Locale::getDefByNode($bitem)->name}}</a></li>
     @else
-      <li class="active text-xs">{{\App\Runsite\Libraries\Locale::getDefByNode($bitem)->name}} [id {{$bitem}}]</li>
+      <li class="active text-xs">{{\App\Runsite\Libraries\Locale::getDefByNode($bitem)->name}}
+        @if(! \Auth::user()->is_limited)
+          [id {{$bitem}}]
+        @endif
+      </li>
     @endif
   @endforeach
 </ol>
