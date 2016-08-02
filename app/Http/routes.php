@@ -140,6 +140,9 @@ Route::get('/_debugbar/assets/javascript', [
       // FILEMANAGER
       Route::get('filemanager', ['as'=>'filemanager', 'uses'=>'FilemanagerController@index']);
 
+      // AUTOCOMPETE
+      Route::get('autocomplete', ['as'=>'admin.autocomplete', 'uses'=>'NodesController@getAutocompleteResults']);
+
     });
 
   });

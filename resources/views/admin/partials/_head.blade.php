@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{asset('admin/magnific-popup/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/runsite-input-progress/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.css')}}">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="{{asset('admin/bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
@@ -37,6 +38,7 @@
     <script src="{{asset('admin/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
     <script src="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.js')}}"></script>
     <script src="{{asset('admin/runsite-input-progress/script.js')}}"></script>
+    <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.js')}}"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
@@ -83,6 +85,27 @@
               enabled: true
             }
           });
+        });
+
+        $('.select2-autocomplete').each(function() {
+          var current = $(this);
+          var linked_class = current.data('linked-class');
+          var parent_id = current.data('parent-id');
+
+          current.select2({
+            ajax: {
+              url: "{{route('admin.autocomplete')}}?linked_class="+linked_class+"&parent_id="+parent_id,
+              dataType: 'json',
+              cache: true,
+              data: function (term, page) {
+                return {
+                  q: term
+                }
+              }
+            }
+          });
+
+
         });
       });
     </script>
