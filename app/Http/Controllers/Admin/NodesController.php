@@ -587,6 +587,10 @@ class NodesController extends Controller {
     ]);
   }
 
+  public function uploadImage() {
+    
+  }
+
 
 
 
