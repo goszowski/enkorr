@@ -63,7 +63,6 @@
     <link rel="stylesheet" href="{{asset('admin/flag-icon-css-master/css/flag-icon.css')}}">
 
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('admin/dropzone.js')}}"></script>
     <script src="{{asset('admin/app.js')}}"></script>
 
     <script type="text/javascript">
@@ -108,11 +107,6 @@
 
 
         });
-
-        // $('.image-dropzone').each(function() {
-        //   var _url = $(this).data('url');
-        //   $(this).dropzone({ url: _url, uploadMultiple: false });
-        // });
       });
     </script>
   </head>
