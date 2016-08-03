@@ -4,7 +4,7 @@
       <div class="dz-message needsclick" tabindex="-1">Перетягніть файл, або натисніть, щоб вибрати з комп'ютера</div>
     </div>
 
-    <input type="file" id="file{{$field_lang}}{{$field_name}}" onchange="$('#{{$field_name}}_file_canged').removeClass('hidden')" name="langs[{{$field_lang}}][{{$field_name}}]" style="position: absolute; visibility: visible; opacity: 0; cursor: pointer; top: 0; left: 0; width: 100%; height: 100%;">
+    <input accept=".jpg,.jpeg,.png,.gif" type="file" id="file{{$field_lang}}{{$field_name}}" onchange="$('#{{$field_name}}_file_canged').removeClass('hidden')" name="langs[{{$field_lang}}][{{$field_name}}]" style="position: absolute; visibility: visible; opacity: 0; cursor: pointer; top: 0; left: 0; width: 100%; height: 100%;">
   </div>
   <div class="col-xs-12 col-md-10 col-lg-9 magnific-wrapper">
     @if($field_value)
