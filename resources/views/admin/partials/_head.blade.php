@@ -39,6 +39,7 @@
     <script src="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.js')}}"></script>
     <script src="{{asset('admin/runsite-input-progress/script.js')}}"></script>
     <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.js')}}"></script>
+    <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.js')}}"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
@@ -107,6 +108,8 @@
 
 
         });
+
+        
       });
     </script>
   </head>

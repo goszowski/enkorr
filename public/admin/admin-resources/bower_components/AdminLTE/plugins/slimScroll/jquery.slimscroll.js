@@ -18,7 +18,7 @@
         // width in pixels of the scrollbar and rail
         size: '7px',
         // scrollbar color, accepts any hex/color value
-        color: '#000',
+        color: '#7b8087',
         // scrollbar position - left/right
         position: 'right',
         // distance in pixels between the side edge and the scrollbar
@@ -26,7 +26,7 @@
         // default scroll position on load - top / bottom / $('selector')
         start: 'top',
         // sets scrollbar opacity
-        opacity: .4,
+        opacity: 1,
         // enables always-on mode for the scrollbar
         alwaysVisible: false,
         // check if we should hide the scrollbar when user is hovering over
@@ -52,9 +52,9 @@
         // scroll amount applied when user is using gestures
         touchScrollStep: 200,
         // sets border radius
-        borderRadius: '7px',
+        borderRadius: '0px',
         // sets border radius of the rail
-        railBorderRadius: '7px'
+        railBorderRadius: '0px'
       };
 
       var o = $.extend(defaults, options);
@@ -245,7 +245,7 @@
           hideBar();
         });
 
-        if (window.navigator.msPointerEnabled) {          
+        if (window.navigator.msPointerEnabled) {
           // support for mobile
           me.bind('MSPointerDown', function (e, b) {
             if (e.originalEvent.targetTouches.length)
@@ -265,7 +265,7 @@
               // scroll content
               scrollContent(diff, true);
               touchDif = e.originalEvent.targetTouches[0].pageY;
-              
+
             }
           });
         } else {

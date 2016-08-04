@@ -113,7 +113,7 @@
 
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar slim-scroll">
+      <section class="sidebar slim-scroll xs-pb-50">
         <div class="xs-p-10">
 
 
@@ -129,6 +129,8 @@
             </div>
 
             <div id="admin-nodes-tree" class="m-t-md"></div>
+
+
 
           <script type="text/javascript">
             $(function(){
