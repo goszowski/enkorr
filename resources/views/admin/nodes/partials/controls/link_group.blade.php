@@ -29,4 +29,6 @@ $elements = explode(',', $field_value);
     @endif
   </div>
 </div>
+@else
+<input type="hidden" name="langs[{{$field_lang}}][{{$field_name}}]" value="">
 @endif

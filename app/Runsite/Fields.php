@@ -2,6 +2,9 @@
 
 namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
+use App\Runsite\FieldMiddlewares\ImageField;
+use App\Runsite\FieldMiddlewares\LinkGroupField;
+use App\Runsite\FieldMiddlewares\ImagesMultipleField;
 
 class Fields extends Model
 {
@@ -88,5 +91,36 @@ class Fields extends Model
       $this->hint                 = $request->input('hint');
 
       return $this;
+    }
+
+    public static function getFieldParameter($settings, $need) {
+      foreach($settings as $key=>$value) {
+        if($value->_parameter == $need) {
+          return $value->_value;
+          break;
+        }
+      }
+    }
+
+    public static function middleware($currentField, $value) {
+      $type = $currentField->type;
+      $settings = $currentField->settings;
+      switch ($type->input_controller) {
+        case 'image':
+          return ImageField::runMiddleware($currentField, $value, $type, $settings);
+          break;
+
+        case 'link_group':
+          return LinkGroupField::runMiddleware($currentField, $value, $type, $settings);
+          break;
+
+        case 'images_multiple':
+          return ImagesMultipleField::runMiddleware($currentField, $value, $type, $settings);
+          break;
+
+        default:
+          # code...
+          break;
+      }
     }
 }

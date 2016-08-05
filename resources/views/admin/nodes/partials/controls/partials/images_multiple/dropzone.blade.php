@@ -4,13 +4,14 @@
       <div class="dz-message needsclick" tabindex="-1">{{trans('admin/nodes.Перетягніть файл, або натисніть, щоб вибрати з компютера')}}</div>
     </div>
 
-    <input accept=".jpg,.jpeg,.png,.gif" type="file" id="file{{$field_lang}}{{$field_name}}" onchange="$('#{{$field_name}}_file_canged').removeClass('hidden')" name="langs[{{$field_lang}}][{{$field_name}}]" style="position: absolute; visibility: visible; opacity: 0; cursor: pointer; top: 0; left: 0; width: 100%; height: 100%;">
+    <input multiple accept=".jpg,.jpeg,.png,.gif" type="file" id="file{{$field_lang}}{{$field_name}}" onchange="$('#{{$field_name}}_file_canged').removeClass('hidden')" name="langs[{{$field_lang}}][{{$field_name}}][]" style="position: absolute; visibility: visible; opacity: 0; cursor: pointer; top: 0; left: 0; width: 100%; height: 100%;">
   </div>
   <div class="col-xs-12 col-md-10 col-lg-9 magnific-wrapper">
     @if($field_value)
-      <a href="{{asset('imglib/full/'.$field_value)}}" target="_blank" class="img-thumbnail magnific">
+      @foreach(explode(',', $field_value) as $iamge_item)
+      <a href="{{asset('imglib/full/'.$iamge_item)}}" target="_blank" class="img-thumbnail magnific">
         <div style="max-height: 170px; overflow: hidden;">
-          <img src="{{asset('imglib/thumb/'.$field_value)}}" class="img-responsive">
+          <img src="{{asset('imglib/thumb/'.$iamge_item)}}" class="img-responsive">
         </div>
       </a>
       <div class="">
@@ -21,6 +22,7 @@
           Видалити
         </label>
       </div>
+      @endforeach
     @endif
     <div class="text-success hidden" id="{{$field_name}}_file_canged">
       <small><b>Файл вибрано. <br>Необхідно зберегти зміни</b></small>

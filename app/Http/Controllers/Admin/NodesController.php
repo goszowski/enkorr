@@ -19,10 +19,26 @@ use Image;
 use Excel;
 use App\Runsite\Libraries\Node;
 use Session;
+use App\Runsite\Image as RunsiteImage;
+use DB;
 
 class NodesController extends Controller {
 
   protected $pagination_limit = 20;
+  protected $ignoredKeys = [
+    'image_remove',
+  ];
+
+  protected $middlewareOperations = [
+    'image',
+    'link_group',
+    'images_multiple',
+  ];
+
+  protected $ignoreEmpty = [
+    'image',
+    'images_multiple',
+  ];
 
 
   protected function dependenciesAddRules($node_id) {
@@ -179,8 +195,163 @@ class NodesController extends Controller {
 
   }
 
+  public function update($request=false, $node_id=false, $parent_id=false) {
+    // $langs = Languages::where('is_active', true)->get(); # отримаємо усі мови сайту TODO: не знаю чи це потрібно. Треба потестити і видалити якшо не треба.
+    $default_lang = Languages::where('is_default', true)->first();
 
-  public function update($values = false, $node_id = false, $parent_id = false) {
+    if(! $request) { # оприділяємося зі значеннями $values
+      $request = Request::all(); # якшо нема $values то пробуємо отримати їх з реквесту
+    }
+
+    # оприділяємося з нодами - якшо нема в значеннях то вони мають бути в аргументах
+    if(! isset($request['node_id']) and $node_id)         $request['node_id']      = $node_id;
+    if(! isset($request['parent_id']) and $parent_id)     $request['parent_id']    = $parent_id;
+    # оприділилися
+
+    $node       = Nodes::find($request['node_id']); # загружаємо ноду
+    $class      = Classes::find($node->class_id); # загружаємо клас
+    $fields     = Fields::where('class_id', $node->class_id)->get(); # загружаємо поля
+
+    foreach($request['langs'] as $lang_id=>$values) { # передибаємо мови
+      $langData = []; # тимчасова змінна для оновлення бази даних
+      foreach($values as $key=>$value) { # перебираємо ключі - значення
+
+        # TODO: передопрацювання різних типів полей
+        $currentField = $this->getField($fields, $key);
+        if($currentField and in_array($currentField->type->input_controller, $this->middlewareOperations)) {
+          $value = Fields::middleware($currentField, $value);
+          // $value = $this->{'process'.$currentField->type->name}($currentField, $value);
+        }
+
+
+        if(! in_array($key, $this->ignoredKeys)) { # якшо ключа немає в масиві ігнорованих..
+          if($value) {
+            $langData[$key] = $value;
+          }
+          elseif(! in_array($currentField->type->input_controller, $this->ignoreEmpty)) { # якшо поле не є в списку ігнорованих, при пустоті
+            $langData[$key] = $value;
+          }
+          elseif(isset($request['clear'][$lang_id][$key]) and $request['clear'][$lang_id][$key]) { # якшо відправлено запит на очищення поля
+            $langData[$key] = null;
+          }
+
+          if(isset($langData[$key]) and $lang_id == $default_lang->id) {
+            $request['langs'][$default_lang->id][$key] = $langData[$key];
+          }
+
+          if($currentField and $currentField->ignore_language and $lang_id != $default_lang->id) { # якшо поле ігнорується мовами то ...
+            if(isset($request['clear'][$default_lang->id][$key]) and $request['clear'][$default_lang->id][$key]) { # якшо відправлено запит на очищення поля
+                $langData[$key] = null;
+            }
+            elseif(isset($request['langs'][$default_lang->id][$key])) {
+              $langData[$key] = $request['langs'][$default_lang->id][$key]; # ... то заповнюємо його таким же значенням як в основної мови
+            }
+          }
+        }
+
+
+      } # -- кінець перебирання ключів-значень --
+
+      # оновлення бази даних
+      # спочатку перевіримо чи є рекорд мови в таблиці і якшо нема то створимо
+      if(! Node::getUniversal($class->shortname)->where('language_id', $lang_id)->where('node_id', $node->id)->count()) {
+        # потрібно в тому випадку, коли додали нову мову і треба створити новий рекорд в таблиці.
+        # відповідно його треба заповнити системною інформацією, яка дублюється. От звідси і візьметься ця інформація.
+        $nodeData   = Node::getUniversal($class->shortname)
+                        ->where('language_id', $default_lang->id)
+                        ->where('node_id', $node->id)
+                        ->first();
+
+        # створюємо рекорд
+        DB::table('_class_'.$class->shortname)->insert([
+          'node_id' => $nodeData->node_id,
+          'parent_id' => $nodeData->parent_id,
+          'orderby' => $nodeData->orderby,
+          'language_id' => $lang_id,
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+      }
+
+      Node::getUniversal($class->shortname)
+        ->where('language_id', $lang_id)
+        ->where('node_id', $node->id)
+        ->update($langData);
+      # -- кінець оновлення бази даних --
+
+      unset($langData); # видалення тимчасової змінної
+    } # -- кінець перебирання мов --
+
+    Session::flash('success', 'saved');
+    Session::flash('active_group', $request['active_group_id']);
+    Session::flash('active_lang', $request['active_lang_id']);
+
+    switch ($request['do_after']) {
+      case 'stay':
+        return redirect()->route('admin.nodes.edit', $request['node_id']);
+        break;
+
+      case 'go_up':
+        if($node->parent_id)
+          return redirect()->route('admin.nodes.edit', $node->parent_id);
+        else
+          return redirect()->route('admin.nodes.edit', $request['node_id']);
+        break;
+
+      default:
+        return redirect()->route('admin.nodes.edit', $request['node_id']);
+        break;
+    }
+
+
+
+  }
+
+
+
+
+
+  // protected function processImage($currentField, $value) {
+  //   if($value) {
+  //     $defSizes = explode('/', $this->getFieldParameter($currentField->settings, 'image_sizes'));
+  //     if(! is_array($value)) {
+  //       $filename = str_slug(time().'-'.str_random(5).'-'.mt_rand(100, 999)).'.png';
+  //       foreach($defSizes as $k=>$size) {
+  //         $targetFolder = $size.'px';
+  //         if(! $k) $targetFolder = 'full';
+  //         if(++$k == count($defSizes)) $targetFolder = 'thumb';
+  //         RunsiteImage::createFrom($value, $filename, $size, $targetFolder);
+  //       }
+  //
+  //       return $filename;
+  //     }
+  //   }
+  //   else {
+  //     return null;
+  //   }
+  //
+  // }
+  //
+  protected function getField($fields, $key) {
+    foreach($fields as $field) {
+      if($field->shortname == $key) {
+        return $field;
+        break;
+      }
+    }
+  }
+  //
+  // protected function getFieldParameter($settings, $need) {
+  //   foreach($settings as $key=>$value) {
+  //     if($value->_parameter == $need) {
+  //       return $value->_value;
+  //       break;
+  //     }
+  //   }
+  // }
+
+
+  public function _update($values = false, $node_id = false, $parent_id = false) {
     $_LNG = new Languages;
     if(!$values) $values = Request::all();
     if(!isset($values['node_id']) and $node_id) $values['node_id'] = $node_id;
@@ -207,6 +378,16 @@ class NodesController extends Controller {
           }
           else {
             $imageFile = Request::file('langs.'.$language->id.'.'.$field->shortname);
+
+            if(is_array($imageFile)) {
+              // якшо передано масив
+              ;
+            }
+            else {
+              // якшо передано файл
+              ;
+            }
+
             if($imageFile != NULL and $imageFile->isValid()) {
               // зображення передано і валідне
               $filename = str_slug(time().'-'.str_random(25)).'.png';
@@ -229,7 +410,6 @@ class NodesController extends Controller {
                     $targetHeight = $targetWidth / $ratio;
                 }
 
-                $new_height =
                 $background = Image::canvas($targetWidth, $targetHeight);
                 $img = Image::make($imageFile->getRealPath());
                 $img->resize($targetWidth, $targetHeight, function($constraint) {
@@ -587,9 +767,7 @@ class NodesController extends Controller {
     ]);
   }
 
-  public function uploadImage() {
-    
-  }
+
 
 
 
