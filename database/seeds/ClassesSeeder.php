@@ -452,6 +452,7 @@ class ClassesSeeder extends Seeder
 
               $table->dateTime('created_at');
               $table->dateTime('updated_at');
+              $table->softDeletes();
             }
 
 

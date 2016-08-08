@@ -4,10 +4,11 @@ namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
 use App\Runsite\Libraries\Node;
 use App\Runsite\Classes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Nodes extends Model
 {
-
+    use SoftDeletes;
     /**
      * The database table used by the model.
      *
@@ -30,6 +31,8 @@ class Nodes extends Model
       'can_export_children',
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -50,7 +53,7 @@ class Nodes extends Model
     public function data() {
       $node_class = Classes::find($this->class_id);
       //dd($node_class->shortname);
-      return Node::getU($node_class->shortname)->where('node_id', $this->id)->first();
+      return Node::getU($node_class->shortname)->withTrashed()->where('node_id', $this->id)->first();
     }
 
 

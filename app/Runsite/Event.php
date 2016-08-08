@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-
     /**
      * The database table used by the model.
      *
@@ -22,7 +21,7 @@ class Event extends Model
 
 
     public function user() {
-      return $this->belongsTo('App\Runsite\User');
+      return $this->belongsTo('App\Runsite\User')->withTrashed();
     }
 
     public function type() {
@@ -30,7 +29,7 @@ class Event extends Model
     }
 
     public function node() {
-      return $this->belongsTo('App\Runsite\Nodes', 'node_id');
+      return $this->belongsTo('App\Runsite\Nodes', 'node_id')->withTrashed();
     }
 
 }

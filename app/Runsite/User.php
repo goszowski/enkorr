@@ -3,9 +3,12 @@
 namespace App\Runsite;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
+    use SoftDeletes;
+
     public $fillable = [
         'name', 'email', 'password',
     ];
@@ -17,6 +20,8 @@ class User extends Authenticatable
     public $timestamps = true;
 
     public $table = 'users';
+
+    protected $dates = ['deleted_at'];
 
     public function roles()
     {

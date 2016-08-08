@@ -144,6 +144,7 @@ Route::get('/_debugbar/assets/javascript', [
       Route::get('filemanager', ['as'=>'filemanager', 'uses'=>'FilemanagerController@index']);
       Route::group(['prefix' => 'events'], function(){
         Route::get('list', ['as'=>'events.list', 'uses'=>'EventsController@index']);
+        Route::get('user/{id}', ['as'=>'events.user', 'uses'=>'EventsController@user']);
         Route::get('view/{id}', ['as'=>'events.view', 'uses'=>'EventsController@view']);
       });
 

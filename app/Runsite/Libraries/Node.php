@@ -212,6 +212,17 @@ class Node {
     return $universalModel;
   }
 
+  public static function getLastOrder($class_name) {
+    $universalModel = new Universal('_class_'.$class_name);
+    $last_orderby = $universalModel->orderBy('orderby', 'desc')->first();
+    if(count($last_orderby)) {
+      return $last_orderby->orderby;
+    }
+    else {
+      return 0;
+    }
+  }
+
 
 
 }

@@ -13,17 +13,19 @@ class Locale
 
     if($node_id) {
       $_NODE = Nodes::find($node_id);
-      if(! $_NODE) die('error: node not exists');
-      $_CLASS = Classes::find($_NODE->class_id);
-      $_FIELDS = Fields::where('class_id', $_CLASS->id)->get();
-      $_LANGUAGE = new Languages;
+      if($_NODE) {
+        $_CLASS = Classes::find($_NODE->class_id);
+        $_FIELDS = Fields::where('class_id', $_CLASS->id)->get();
+        $_LANGUAGE = new Languages;
 
-      $_DATA = new Data;
-      $_DATA->init($_CLASS->prefix . $_CLASS->shortname, $_FIELDS);
+        $_DATA = new Data;
+        $_DATA->init($_CLASS->prefix . $_CLASS->shortname, $_FIELDS);
 
-      $_VALUES = $_DATA->where('node_id', $_NODE->id)->where('language_id', $_LANGUAGE->getDefaultId())->first();
+        $_VALUES = $_DATA->where('node_id', $_NODE->id)->where('language_id', $_LANGUAGE->getDefaultId())->first();
 
-      return $_VALUES;
+        return $_VALUES;
+      }
+      return null;
     }
 
   }

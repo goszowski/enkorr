@@ -2,9 +2,11 @@
 
 namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Data extends Model
 {
+  use SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -19,6 +21,8 @@ class Data extends Model
      * @var array
      */
     protected $fillable = [];
+
+    protected $dates = ['deleted_at'];
 
     public function init($table, $fillable) {
       $this->table = $table;

@@ -197,7 +197,7 @@ class NodesController extends Controller {
 
   }
 
-  public function update($request=false, $node_id=false, $parent_id=false) {
+  public function update($request=false, $node_id=false, $parent_id=false, $is_creating=false) {
     // $langs = Languages::where('is_active', true)->get(); # отримаємо усі мови сайту TODO: не знаю чи це потрібно. Треба потестити і видалити якшо не треба.
     $default_lang = Languages::where('is_default', true)->first();
 
@@ -266,13 +266,14 @@ class NodesController extends Controller {
 
         # створюємо рекорд
         DB::table('_class_'.$class->shortname)->insert([
-          'node_id' => $nodeData->node_id,
-          'parent_id' => $nodeData->parent_id,
-          'orderby' => $nodeData->orderby,
+          'node_id' => $node->id,
+          'parent_id' => $node->parent_id,
+          'orderby' => ($nodeData) ? $nodeData->orderby : (Node::getLastOrder($class->shortname) + 1),
           'language_id' => $lang_id,
           'created_at' => date('Y-m-d H:i:s'),
           'updated_at' => date('Y-m-d H:i:s'),
         ]);
+
       }
 
       Node::getUniversal($class->shortname)
@@ -287,7 +288,7 @@ class NodesController extends Controller {
     # записуємо в журнал
     Event::create([
       'user_id' => Auth::user()->id,
-      'event_type_id' => 2,
+      'event_type_id' => $is_creating ? 1 : 2,
       'node_id' => $node->id,
     ]);
 
@@ -551,7 +552,9 @@ class NodesController extends Controller {
     $values = Request::all();
     //$values['node_id'] = $newNode->id;
 
-    $this->update($values, $newNode->id, Request::input('parent_id'));
+    $this->update($values, $newNode->id, Request::input('parent_id'), true);
+
+
 
     // dd(Request::input('go_up'));
     switch (Request::input('do_after')) {
@@ -645,6 +648,13 @@ class NodesController extends Controller {
     $data->init($classes->prefix.$class->shortname, []);
     $data->where('node_id', $id)->delete();
     $node->delete();
+
+    # записуємо в журнал
+    Event::create([
+      'user_id' => Auth::user()->id,
+      'event_type_id' => 3,
+      'node_id' => $node->id,
+    ]);
 
     return \Redirect::route('admin.nodes.edit', $node->parent_id);
   }
