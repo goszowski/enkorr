@@ -142,6 +142,10 @@ Route::get('/_debugbar/assets/javascript', [
 
       // FILEMANAGER
       Route::get('filemanager', ['as'=>'filemanager', 'uses'=>'FilemanagerController@index']);
+      Route::group(['prefix' => 'events'], function(){
+        Route::get('list', ['as'=>'events.list', 'uses'=>'EventsController@index']);
+        Route::get('view/{id}', ['as'=>'events.view', 'uses'=>'EventsController@view']);
+      });
 
       // AUTOCOMPETE
       Route::get('autocomplete', ['as'=>'admin.autocomplete', 'uses'=>'NodesController@getAutocompleteResults']);

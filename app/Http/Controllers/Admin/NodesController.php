@@ -21,6 +21,8 @@ use App\Runsite\Libraries\Node;
 use Session;
 use App\Runsite\Image as RunsiteImage;
 use DB;
+use App\Runsite\Event;
+use Auth;
 
 class NodesController extends Controller {
 
@@ -281,6 +283,14 @@ class NodesController extends Controller {
 
       unset($langData); # видалення тимчасової змінної
     } # -- кінець перебирання мов --
+
+    # записуємо в журнал
+    Event::create([
+      'user_id' => Auth::user()->id,
+      'event_type_id' => 2,
+      'node_id' => $node->id,
+    ]);
+
 
     Session::flash('success', 'saved');
     Session::flash('active_group', $request['active_group_id']);

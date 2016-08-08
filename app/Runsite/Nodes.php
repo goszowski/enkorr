@@ -2,6 +2,8 @@
 
 namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
+use App\Runsite\Libraries\Node;
+use App\Runsite\Classes;
 
 class Nodes extends Model
 {
@@ -43,6 +45,12 @@ class Nodes extends Model
 
     public function children() {
       return $this->hasMany('App\Runsite\Nodes', 'parent_id', 'id');
+    }
+
+    public function data() {
+      $node_class = Classes::find($this->class_id);
+      //dd($node_class->shortname);
+      return Node::getU($node_class->shortname)->where('node_id', $this->id)->first();
     }
 
 

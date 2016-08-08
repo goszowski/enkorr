@@ -14487,8 +14487,10 @@ position:relative;
 top:10px;
 display:block;
 float:left;
-width:4.5em;
-margin-left:-7.5em;
+/*width:4.5em;
+margin-left:-7.5em;*/
+width: 10.5em;
+margin-left: -13.5em;
 text-align:right
 }
 .tl-content
