@@ -18,7 +18,7 @@
     <hr>
     @if(isset($pages))
       @foreach($pages as $page)
-        <a href="{{PH::lPath($page->node->absolute_path)}}">{{$page->name}}</a>
+        <a href="{{PH::lPath($page->node->absolute_path)}}">{{$page->name}} - @if($page->relationTo('section', 'aaw')) {{$page->relationTo('section', 'aaw')->name}} @endif</a>
       @endforeach
     @else
       <div class="alert alert-danger">
