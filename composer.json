@@ -19,7 +19,8 @@
         "tecnick.com/tcpdf": "~6.0.0",
         "fadion/maneuver": "dev-l5",
         "snowfire/beautymail": "dev-master",
-        "barryvdh/laravel-elfinder": "^0.3.7"
+        "barryvdh/laravel-elfinder": "^0.3.7",
+        "tsawler/laravel-filemanager": "^0.6.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

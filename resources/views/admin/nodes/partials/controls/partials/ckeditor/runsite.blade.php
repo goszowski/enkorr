@@ -17,6 +17,8 @@
       extraPlugins: 'imageuploader',
       skin: 'office2013',
       toolbar: 'runsite',
+      filebrowserImageBrowseUrl: '/panel-admin/laravel-filemanager?type=Images',
+            filebrowserBrowseUrl: '/panel-admin/laravel-filemanager?type=Files',
 
       @if(\App\Runsite\Field_settings::pull($settings, 'require_css_file'))
       contentsCss: '{{asset(\App\Runsite\Field_settings::pull($settings, 'require_css_file'))}}',
