@@ -3,6 +3,8 @@
 namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Runsite\Libraries\Node;
+use App\Runsite\Libraries\PH;
 
 class Universal extends Model
 {
@@ -32,6 +34,18 @@ class Universal extends Model
 
     public function node() {
       return $this->belongsTo('App\Runsite\Nodes');
+    }
+
+    public function relationTo($class_name, $field_name) {
+      if($remember = PH::getGlobal('universalRelation' . $this->node_id . $this->{$field_name}) and $remember) {
+        return $remember;
+
+      }
+      else {
+        $remember = Node::getU($class_name)->where('node_id', $this->{$field_name})->first();
+        PH::setGlobal('universalRelation' . $this->node_id . $this->{$field_name}, $remember);
+      }
+      return $remember;
     }
 
 
