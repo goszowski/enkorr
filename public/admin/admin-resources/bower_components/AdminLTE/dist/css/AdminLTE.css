@@ -3235,10 +3235,11 @@ table.text-center th {
 }
 .login-page,
 .register-page {
-  background: #d2d6de url(../../../../images/9817357d0103908d671eea3bb10b0f07.jpg);
+  background: #d2d6de url(../../../../../login-backgrounds/main.jpg);
   position: relative;
   height: 100vh;
   background-size: cover;
+  background-position: center bottom;
 }
 .login-page:before,
 .register-page:before {
