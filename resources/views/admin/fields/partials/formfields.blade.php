@@ -2,8 +2,8 @@
 <div class="form-group  @if($errors->has('type_id')) has-warning @endif">
   <label for="field_type_id" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.field_type')}}</div></label>
   <div class="col-md-10">
-    <select class="form-control" name="type_id" id="field_type_id">
-      <option value="">-- {{trans('admin/fields.select_type')}} --</option>
+    <select class="selectpicker" data-live-search="true" name="type_id" id="field_type_id">
+      {{-- <option value="">-- {{trans('admin/fields.select_type')}} --</option> --}}
       @if(count($field_types))
         @foreach($field_types as $type_item)
           <option value="{{$type_item->id}}" @if(isset($field) and $type_item->id == $field->type_id) selected @endif>{{$type_item->name}}</option>
@@ -17,7 +17,7 @@
 <div class="form-group  @if($errors->has('group_id')) has-warning @endif">
   <label for="field_group_id" class="col-md-2 control-label"><div class="text-left">{{trans('admin/fields.group')}}</div></label>
   <div class="col-md-10">
-    <select class="form-control" name="group_id" id="field_group_id">
+    <select class="selectpicker" data-live-search="true" name="group_id" id="field_group_id">
       <option value="">-- {{trans('admin/fields.select_group')}} --</option>
       @if(count($groups))
         @foreach($groups as $group_item)
