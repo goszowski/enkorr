@@ -585,7 +585,7 @@ class NodesController extends Controller {
     $node = Nodes::find($id) or abort(404);
 
     $submitted = $dependencies->with('classes')->where('node_id', $node->id)->get();
-    $available = $classes->whereNotIn('id', $submitted->lists('subclass_id'))->get();
+    $available = $classes->whereNotIn('id', $submitted->lists('subclass_id'))->orderBy('id', 'desc')->get();
 
     return view('admin.nodes.dependencies')
             ->withNode($node)
