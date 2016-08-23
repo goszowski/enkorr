@@ -202,7 +202,6 @@ class Node {
   }
 
   public static function getU($class_name=false, $class_id=false) {
-    echo 'run ';
     $universalModel = false;
     if(!$class_name and $class_id) {
       $class = Classes::find($class_id);
