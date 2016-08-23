@@ -11,5 +11,11 @@
       </li>
     @endif
   @endforeach
+
+  @if(! \Auth::user()->is_limited)
+    <li>
+      <a href="{{route('admin.classes.edit', $node->class_id)}}" class="label bg-success">{{$node->_class->name}} : {{$node->_class->shortname}}</a>
+    </li>
+  @endif
 </ol>
 @endif
