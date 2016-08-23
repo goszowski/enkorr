@@ -9,7 +9,7 @@
         @else
           jstree-leaf
         @endif">
-      <a href="{{route('admin.nodes.edit', $item->node_id)}}">{{$item->name}}</a>
+      <a href="{{route('admin.nodes.edit', $item->node_id)}}">@if($item->name){{$item->name}}@else{{$item->node->_class->name}} #{{$item->node_id}}@endif</a>
       @if(isset($item->children) and count($item->children))
         @include('admin.tree', ['items'=>$item->children, 'classesToShow'=>$classesToShow, 'parent'=>$item->node_id])
       @endif
