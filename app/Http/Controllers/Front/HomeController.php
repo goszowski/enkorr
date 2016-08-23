@@ -14,9 +14,6 @@ class HomeController extends RunsiteController
 
     public function index()
     {
-      $pages = Node::getU('referat')->get();
-      return $this->make_view('pages.home', [
-        'pages' => $pages,
-      ]);
+      return $this->make_view('pages.welcome');
     }
 }
