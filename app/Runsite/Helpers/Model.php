@@ -1,14 +1,13 @@
 <?php
 use App\Runsite\Libraries\Node;
+use App\Runsite\Libraries\PH;
 
-function Model($name, $defaultConditions=true)
+function Model($name)
 {
-  if($defaultConditions)
-  {
-    return Node::getU($name);
-  }
-  else
-  {
-    return Node::getUniversal($name);
-  }
+  return Node::getU($name);
+}
+
+function ModelWithoutConditions($name)
+{
+  return Node::getUniversal($name);
 }

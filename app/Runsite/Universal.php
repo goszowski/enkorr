@@ -41,17 +41,61 @@ class Universal extends Model
       if(!$field_name)
         $field_name = $class_name . '_id';
 
-      if($remember = PH::getGlobal('universalRelation' . $this->node_id . $this->{$field_name}) and $remember) {
-        return $remember;
+      // if($remember = PH::getGlobal('universalRelation' . $this->node_id . $this->{$field_name}) and count($remember)) {
+      //   return $remember;
+      //
+      // }
+      // else {
+      //   $remember = Node::getU($class_name)->where('node_id', $this->{$field_name})->first();
+      //   PH::setGlobal('universalRelation' . $this->node_id . $this->{$field_name}, $remember);
+      // }
 
-      }
-      else {
+      $remember = PH::getGlobal('universalRelation' . $this->node_id . $this->{$field_name});
+      if(!$remember)
+      {
         $remember = Node::getU($class_name)->where('node_id', $this->{$field_name})->first();
         PH::setGlobal('universalRelation' . $this->node_id . $this->{$field_name}, $remember);
       }
 
       $this->{$class_name} = $remember;
       return $this->{$class_name};
+    }
+
+    public function hasMore($class_name, $field_name=false)
+    {
+      if(!$field_name)
+        $field_name = str_plural($class_name);
+
+
+      if(empty($this->{$field_name}))
+        return false;
+
+      $ids = explode(',', $this->{$field_name});
+
+      // if($remember = PH::getGlobal('universalRelationToMany' . $this->node_id . $this->{$field_name}) and $remember) {
+      //   return $remember;
+      //
+      // }
+      // else {
+      //   $remember = Node::getU($class_name)->whereIn('node_id', $ids)->get();
+      //   PH::setGlobal('universalRelationToMany' . $this->node_id . $this->{$field_name}, $remember);
+      // }
+      $remember = PH::getGlobal('universalRelationToMany' . $this->node_id . $this->{$field_name});
+      if(!$remember)
+      {
+        $remember = Node::getU($class_name)->whereIn('node_id', $ids)->get();
+      }
+
+      // if(!count($remember))return false;
+
+      $this->{$field_name} = $remember;
+      return $this->{$field_name};
+
+    }
+
+    public function has($class_name, $field_name=false)
+    {
+      return $this->relationTo($class_name, $field_name);
     }
 
 
