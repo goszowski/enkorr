@@ -36,7 +36,11 @@ class Universal extends Model
       return $this->belongsTo('App\Runsite\Nodes');
     }
 
-    public function relationTo($class_name, $field_name) {
+    public function relationTo($class_name, $field_name=false) {
+
+      if(!$field_name)
+        $field_name = $class_name . '_id';
+
       if($remember = PH::getGlobal('universalRelation' . $this->node_id . $this->{$field_name}) and $remember) {
         return $remember;
 
@@ -45,7 +49,9 @@ class Universal extends Model
         $remember = Node::getU($class_name)->where('node_id', $this->{$field_name})->first();
         PH::setGlobal('universalRelation' . $this->node_id . $this->{$field_name}, $remember);
       }
-      return $remember;
+
+      $this->{$class_name} = $remember;
+      return $this->{$class_name};
     }
 
 
