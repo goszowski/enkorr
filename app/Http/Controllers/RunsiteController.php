@@ -17,11 +17,18 @@ class RunsiteController extends Controller {
   public $currentFields;
 
   public function __construct() {
-    $this->currentNode = PH::getGlobal('RunsiteNode') or abort(404); //$GLOBALS['RunsiteNode'];
-    $this->currentClass = Classes::find($this->currentNode->class_id) or abort(404);
-    $this->currentFields = Node::get($this->currentClass->shortname, $this->currentNode->id) or abort(404);
+    // $this->currentNode = PH::getGlobal('RunsiteNode') or abort(404); //$GLOBALS['RunsiteNode'];
+    // $this->currentClass = Classes::find($this->currentNode->class_id) or abort(404);
+    // $this->currentFields = Node::get($this->currentClass->shortname, $this->currentNode->id) or abort(404);
+    //
+    // if(!$this->currentFields->is_active)
+    //   return abort(404);
 
-    if(!$this->currentFields->is_active)
+    $this->currentNode = PH::getGlobal('RunsiteNode') or abort(404);
+    $this->currentClass = Classes::find($this->currentNode->class_id) or abort(404);
+    $this->currentFields = Model($this->currentClass->shortname)->where('node_id', $this->currentNode->id)->first();
+
+    if(!isset($this->currentFields->is_active) or !$this->currentFields->is_active)
       return abort(404);
   }
 
@@ -38,6 +45,9 @@ class RunsiteController extends Controller {
     $p = [
       'currentNode'     => $this->currentNode,
       'currentFields'   => $this->currentFields,
+      'node'     => $this->currentNode,
+      'fields'   => $this->currentFields,
+      'class'    => $this->currentClass,
     ];
 
     if($params) {
