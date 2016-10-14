@@ -26,7 +26,7 @@ use Auth;
 
 class NodesController extends Controller {
 
-  protected $pagination_limit = 20;
+  protected $pagination_limit = 5;
   protected $ignoredKeys = [
     'image_remove',
   ];
@@ -140,6 +140,19 @@ class NodesController extends Controller {
       $_FIELDS_TO_SHOW    = Fields::where('class_id', $_CLASS->id)->where('shown', true)->with('type')->get();
       // $_CHILDREN          = Nodes::where('parent_id', $_NODE->id)->where('class_id', $class_id)->paginate($this->pagination_limit);
       $_CHILDREN          = Node::getUniversal(false, $class_id)->where('parent_id', $_NODE->id)->where('language_id', Languages::where('is_default', true)->first()->id);
+
+      if(Request::get('filter') and Request::get('filter_value') !== false)
+      {
+        if(Request::get('condition') and Request::get('condition') == 'like')
+        {
+          $_CHILDREN = $_CHILDREN->where(Request::get('filter'), 'like', '%'.Request::get('filter_value').'%');
+        }
+        else
+        {
+          $_CHILDREN = $_CHILDREN->where(Request::get('filter'), Request::get('filter_value'));
+        }
+      }
+
       if($_CLASS->order_by)
       {
         $order_by_parts = explode(' ', $_CLASS->order_by);
@@ -175,7 +188,9 @@ class NodesController extends Controller {
             ->withBreadcrumb($breadcrumb)
             ->with('showChildren', $showChildren)
             ->with('all_fields', $all_fields)
-            ->with('children_last_order', $_CHILDREN_LAST_ORDER);
+            ->with('children_last_order', $_CHILDREN_LAST_ORDER)
+            ->with('filter', Request::get('filter'))
+            ->with('filter_value', Request::get('filter_value'));
 
   }
 

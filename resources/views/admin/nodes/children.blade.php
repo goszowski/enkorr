@@ -133,6 +133,19 @@
               @endif
               <th class="text-right">{{trans('admin/nodes.action')}}</th>
             </tr>
+            <tr>
+              @foreach($fields as $field)
+              <th>
+                @if(View::exists('admin.nodes.partials.search.'.$field->type->input_controller))
+                  @include('admin.nodes.partials.search.'.$field->type->input_controller)
+                @endif
+              </th>
+              @endforeach
+              @if(!$class->order_by)
+                <th class="text-center"></th>
+              @endif
+              <th class="text-right"></th>
+            </tr>
           </thead>
           <tbody>
             @foreach($children as $k=>$child)
@@ -177,7 +190,7 @@
 
 <div class="p-md" style="padding-top: 0;">
   @if(count($children))
-    {!! $children->appends(['class' => $children->first()->class_id])->render() !!}
+    {!! $children->appends(['class' => $children->first()->class_id, 'filter_value'=>$filter_value, 'filter'=>$filter])->render() !!}
   @endif
 </div>
 

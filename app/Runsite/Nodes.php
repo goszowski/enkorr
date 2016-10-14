@@ -84,6 +84,25 @@ class Nodes extends Model
       return $this->breadcrumb;
     }
 
+    public static function highlightkeyword($str, $search) {
+        $highlightcolor = "#333";
+        $highlightbackground = "#ebb4c1";
+        $occurrences = substr_count(mb_strtolower($str), mb_strtolower($search));
+        $newstring = $str;
+        $match = array();
+
+        for ($i=0;$i<$occurrences;$i++) {
+            $match[$i] = stripos($str, $search, $i);
+            $match[$i] = substr($str, $match[$i], strlen($search));
+            $newstring = str_replace($match[$i], '[#]'.$match[$i].'[@]', strip_tags($newstring));
+        }
+
+        $newstring = str_replace('[#]', '<b style="background: '.$highlightbackground.'; color: '.$highlightcolor.';">', $newstring);
+        $newstring = str_replace('[@]', '</b>', $newstring);
+        return $newstring;
+
+    }
+
     // public function insert($class_shortname, $parent_id=0, $fields=[], $classesModel, $languagesModel) {
     //   $class = $classesModel->where('shortname', $class_shortname)->first();
     //   if(! $class)
