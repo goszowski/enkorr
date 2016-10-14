@@ -96,6 +96,14 @@
             </label>
           </div>
 
+          <div class="checkbox checkbox-inline" title="{{trans('admin/classes.show_count')}}">
+            <label class="ui-checks">
+              <input type="checkbox" name="show_count" id="show_count" @if(isset($class) and $class->show_count) checked @elseif(!isset($class)) checked @endif>
+              <i></i>
+              {{trans('admin/classes.show_count')}}
+            </label>
+          </div>
+
           {{-- <div class="form-group">
             <div class="col-xs-12">
               <div class="togglebutton" title="{{trans('admin/classes.cache')}}">

@@ -34,6 +34,7 @@ class Classes extends Model
       'show_in_admin_tree',
       'cache',
       'can_export',
+      'show_count',
     ];
 
     /**
@@ -84,6 +85,7 @@ class Classes extends Model
       $this->cache                       = $request->input('cache')                      ? true : false; // checkbox input
       $this->can_export                  = $request->input('can_export');
       $this->order_by                    = $request->input('order_by');
+      $this->show_count                  = $request->input('show_count')                 ? true : false; // checkbox input
 
       return $this;
     }
@@ -101,6 +103,16 @@ class Classes extends Model
         $nodes = $nodes->get();
       }
       return $nodes;
+    }
+
+    public function countFull()
+    {
+      return Nodes::where('class_id', $this->id)->count();
+    }
+
+    public function countByParent($parent_id)
+    {
+      return Nodes::where('class_id', $this->id)->where('parent_id', $parent_id)->count();
     }
 
 }

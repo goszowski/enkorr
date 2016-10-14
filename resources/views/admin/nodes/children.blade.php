@@ -89,13 +89,23 @@
   <ul class="nav nav-sm nav-tabs">
     @foreach($dependencies as $dk=>$dep)
       <li role="presentation" class="@if($dep->subclass_id == $class->id) active @endif">
-        <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">{{$dep->classes->name_more}}</a>
+        <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">
+          {{$dep->classes->name_more}}
+          @if($dep->classes->show_count)
+            <span class="label bg-primary">{{$dep->classes->countByParent($node->id)}}</span>
+          @endif
+        </a>
       </li>
     @endforeach
 
     @foreach($NodeDependencies as $dk=>$dep)
       <li role="presentation" class="@if($dep->subclass_id == $class->id) active @endif">
-        <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">{{$dep->classes->name_more}}</a>
+        <a href="{{route('admin.nodes.edit', [$node->id, 'class'=>$dep->subclass_id])}}">
+          {{$dep->classes->name_more}}
+          @if($dep->classes->show_count)
+            <span class="label bg-primary">{{$dep->classes->countByParent($node->id)}}</span>
+          @endif
+        </a>
       </li>
     @endforeach
 
