@@ -92,12 +92,12 @@
 
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-            {{-- <li class="dropdown notifications-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="label label-warning">12</span></a>
+            <li class="dropdown notifications-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="label label-warning" id="notify-cnt"></span></a>
               <ul class="dropdown-menu">
-                <li class="header">У вас 12 сповіщень</li>
+                <li class="header">У вас <span id="notify-cnt-more">0</span> сповіщень</li>
               </ul>
-            </li> --}}
+            </li>
             <li class="dropdown ">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user"></i> {{\Auth::user()->name}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -124,8 +124,10 @@
                 @foreach($apps as $app)
                 <li><a href="{{route($app->execute)}}" target="app_iframe">{{trans($app->name)}}</a></li>
                 @endforeach
+                <li><a href="{{url('panel-admin/notify')}}" target="app_iframe">Notify</a></li>
               </ul>
               @endif
+
             </div>
 
             <div id="admin-nodes-tree" class="m-t-md"></div>

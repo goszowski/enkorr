@@ -111,6 +111,11 @@
         });
 
 
+        $.get('/panel-admin/notify/last', function(data) {
+          console.log(data);
+        });
+
+
       });
     </script>
   </head>

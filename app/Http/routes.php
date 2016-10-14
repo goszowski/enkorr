@@ -152,6 +152,19 @@ Route::get('/_debugbar/assets/javascript', [
         Route::get('view/{id}', ['as'=>'events.view', 'uses'=>'EventsController@view']);
       });
 
+      // NOTIFY
+      // Route::group(['prefix' => 'notify'], function(){
+      //   Route::get('/',                                             ['as'=>'admin.notify.items',                 'uses'=>'NotifyController@items']);
+      //   Route::get('create',                                        ['as'=>'admin.notify.create',                'uses'=>'NotifyController@create']);
+      //   Route::get('edit/{id}',                                     ['as'=>'admin.notify.edit',                  'uses'=>'NotifyController@edit']);
+      //   Route::post('store',                                        ['as'=>'admin.notify.store',                 'uses'=>'NotifyController@store']);
+      //   Route::post('update',                                       ['as'=>'admin.notify.update',                'uses'=>'NotifyController@update']);
+      //   Route::post('remove',                                       ['as'=>'admin.notify.remove',                'uses'=>'NotifyController@remove']);
+      // });
+      Route::get('notify/last', ['as'=>'admin.notify.last', 'uses'=>'NotifyController@last']);
+      Route::resource('notify', 'NotifyController');
+
+
       // AUTOCOMPETE
       Route::get('autocomplete', ['as'=>'admin.autocomplete', 'uses'=>'NodesController@getAutocompleteResults']);
 
@@ -195,7 +208,7 @@ Route::get('/_debugbar/assets/javascript', [
       Route::get('/laravel-filemanager/delete', '\Tsawler\Laravelfilemanager\controllers\DeleteController@getDelete');
 
     });
-    return true;
+    //return true;
   });
 
 

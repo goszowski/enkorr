@@ -31,6 +31,8 @@ class Universal extends Model
       $this->fillable = $fields;
     }
 
+  
+
 
     public function node() {
       return $this->belongsTo('App\Runsite\Nodes');
