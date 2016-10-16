@@ -14,7 +14,7 @@ class NotifyUser extends Model
 
     public $timestamps = true;
 
-    public $table = 'notifycation_user';
+    public $table = 'notifycation_views';
 
     protected $authUser = false;
 

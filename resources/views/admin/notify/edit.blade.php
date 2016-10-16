@@ -11,46 +11,49 @@
 
       <div class="panel-body">
 
-        
 
-        {!! Form::model($user, [
-            'method' => 'PATCH',
-            'url' => ['panel-admin/users', $user->id],
-            'class' => 'form-horizontal'
-        ]) !!}
 
-                    <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-                    {!! Form::label('name', 'Name: ', ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
-                    </div>
-                </div>
-                <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
-                    {!! Form::label('email', 'Email: ', ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                        {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
-                    </div>
-                </div>
-                <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
-                    {!! Form::label('password', 'Password: ', ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-6">
-                        {!! Form::text('password', '', ['class' => 'form-control']) !!}
-                        {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
-                    </div>
-                </div>
+        {!! Form::open(['url' => 'panel-admin/notify/' . $message->id, 'class' => 'form-horizontal', 'method'=>'PATCH']) !!}
 
-                <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
-                  {!! Form::label('password', 'Password: ', ['class' => 'col-sm-3 control-label']) !!}
-                  <div class="col-sm-6">
-                    <label class="ui-switch ui-switch-md bg-primary m-t-xs m-r">
-                      <input type="hidden" name="is_limited" value="0">
-                      <input type="checkbox" name="is_limited" value="1" @if($user->is_limited) checked @endif >
-                      <i></i>
-                    </label>
-                  </div>
-                </div>
+        <div class="form-group {{ $errors->has('message') ? 'has-error' : ''}}">
+          {!! Form::label('message', 'Message: ', ['class' => 'col-sm-3 control-label']) !!}
+          <div class="col-sm-6">
+            <div class="form-group">
+              {!! Form::textarea('message', $message->message, ['class' => 'form-control']) !!}
+            </div>
+            {!! $errors->first('message', '<p class="help-block">:message</p>') !!}
+          </div>
+        </div>
+
+        <div class="form-group {{ $errors->has('icon') ? 'has-error' : ''}}">
+          {!! Form::label('icon', 'Icon: ', ['class' => 'col-sm-3 control-label']) !!}
+          <div class="col-sm-6">
+            <div class="form-group">
+              {!! Form::text('icon', $message->icon, ['class' => 'form-control']) !!}
+            </div>
+            {!! $errors->first('message', '<p class="help-block">:icon</p>') !!}
+          </div>
+        </div>
+
+        <div class="form-group {{ $errors->has('icon_color') ? 'has-error' : ''}}">
+          {!! Form::label('icon_color', 'Icon color: ', ['class' => 'col-sm-3 control-label']) !!}
+          <div class="col-sm-6">
+            <div class="form-group">
+              {!! Form::text('icon_color', $message->icon_color, ['class' => 'form-control']) !!}
+            </div>
+            {!! $errors->first('message', '<p class="help-block">:icon_color</p>') !!}
+          </div>
+        </div>
+
+        <div class="form-group {{ $errors->has('node_id') ? 'has-error' : ''}}">
+          {!! Form::label('node_id', 'Node id: ', ['class' => 'col-sm-3 control-label']) !!}
+          <div class="col-sm-6">
+            <div class="form-group">
+              {!! Form::text('node_id', $message->node_id, ['class' => 'form-control']) !!}
+            </div>
+            {!! $errors->first('message', '<p class="help-block">:node_id</p>') !!}
+          </div>
+        </div>
 
 
         <div class="form-group">

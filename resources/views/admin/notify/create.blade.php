@@ -16,6 +16,9 @@
             {!! Form::label('message', 'Message: ', ['class' => 'col-sm-3 control-label']) !!}
             <div class="col-sm-6">
               {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+              {!! Form::text('icon', null, ['class' => 'form-control']) !!}
+              {!! Form::text('icon_color', null, ['class' => 'form-control']) !!}
+              {!! Form::text('node_id', null, ['class' => 'form-control']) !!}
               {!! $errors->first('message', '<p class="help-block">:message</p>') !!}
             </div>
           </div>

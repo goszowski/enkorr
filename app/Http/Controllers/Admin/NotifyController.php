@@ -6,9 +6,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Runsite\Notify;
+use App\Runsite\NotifyUser;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
+use Auth;
 
 class NotifyController extends Controller
 {
@@ -59,6 +61,10 @@ class NotifyController extends Controller
     public function show($id)
     {
         $message = Notify::findOrFail($id);
+        NotifyUser::create([
+          'user_id' => Auth::user()->id,
+          'notification_id' => $message->id,
+        ]);
 
         return view('admin.notify.show', compact('message'));
     }
@@ -116,6 +122,12 @@ class NotifyController extends Controller
     {
       $messages = $notify->getMessages();
       return response()->json($messages->toArray());
+    }
+
+    public function cnt(Notify $notify)
+    {
+      $messages = $notify->doesntHave('userViews')->count();
+      return response()->json($messages);
     }
 
 }

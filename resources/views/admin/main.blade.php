@@ -95,7 +95,13 @@
             <li class="dropdown notifications-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="label label-warning" id="notify-cnt"></span></a>
               <ul class="dropdown-menu">
-                <li class="header">У вас <span id="notify-cnt-more">0</span> сповіщень</li>
+                <li class="header"><small>У вас <span id="notify-cnt-more">0</span> сповіщень</small></li>
+                <li>
+                  <ul class="menu" id="notifications-items"></ul>
+                </li>
+                <li class="footer">
+                  <a href="{{url('panel-admin/notify')}}" target="app_iframe">Усі сповіщення</a>
+                </li>
               </ul>
             </li>
             <li class="dropdown ">
@@ -131,11 +137,17 @@
             </div>
 
             <div id="admin-nodes-tree" class="m-t-md"></div>
+            {{-- <audio src="{{asset('admin/soft-bells.ogg')}}" type="audio/ogg" id="notify_audio"></audio> --}}
 
 
 
           <script type="text/javascript">
             $(function(){
+              var notify_audio = new Audio('{{asset('admin/soft-bells.ogg')}}');
+              var notify_start = false;
+              var notify_count = 0;
+
+
               $('#admin-apps-tree').jstree({
                 'core': {
                   'themes': {
@@ -162,6 +174,50 @@
               }).on('changed.jstree', function(e, data){
                 $('[name="app_iframe"]').attr('src', data.node.a_attr.href);
               });
+
+              function getNewNotyfications()
+              {
+                $.get('/panel-admin/notify/count', function(data) {
+                  if(data == 0) data = '';
+                  $('#notify-cnt, #notify-cnt-more').html(data);
+
+                  $.getJSON('/panel-admin/notify/last', function(data) {
+                    $('#notifications-items').html('');
+                    $.each(data, function (index, value) {
+                      var add_class = 'is_showed';
+                      var icon = 'fa fa-flag';
+                      var icon_color = 'info';
+                      if(!value.user_views) add_class = '';
+
+                      $('#notifications-items').append('<li class="' + add_class + '"><a target="app_iframe" href="{{url("panel-admin/notify")}}/'+value.id+'"><i class="'+icon+' text-'+icon_color+'" aria-hidden="true"></i>'+value.message+'</a></li>');
+                        // console.log(value);
+                    });
+                  });
+
+
+                  if(notify_start && data > notify_count)
+                  {
+                    notify_audio.play();
+                  }
+
+                  notify_start = true;
+                  notify_count = data;
+
+
+                });
+              }
+
+              getNewNotyfications();
+              setInterval(function() {
+                getNewNotyfications();
+              }, 5000);
+
+
+
+
+
+
+
             });
           </script>
 

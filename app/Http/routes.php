@@ -162,6 +162,7 @@ Route::get('/_debugbar/assets/javascript', [
       //   Route::post('remove',                                       ['as'=>'admin.notify.remove',                'uses'=>'NotifyController@remove']);
       // });
       Route::get('notify/last', ['as'=>'admin.notify.last', 'uses'=>'NotifyController@last']);
+      Route::get('notify/count', ['as'=>'admin.notify.count', 'uses'=>'NotifyController@cnt']);
       Route::resource('notify', 'NotifyController');
 
 

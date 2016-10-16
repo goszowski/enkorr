@@ -42,6 +42,8 @@
     <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.js')}}"></script>
     <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.js')}}"></script>
 
+    <script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
 
@@ -111,9 +113,6 @@
         });
 
 
-        $.get('/panel-admin/notify/last', function(data) {
-          console.log(data);
-        });
 
 
       });

@@ -55,3 +55,14 @@ a.sign-out {
 .image-dropzone.dz-drag-hover {
   border: 2px solid #0087F7;
 }
+
+/*.menu li.no_views {
+  border-color: #dbe8ee;
+}*/
+
+.menu li.is_showed a {
+  /*border-color: #f0eeef!important;
+  background-color: #faf4f6;*/
+  /*font-weight: bold;*/
+  color: #989898!important;
+}

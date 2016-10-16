@@ -1,21 +1,22 @@
-@extends('layouts.master')
+@extends('admin.app')
 
 @section('content')
 
-    <h1>User</h1>
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>ID.</th> <th>Name</th><th>Email</th><th>Password</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ $user->id }}</td> <td> {{ $user->name }} </td><td> {{ $user->email }} </td><td> {{ $user->password }} </td>
-                </tr>
-            </tbody>    
-        </table>
+  <div class="p-md">
+    <div class="panel panel-default">
+      <div class="panel-heading bg-white">
+        <i class="{{$message->icon ?: 'fa fa-flag'}} text-{{$message->icon_color ?: 'primary'}}"></i>
+      </div>
+
+      <div class="panel-body">
+        {{$message->message}}
+
+        @if($message->node_id)
+          <br><br>
+          <a href="{{url('panel-admin/nodes/edit/'.$message->node_id)}}"><b>{{trans('admin/notify.Перейти до привязаного розділу')}}</b></a>
+        @endif
+      </div>
     </div>
+  </div>
 
 @endsection
