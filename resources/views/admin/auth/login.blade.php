@@ -5,7 +5,7 @@
 
     <div class="login-box-body">
       <div class="login-logo">
-        <a href="http://runsite.com.ua" target="_blank"><b>run</b>site</a>
+        <a href="https://runsite.com.ua" target="_blank"><b>run</b>site</a>
       </div>
       <p class="login-box-msg">
         Для входу введіть логін та пароль
