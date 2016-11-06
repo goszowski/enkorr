@@ -54,6 +54,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'app' => [
+            'driver' => 'local',
+            'root' => app_path(),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

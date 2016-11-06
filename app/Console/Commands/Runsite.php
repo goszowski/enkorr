@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class Runsite extends Command
 {
@@ -43,6 +44,10 @@ class Runsite extends Command
         $this->comment('Instalation...');
         \Artisan::call('migrate');
         \Artisan::call('db:seed');
+
+        $data = Storage::disk('app')->get('Runsite\Routes\public.php.stub');
+        Storage::disk('app')->put('Runsite\Routes\public.php', $data);
+
         $this->comment('Instalation complete');
       }
     }
