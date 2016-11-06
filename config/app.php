@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'app_version' => '1.3.7',
+  'app_version' => '1.3.8',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +168,7 @@ return [
         Snowfire\Beautymail\BeautymailServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Tsawler\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        ATehnix\LaravelStubs\Providers\ConsoleSupportServiceProvider::class,
 
     ],
 

@@ -31,7 +31,7 @@ class DependenciesController extends Controller {
   public function view($class_id, Classes $classes, Class_dependencies $dependencies) {
     $class = $classes->find($class_id);
     $submitted = $dependencies->with('classes')->where('class_id', $class_id)->get();
-    $available = $classes->whereNotIn('id', $submitted->lists('subclass_id'))->orderBy('id', 'desc')->get();
+    $available = $classes->whereNotIn('id', $submitted->pluck('subclass_id'))->orderBy('id', 'desc')->get();
 
     return view('admin.dependencies.view')
             ->withClass($class)

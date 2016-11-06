@@ -34,9 +34,11 @@
     @endif
 
 
-    @if(isset($node) and !isset($parent) and !Auth::user()->is_limited)
+    @if(isset($node) and !isset($parent))
       <a href="{{route('admin.nodes.settings', $node->id)}}" class="btn btn-default" title="{{trans('admin/nodes.settings')}}"><i class="fa fa-cog"></i></a>
-      <a href="{{route('admin.nodes.dependencies', $node->id)}}" class="btn btn-default" title="{{trans('admin/nodes.dependencies')}}"><i class="fa fa-sitemap"></i></a>
+      @if(!Auth::user()->is_limited)
+        <a href="{{route('admin.nodes.dependencies', $node->id)}}" class="btn btn-default" title="{{trans('admin/nodes.dependencies')}}"><i class="fa fa-sitemap"></i></a>
+      @endif
     @endif
 
 

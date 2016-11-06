@@ -12,7 +12,7 @@
             <div class="tl-content panel b-a w-lg w-auto-xs">
               <span class="arrow b-white @if($k%2 == 0) right @else left @endif pull-top"></span>
               <div class="text-lt p-h m-b-sm">
-                <a href="{{route('events.user', $event->user->id)}}">{{$event->user->name}}</a>
+                <a href="{{route('admin.events.user', $event->user->id)}}">{{$event->user->name}}</a>
               </div>
               <div class="p b-t b-light">
                 <span class="label

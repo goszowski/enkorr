@@ -68,6 +68,8 @@
 
     <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('admin/app.js')}}"></script>
+    {{-- <script src="{{asset('admin/noty/promise.js')}}"></script> --}}
+    <script src="{{asset('admin/noty/packaged/jquery.noty.packaged.js')}}"></script>
 
     <script type="text/javascript">
     function youtube_parser(url){
@@ -117,4 +119,85 @@
 
       });
     </script>
+
+
+    @if(\Session::has('alert-success'))
+        <script type="text/javascript">
+          $(function() {
+            noty({
+              theme: 'app-noty',
+              text: '{{\Session::get('alert-success')}}',
+              type: 'success',
+              timeout: 3000,
+              layout: 'top',
+              closable: true,
+              closeOnSelfClick: true,
+              animation: {
+                open: {show: 'toggle'},
+                close: {show: 'toggle'}
+              }
+            });
+          });
+        </script>
+    @endif
+
+    @if(\Session::has('alert-error'))
+        <script type="text/javascript">
+          $(function() {
+            noty({
+              theme: 'app-noty',
+              text: '{{\Session::get('alert-error')}}',
+              type: 'error',
+              timeout: 3000,
+              layout: 'top',
+              closable: true,
+              closeOnSelfClick: true,
+              animation: {
+                open: {show: 'toggle'},
+                close: {show: 'toggle'}
+              }
+            });
+          });
+        </script>
+    @endif
+
+    @if(\Session::has('alert-warning'))
+        <script type="text/javascript">
+          $(function() {
+            noty({
+              theme: 'app-noty',
+              text: '{{\Session::get('alert-warning')}}',
+              type: 'warning',
+              timeout: 3000,
+              layout: 'top',
+              closable: true,
+              closeOnSelfClick: true,
+              animation: {
+                open: {show: 'toggle'},
+                close: {show: 'toggle'}
+              }
+            });
+          });
+        </script>
+    @endif
+
+    @if(\Session::has('alert-info'))
+        <script type="text/javascript">
+          $(function() {
+            noty({
+              theme: 'app-noty',
+              text: '{{\Session::get('alert-info')}}',
+              type: 'information',
+              timeout: 3000,
+              layout: 'top',
+              closable: true,
+              closeOnSelfClick: true,
+              animation: {
+                open: {show: 'toggle'},
+                close: {show: 'toggle'}
+              }
+            });
+          });
+        </script>
+    @endif
   </head>

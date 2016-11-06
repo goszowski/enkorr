@@ -66,3 +66,255 @@ a.sign-out {
   /*font-weight: bold;*/
   color: #989898!important;
 }
+
+
+/* $noty
+ ------------------------------------------*/
+li.app-noty {
+  position: relative;
+  margin-bottom: 0.75rem;
+  display: block; }
+
+li.app-noty:last-child {
+  margin-bottom: 0; }
+
+.noty_message[style] {
+  font-size: 0.8125rem !important; }
+
+.app-noty .noty_bar {
+  padding: 0.5rem 20px;
+  /*padding: 0 20px;*/
+  border-radius: 0;
+  border: 0.0625rem solid transparent; }
+
+.app-noty-top-left .app-noty .noty_bar,
+.app-noty-top-right .app-noty .noty_bar,
+.app-noty-bottom-left .app-noty .noty_bar,
+.app-noty-bottom-right .app-noty .noty_bar {
+  -webkit-animation-duration: 800ms;
+  animation-duration: 800ms;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: animSlideRight;
+  animation-name: animSlideRight;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+.app-noty-top-left .app-noty.i-am-closing-now .noty_bar,
+.app-noty-top-right .app-noty.i-am-closing-now .noty_bar,
+.app-noty-bottom-left .app-noty.i-am-closing-now .noty_bar,
+.app-noty-bottom-right .app-noty.i-am-closing-now .noty_bar {
+  -webkit-animation-duration: 150ms;
+  animation-duration: 150ms; }
+
+.app-noty-bottom-right .app-noty .noty_bar,
+.app-noty-top-right .app-noty .noty_bar {
+  -webkit-animation-name: animSlideElasticRight;
+  animation-name: animSlideElasticRight; }
+
+.app-noty-bottom-right .app-noty.i-am-closing-now .noty_bar,
+.app-noty-top-right .app-noty.i-am-closing-now .noty_bar {
+  -webkit-animation-name: animSlideRight;
+  animation-name: animSlideRight; }
+
+.app-noty-bottom-left .app-noty .noty_bar,
+.app-noty-top-left .app-noty .noty_bar {
+  -webkit-animation-name: animSlideElasticLeft;
+  animation-name: animSlideElasticLeft; }
+
+.app-noty-bottom-left .app-noty.i-am-closing-now .noty_bar,
+.app-noty-top-left .app-noty.i-am-closing-now .noty_bar {
+  -webkit-animation-name: animSlideLeft;
+  animation-name: animSlideLeft; }
+
+.app-noty-bottom .app-noty .noty_bar,
+.app-noty-top .app-noty .noty_bar {
+  -webkit-animation: fadeIn 150ms;
+  animation: fadeIn 150ms; }
+
+.app-noty-bottom .app-noty.i-am-closing-now .noty_bar,
+.app-noty-top .app-noty.i-am-closing-now .noty_bar {
+  -webkit-animation: fadeOut 150ms;
+  animation: fadeOut 150ms; }
+
+.app-noty-bottom,
+.app-noty-bottom-right,
+.app-noty-bottom-left,
+.app-noty-top,
+.app-noty-top-right,
+.app-noty-top-left {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  z-index: 99999;
+  -webkit-transition: opacity 150ms cubic-bezier(0.7, 0, 0.3, 1);
+  transition: opacity 150ms cubic-bezier(0.7, 0, 0.3, 1);
+  opacity: 1; }
+  .offscreen ~ .app-noty-bottom, .offscreen ~
+  .app-noty-bottom-right, .offscreen ~
+  .app-noty-bottom-left, .offscreen ~
+  .app-noty-top, .offscreen ~
+  .app-noty-top-right, .offscreen ~
+  .app-noty-top-left {
+    opacity: 0; }
+
+/* Bottom notification */
+.app-noty-bottom {
+  bottom: 0;
+  right: 0;
+  width: 100%; }
+  .app-noty-bottom li.app-noty {
+    margin-bottom: 0;
+    margin-top: -0.0625rem; }
+  .app-noty-bottom .noty_bar {
+    border-radius: 0; }
+
+@media screen and (min-width: 48em) {
+  .app-noty-bottom {
+    padding-left: 12.5rem; }
+  .layout-small-menu ~ .app-noty-bottom {
+    padding-left: 4.375rem; }
+  .layout-right-sidebar ~ .app-noty-bottom {
+    padding-left: 0;
+    padding-right: 12.5rem; }
+  .layout-right-sidebar.layout-small-menu ~ .app-noty-bottom {
+    padding-left: 0;
+    padding-right: 4.375rem; }
+  .layout-boxed ~ .app-noty-bottom,
+  .layout-boxed.layout-right-sidebar.layout-small-menu ~ .app-noty-bottom {
+    padding-left: 0;
+    padding-right: 0; } }
+
+/* Bottom right notification */
+.app-noty-bottom-right {
+  bottom: 3.25rem;
+  right: 0.75rem; }
+
+@media screen and (min-width: 48em) {
+  .layout-right-sidebar ~ .app-noty-bottom-right {
+    right: 13.25rem; }
+  .layout-right-sidebar.layout-small-menu ~ .app-noty-bottom-right {
+    right: 5.125rem; }
+  .layout-boxed ~ .app-noty-bottom-right,
+  .layout-boxed.layout-right-sidebar.layout-small-menu ~ .app-noty-bottom-right {
+    right: 0.75rem; } }
+
+/* Bottom left notification */
+.app-noty-bottom-left {
+  bottom: 3.25rem;
+  left: 0.75rem; }
+
+@media screen and (min-width: 48em) {
+  .app-noty-bottom-left {
+    left: 13.25rem; }
+  .layout-small-menu ~ .app-noty-bottom-left {
+    left: 5.125rem; }
+  .layout-right-sidebar ~ .app-noty-bottom-left {
+    left: 0.75rem; }
+  .layout-right-sidebar.layout-small-menu ~ .app-noty-bottom-left {
+    left: 0.75rem; }
+  .layout-boxed ~ .app-noty-bottom-left,
+  .layout-boxed.layout-small-menu ~ .app-noty-bottom-left {
+    left: 0.75rem; } }
+
+/* Top notification */
+.app-noty-top {
+  top: 4.188rem;
+  right: 0.75rem; }
+
+.app-noty-top {
+  top: 3.438rem;
+  right: 0;
+  width: 100%; }
+  .app-noty-top li.app-noty {
+    margin-bottom: 0;
+    margin-top: -0.0625rem; }
+  .app-noty-top .noty_bar {
+    border-radius: 0; }
+
+@media screen and (min-width: 48em) {
+  .app-noty-top {
+    padding-left: 12.5rem; }
+  .layout-small-menu ~ .app-noty-top {
+    position: absolute;
+    padding-left: 4.375rem; }
+  .layout-right-sidebar ~ .app-noty-top {
+    padding-left: 0;
+    padding-right: 12.5rem; }
+  .layout-right-sidebar.layout-small-menu ~ .app-noty-top {
+    padding-left: 0;
+    padding-right: 4.375rem; }
+  .layout-boxed ~ .app-noty-top,
+  .layout-boxed.layout-right-sidebar.layout-small-menu ~ .app-noty-top {
+    padding-left: 0;
+    padding-right: 0; } }
+
+/* Top right notification */
+.app-noty-top-right {
+  top: 4.188rem;
+  right: 0.75rem; }
+
+@media screen and (min-width: 48em) {
+  .layout-right-sidebar ~ .app-noty-top-right {
+    right: 13.25rem; }
+  .layout-right-sidebar.layout-small-menu ~ .app-noty-top-right {
+    right: 5.125rem; }
+  .layout-boxed ~ .app-noty-top-right,
+  .layout-boxed.layout-small-menu ~ .app-noty-top-right {
+    right: 0.75rem; } }
+
+/* Top left notification */
+.app-noty-top-left {
+  top: 4.188rem;
+  left: 0.75rem; }
+
+@media screen and (min-width: 48em) {
+  .app-noty-top-left {
+    left: 13.25rem; }
+  .layout-small-menu ~ .app-noty-top-left {
+    left: 5.125rem; }
+  .layout-right-sidebar ~ .app-noty-top-left {
+    left: 0.75rem; }
+  .layout-right-sidebar.layout-small-menu ~ .app-noty-top-left {
+    left: 0.75rem; }
+  .layout-boxed ~ .app-noty-top-left,
+  .layout-boxed.layout-small-menu ~ .app-noty-top-left {
+    left: 0.75rem; } }
+
+/* Notification colors */
+.noty_container_type_success .noty_bar {
+  background-color: #6FC080;
+  color: white; }
+
+.noty_container_type_information .noty_bar {
+  background-color: #6EC7E6;
+  color: white; }
+
+.noty_container_type_warning .noty_bar {
+  background-color: #F2B776;
+  color: white; }
+
+.noty_container_type_error .noty_bar {
+  background-color: #DD6777;
+  color: white; }
+
+.noty_container_type_confirm .noty_bar {
+  background-color: #6164C1;
+  color: white; }
+
+
+.breadcrumb {
+  margin-top: 5px;
+}
+
+
+.edit-node-wrapper.mini {
+  /*max-height: 170px;
+  overflow: hidden;*/
+}

@@ -18,7 +18,7 @@ use App\Runsite\Nodes;
 use App\Runsite\Languages;
 use App\Runsite\Class_dependencies;
 use App\Runsite\Node_dependencies;
-
+use App\Runsite\Libraries\Alert;
 use App\Runsite\Libraries\Node;
 
 class ClassesController extends Controller {
@@ -161,6 +161,19 @@ class ClassesController extends Controller {
     // creating schema
     $classes->createSchema($classes->shortname);
 
+    $controllerName = explode('@', $classes->default_controller);
+    if($controllerName and is_array($controllerName) and isset($controllerName[0]))
+    {
+      \Artisan::call('make:controller', [
+        'name' => $controllerName[0],
+        '--resource' => true,
+      ]);
+
+      Alert::success(trans('admin/classes.Створено новий контроллер: App\Http\Controllers\Front\\') . $controllerName[0]);
+    }
+
+
+
     // return edit view
     return \Redirect::route('admin.classes.edit', ['id'=>$classes->id]);
   }
@@ -196,7 +209,8 @@ class ClassesController extends Controller {
     }
 
     // saving success message
-    \Session::flash('success','Successfully saved');
+    // \Session::flash('success','Successfully saved');
+    Alert::success(trans('admin/classes.Зміни в моделі успішно збережені'));
 
     // return edit view
     return \Redirect::route('admin.classes.edit', ['id'=>$class->id]);
