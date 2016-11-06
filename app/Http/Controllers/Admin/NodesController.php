@@ -391,9 +391,9 @@ class NodesController extends Controller {
 
     foreach($languages as $language) {
       $data = new Data;
-      $data->init($class->prefix.$class->shortname, $fields->lists('shortname'));
+      $data->init($class->prefix.$class->shortname, $fields->pluck('shortname'));
       $dataEx = $data->where('node_id', $node->id)->where('language_id', $language->id)->first();
-      if($dataEx) $dataEx->init($class->prefix.$class->shortname, $fields->lists('shortname'));
+      if($dataEx) $dataEx->init($class->prefix.$class->shortname, $fields->pluck('shortname'));
       foreach($fields as $field) {
 
         // MIDDLEWARE IMAGE
@@ -600,7 +600,7 @@ class NodesController extends Controller {
     $node = Nodes::find($id) or abort(404);
 
     $submitted = $dependencies->with('classes')->where('node_id', $node->id)->get();
-    $available = $classes->whereNotIn('id', $submitted->lists('subclass_id'))->orderBy('id', 'desc')->get();
+    $available = $classes->whereNotIn('id', $submitted->pluck('subclass_id'))->orderBy('id', 'desc')->get();
 
     return view('admin.nodes.dependencies')
             ->withNode($node)
