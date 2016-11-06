@@ -37,7 +37,7 @@ class Runsite extends Command
      */
     public function handle()
     {
-      $this->comment('Welcome to runsite::CMS installer');
+      $this->comment('Welcome to runsite::CMF installer');
       $go = $this->ask('Run instalation? (y/n)');
       if($go == 'y') {
         $this->comment('Instalation...');
