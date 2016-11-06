@@ -11,6 +11,7 @@ use App\Runsite\Field_settings_default;
 use App\Runsite\Field_html_control_types;
 use Illuminate\Http\Request;
 use Validator;
+use App\Runsite\Libraries\Alert;
 
 class FieldsController extends Controller {
 
@@ -170,7 +171,8 @@ class FieldsController extends Controller {
     }
 
     // saving success message
-    \Session::flash('success','Successfully saved');
+    // \Session::flash('success','Successfully saved');
+    Alert::success(trans('admin/fields.Поле моделі успішно оновлене'));
 
     return \Redirect::route('admin.fields.edit', ['class_id'=>$class_id, 'field_id'=>$field->id]);
 
@@ -205,7 +207,8 @@ class FieldsController extends Controller {
     }
 
     // saving success message
-    \Session::flash('success','Successfully saved');
+    // \Session::flash('success','Successfully saved');
+    Alert::success(trans('admin/fields.Налаштування поля моделі успішно оновлені'));
     return \Redirect::route('admin.fields.settings', ['class_id'=>$class_id, 'field_id'=>$field_id]);
 
 

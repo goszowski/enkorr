@@ -18,7 +18,7 @@ use App\Runsite\Nodes;
 use App\Runsite\Languages;
 use App\Runsite\Class_dependencies;
 use App\Runsite\Node_dependencies;
-
+use App\Runsite\Libraries\Alert;
 use App\Runsite\Libraries\Node;
 
 class ClassesController extends Controller {
@@ -196,7 +196,8 @@ class ClassesController extends Controller {
     }
 
     // saving success message
-    \Session::flash('success','Successfully saved');
+    // \Session::flash('success','Successfully saved');
+    Alert::success(trans('admin/classes.Зміни в моделі успішно збережені'));
 
     // return edit view
     return \Redirect::route('admin.classes.edit', ['id'=>$class->id]);
