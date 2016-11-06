@@ -21,7 +21,8 @@
       </div>
     @endforeach
     <br><br><br>
-    {{__('Трололо')}}
+    {{__('Трололо')}} <br>
+    {{iPath('imagePath', 'thumb')}}
 
   </div>
 
