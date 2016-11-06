@@ -162,15 +162,15 @@
               @if(!$class->order_by)
                 <td class="text-center">
                   <div class="btn-group" role="group">
-                    <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if($child->orderby <= 1 or !$k) disabled @endif><i class="fa fa-chevron-up"></i></a>
-                    <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-sm btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
+                    <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby <= 1 or !$k) disabled @endif><i class="fa fa-chevron-up"></i></a>
+                    <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
                   </div>
                 </td>
               @endif
               <td class="text-right">
                 {{-- <a href="{{route('admin.nodes.edit', $child->node_id)}}" class="btn btn-sm btn-dark"><i class="fa fa-pencil-square-o"></i> {{trans('admin/nodes.edit')}}</a> --}}
                 @if(!Auth::user()->is_limited or $class->limited_users_can_delete)
-                  <a href="{{route('admin.nodes.destroy', $child->node_id)}}" class="btn btn-raised btn-sm btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i> {{trans('admin/nodes.remove')}}</a>
+                  <a href="{{route('admin.nodes.destroy', $child->node_id)}}" class="btn btn-raised btn-xs btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i></a>
                 @endif
               </td>
             </tr>
