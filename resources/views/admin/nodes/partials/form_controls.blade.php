@@ -4,7 +4,9 @@
     <div class="form-group">
       <div class="container-fluid">
         <button type="submit" class="btn btn-dark"><i class="fa fa-check"></i> {{trans('admin/nodes.update')}}</button>
-        <a href="{{route('admin.nodes.destroy', $node->id)}}" class="btn btn-raised btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i> <span class="hidden-xs">{{trans('admin/nodes.remove')}}</span></a>
+        @if($node->id != 1)
+          <a href="{{route('admin.nodes.destroy', $node->id)}}" class="btn btn-raised btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i> <span class="hidden-xs">{{trans('admin/nodes.remove')}}</span></a>
+        @endif
       </div>
     </div>
     <div class="form-group">
