@@ -125,14 +125,20 @@
 
 
             <div id="admin-apps-tree">
-              @if($apps)
               <ul>
-                @foreach($apps as $app)
-                <li><a href="{{route($app->execute)}}" target="app_iframe">{{trans($app->name)}}</a></li>
-                @endforeach
+                @if(! \Auth::user()->is_limited)
+                  <li><a href="{{url('panel-admin/classes')}}" target="app_iframe">Models</a></li>
+                @endif
+
+                @if(! \Auth::user()->is_limited)
+                  <li><a href="{{url('panel-admin/users')}}" target="app_iframe">Users</a></li>
+                @endif
+
                 <li><a href="{{url('panel-admin/notify')}}" target="app_iframe">Notify</a></li>
+                <li><a href="{{url('panel-admin/events/list')}}" target="app_iframe">Events</a></li>
+                <li><a href="{{url('panel-admin/filemanager')}}" target="app_iframe">Filemanager</a></li>
+                <li><a href="{{url('panel-admin/languages')}}" target="app_iframe">Languages</a></li>
               </ul>
-              @endif
 
             </div>
 
