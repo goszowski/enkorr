@@ -70,7 +70,7 @@ class UsersController extends Controller
 
         Session::flash('flash_message', 'User added!');
 
-        return redirect()->route('panel-admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -121,7 +121,7 @@ class UsersController extends Controller
 
         Session::flash('flash_message', 'User updated!');
 
-        return redirect()->route('panel-admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -137,7 +137,7 @@ class UsersController extends Controller
 
         Session::flash('flash_message', 'User deleted!');
 
-        return redirect()->route('panel-admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
 }
