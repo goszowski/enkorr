@@ -37,7 +37,8 @@
             "App\\": "app/"
         },
         "files": [
-          "app/Runsite\\Helpers\\Model.php"
+          "app/Runsite\\Helpers\\Model.php",
+          "app/Runsite\\Helpers\\__.php"
         ]
     },
     "autoload-dev": {

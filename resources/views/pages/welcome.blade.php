@@ -21,6 +21,7 @@
       </div>
     @endforeach
     <br><br><br>
+    {{__('Трололо')}}
 
   </div>
 
