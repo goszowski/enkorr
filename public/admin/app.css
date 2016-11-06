@@ -312,3 +312,9 @@ li.app-noty:last-child {
 .breadcrumb {
   margin-top: 5px;
 }
+
+
+.edit-node-wrapper.mini {
+  /*max-height: 170px;
+  overflow: hidden;*/
+}

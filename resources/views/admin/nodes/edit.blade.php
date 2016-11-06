@@ -19,17 +19,14 @@
 <input type="hidden" name="node_id" value="{{ $node->id }}">
 <div class="p-md">
   @include('admin.nodes.partials.breadcrumb')
-  <!-- languages tabs -->
-  @include('admin.nodes.partials.languages_tabs')
-  <!-- / languages tabs -->
-  <div class="p b-a no-b-t bg-white m-b tab-content">
-    <!-- languages contents -->
-    @include('admin.nodes.partials.languages_contents')
-    <!-- / languages contents -->
-    <!-- Form controls -->
-    @include('admin.nodes.partials.form_controls')
-    <!-- / Form controls -->
-  </div>
+
+    <div class="edit-node-wrapper @if(\Input::get('class')) mini @endif">
+      @include('admin.nodes.partials.languages_tabs')
+      <div class="p b-a no-b-t bg-white m-b tab-content">
+        @include('admin.nodes.partials.languages_contents')
+        @include('admin.nodes.partials.form_controls')
+      </div>
+    </div>
 </div>
 {!! Form::close() !!}
 
