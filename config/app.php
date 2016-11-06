@@ -168,6 +168,7 @@ return [
         Snowfire\Beautymail\BeautymailServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Tsawler\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        ATehnix\LaravelStubs\Providers\ConsoleSupportServiceProvider::class,
 
     ],
 

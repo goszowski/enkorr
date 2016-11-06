@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ce6a8b8c2f6ef99c326cd0d877da5c07",
-    "content-hash": "529537f3c51e96383eba548e60360df9",
+    "hash": "4848288484aa4363702a3cfaa970c6c4",
+    "content-hash": "713ce954417d37ef9c196caf7c39671f",
     "packages": [
         {
             "name": "appzcoder/crud-generator",
@@ -50,6 +50,49 @@
                 "laravel crud generator"
             ],
             "time": "2016-09-28 18:05:53"
+        },
+        {
+            "name": "atehnix/laravel-stubs",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atehnix/laravel-stubs.git",
+                "reference": "73730cb5f6bd0f74ed2aa3ca7f88c18ace9f18fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atehnix/laravel-stubs/zipball/73730cb5f6bd0f74ed2aa3ca7f88c18ace9f18fb",
+                "reference": "73730cb5f6bd0f74ed2aa3ca7f88c18ace9f18fb",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ATehnix\\LaravelStubs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Sosnov",
+                    "email": "atehnix@gmail.com"
+                }
+            ],
+            "description": "Override default stubs",
+            "keywords": [
+                "generator",
+                "laravel",
+                "make",
+                "stub"
+            ],
+            "time": "2016-10-19 06:13:51"
         },
         {
             "name": "banago/bridge",

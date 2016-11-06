@@ -161,6 +161,19 @@ class ClassesController extends Controller {
     // creating schema
     $classes->createSchema($classes->shortname);
 
+    $controllerName = explode('@', $classes->default_controller);
+    if($controllerName and is_array($controllerName) and isset($controllerName[0]))
+    {
+      \Artisan::call('make:controller', [
+        'name' => $controllerName[0],
+        '--resource' => true,
+      ]);
+
+      Alert::success(trans('admin/classes.Створено новий контроллер: App\Http\Controllers\Front\\') . $controllerName[0]);
+    }
+
+
+
     // return edit view
     return \Redirect::route('admin.classes.edit', ['id'=>$classes->id]);
   }
