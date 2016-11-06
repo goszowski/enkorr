@@ -4,7 +4,7 @@
     <li id="{{$item->node_id}}" class="
         @if($parent == 0)
           jstree-open
-        @elseif(\App\Runsite\Nodes::where('parent_id', $item->node_id)->whereIn('class_id', $classesToShow->lists('id'))->count())
+        @elseif(\App\Runsite\Nodes::where('parent_id', $item->node_id)->whereIn('class_id', $classesToShow->pluck('id'))->count())
           jstree-closed
         @else
           jstree-leaf
