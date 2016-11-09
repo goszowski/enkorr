@@ -1,0 +1,19 @@
+{
+    "name": "auth",
+
+    "directories": ["app/Notifications", "resources/views/components", "resources/views/components/auth"],
+
+    "files": {
+      "views/login.blade.php": "resources/views/components/auth/login.blade.php",
+      "views/register.blade.php": "resources/views/components/auth/register.blade.php",
+      "views/reset_form.blade.php": "resources/views/components/auth/reset_form.blade.php",
+      "views/reset_request.blade.php": "resources/views/components/auth/reset_request.blade.php",
+      "views/reset.blade.php": "resources/views/components/auth/reset.blade.php",
+      "views/view.blade.php": "resources/views/components/auth/view.blade.php",
+      "notifications/AuthData.php": "app/Notifications/AuthData.php",
+      "notifications/ResetPassword.php": "app/Notifications/ResetPassword.php",
+      "controller.php": "app/Http/Controllers/Front/UserController.php"
+    },
+
+    "migration": "migration.php"
+}

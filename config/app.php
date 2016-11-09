@@ -1,7 +1,8 @@
 <?php
 
 return [
-  'app_version' => '1.3.8',
+    'app_version' => '1.3.8',
+    'name' => 'Website name',
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +170,7 @@ return [
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
         Tsawler\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         ATehnix\LaravelStubs\Providers\ConsoleSupportServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
 
     ],
 
@@ -226,6 +228,7 @@ return [
         'Input' => Illuminate\Support\Facades\Input::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Notification' => Illuminate\Support\Facades\Notification::class,
 
     ],
 
