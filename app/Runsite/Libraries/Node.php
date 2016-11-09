@@ -82,7 +82,7 @@ class Node {
     }
     /* [end] store data */
 
-    return;
+    return $dataObject->node_id;
   }
 
   public static function get($class_shortname, $node_id, $lang_id=false) {

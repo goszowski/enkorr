@@ -3,12 +3,13 @@
 namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 use App\Runsite\Libraries\Node;
 use App\Runsite\Libraries\PH;
 
 class Universal extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Notifiable;
 
     /**
      * The database table used by the model.
@@ -31,7 +32,7 @@ class Universal extends Model
       $this->fillable = $fields;
     }
 
-  
+
 
 
     public function node() {
