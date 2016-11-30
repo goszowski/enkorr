@@ -51,4 +51,23 @@ return [
   'full' => 'Full',
   'require_css_file' => 'Require css file',
   'runsite' => 'Runsite',
+  'from_template' => 'From template',
+  'check_vertical' => 'Ckeck Vertical',
+  'check_columns' => 'Ckeck Columns',
+  'custom_path' => 'Власний шлях',
+  'explore' => 'Explore',
+  'read_only' => 'Read only',
+
+  'template' => [
+    'name' => 'Name',
+    'is_active' => 'Is Active',
+    'seo_title' => 'SEO Title',
+    'seo_keywords' => 'SEO Keywords',
+    'seo_description' => 'SEO Description',
+    'image' => 'Image',
+    'pubdate' => 'Pubdate',
+  ],
+
+  'Поле моделі успішно оновлене' => 'Field of model successfully updated',
+  'Налаштування поля моделі успішно оновлені' => 'Setting of field successfully updated',
 ];

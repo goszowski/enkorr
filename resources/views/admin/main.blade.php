@@ -243,8 +243,8 @@
       <div class="pull-right hidden-xs">
         <b>Version</b> {{Config::get('app.app_version')}}
       </div>
-      <strong>Copyright &copy; <a href="http://runsite.com.ua" target="_blank">ТОВ Рансайт</a>.</strong>
-      <span class="hidden-xs">Всі права захищено.</span>
+      <strong>Copyright &copy; <a href="http://runsite.com.ua" target="_blank">RUNSITE LLC</a>.</strong>
+      <span class="hidden-xs">All rights reserved.</span>
     </footer>
 
   </div>

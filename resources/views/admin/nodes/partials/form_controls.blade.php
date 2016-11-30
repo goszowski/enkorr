@@ -12,7 +12,7 @@
     <div class="form-group">
       <div class="container-fluid">
         <div class="">
-          <b>Після оновлення:</b>
+          <b>{{trans('admin/nodes.Після оновлення')}}:</b>
         </div>
         <label class="ui-checks" style="margin-right: 10px">
           <input type="radio" name="do_after" value="stay" checked id="do_after">

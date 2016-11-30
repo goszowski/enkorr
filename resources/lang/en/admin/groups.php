@@ -9,4 +9,5 @@ return [
   'groups_not_exists' => 'Groups not exists',
   'update' => 'Update',
   'remove_confirmation' => 'Are you sure?',
+  'create' => 'Create',
 ];

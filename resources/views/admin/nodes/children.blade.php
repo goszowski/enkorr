@@ -54,7 +54,7 @@
                         <option value="100">100</option>
                         <option value="500">500</option>
                         <option value="1000">1000</option>
-                        <option value="0">Всі записи</option>
+                        <option value="0">{{trans('admin/nodes.Всі записи')}}</option>
                       </select>
                     </div>
                   </div>
@@ -180,7 +180,7 @@
       </div>
     @else
       <div class="alert">
-        Розділ порожній
+        {{trans('admin/nodes.Розділ порожній')}}
       </div>
     @endif
 

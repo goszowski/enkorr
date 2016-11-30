@@ -75,7 +75,7 @@
     <div class="form-group">
       <div class="col-md-10 col-md-offset-2">
         <div class="">
-          <b>Після створення:</b>
+          <b>{{trans('admin/nodes.Після створення')}}:</b>
         </div>
         <label class="ui-checks" style="margin-right: 10px">
           <input type="radio" name="do_after" value="stay" checked id="do_after">

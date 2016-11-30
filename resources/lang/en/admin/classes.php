@@ -30,4 +30,13 @@ return [
   'name_more' => 'Name more',
   'name_create' => 'Name create',
   'controller@method' => 'controller@method',
+  'Дозволити створення' => 'Allow creation',
+  'Дозволити видалення' => 'Allow deleting',
+  'show_count' => 'Show count',
+  'can_export' => 'Can export',
+  'can_export_yes' => 'Yes',
+  'can_export_no' => 'No',
+  'can_export_yes_if_node_can' => 'Yes, if Node can do it',
+  'close' => 'Close',
+  'default_order_by' => 'Order by',
 ];
