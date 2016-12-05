@@ -162,6 +162,8 @@
       Route::get('notify/count', ['as'=>'notify.count', 'uses'=>'NotifyController@cnt']);
       Route::resource('notify', 'NotifyController');
 
+      Route::resource('translations', 'TranslationsController');
+
 
       // AUTOCOMPETE
       Route::get('autocomplete', ['as'=>'autocomplete', 'uses'=>'NodesController@getAutocompleteResults']);
@@ -204,6 +206,8 @@
 
       // delete
       Route::get('/laravel-filemanager/delete', '\Tsawler\Laravelfilemanager\controllers\DeleteController@getDelete');
+
+
 
     });
     //return true;

@@ -43,7 +43,7 @@
             <div class="content">
                 <div class="title">404</div>
                 <p>
-                  <b>Page not found</b>
+                  <b>{{__('Page not found')}}</b>
                 </p>
                 <p>
                   <a href="{{asset('/')}}">Go to Home</a>

@@ -138,6 +138,7 @@
                 <li><a href="{{url('panel-admin/events/list')}}" target="app_iframe">Events</a></li>
                 <li><a href="{{url('panel-admin/filemanager')}}" target="app_iframe">Filemanager</a></li>
                 <li><a href="{{url('panel-admin/languages')}}" target="app_iframe">Languages</a></li>
+                <li><a href="{{url('panel-admin/translations')}}" target="app_iframe">Translations</a></li>
               </ul>
 
             </div>

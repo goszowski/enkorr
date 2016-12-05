@@ -4,9 +4,9 @@
 
 @if($field->shortname == 'name')
   @if($value)
-    <a href="/panel-admin/nodes/edit/{{$child->node_id}}">{!!$value!!}</a>
+    <a href="/panel-admin/nodes/edit/{{$child->node_id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {!!$value!!}</a>
   @else
-    <a href="/panel-admin/nodes/edit/{{$child->node_id}}">Edit</a>
+    <a href="/panel-admin/nodes/edit/{{$child->node_id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
   @endif
 @else
   {{$value}}

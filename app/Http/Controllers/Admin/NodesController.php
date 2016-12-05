@@ -27,7 +27,7 @@ use App\Runsite\Libraries\Alert;
 
 class NodesController extends Controller {
 
-  protected $pagination_limit = 5;
+  protected $pagination_limit = 30;
   protected $ignoredKeys = [
     'image_remove',
   ];

@@ -190,7 +190,7 @@
 
 <div class="p-md" style="padding-top: 0;">
   @if(count($children))
-    {!! $children->appends(['class' => $children->first()->class_id, 'filter_value'=>$filter_value, 'filter'=>$filter])->render() !!}
+    {!! $children->appends(['class' => $class->id, 'filter_value'=>$filter_value, 'filter'=>$filter])->render() !!}
   @endif
 </div>
 
