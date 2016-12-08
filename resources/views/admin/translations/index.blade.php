@@ -9,14 +9,16 @@
     </div>
     <div class="panel-body">
       <div class="row">
-        <a class="btn btn-success btn-sm" href="{{url('/panel-admin/translations/create')}}"><i class="fa fa-plus"></i> Create</a>
+        {{-- <a class="btn btn-success btn-sm" href="{{url('/panel-admin/translations/create')}}"><i class="fa fa-plus"></i> Create</a> --}}
         <div class="col-xs-12 col-sm-6 col-md-3">
+          {!! Form::open(['route'=>'admin.translations.index', 'method'=>'get']) !!}
           <div class="input-group">
             <input type="text" name="search" class="form-control input-sm" placeholder="{{trans('admin/languages.search')}}" value="{{\Input::get('search')}}">
             <div class="input-group-btn">
               <button type="submit" class="btn btn-dark btn-sm"><i class="fa fa-search"></i></button>
             </div>
           </div>
+          {!! Form::close() !!}
         </div>
       </div>
     </div>
@@ -33,7 +35,12 @@
           @foreach($translations as $trans)
             <tr>
               <td>{{ $trans->id }}</td>
-              <td><a href="{{route('admin.translations.edit', $trans->key)}}" >{{ $trans->key }}</a></td>
+              <td>
+                <a href="{{route('admin.translations.edit', $trans->key)}}" >{{ $trans->key }}</a><br>
+                @foreach($trans->variants() as $variant)
+                  <span class="label label-default">{{$variant->_value}}</span>
+                @endforeach
+              </td>
 
               <td class="text-right">
                 {!! Form::open(['url'=>url('panel-admin/translations/'.$trans->key), 'method'=>'delete']) !!}

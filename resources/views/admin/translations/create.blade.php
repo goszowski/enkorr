@@ -2,7 +2,7 @@
 @section('content')
 {{-- @include('admin.languages.partials.items_nav') --}}
 
-<div class="p-md">
+{{-- <div class="p-md">
   <div class="panel panel-default">
     <div class="panel-heading bg-white">
       <i class="fa fa-bars"></i> Translations
@@ -14,5 +14,5 @@
       {!! Form::close() !!}
     </div>
   </div>
-</div>
+</div> --}}
 @stop

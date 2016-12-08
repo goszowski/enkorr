@@ -65,8 +65,12 @@ class LanguagesController extends Controller {
     if($v = $validator::make($request->all(), $this->storeRules) and $v->fails()) {
       return redirect()->back()->withInput()->withErrors($v->errors()); // errors exists
     }
-
-    $language = Languages::create($request->all());
+    // dd($request->all());
+    Languages::create([
+      'locale' => $request->input('locale'),
+      'name' => $request->input('name'),
+      'is_active' => $request->input('is_active') ? true : false,
+    ]);
 
     // Node::push(1, 0, '/', [
     //   $language->id => [
@@ -75,16 +79,16 @@ class LanguagesController extends Controller {
     //   ],
     // ]);
 
-    $node = Node::getUniversal('index', false, true);
-
-    $node->node_id = 1;
-    $node->parent_id = 0;
-    $node->parent_id = 0;
-    $node->language_id = $language->id;
-    $node->name = 'Main page';
-    $node->is_active = true;
-
-    $node->save();
+    // $node = Node::getUniversal('index', false, true);
+    //
+    // $node->node_id = 1;
+    // $node->parent_id = 0;
+    // $node->parent_id = 0;
+    // $node->language_id = $language->id;
+    // $node->name = 'Main page';
+    // $node->is_active = true;
+    //
+    // $node->save();
 
     //dd($language);
     // return items view

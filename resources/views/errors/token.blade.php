@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>404 Page not found</title>
+        <title>Token Error</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
         <link href="{{asset('admin/admin-lte/AdminLTE.css')}}" rel="stylesheet" type="text/css">
 
         <style>
@@ -18,7 +17,6 @@
                 color: #838a8e;
                 display: table;
                 font-weight: 300;
-                font-family: 'Lato';
             }
 
             .container {
@@ -33,7 +31,7 @@
             }
 
             .title {
-                font-size: 72px;
+                font-size: 62px;
                 margin-bottom: 40px;
             }
         </style>
@@ -41,12 +39,12 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">404</div>
+                <div class="title">{{__('SECURITY ERROR')}}</div>
                 <p>
-                  <b>{{__('Page not found')}}</b>
+                  <b>{{__('This request is suspicious and so we declined')}}</b>
                 </p>
                 <p>
-                  <a href="{{asset('/')}}">{{__('Go to Home')}}</a>
+                  {{__('Please, try again')}}
                 </p>
             </div>
         </div>

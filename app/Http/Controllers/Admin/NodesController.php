@@ -545,7 +545,7 @@ class NodesController extends Controller {
     $def_lang = $Languages->getDefault()->id;
 
     $lastNode = Nodes::orderBy('id', 'desc')->first();
-    $nameField = Request::input('langs')[$def_lang]['name'];
+    $nameField = isset(Request::input('langs')[$def_lang]['name']) ? Request::input('langs')[$def_lang]['name'] : '';
 
     (!empty($nameField))
       ? $shortname = str_slug($nameField)
