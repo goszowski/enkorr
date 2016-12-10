@@ -1,0 +1,14 @@
+{
+    "name": "contact",
+
+    "directories": ["resources/views/components", "resources/views/components/contact", "resources/views/components/contact/mail", "app/Mail"],
+
+    "files": {
+      "views/contact.blade.php": "resources/views/components/contact/contact.blade.php",
+      "views/mail.blade.php": "resources/views/components/contact/mail/feedback.blade.php",
+      "controller.php": "app/Http/Controllers/Front/ContactController.php",
+      "mail.php": "app/Mail/FeedBackRequest.php"
+    },
+
+    "migration": "migration.php"
+}

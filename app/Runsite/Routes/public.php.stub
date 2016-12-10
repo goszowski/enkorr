@@ -4,11 +4,14 @@ use App\Runsite\Nodes;
 use App\Runsite\Classes;
 use App\Runsite\Libraries\PH;
 
-Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]], function()
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 
-  $uri = \Request::path();
-  if($uri != '/') $uri = '/'.$uri;
+  $uri = LaravelLocalization::getNonLocalizedURL(\Request::path());
+
+    $uri = str_replace(config('app.url'), '', $uri);
+    // dd(LaravelLocalization::setLocale());
+    if($uri != '/' and !str_is('/*', $uri)) $uri = '/'.$uri;
 
   $node = Nodes::where('absolute_path', $uri)->first();
 

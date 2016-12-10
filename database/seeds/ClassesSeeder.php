@@ -123,6 +123,16 @@ class ClassesSeeder extends Seeder
             'ignore_language'      => true                     ,
           ],
 
+          1 => [
+            'type_id'              => 7                        ,
+            'group_id'             => NULL                     ,
+            'name'                 => 'Активно'                ,
+            'shortname'            => 'is_active'              ,
+            'required'             => false                    ,
+            'shown'                => true                     ,
+            'ignore_language'      => true                     ,
+          ],
+
         ]
       ],
       // END Admin Section Class
@@ -226,9 +236,6 @@ class ClassesSeeder extends Seeder
           0 => [
             'name' => 'SEO',
           ],
-          1 => [
-            'name' => 'Текст',
-          ],
         ],
 
         'fields' => [
@@ -282,9 +289,9 @@ class ClassesSeeder extends Seeder
             'ignore_language'      => false                    ,
           ],
 
-          4 => [
+          5 => [
             'type_id'              => 4                        ,
-            'group_id'             => 1                        ,
+            'group_id'             => 0                        ,
             'name'                 => 'Текст'                  ,
             'shortname'            => 'content'                ,
             'required'             => false                    ,
@@ -326,6 +333,16 @@ class ClassesSeeder extends Seeder
           ],
 
           1 => [
+            'type_id'              => 7                        ,
+            'group_id'             => NULL                     ,
+            'name'                 => 'Активно'                ,
+            'shortname'            => 'is_active'              ,
+            'required'             => false                    ,
+            'shown'                => true                     ,
+            'ignore_language'      => true                     ,
+          ],
+
+          2 => [
             'type_id'              => 1                        ,
             'group_id'             => NULL                     ,
             'name'                 => 'Посилання'              ,
