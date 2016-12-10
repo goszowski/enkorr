@@ -53,6 +53,9 @@
           @endforeach
         </tbody>
       </table>
+      <div class="panel-body">
+        {!! $translations->render() !!}
+      </div>
     @endif
 
   </div>
