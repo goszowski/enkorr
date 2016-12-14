@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panel Admin - runsite::CMS</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
 
     {{--
@@ -22,25 +22,25 @@
     --}}
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic,latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="{{asset('admin/font-awesome-4.5.0/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/bootstrap-3.3.6-dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker-standalone.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/magnific-popup/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/runsite-input-progress/style.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/font-awesome-4.5.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/bootstrap-3.3.6-dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker-standalone.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/runsite-input-progress/style.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.css')}}">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="{{asset('admin/bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('admin/moment-develop/min/moment-with-locales.min.js')}}"></script>
-    <script src="{{asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
-    <script src="{{asset('admin/bootstrap-notify.min.js')}}"></script>
-    <script src="{{asset('admin/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.js')}}"></script>
-    <script src="{{asset('admin/runsite-input-progress/script.js')}}"></script>
-    <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.js')}}"></script>
-    <script src="{{asset('admin/admin-resources/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.js')}}"></script>
+    <script src="{{_asset('admin/bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{_asset('admin/moment-develop/min/moment-with-locales.min.js')}}"></script>
+    <script src="{{_asset('admin/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js')}}"></script>
+    <script src="{{_asset('admin/bootstrap-notify.min.js')}}"></script>
+    <script src="{{_asset('admin/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{_asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.js')}}"></script>
+    <script src="{{_asset('admin/runsite-input-progress/script.js')}}"></script>
+    <script src="{{_asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.js')}}"></script>
+    <script src="{{_asset('admin/admin-resources/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.js')}}"></script>
 
     <script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
@@ -48,28 +48,28 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="{{asset('admin/hey-metro.css?1')}}" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="{{asset('admin/app.css?1')}}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{_asset('admin/hey-metro.css?1')}}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{_asset('admin/app.css?1')}}" media="screen" title="no title" charset="utf-8">
 
 
-    <link rel="stylesheet" href="{{asset('admin/jstree/themes/default-dark/style.css')}}" />
-    <script src="{{asset('admin/jstree/jstree.min.js')}}"></script>
+    <link rel="stylesheet" href="{{_asset('admin/jstree/themes/default-dark/style.css')}}" />
+    <script src="{{_asset('admin/jstree/jstree.min.js')}}"></script>
 
-    <link rel="stylesheet" href="{{asset('admin/lobibox/lobibox.css')}}"/>
-    <script src="{{asset('admin/lobibox/lobibox.js')}}"></script>
-    <script src="{{asset('admin/lobibox/notifications.js')}}"></script>
+    <link rel="stylesheet" href="{{_asset('admin/lobibox/lobibox.css')}}"/>
+    <script src="{{_asset('admin/lobibox/lobibox.js')}}"></script>
+    <script src="{{_asset('admin/lobibox/notifications.js')}}"></script>
 
-    <link rel="stylesheet" href="{{asset('admin/bootstrap-select.css')}}" />
-    <script src="{{asset('admin/bootstrap-select.js')}}"></script>
+    <link rel="stylesheet" href="{{_asset('admin/bootstrap-select.css')}}" />
+    <script src="{{_asset('admin/bootstrap-select.js')}}"></script>
 
-    <link rel="stylesheet" href="{{asset('admin/flag-icon-css-master/css/flag-icon.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/flag-icon-css-master/css/flag-icon.css')}}">
 
-    <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('admin/app.js')}}"></script>
+    <script src="{{_asset('admin/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{_asset('admin/app.js')}}"></script>
     {{-- <script src="{{asset('admin/noty/promise.js')}}"></script> --}}
-    <script src="{{asset('admin/noty/packaged/jquery.noty.packaged.js')}}"></script>
+    <script src="{{_asset('admin/noty/packaged/jquery.noty.packaged.js')}}"></script>
 
     <script type="text/javascript">
     function youtube_parser(url){

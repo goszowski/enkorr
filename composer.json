@@ -41,7 +41,8 @@
           "app/Runsite\\Helpers\\Model.php",
           "app/Runsite\\Helpers\\__.php",
           "app/Runsite\\Helpers\\iPath.php",
-          "app/Runsite\\Helpers\\lPath.php"
+          "app/Runsite\\Helpers\\lPath.php",
+          "app/Runsite\\Helpers\\_asset.php"
         ]
     },
     "autoload-dev": {
