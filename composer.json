@@ -20,8 +20,8 @@
         "fadion/maneuver": "dev-l5",
         "snowfire/beautymail": "dev-master",
         "barryvdh/laravel-elfinder": "^0.3.7",
-        "tsawler/laravel-filemanager": "^0.6.2",
-        "atehnix/laravel-stubs": "^1.0"
+        "atehnix/laravel-stubs": "^1.0",
+        "runsite/laravel-filemanager": "^0.6.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

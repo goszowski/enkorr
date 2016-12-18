@@ -9,7 +9,7 @@
                         <a id="large_folder_{{ $key }}" data-id="{{ $dir }}"
                            onclick="clickFolder('large_folder_{{ $key }}',1)"
                            class="folder-icon pointer">
-                            <img src="/vendor/laravel-filemanager/img/folder.jpg">
+                            <img src="{{asset('vendor/laravel-filemanager/img/folder.jpg')}}">
                         </a>
                     </div>
                     <div class="caption text-center">

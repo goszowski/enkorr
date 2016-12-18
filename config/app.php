@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app_version' => '1.4.3',
+    'app_version' => '1.4.4',
     'name' => 'Website name',
 
     /*
@@ -168,9 +168,9 @@ return [
         Fadion\Maneuver\ManeuverServiceProvider::class,
         Snowfire\Beautymail\BeautymailServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
-        Tsawler\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         ATehnix\LaravelStubs\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
+        Runsite\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 
     ],
 

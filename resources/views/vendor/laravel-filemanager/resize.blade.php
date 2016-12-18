@@ -75,7 +75,7 @@
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "/panel-admin/laravel-filemanager/doresize",
+            url: "{{route('runsite.laravel-filemanager.doresize')}}",
             data: {
                 img: '{!! $img !!}',
                 dir: $("#dir").val(),

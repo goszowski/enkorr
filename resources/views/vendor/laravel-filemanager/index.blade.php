@@ -5,8 +5,8 @@
     <title>{!! Lang::get('laravel-filemanager::lfm.title-page') !!}</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/vendor/laravel-filemanager/css/cropper.min.css">
-    <link rel="stylesheet" href="/vendor/laravel-filemanager/css/lfm.css">
+    <link rel="stylesheet" href="{{asset('vendor/laravel-filemanager/css/cropper.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/laravel-filemanager/css/lfm.css')}}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css">
 </head>
 <body>
@@ -90,7 +90,7 @@
                 <h4 class="modal-title" id="myModalLabel">{!! Lang::get('laravel-filemanager::lfm.title-upload') !!}</h4>
             </div>
             <div class="modal-body">
-                {!! Form::open(array('url' => '/panel-admin/laravel-filemanager/upload', 'role' => 'form', 'name' => 'uploadForm',
+                {!! Form::open(array('url' => route('runsite.laravel-filemanager.upload'), 'role' => 'form', 'name' => 'uploadForm',
                 'id' => 'uploadForm', 'method' => 'post', 'enctype' => 'multipart/form-data')) !!}
                 <div class="form-group" id="attachment">
                     {!! Form::label('file_to_upload', Lang::get('laravel-filemanager::lfm.message-choose'), array('class' => 'control-label')); !!}
@@ -135,8 +135,8 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.3.0/bootbox.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="/vendor/laravel-filemanager/js/cropper.min.js"></script>
-<script src="/vendor/laravel-filemanager/js/jquery.form.min.js"></script>
+<script src="{{asset('vendor/laravel-filemanager/js/cropper.min.js')}}"></script>
+<script src="{{asset('vendor/laravel-filemanager/js/jquery.form.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         bootbox.setDefaults({locale:"{!! Lang::get('laravel-filemanager::lfm.locale-bootbox') !!}"});
@@ -144,7 +144,7 @@
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "/panel-admin/laravel-filemanager/folders",
+            url: "{{route('runsite.laravel-filemanager.folders')}}",
             data: "base={{ $working_dir }}",
             cache: false
         }).done(function (data) {
@@ -202,7 +202,7 @@
     }
 
     function download(x) {
-        location.href = "/panel-admin/laravel-filemanager/download?"
+        location.href = "{{route('runsite.laravel-filemanager.download')}}?"
             + "dir="
             + $("#working_dir").val()
             + "&file="
@@ -214,7 +214,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "html",
-                url: "/panel-admin/laravel-filemanager/jsonimages",
+                url: "{{route('runsite.laravel-filemanager.jsonimages')}}",
                 data: {
                     base: $("#working_dir").val(),
                     show_list: $("#show_list").val()
@@ -232,7 +232,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "html",
-                url: "/panel-admin/laravel-filemanager/jsonfiles",
+                url: "{{route('runsite.laravel-filemanager.jsonfiles')}}",
                 data: {
                     base: $("#working_dir").val(),
                     show_list: $("#show_list").val()
@@ -253,7 +253,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "text",
-                    url: "/panel-admin/laravel-filemanager/delete",
+                    url: "{{route('runsite.laravel-filemanager.delete')}}",
                     data: {
                         base: $("#working_dir").val(),
                         items: x
@@ -275,7 +275,7 @@
         $.ajax({
             type: "GET",
             dataType: "html",
-            url: "/panel-admin/laravel-filemanager/folders",
+            url: "{{route('runsite.laravel-filemanager.folders')}}",
             data: {
                 base: $("#working_dir").val(),
                 show_list: $("#show_list").val()
@@ -298,7 +298,7 @@
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "/panel-admin/laravel-filemanager/crop",
+            url: "{{route('runsite.laravel-filemanager.crop')}}",
             data: "img="
             + x
             + "&dir=" + $("#working_dir").val(),
@@ -320,7 +320,7 @@
                 $.ajax({
                     type: "GET",
                     dataType: "text",
-                    url: "/panel-admin/laravel-filemanager/newfolder",
+                    url: "{{route('runsite.laravel-filemanager.newfolder')}}",
                     data: {
                         name: result,
                         dir: $("#working_dir").val()
@@ -377,7 +377,7 @@
                     $.ajax({
                         type: "GET",
                         dataType: "text",
-                        url: "/panel-admin/laravel-filemanager/rename",
+                        url: "{{route('runsite.laravel-filemanager.rename')}}",
                         data: {
                             file: x,
                             dir: $("#working_dir").val(),
@@ -405,7 +405,7 @@
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "/panel-admin/laravel-filemanager/resize",
+            url: "{{route('runsite.laravel-filemanager.resize')}}",
             data: "img="
             + x
             + "&dir=" + $("#working_dir").val(),

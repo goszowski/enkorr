@@ -11,7 +11,7 @@
             <br>
             <button class="btn btn-primary" onclick="performCrop()">{!! Lang::get('laravel-filemanager::lfm.btn-crop') !!}</button>
             <button class="btn btn-info" onclick="loadImages()">{!! Lang::get('laravel-filemanager::lfm.btn-cancel') !!}</button>
-            {!! Form::open(array('url' => '/panel-admin/laravel-filemanager/crop', 'role' => 'form', 'name' => 'cropForm',
+            {!! Form::open(array('url' => route('runsite.laravel-filemanager.crop'), 'role' => 'form', 'name' => 'cropForm',
                 'id' => 'cropForm', 'method' => 'post')) !!}
                 <input type="hidden" id="img" name="img" value="{!! $img !!}">
                 <input type="hidden" id="dir" name="dir" value="{!! $dir !!}">
@@ -50,7 +50,7 @@
         $.ajax({
             type: "GET",
             dataType: "text",
-            url: "/panel-admin/laravel-filemanager/cropimage",
+            url: "{{route('runsite.laravel-filemanager.cropimage')}}",
             data: {
                 img: $("#img").val(),
                 dir: $("#dir").val(),

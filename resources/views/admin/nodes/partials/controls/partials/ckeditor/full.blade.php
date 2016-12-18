@@ -16,8 +16,8 @@
       language: '{{Config::get('app.locale')}}',
       skin: 'office2013',
       toolbar: 'full',
-      filebrowserImageBrowseUrl: '/panel-admin/laravel-filemanager?type=Images',
-            filebrowserBrowseUrl: '/panel-admin/laravel-filemanager?type=Files',
+      filebrowserImageBrowseUrl: '{{asset('/runsite/laravel-filemanager?type=Images')}}',
+            filebrowserBrowseUrl: '{{asset('/runsite/laravel-filemanager?type=Files')}}'
 
       @if(\App\Runsite\Field_settings::pull($settings, 'require_css_file'))
       contentsCss: '{{asset(\App\Runsite\Field_settings::pull($settings, 'require_css_file'))}}',
