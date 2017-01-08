@@ -21,6 +21,8 @@
 //     'as' => 'debugbar-js',
 //     'uses' => '\Barryvdh\Debugbar\Controllers\AssetController@js'
 // ]);
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect' ]], function()
+{
 
   Route::group(['prefix'=>'panel-admin', 'namespace'=>'Admin', 'as' => 'admin.'], function(){
 
@@ -212,3 +214,5 @@
     });
     //return true;
   });
+
+});

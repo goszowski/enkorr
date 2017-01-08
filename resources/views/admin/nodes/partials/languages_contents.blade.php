@@ -48,7 +48,7 @@
 
 
 @foreach($languages as $lg=>$lang)
-<div class="tab-pane @if((! Session::has('active_lang') and !$lg) or (Session::has('active_lang') and session('active_lang') == $lang->id)) active @endif" id="lang-tab-{{$lang->id}}">
+<div class="tab-pane @if((! Session::has('active_lang') and $lang->locale == LaravelLocalization::getCurrentLocale()) or (Session::has('active_lang') and session('active_lang') == $lang->id)) active @endif" id="lang-tab-{{$lang->id}}">
   @include('admin.nodes.partials.groups_tabs')
   <div class="tab-content">
     <div class="tab-pane @if(! Session::has('active_group') or session('active_group') == 0) active @endif" id="group-main-lang-{{$lang->id}}">

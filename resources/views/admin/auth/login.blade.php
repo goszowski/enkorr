@@ -8,7 +8,7 @@
         <a href="https://runsite.com.ua" target="_blank"><b>run</b>site</a>
       </div>
       <p class="login-box-msg">
-        Для входу введіть логін та пароль
+        {{trans('admin/auth.Для входу введіть логін та пароль')}}
       </p>
       <form role="form" method="POST" action="{{ route('admin.auth.signin') }}">
         {!! csrf_field() !!}
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
-          <input type="password" class="form-control" name="password" placeholder="Пароль">
+          <input type="password" class="form-control" name="password" placeholder="{{trans('admin/auth.Пароль')}}">
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           @if ($errors->has('password'))
               <span class="help-block">
@@ -37,13 +37,13 @@
           <div class="col-xs-8">
             <div class="checkbox icheck">
               <label>
-                <input type="checkbox" name="remember"> Запамятати мене
+                <input type="checkbox" name="remember"> {{trans('admin/auth.Запамятати мене')}}
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Увійти</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">{{trans('admin/auth.Увійти')}}</button>
           </div>
           <!-- /.col -->
         </div>

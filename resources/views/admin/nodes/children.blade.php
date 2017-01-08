@@ -119,65 +119,85 @@
   </ul>
   <div class="b-a no-b-t bg-white m-b tab-content">
     @if(count($children))
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              @foreach($fields as $field)
-              <th>
-                {{$field->name}}
-              </th>
-              @endforeach
-              @if(!$class->order_by)
-                <th class="text-center">{{trans('admin/nodes.order')}}</th>
-              @endif
-              <th class="text-right">{{trans('admin/nodes.action')}}</th>
-            </tr>
-            <tr>
-              @foreach($fields as $field)
-              <th>
-                @if(View::exists('admin.nodes.partials.search.'.$field->type->input_controller))
-                  @include('admin.nodes.partials.search.'.$field->type->input_controller)
-                @endif
-              </th>
-              @endforeach
-              @if(!$class->order_by)
-                <th class="text-center"></th>
-              @endif
-              <th class="text-right"></th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($children as $k=>$child)
-            <tr>
-              <?php
-                // $locale = Locale::getDefByNode($child->id);
-              ?>
-              @foreach($fields as $field)
-              <td>
-                @include('admin.nodes.partials.visualization.'.$field->type->input_controller, ['value'=> $child->{$field->shortname}])
-              </td>
-              @endforeach
 
-              @if(!$class->order_by)
-                <td class="text-center">
-                  <div class="btn-group" role="group">
-                    <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby <= 1 or !$k) disabled @endif><i class="fa fa-chevron-up"></i></a>
-                    <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
-                  </div>
-                </td>
-              @endif
-              <td class="text-right">
-                <a href="{{route('admin.nodes.edit', $child->node_id)}}" class="btn btn-xs btn-dark"><i class="fa fa-pencil-square-o"></i></a>
-                @if(!Auth::user()->is_limited or $class->limited_users_can_delete)
-                  <a href="{{route('admin.nodes.destroy', $child->node_id)}}" class="btn btn-raised btn-xs btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i></a>
+      <div class="visible-xs">
+        <div class="p-lg">
+          <div class="list-group">
+            @foreach($children as $k=>$child)
+              <a href="{{route('admin.nodes.edit', $child->node_id)}}" class="list-group-item">
+                <i class="fa fa-pencil-square-o"></i>
+                @if(isset($child->name))
+                   {{$child->name}}
                 @endif
-              </td>
-            </tr>
+              </a>
             @endforeach
-          </tbody>
-        </table>
+          </div>
+        </div>
+
       </div>
+
+      <div class="hidden-xs">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                @foreach($fields as $field)
+                <th>
+                  {{$field->name}}
+                </th>
+                @endforeach
+                @if(!$class->order_by)
+                  <th class="text-center">{{trans('admin/nodes.order')}}</th>
+                @endif
+                <th class="text-right">{{trans('admin/nodes.action')}}</th>
+              </tr>
+              <tr>
+                @foreach($fields as $field)
+                <th>
+                  @if(View::exists('admin.nodes.partials.search.'.$field->type->input_controller))
+                    @include('admin.nodes.partials.search.'.$field->type->input_controller)
+                  @endif
+                </th>
+                @endforeach
+                @if(!$class->order_by)
+                  <th class="text-center"></th>
+                @endif
+                <th class="text-right"></th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($children as $k=>$child)
+              <tr>
+                <?php
+                  // $locale = Locale::getDefByNode($child->id);
+                ?>
+                @foreach($fields as $field)
+                <td>
+                  @include('admin.nodes.partials.visualization.'.$field->type->input_controller, ['value'=> $child->{$field->shortname}])
+                </td>
+                @endforeach
+
+                @if(!$class->order_by)
+                  <td class="text-center">
+                    <div class="btn-group" role="group">
+                      <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby <= 1 or !$k) disabled @endif><i class="fa fa-chevron-up"></i></a>
+                      <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
+                    </div>
+                  </td>
+                @endif
+                <td class="text-right">
+                  <a href="{{route('admin.nodes.edit', $child->node_id)}}" class="btn btn-xs btn-dark"><i class="fa fa-pencil-square-o"></i></a>
+                  @if(!Auth::user()->is_limited or $class->limited_users_can_delete)
+                    <a href="{{route('admin.nodes.destroy', $child->node_id)}}" class="btn btn-raised btn-xs btn-danger" onclick="if(!confirm('{{trans('admin/nodes.are you sure')}}?')) return false;"><i class="fa fa-trash"></i></a>
+                  @endif
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     @else
       <div class="alert">
         {{trans('admin/nodes.Розділ порожній')}}

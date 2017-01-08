@@ -104,8 +104,18 @@
                 </li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">{{ LaravelLocalization::getCurrentLocale() }}</span> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                @foreach(App\Runsite\Languages::get() as $lang)
+                  <li>
+                    <a href="{{url($lang->locale.'/panel-admin')}}">{{$lang->name}}</a>
+                  </li>
+                @endforeach
+              </ul>
+            </li>
             <li class="dropdown ">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user"></i> {{\Auth::user()->name}} <span class="caret"></span></a>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user"></i> <span class="hidden-xs">{{\Auth::user()->name}}</span> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li ><a href="{{route('admin.auth.logout')}}"><i class="fa fa-sign-out"></i> Log out</a></li>
               </ul>
