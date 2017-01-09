@@ -200,7 +200,7 @@ class NodesController extends Controller {
     $_CLASS       = Classes::find($class_id) or abort(404);
     $_LANGUAGES   = Languages::where('is_active', true)->orderBy('is_default', 'desc')->get();
     $_GROUPS      = Field_groups::where('class_id', $class_id)->get();
-    $_FIELDS      = Fields::where('class_id', $class_id)->get();
+    $_FIELDS      = Fields::where('class_id', $class_id)->orderBy('sort', 'asc')->get();
     $_PARENT      = Nodes::find($parent_id);
 
     return view('admin.nodes.create')

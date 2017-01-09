@@ -36,7 +36,7 @@
             @foreach($classes as $class)
             <tr>
               <td>{{$class->id}}</td>
-              <td><a href="{{route('admin.classes.edit', $class->id)}}" data-toggle="tooltip" data-title="{{trans('admin/classes.edit')}}" data-delay="600"><i class="fa fa-bars"></i> {{$class->name}}</a></td>
+              <td><a href="{{route('admin.fields.items', $class->id)}}" data-toggle="tooltip" data-title="{{trans('admin/classes.edit')}}" data-delay="600"><i class="fa fa-bars"></i> {{$class->name}}</a></td>
               <td><span class="label bg-success">{{$class->shortname}}</span></td>
               <td><span class="label bg-warning">{{$class->default_controller}}</span></td>
               <td class="text-right">

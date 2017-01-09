@@ -78,6 +78,15 @@
         return (match&&match[7].length==11)? match[7] : false;
     }
       $(function(){
+
+        $('form').on('submit', function(e){
+          var submitBtn = $(this).find('button[type=submit]');
+          submitBtn.attr('disabled', 'true');
+          submitBtn.html('<i class="fa fa-refresh fa-spin"></i>');
+          // return true;
+        });
+
+
         $('.datetimepicker').datetimepicker({
           locale: '{{config('app.locale')}}',
           format: 'YYYY-MM-DD HH:mm:ss'
