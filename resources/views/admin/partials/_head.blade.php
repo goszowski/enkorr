@@ -123,6 +123,28 @@
 
         });
 
+        $('.select2-autocomplete-group').each(function() {
+          var current = $(this);
+          var linked_class = current.data('linked-class');
+          var parent_id = current.data('parent-id');
+
+          current.select2({
+            multiple: true,
+
+            ajax: {
+              url: "{{route('admin.autocomplete')}}?linked_class="+linked_class+"&parent_id="+parent_id,
+              dataType: 'json',
+              cache: true,
+              data: function (term, page) {
+                return {
+                  q: term
+                }
+              }
+            }
+          });
+
+        });
+
 
 
 

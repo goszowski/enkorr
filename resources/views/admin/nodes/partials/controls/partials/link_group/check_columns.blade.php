@@ -1,4 +1,5 @@
 @if(count($variants))
+  <input type="hidden" name="langs[{{$field_lang}}][{{$field_name}}][]" value="">
   <div class="row">
     <div class="col-xs-12 col-md-4">
 

@@ -18,6 +18,7 @@ return [
   'name' => 'Name',
   'action' => 'Action',
   'go_to_linked_section' => 'Go to linked section',
+  'go_to_linked_sections' => 'Go to linked sections',
   'can not get items of class' => 'Can not get items of class',
   'export_data' => 'Export data',
   'export' => 'Export',

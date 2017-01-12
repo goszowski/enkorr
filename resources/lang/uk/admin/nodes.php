@@ -18,6 +18,7 @@ return [
   'name' => 'Назва',
   'action' => 'Дія',
   'go_to_linked_section' => 'Перейти до лінкованого розділу',
+  'go_to_linked_sections' => 'Перейти до лінкованих розділів',
   'can not get items of class' => 'Не можна отримати список розділів вказаного типу',
   'export_data' => 'Експорт даних',
   'export' => 'Експорт',

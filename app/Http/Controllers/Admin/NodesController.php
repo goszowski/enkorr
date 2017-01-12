@@ -221,6 +221,7 @@ class NodesController extends Controller {
       $request = Request::all(); # якшо нема $values то пробуємо отримати їх з реквесту
     }
 
+
     # оприділяємося з нодами - якшо нема в значеннях то вони мають бути в аргументах
     if(! isset($request['node_id']) and $node_id)         $request['node_id']      = $node_id;
     if(! isset($request['parent_id']) and $parent_id)     $request['parent_id']    = $parent_id;
@@ -268,6 +269,8 @@ class NodesController extends Controller {
         }
 
 
+
+
       } # -- кінець перебирання ключів-значень --
 
       # оновлення бази даних
@@ -291,6 +294,7 @@ class NodesController extends Controller {
         ]);
 
       }
+
 
       Node::getUniversal($class->shortname)
         ->where('language_id', $lang_id)

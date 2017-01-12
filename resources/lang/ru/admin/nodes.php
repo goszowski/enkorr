@@ -18,6 +18,7 @@ return [
   'name' => 'Название',
   'action' => 'Действие',
   'go_to_linked_section' => 'Перейти к привязанному разделу',
+  'go_to_linked_sections' => 'Перейти к привязанным разделам',
   'can not get items of class' => 'Не удается получить список разделов',
   'export_data' => 'Экспорт данных',
   'export' => 'Экспорт',

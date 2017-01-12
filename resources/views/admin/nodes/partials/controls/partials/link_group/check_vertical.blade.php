@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-
+    <input type="hidden" name="langs[{{$field_lang}}][{{$field_name}}][]" value="">
 
     @foreach($variants as $k=>$item)
       <div class="checkbox">
