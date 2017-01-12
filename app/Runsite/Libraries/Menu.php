@@ -1,6 +1,9 @@
 <?php
 namespace App\Runsite\Libraries;
 
+use LaravelLocalization;
+use Request;
+
 class Menu {
 
   public static function isCurrent($absolutePath) {
