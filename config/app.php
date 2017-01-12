@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app_version' => '1.4.6',
+    'app_version' => '1.4.7',
     'name' => 'Website name',
 
     /*
@@ -229,6 +229,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
+        'Menu'        => App\Runsite\Libraries\Menu::class,
 
     ],
 
