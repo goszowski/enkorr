@@ -10,8 +10,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="AppName">
-    <link rel="apple-touch-icon" href="{{asset('icons/app-icon-152x152.png')}}">
-    <meta name="msapplication-TileImage" content="{{asset('icons/app-icon-3x.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('icons/_app_store_5122x.png')}}">
+    <meta name="msapplication-TileImage" content="{{asset('icons/_app_store_5122x.png')}}">
     <meta name="msapplication-TileColor" content="#2F3BA2">
 
 
@@ -31,18 +31,15 @@
     {{-- Styles --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
-    {!! Minify::stylesheet([
 
-        '/asset/css/pace.css',
-        '/asset/css/style.css',
-        '/asset/css/sass-space.css',
-
-      ]) !!}
+    <link rel="stylesheet" href="{{asset('asset/css/pace.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/sass-space.css')}}">
     {{-- [END] Styles --}}
   </head>
-  <body>
+  <body @if(config('runsite.ajax.enabled') and config('runsite.ajax.cache')) data-ajax-cache="true" @endif>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default main-navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
@@ -95,14 +92,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    {{-- Scripts --}}
-    {!! Minify::javascript([
+    <script src="{{asset('asset/js/pace.min.js')}}" async></script>
+    <script src="{{asset('asset/js/webApp.js')}}" async></script>
+    <script src="{{asset('asset/js/scripts.js')}}" async></script>
 
-        '/asset/js/pace.min.js',
-        '/asset/js/webApp.js',
-        '/asset/js/scripts.js',
-
-      ]) !!}
     {{-- [END] Scripts --}}
   </body>
 </html>@endif

@@ -5,7 +5,10 @@
 {{-- Page content --}}
 @section('content')
 
-  dsda
+  <div class="container">
+    <h1>{{$currentFields->name}}</h1>
+    {!! $currentFields->content !!}
+  </div>
 
 @endsection
 {{-- [END] Page content --}}
