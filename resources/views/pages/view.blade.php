@@ -5,7 +5,7 @@
 {{-- Page content --}}
 @section('content')
 
-  
+  dsda
 
 @endsection
 {{-- [END] Page content --}}
