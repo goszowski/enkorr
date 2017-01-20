@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app_version' => '1.4.7',
+    'app_version' => '1.4.8',
     'name' => 'Website name',
 
     /*
