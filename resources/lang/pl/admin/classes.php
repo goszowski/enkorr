@@ -37,4 +37,9 @@ return [
   'default_order_by' => 'Domyślne sortowanie',
   'app_name' => 'Klasy',
   'close' => 'Zamknij',
+  'Дозволити створення' => 'Pozwól na tworzenie',
+  'Дозволити видалення' => 'Pozwól na usunięcie',
+  'Кешувати' => 'Wykorzystaj cache',
+  'show_count' => 'Wyświetlaj ilość sekcji',
+  'Зміни в моделі успішно збережені' => 'Zmiany w modelu pomyślnie zapisane',
 ];
