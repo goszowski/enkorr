@@ -92,7 +92,7 @@ class LanguagesController extends Controller {
 
     //dd($language);
     // return items view
-    return \Redirect::route('admin.languages.items');
+    return redirect()->route('admin.languages.items');
   }
 
   public function update(Request $request, Languages $languagesModel, Validator $validator) {
