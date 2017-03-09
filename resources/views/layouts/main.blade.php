@@ -38,7 +38,6 @@
     {{-- [END] Styles --}}
   </head>
   <body @if(config('runsite.ajax.enabled') and config('runsite.ajax.cache')) data-ajax-cache="true" @endif>
-
     <nav class="navbar navbar-default main-navigation">
       <div class="container">
         <div class="navbar-header">

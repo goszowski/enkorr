@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'app_version' => '1.4.8',
+    'app_version' => '1.4.9',
     'name' => 'Website name',
 
     /*
@@ -230,6 +230,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Menu'        => App\Runsite\Libraries\Menu::class,
+        'Store' => App\Runsite\Facades\Store::class,
 
     ],
 

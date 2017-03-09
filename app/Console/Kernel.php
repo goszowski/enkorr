@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\Runsite::class,
         Commands\RunsiteComponent::class,
+        Commands\Test::class,
     ];
 
     /**

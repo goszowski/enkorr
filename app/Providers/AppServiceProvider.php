@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind('Store', 'App\Runsite\Libraries\Store');
     }
 
     /**

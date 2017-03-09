@@ -16,20 +16,32 @@ class Universal extends Model
      *
      * @var string
      */
-    protected $table = '';
+    public $table = '_class_page';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name'];
     protected $dates = ['deleted_at'];
 
     public function __construct($tablename='', $fields=[]) {
       parent::__construct();
       $this->table = $tablename;
       $this->fillable = $fields;
+    }
+
+    public function setTable($tablename)
+    {
+        $this->table = $tablename;
+        return $this;
+    }
+
+    public function setFillable($fillable)
+    {
+        $this->fillable = $fillable;
+        return $this;
     }
 
 
