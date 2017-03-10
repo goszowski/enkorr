@@ -12,7 +12,7 @@ class FeedBackRequest extends Mailable
     use Queueable, SerializesModels;
 
     protected $name;
-    protected $mail;
+    protected $email;
     protected $text;
 
     /**
