@@ -6,10 +6,10 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Http\Controllers\RunsiteController;
+use App\Http\Controllers\RSController;
 use App\Runsite\Libraries\Node;
 
-class HomeController extends RunsiteController
+class HomeController extends RSController
 {
 
     public function index()

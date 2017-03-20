@@ -171,6 +171,7 @@ return [
         ATehnix\LaravelStubs\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
         Runsite\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Goszowski\BladeExtended\BladeExtendedServiceProvider::class,
 
     ],
 

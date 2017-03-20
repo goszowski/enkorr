@@ -1,25 +1,19 @@
 <?php
-
 namespace App\Runsite;
+
+// The Dynamic model for Runsite CMF
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Session;
 use App\Runsite\Libraries\PH;
 
 class Dynamic extends Model
 {
     use SoftDeletes;
 
-    protected $table = '';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table    = '';
     protected $fillable = [];
-
-    protected $dates = ['deleted_at'];
+    protected $dates    = ['deleted_at', 'pubdate', 'date'];
 
     public function __construct($table=null)
     {
@@ -28,13 +22,31 @@ class Dynamic extends Model
         if($table)
         {
             $this->table = $table;
-            PH::setGlobal('dynamic_model_table_name', $table);
+            PH::setGlobal('DMTN', $table);
         }
-        elseif(PH::getGlobal('dynamic_model_table_name'))
+        elseif(PH::getGlobal('DMTN'))
         {
-            $this->table = PH::getGlobal('dynamic_model_table_name');
+            $this->table = PH::getGlobal('DMTN');
         }
 
+    }
+
+
+    // Template: $this->has('user');
+
+    public function has($modelName)
+    {
+      $this->{$modelName} =  Model($modelName)->where('node_id', $this->{$modelName.'_id'})->first();
+      return $this->{$modelName};
+    }
+
+    // Template: $this->has('users');
+
+    public function hasMore($fieldName)
+    {
+      $ids = explode(',', $this->{$fieldName});
+      $this->{$fieldName} = Model(str_singular($fieldName))->whereIn('node_id', $ids)->get();
+      return $this->{$fieldName};
     }
 
 

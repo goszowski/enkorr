@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
-@include('partials.seo')
+@include('partials.seo2')
 
 {{-- Page content --}}
 @section('content')
 
   <div class="container">
-    <h1>{{$currentFields->name}}</h1>
-    {!! $currentFields->content !!}
+    <h1>{{$fields->name}}</h1>
+    {!! $fields->content !!}
   </div>
 
 @endsection

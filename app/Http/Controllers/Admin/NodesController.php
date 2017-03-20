@@ -24,6 +24,7 @@ use DB;
 use App\Runsite\Event;
 use Auth;
 use App\Runsite\Libraries\Alert;
+use App\Http\Actions\Node as NodeAction;
 
 class NodesController extends Controller {
 
@@ -317,6 +318,15 @@ class NodesController extends Controller {
     Alert::success(trans('admin/nodes.Зміни в розділі успішно збережені'));
     Session::flash('active_group', $request['active_group_id']);
     Session::flash('active_lang', $request['active_lang_id']);
+
+    if($is_creating)
+    {
+      NodeAction::create($node->id, $class->shortname);
+    }
+    else
+    {
+      NodeAction::update($node->id, $class->shortname);
+    }
 
     switch ($request['do_after']) {
       case 'stay':

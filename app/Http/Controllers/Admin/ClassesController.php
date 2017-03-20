@@ -20,6 +20,7 @@ use App\Runsite\Class_dependencies;
 use App\Runsite\Node_dependencies;
 use App\Runsite\Libraries\Alert;
 use App\Runsite\Libraries\Node;
+use File;
 
 class ClassesController extends Controller {
 
@@ -161,16 +162,29 @@ class ClassesController extends Controller {
     // creating schema
     $classes->createSchema($classes->shortname);
 
-    $controllerName = explode('@', $classes->default_controller);
-    if($controllerName and is_array($controllerName) and isset($controllerName[0]))
+    if($classes->default_controller)
     {
-      \Artisan::call('make:controller', [
-        'name' => $controllerName[0],
-        '--resource' => true,
-      ]);
+      $controllerName = explode('@', $classes->default_controller);
+      if($controllerName and is_array($controllerName) and isset($controllerName[0]))
+      {
 
-      Alert::success(trans('admin/classes.Створено новий контроллер: App\Http\Controllers\Front\\') . $controllerName[0]);
+
+        $dirname = str_plural($classes->shortname);
+
+        mkdir(base_path('resources/views/'.$dirname));
+
+        File::put(base_path('resources/views/'.$dirname.'/index.blade.php'), '#'.$dirname);
+        File::put(base_path('resources/views/'.$dirname.'/view.blade.php'), '#'.$dirname);
+
+        \Artisan::call('make:controller', [
+          'name' => $controllerName[0],
+          '--resource' => true,
+        ]);
+
+        Alert::success(trans('admin/classes.Створено новий контроллер: ') . 'App\Http\Controllers\Front\\' . $controllerName[0]);
+      }
     }
+
 
 
 
