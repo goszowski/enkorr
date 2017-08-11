@@ -8,7 +8,7 @@
       <i class="fa fa-bars"></i> Translations
     </div>
     <div class="panel-body">
-      {!! Form::open(['url'=>url('/panel-admin/translations/'.$translations[0]->key), 'method'=>'patch']) !!}
+      {!! Form::open(['url'=>LaravelLocalization::getLocalizedUrl(null, url('/panel-admin/translations/'.$translations[0]->key)), 'method'=>'patch']) !!}
         @include('admin.translations.form')
         <button type="submit" class="btn btn-success">Update</button>
       {!! Form::close() !!}
