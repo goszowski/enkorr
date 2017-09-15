@@ -1,0 +1,38 @@
+.scroll-top-container {
+    position: fixed;
+    left: 0; right: 0;
+    top: 0;
+    z-index: 4;
+
+    .scroll-top {
+        z-index: 3;
+        position: absolute;
+        left: 50%; top: -50px;
+        transform: translate(-50%, 0);
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 15px;
+        background: #eb5c24;
+        color: #fff;
+        cursor: pointer;
+        border: 1px solid darken(#eb5c24, 10);
+        box-shadow: 0 0 15px rgba(0,0,0, 0.4);
+        transition: top 200ms;
+
+        &:hover {
+            background-color: lighten(#eb5c24, 5);
+        }
+
+        &:active {
+            background-color: darken(#eb5c24, 5);
+        }
+
+        span {
+            font-size: 12px;
+        }
+
+        &.active {
+            top: 65px;
+        }
+    }
+}

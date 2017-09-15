@@ -1,0 +1,247 @@
+html, body {
+  min-height: 100%;
+  position: relative;
+}
+
+.brand-wall {
+  position: absolute;
+  z-index: 1;
+  left: 0; top: 0; right: 0;
+  height: 100%;
+  background: #eee;
+
+  &>a, &>div {
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    display: block;
+    font-size: 0;
+    background-repeat: no-repeat;
+    background-position: top center;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.website-container {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  min-height: 100vh;
+  max-width: 1050px;
+  padding-bottom: 55px;
+
+  .author {
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+.sticky {
+  position: static;
+}
+
+
+a {
+  transition: color 200ms;
+}
+
+.m-clear {
+  margin: 0;
+}
+
+
+.navbar-brand {
+  font-family: Merriweather;
+
+  img {
+    float: left;
+    max-width: 40px;
+    margin-right: 10px;
+    border: 1px solid rgba(255,255,255, 0.8);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    top: -10px;
+  }
+}
+
+
+.animated-xs {
+  @media only screen and (min-width : 767px) {
+    &.animated {
+      /*CSS transitions*/
+      -o-transition-property: none !important;
+      -moz-transition-property: none !important;
+      -ms-transition-property: none !important;
+      -webkit-transition-property: none !important;
+      transition-property: none !important;
+      /*CSS transforms*/
+      -o-transform: none !important;
+      -moz-transform: none !important;
+      -ms-transform: none !important;
+      -webkit-transform: none !important;
+      transform: none !important;
+      /*CSS animations*/
+      -webkit-animation: none !important;
+      -moz-animation: none !important;
+      -o-animation: none !important;
+      -ms-animation: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+
+.custom-search {
+  .form-control {
+    // height: 50px;
+    box-shadow: none;
+    border: 0;
+    background: rgba(255,255,255, 0.1);
+    color: rgba(255,255,255, 0.9);
+
+    @media(min-width: 768px) and (max-width: 992px)
+    {
+      width: 150px;
+    }
+  }
+
+  .form-control-feedback {
+    // top: 7px!important;
+    pointer-events: all!important;
+    cursor: pointer;
+    transition: color 200ms;
+    background: none;
+    border: none;
+
+    &:hover {
+      color: rgba(255,255,255, 0.6);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all 100ms;
+}
+
+.btn-primary.btn-outline {
+    color: #eb5c24;
+}
+
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+.main-nav-container {
+  position: relative;
+  z-index: 5;
+}
+.loader {
+  position: absolute;
+  left: 0; right: 0;
+  top: 0;
+  height: 100vh;
+  background: #fff;
+  z-index: 1;
+  padding-top: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms, visibility 200ms;
+
+  @media (max-width: 1200px)
+  {
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .lds-css {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../images/ek.svg) no-repeat center;
+    background-size: 50%;
+  }
+}
+
+@keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-eclipse {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.lds-eclipse {
+  position: relative;
+}
+.lds-eclipse div {
+  position: absolute;
+  -webkit-animation: lds-eclipse 1s linear infinite;
+  animation: lds-eclipse 1s linear infinite;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 0 0 #eb5c24;
+  -webkit-transform-origin: 80px 82px;
+  transform-origin: 80px 82px;
+}
+.lds-eclipse {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
+
+
+@import "partials/header";
+@import "partials/footer";
+@import "partials/sidebar";
+@import "partials/publication";
+@import "partials/scroll_top";
+@import "partials/poll";

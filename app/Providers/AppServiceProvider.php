@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind('Store', 'App\Runsite\Libraries\Store');
+        View::composer('layouts.main', 'App\Http\Composers\GlobalComposer');
     }
 
     /**

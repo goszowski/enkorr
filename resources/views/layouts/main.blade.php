@@ -1,100 +1,217 @@
 @if(!Input::get('ajax'))<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <html lang="ru">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-    {{-- PWA SECTION --}}
-    <link rel="manifest" href="/manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="AppName">
-    <link rel="apple-touch-icon" href="{{asset('icons/_app_store_5122x.png')}}">
-    <meta name="msapplication-TileImage" content="{{asset('icons/_app_store_5122x.png')}}">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
+      <title>Enkorr</title>
+      <meta property="og:title" content="Enkorr">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="/">
+      <meta property="og:image" content="/assets/images/logo.png">
 
+      <link rel="manifest" href="/manifest.json">
+      <link rel="shortcut icon" href="{{asset('/imglib/favicon.ico')}}" type="image/x-icon">
+      <link rel="icon" href="{{asset('/imglib/favicon.ico')}}" type="image/x-icon">
 
-    <title>@yield('title')</title>
-    <!--[if IE]>
-     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    {{-- <meta name="keywords" content="@yield('keywords')"> --}}
-    <meta name="description" content="@yield('description')">
+      <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-    {{-- Open Graph Sections --}}
-    <meta property="og:type"  content="website" />
-    <meta property="og:title"  content="@yield('og:title')" />
-    <meta property="og:image"  content="@yield('og:image')" />
-    {{-- [END] Open Graph Sections --}}
+      <!-- Vendor styles -->
+      <link rel="stylesheet" href="{{asset('/asset/css/bootstrap/stylesheets/bootstrap.css')}}">
+      <link rel="stylesheet" href="{{asset('/asset/vendor/sass-space/sass-space.css')}}">
+      <link rel="stylesheet" href="{{asset('/asset/vendor/ripple/ripple.css')}}">
+      <!-- / Vendor styles -->
 
-    {{-- Styles --}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+      <!-- App styles -->
+      <link rel="stylesheet" href="{{asset('/asset/css/style.css')}}">
+      <!-- / App styles -->
+    </head>
+    <body>
 
-    <link rel="stylesheet" href="{{asset('asset/css/pace.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/css/sass-space.css')}}">
-    {{-- [END] Styles --}}
-  </head>
-  <body @if(config('runsite.ajax.enabled') and config('runsite.ajax.cache')) data-ajax-cache="true" @endif>
-    <nav class="navbar navbar-default main-navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" data-ajax="true" href="{{lPath('/')}}">RUNSITE PWA</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="main-navigation">
-
-          {{-- Main navigation --}}
-          {!! Menu::generate(4, 'main') !!}
-
-          {{-- Social networks --}}
-          {!! Menu::generate(5, 'social') !!}
-
-        </div>
+      <div class="brand-wall">
+        <!-- <div class="visible-lg" style="background-image: url(/assets/images/demo/brand-1.jpg); background-color: #000;"></div> -->
       </div>
-    </nav>
 
 
-    {{-- WEB APP CONTENT --}}
-    <div id="app-content">
-      @endif
-
-        @yield('content')
-
-      @if(!Input::get('ajax'))
-    </div>
-    {{-- [END] WEB APP CONTENT --}}
 
 
-    <footer class="xs-pt-30 xs-pb-30">
-      <div class="container">
 
-        <div class="xs-p-15 text-center">
-          {{__('Розробка та підтримка сайту')}}: <a href="https://runsite.com.ua" target="_blank" title="{{__('Рансайт ТОВ - Розробка та підтримка сайтів')}}">{{__('Рансайт ТОВ')}}</a>
+      <div class="container website-container xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
+        <a href="https://runsite.com.ua" target="_blank" class="author" data-toggle="tooltip" title="Рансайт: Разработка и поддержка сайтов 2016-2017">Разработка и поддержка сайта: Рансайт ТОВ</a>
+
+        <!-- <div class="container-fluid xs-pt-30 xs-pb-30 visible-sm visible-md visible-lg">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 md-pt-15 lg-pt-25">
+                <a href="/" data-ajax="true">
+                    <img src="/assets/images/logo.png" alt="Enkorr" class="img-responsive" style="max-width: 150px;">
+                </a>
+            </div>
+            <div class="col-md-9 col-lg-9 text-right visible-md visible-lg">
+                <a href="https://runsite.com.ua" target="_blank" rel="nofollow">
+                  <img src="/assets/images/demo/banner-header.gif" class="img-responsive" alt="alt">
+                </a>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="xs-pl-15 xs-pr-15 sm-pl-0 sm-pr-0">
+          <div class="row main-nav-container sticky-all">
+            <nav class="navbar navbar-inverse xs-mb-0">
+              <div class="navbar-header">
+                <a class="navbar-brand ripple xs-pl-10 sm-pl-20" href="/" data-ajax="true">
+                    <img src="{{asset('/imglib/touch/48x48.png')}}" alt="enkorr"> <b>enkorr</b>
+                </a>
+                <button type="button" class="navbar-toggle collapsed ripple xs-mr-10" id="main-nav-toggle" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="nav navbar-nav text-uppercase">
+                  @if(count( $sections ))
+                    @foreach( $sections as $section)
+                      <li><a href="{{lPath($section->link)}}" data-ajax="true" class="ripple"><span class="">{{$section->name}}</span></a></li>
+                    @endforeach
+                  @endif
+                </ul>
+
+
+
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                  <li><a href="/?page=auth/login" data-ajax="true" class="ripple"><i class="fa fa-sign-in"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">Вход</span></a></li>
+                  <li><a href="/?page=auth/register" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">Регистрация</span></a></li>
+                </ul>
+
+                <form class="navbar-form navbar-left  custom-search">
+                  <div class="">
+                    <div class="form-group has-feedback">
+                      <input type="text" class="form-control sm-pl-20" placeholder="Поиск">
+                      <button type="submit" class="fa fa-search form-control-feedback sm-pr-30" aria-hidden="true"></button>
+                    </div>
+                  </div>
+                </form>
+
+
+              </div>
+            </nav>
+          </div>
+
+
+        <div class="loader active">
+          <div class="lds-css ng-scope">
+            <div style="width:100%;height:100%" class="lds-eclipse">
+              <div></div>
+            </div>
+          </div>
         </div>
+
+        <div class="scroll-top-container">
+          <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>Вверх</span></div>
+        </div>
+
+        <div id="app">
+          @yield('section')
+        </div>
+
+        <div class="row footer">
+          <div class="xs-pl-15 sm-pl-30 xs-pr-15 sm-pr-30">
+            {!! $footer !!}
+          </div>
+        </div>
+
       </div>
-    </footer>
+        </div>
+      <!-- Vendor scripts -->
+      <script src="/assets/vendor/jquery/jquery-3.2.1/jquery.min.js"></script>
+      <script src="/assets/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js"></script>
+      <script src="/assets/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+      <script src="assets/vendor/sticky-kit/jquery.sticky-kit.min.js"></script>
+      <!-- / Vendor scripts -->
+
+      <!-- App scripts -->
+      <script src="/assets/js/scripts.js"></script>
+      <script type="text/javascript">
+        $(function() {
+
+          appBuild();
+          // Ajax navigation
+          var navigation = new AjaxNavigation;
+          navigation.onPageLoad(function() {
+            // Calling after page load
+            appBuild();
+          });
+
+
+          $(document).on('click', '.image-with-title', function() {
+            $(this).toggleClass('hidden-caption');
+          });
+
+          $(document).on('click', '#main-nav ul li a, .navbar-brand', function() {
+            if(! $('#main-nav-toggle').hasClass('collapsed'))
+            {
+              $('#main-nav-toggle').click();
+            }
+          });
 
 
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          var lastScrollTop = 0;
+          $(window).scroll(function(event){
+             var st = $(this).scrollTop();
+             if (st > lastScrollTop){
+                $('.scroll-top').removeClass('active');
+             } else {
+                if($(window).scrollTop() >= 150)
+                {
+                  $('.scroll-top').addClass('active');
+                }
+                else
+                {
+                  $('.scroll-top').removeClass('active');
+                }
+             }
+             lastScrollTop = st;
+          });
 
-    <script src="{{asset('asset/js/pace.min.js')}}" async></script>
-    <script src="{{asset('asset/js/webApp.js')}}" async></script>
-    <script src="{{asset('asset/js/scripts.js')}}" async></script>
 
-    {{-- [END] Scripts --}}
-  </body>
-</html>@endif
+          $('.scroll-top').on('click', function() {
+            $('html, body').scrollTop(0);
+            $(this).removeClass('active');
+          });
+
+
+
+
+          /* Ripple efect */
+          $(document).on('click', '.ripple', function (e) {
+            //e.preventDefault();
+            var $div = $('<div/>'),
+              btnOffset = $(this).offset(),
+              xPos = e.pageX - btnOffset.left,
+              yPos = e.pageY - btnOffset.top;
+            $div.addClass('ripple-effect');
+            var $ripple = $('.ripple-effect');
+            $ripple.css('height', $(this).height());
+            $ripple.css('width', $(this).height());
+            $div.css({
+              top: yPos - $ripple.height() / 2,
+              left: xPos - $ripple.width() / 2,
+              background: $(this).data('ripple-color')
+            }).appendTo($(this));
+            window.setTimeout(function () {
+              $div.remove();
+            }, 1000);
+          });
+
+        });
+      </script>
+      <!-- / App scripts  -->
+    </body>
+  </html>
+@endif
