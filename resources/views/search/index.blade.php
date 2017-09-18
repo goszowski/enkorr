@@ -3,6 +3,24 @@
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
         <section class="col-md-9 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
+            <h2 class="column-title">{{trans('Публикации')}}</h2>
+            <ul class="sidebar-list">
+              @if(count( $publications ))
+                @foreach( $publications as $k => $publication )
+                  <li>
+                      <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                          <img src="{{iPath($publication->image,'600px')}}" alt="">
+                          <span>
+                              <time datetime="/* publication datetime */">
+                                  {{PH::formatDateTime($publication->created_at, false, true)}}
+                              </time>
+                              <b>{{ $publication->name }}</b>
+                          </span>
+                      </a>
+                  </li>
+                @endforeach
+              @endif
+            </ul>
             <h2 class="column-title">{{trans('Новости')}}</h2>
             <ul class="sidebar-list">
               @if(count( $news ))
@@ -12,16 +30,9 @@
                           <img src="{{iPath($new->image,'600px')}}" alt="">
                           <span>
                               <time datetime="/* publication datetime */">
-                                  12 августа, <span>18:44</span>
-                                  @if( $new->special )
-                                    <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
-                                  @endif
+                                  {{PH::formatDateTime($new->created_at, false, true)}}
                               </time>
-                              @if( $new->special )
-                                {{ $new->name }}
-                              @else
-                                <b>{{ $new->name }}</b>
-                              @endif
+                              <b>{{ $new->name }}</b>
                           </span>
                       </a>
                   </li>

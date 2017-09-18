@@ -7,23 +7,23 @@
 
 
           <section class="col-sm-6 col-md-4 col-lg-3 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
-              <h2 class="column-title">Новости</h2>
+              <h2 class="column-title">{{trans('Новости')}}</h2>
               <ul class="sidebar-list">
                 @if(count( $news ))
-                  @foreach( $news as $k => $news_item )
+                  @foreach( $news as $k => $new )
                     <li>
                         <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
                             <span>
                                 <time datetime="/* publication datetime */">
-                                    12 августа, <span>18:44</span>
-                                    @if( $news_item->special )
+                                    {{PH::formatDateTime($new->created_at, false, true)}}
+                                    @if( $new->special )
                                       <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
                                     @endif
                                 </time>
-                                @if( $news_item->special )
-                                  {{ $news_item->name }}
+                                @if( $new->special )
+                                  {{ $new->name }}
                                 @else
-                                  <b>{{ $news_item->name }}</b>
+                                  <b>{{ $new->name }}</b>
                                 @endif
                             </span>
                         </a>
@@ -40,7 +40,7 @@
 
 
           <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications sticky sticky-sm sticky-lg">
-              <h2 class="column-title visible-xs">Публикации</h2>
+              <h2 class="column-title visible-xs">{{trans('Публикации')}}</h2>
               <div class="row">
                 <? $i = 0; ?>
                 @if(count($publications))

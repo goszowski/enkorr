@@ -83,16 +83,18 @@
 
 
                 <ul class="nav navbar-nav navbar-right text-uppercase">
-                  <li><a href="/?page=auth/login" data-ajax="true" class="ripple"><i class="fa fa-sign-in"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">Вход</span></a></li>
-                  <li><a href="/?page=auth/register" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">Регистрация</span></a></li>
+                  <li><a href="{{lPath('/auth/login')}}" data-ajax="true" class="ripple"><i class="fa fa-sign-in"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">Вход</span></a></li>
+                  <li><a href="{{lPath('/auth/register')}}" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">Регистрация</span></a></li>
                 </ul>
 
                 <form class="navbar-form navbar-left  custom-search">
                   <div class="">
+                    {{Form::open(['url' => lPath('/search')])}}
                     <div class="form-group has-feedback">
-                      <input type="text" class="form-control sm-pl-20" placeholder="Поиск">
+                      <input name="search" type="text" class="form-control sm-pl-20" placeholder="Поиск">
                       <button type="submit" class="fa fa-search form-control-feedback sm-pr-30" aria-hidden="true"></button>
                     </div>
+                    {{Form::close()}}
                   </div>
                 </form>
 
