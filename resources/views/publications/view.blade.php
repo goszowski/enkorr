@@ -13,6 +13,65 @@
                 {!! $fields->content !!}
 
               </div>
+
+              <div class="row">
+                <div class="col-md-8">
+                  {{-- Social sharing --}}
+                  {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, placeat! Quisquam velit neque doloribus repellendus aliquam, consequatur sunt, modi, ut, culpa ea rerum hic non animi cum itaque totam. Eum.</p>
+                </div>
+                <div class="col-md-4 text-right">
+                  {{-- Filter publications by tag --}}
+                  <a href="#" class="label label-default">Tag 1</a>
+                  <a href="#" class="label label-default">Tag 2</a>
+                  <a href="#" class="label label-default">Tag 3</a>
+                </div>
+              </div>
+
+              <div class="xs-pt-30">
+                <h2 class="column-title">{{ __('Похожие публикации') }}</h2>
+
+                <div class="row publications">
+                  <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
+                      <a href="#" data-ajax="true" class="ripple">
+                          <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
+                          <span class="publications-item-detail">
+                              <span class="publication-theme">вфівфівіф</span>
+                              <h2>чсчясчясячс</h2>
+                              <time datetime="/* publication datetime */">
+                                  ууцйу
+                              </time>
+                          </span>
+                      </a>
+                  </div>
+
+                  <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
+                      <a href="#" data-ajax="true" class="ripple">
+                          <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
+                          <span class="publications-item-detail">
+                              <span class="publication-theme">вфівфівіф</span>
+                              <h2>чсчясчясячс</h2>
+                              <time datetime="/* publication datetime */">
+                                  ууцйу
+                              </time>
+                          </span>
+                      </a>
+                  </div>
+
+                  <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
+                      <a href="#" data-ajax="true" class="ripple">
+                          <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
+                          <span class="publications-item-detail">
+                              <span class="publication-theme">вфівфівіф</span>
+                              <h2>чсчясчясячс</h2>
+                              <time datetime="/* publication datetime */">
+                                  ууцйу
+                              </time>
+                          </span>
+                      </a>
+                  </div>
+                </div>
+              </div>
           </div>
           <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
             Banner Here
