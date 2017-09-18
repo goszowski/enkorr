@@ -72,6 +72,25 @@
                   </div>
                 </div>
               </div>
+
+              <div class="xs-pt-30">
+                <h2 class="column-title">{{ __('Комментарии') }}</h2>
+
+                <div class="form-group">
+                  <textarea name="" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit">Комментировать</button>
+                </div>
+
+                @for($i=0; $i<10; $i++)
+                  <div class="xs-pb-15">
+                    <b>User name</b><br>
+                    <small class="text-muted"><i class="fa fa-clock-o"></i> pubdate</small>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit deleniti facilis, incidunt natus aspernatur quo eveniet quas praesentium eius enim veniam dicta et culpa consequatur vero impedit, error illum nesciunt.</p>
+                  </div>
+                @endfor
+              </div>
           </div>
           <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
             Banner Here
