@@ -7,25 +7,25 @@
       <title>Enkorr</title>
       <meta property="og:title" content="Enkorr">
       <meta property="og:type" content="website">
-      <meta property="og:url" content="/">
-      <meta property="og:image" content="/assets/images/logo.png">
+      <meta property="og:url" content="{{ url('/') }}">
+      <meta property="og:image" content="{{ asset('assets/images/logo.png') }}">
 
-      <link rel="manifest" href="/manifest.json">
-      <link rel="shortcut icon" href="{{asset('/imglib/favicon.ico')}}" type="image/x-icon">
-      <link rel="icon" href="{{asset('/imglib/favicon.ico')}}" type="image/x-icon">
+      <link rel="manifest" href="{{ url('manifest.json') }}">
+      <link rel="shortcut icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
+      <link rel="icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
 
       <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
       <!-- Vendor styles -->
-      <link rel="stylesheet" href="{{asset('/asset/css/bootstrap/stylesheets/bootstrap.css')}}">
-      <link rel="stylesheet" href="{{asset('/asset/vendor/sass-space/sass-space.css')}}">
-      <link rel="stylesheet" href="{{asset('/asset/vendor/ripple/ripple.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/bootstrap/stylesheets/bootstrap.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/sass-space/sass-space.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/ripple/ripple.css')}}">
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('/asset/css/style.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
       <!-- / App styles -->
     </head>
     <body>
@@ -60,7 +60,7 @@
           <div class="row main-nav-container sticky-all">
             <nav class="navbar navbar-inverse xs-mb-0">
               <div class="navbar-header">
-                <a class="navbar-brand ripple xs-pl-10 sm-pl-20" href="/" data-ajax="true">
+                <a class="navbar-brand ripple xs-pl-10 sm-pl-20" href="{{ lPath('/') }}" data-ajax="true">
                     <img src="{{asset('/imglib/touch/48x48.png')}}" alt="enkorr"> <b>enkorr</b>
                 </a>
                 <button type="button" class="navbar-toggle collapsed ripple xs-mr-10" id="main-nav-toggle" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
@@ -117,7 +117,9 @@
         </div>
 
         <div id="app">
+          @endif
           @yield('section')
+          @if(!Input::get('ajax'))
         </div>
 
         <div class="row footer">
@@ -129,14 +131,14 @@
       </div>
         </div>
       <!-- Vendor scripts -->
-      <script src="/assets/vendor/jquery/jquery-3.2.1/jquery.min.js"></script>
-      <script src="/assets/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js"></script>
-      <script src="/assets/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-      <script src="assets/vendor/sticky-kit/jquery.sticky-kit.min.js"></script>
+      <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js') }}"></script>
+      <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
+      <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->
-      <script src="/assets/js/scripts.js"></script>
+      <script src="{{ asset('assets/js/scripts.js') }}"></script>
       <script type="text/javascript">
         $(function() {
 
