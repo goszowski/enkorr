@@ -18,14 +18,15 @@ class HomeController extends RSController
       // и берем все "рекламные банеры" которые приписаны данной странице index..
 
 
-      $news = Model('new')->latest()->take(10)->get();
-      // $opinions = Model('opinion')->latest()->take(10)->get();
+      $news = Model('new')->latest()->take(config('public.index.countnews'))->get();
+      $publications = Model('publication')->where('pinned', false)->latest()->take(config('public.index.countnews'))->get();
+      $pinned_publications = Model('publication')->where('pinned', true)->latest()->take(config('public.inde.countspecialpub'))->get();
       // $banners = Model('banner')->where('', '=', '')->get();
 
 
       // Возвращаем нашу функцию и передаем в шаблон взятые данные
 
 
-      return $this->make_view('pages.index', compact('news'));
+      return $this->make_view('pages.index', compact('news', 'publications', 'pinned_publications'));
     }
 }

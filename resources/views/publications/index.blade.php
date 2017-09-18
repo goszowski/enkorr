@@ -13,15 +13,8 @@
                           <span>
                               <time datetime="/* publication datetime */">
                                   12 августа, <span>18:44</span>
-                                  @if( $publication->special )
-                                    <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
-                                  @endif
                               </time>
-                              @if( $publication->special )
-                                {{ $publication->name }}
-                              @else
-                                <b>{{ $publication->name }}</b>
-                              @endif
+                              <b>{{ $publication->name }}</b>
                           </span>
                       </a>
                   </li>

@@ -42,24 +42,42 @@
           <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications sticky sticky-sm sticky-lg">
               <h2 class="column-title visible-xs">Публикации</h2>
               <div class="row">
-                  <?for($i=0; $i<10; $i++):?>
-                      <div class="col-md-<?=$i%5 == 0 ? '12' : '6'?> publications-item xs-pb-15 sm-pb-30">
-                          <a href="/?page=publications/view" data-ajax="true" class="ripple">
-                              <img src="/assets/images/demo/publications/<?=($i+1)?>.jpg" alt="">
+                <? $i = 0; ?>
+                @if(count($publications))
+                  @foreach($publications as $k => $publication)
+                    @if($k% config('public.index.multiplicity') == 0 && count($pinned_publications) && isset($pinned_publications[$i]))
+                      <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
+                          <a href="#" data-ajax="true" class="ripple">
+                              <img src="{{iPath($pinned_publications[$i]->image, '600px')}}" alt="">
                               <span class="publications-item-detail">
-                                  <span class="publication-theme">Мнения</span>
-                                  <h2>Цена автогаза на украинских АЗС продолжает расти</h2>
+                                  <span class="publication-theme">{{$pinned_publications[$i]->theme_id}}</span>
+                                  <h2>{{$pinned_publications[$i]->name}}</h2>
                                   <time datetime="/* publication datetime */">
-                                      12 августа, 18:44
+                                      {{PH::formatDateTime($pinned_publications[$i]->created_at, false, true)}}
                                   </time>
                               </span>
                           </a>
                       </div>
-                  <?endfor?>
+                      <? $i++; ?>
+                    @endif
+                    <div class="col-md-6 publications-item xs-pb-15 sm-pb-30">
+                        <a href="#" data-ajax="true" class="ripple">
+                            <img src="{{iPath($publication->image, '600px')}}" alt="">
+                            <span class="publications-item-detail">
+                                <span class="publication-theme">{{$publication->theme_id}}</span>
+                                <h2>{{$publication->name}}</h2>
+                                <time datetime="/* publication datetime */">
+                                    {{PH::formatDateTime($publication->created_at, false, true)}}
+                                </time>
+                            </span>
+                        </a>
+                    </div>
+                  @endforeach
+                @endif
               </div>
 
               <div class="form-group">
-                  <a href="/?page=news" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">Все публикации</a>
+                  <a href="{{lPath('/publications')}}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">Все публикации</a>
               </div>
           </div>
 

@@ -15,12 +15,20 @@ class PublicationController extends RSController
     {
         // Берем все публикации которые относятся к данному разделу и кидаем их в пагинацию
         // Ищем нужные публикации по теме.
-        // Есть ли тема соответствующая данному разделу?
-        $theme = Model('theme')->where('section_id', '=', $this->fields->node_id)->first();
+        // Есть ли темы соответствующие данному разделу?
+        if($this->fields->node_id == config('public.sections.publication'))
+          $themes = Model('theme')->get();
+        else
+          $themes = Model('theme')->where('section_id', '=', $this->fields->node_id)->get();
 
-        // Если да то ищем публикации с данной темой
-        if(isset($theme))
-          $publications = Model('publication')->where('theme_id', '=', $theme->node_id)->latest()->paginate(15);
+        // Если да то ищем публикации с данными темами
+        if(isset($themes))
+          $publications = Model('publication')->where(function($query) use($themes) {
+            foreach($themes as $theme)
+            {
+              $query->orWhere('theme_id', '=', $theme->node_id);
+            }
+          })->latest()->paginate(config('public.pagination.publication'));
 
         // Если нет, то просто передаем пустой массив- не будет отображатсья в дальнейшем шаблоне. Не очень красивое решение, но работающее.
         else

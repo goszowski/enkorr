@@ -15,7 +15,7 @@ class NewsController extends RSController
     {
         // Берем все новости и кидаем их в пагинацию
 
-        $news = Model('new')->latest()->paginate(15);
+        $news = Model('new')->latest()->paginate(config('public.pagination.news'));
 
 
         return $this->make_view('news.index', compact('news'));
