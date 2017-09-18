@@ -31,6 +31,10 @@ class Dynamic extends Model
 
     }
 
+    public function node() {
+      return $this->belongsTo('App\Runsite\Nodes');
+    }
+
 
     // Template: $this->has('user');
 

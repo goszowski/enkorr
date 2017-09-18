@@ -8,7 +8,7 @@
               @if(count( $news ))
                 @foreach( $news as $k => $new )
                   <li>
-                      <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                      <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                           <img src="{{iPath($new->image,'600px')}}" alt="">
                           <span>
                               <time datetime="/* publication datetime */">

@@ -8,7 +8,7 @@
               @if(count( $publications ))
                 @foreach( $publications as $k => $publication )
                   <li>
-                      <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                      <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                           <img src="{{iPath($publication->image,'600px')}}" alt="">
                           <span>
                               <time datetime="/* publication datetime */">
