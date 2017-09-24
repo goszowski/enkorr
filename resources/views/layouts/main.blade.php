@@ -87,16 +87,14 @@
                   <li><a href="{{lPath('/auth/register')}}" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">Регистрация</span></a></li>
                 </ul>
 
-                <form class="navbar-form navbar-left  custom-search">
-                  <div class="">
-                    {{Form::open(['url' => lPath('/search')])}}
-                    <div class="form-group has-feedback">
-                      <input name="search" type="text" class="form-control sm-pl-20" placeholder="Поиск">
-                      <button type="submit" class="fa fa-search form-control-feedback sm-pr-30" aria-hidden="true"></button>
-                    </div>
-                    {{Form::close()}}
+                {{Form::open(['url' => lPath('/search'), 'class' => 'navbar-form navbar-left  custom-search', 'method' => 'GET'])}}
+                <div class="">
+                  <div class="form-group has-feedback">
+                    <input name="search" type="text" class="form-control sm-pl-20" placeholder="{{__('Поиск')}}">
+                    <button type="submit" class="fa fa-search form-control-feedback sm-pr-30" aria-hidden="true"></button>
                   </div>
-                </form>
+                </div>
+                {{Form::close()}}
 
 
               </div>
@@ -113,7 +111,7 @@
         </div>
 
         <div class="scroll-top-container">
-          <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>Вверх</span></div>
+          <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
         </div>
 
         <div id="app">

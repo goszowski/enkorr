@@ -22,9 +22,9 @@
                 </div>
                 <div class="col-md-4 text-right">
                   {{-- Filter publications by tag --}}
-                  <a href="#" class="label label-default">Tag 1</a>
-                  <a href="#" class="label label-default">Tag 2</a>
-                  <a href="#" class="label label-default">Tag 3</a>
+                  @foreach ($tags as $tag)
+                    <a href="#" class="label label-default">{{$tag->name}}</a>
+                  @endforeach
                 </div>
               </div>
 
@@ -32,64 +32,49 @@
                 <h2 class="column-title">{{ __('Похожие публикации') }}</h2>
 
                 <div class="row publications">
-                  <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
-                      <a href="#" data-ajax="true" class="ripple">
-                          <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
-                          <span class="publications-item-detail">
+                  @if(count($similar_publications))
+                    @foreach ($similar_publications as $publication)
+                      @if(isset($publication))
+                        <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
+                          <a href="#" data-ajax="true" class="ripple">
+                            <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
+                            <span class="publications-item-detail">
                               <span class="publication-theme">вфівфівіф</span>
-                              <h2>чсчясчясячс</h2>
+                              <h2>{{$publication->name}}</h2>
                               <time datetime="/* publication datetime */">
-                                  ууцйу
+                                ууцйу
                               </time>
-                          </span>
-                      </a>
-                  </div>
-
-                  <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
-                      <a href="#" data-ajax="true" class="ripple">
-                          <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
-                          <span class="publications-item-detail">
-                              <span class="publication-theme">вфівфівіф</span>
-                              <h2>чсчясчясячс</h2>
-                              <time datetime="/* publication datetime */">
-                                  ууцйу
-                              </time>
-                          </span>
-                      </a>
-                  </div>
-
-                  <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
-                      <a href="#" data-ajax="true" class="ripple">
-                          <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
-                          <span class="publications-item-detail">
-                              <span class="publication-theme">вфівфівіф</span>
-                              <h2>чсчясчясячс</h2>
-                              <time datetime="/* publication datetime */">
-                                  ууцйу
-                              </time>
-                          </span>
-                      </a>
-                  </div>
+                            </span>
+                          </a>
+                        </div>
+                      @endif
+                    @endforeach
+                  @endif
                 </div>
               </div>
 
               <div class="xs-pt-30">
                 <h2 class="column-title">{{ __('Комментарии') }}</h2>
 
-                <div class="form-group">
-                  <textarea name="" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-primary" type="submit">Комментировать</button>
-                </div>
 
-                @for($i=0; $i<10; $i++)
-                  <div class="xs-pb-15">
-                    <b>User name</b><br>
-                    <small class="text-muted"><i class="fa fa-clock-o"></i> pubdate</small>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit deleniti facilis, incidunt natus aspernatur quo eveniet quas praesentium eius enim veniam dicta et culpa consequatur vero impedit, error illum nesciunt.</p>
+                {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
+                  <div class="form-group">
+                    <textarea name="text" class="form-control"></textarea>
                   </div>
-                @endfor
+                  <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Комментировать</button>
+                  </div>
+                  <input hidden name="publication_id" value="{{ $fields->node_id }}" />
+                {{Form::close()}}
+
+
+                @foreach( $comments as $comment )
+                  <div class="xs-pb-15">
+                    <b>{{ $comment->user_name }}</b><br>
+                    <small class="text-muted"><i class="fa fa-clock-o"></i> {{PH::formatDateTime($comment->created_at, true, true)}}</small>
+                    {{ $comment->content }}
+                  </div>
+                @endforeach
               </div>
           </div>
           <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">

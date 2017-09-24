@@ -12,7 +12,7 @@
                 @if(count( $news ))
                   @foreach( $news as $k => $new )
                     <li>
-                        <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                        <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                             <span>
                                 <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($new->created_at, false, true)}}
@@ -47,7 +47,7 @@
                   @foreach($publications as $k => $publication)
                     @if($k% config('public.index.multiplicity') == 0 && count($pinned_publications) && isset($pinned_publications[$i]))
                       <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
-                          <a href="#" data-ajax="true" class="ripple">
+                          <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple">
                               <img src="{{iPath($pinned_publications[$i]->image, '600px')}}" alt="">
                               <span class="publications-item-detail">
                                   <span class="publication-theme">{{$pinned_publications[$i]->theme_id}}</span>
