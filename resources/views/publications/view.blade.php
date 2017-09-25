@@ -39,10 +39,10 @@
                           <a href="#" data-ajax="true" class="ripple">
                             <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
                             <span class="publications-item-detail">
-                              <span class="publication-theme">вфівфівіф</span>
+                              <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
                               <h2>{{$publication->name}}</h2>
                               <time datetime="/* publication datetime */">
-                                ууцйу
+                                {{PH::formatDateTime($publication->created_at, true, true)}}
                               </time>
                             </span>
                           </a>
@@ -56,17 +56,19 @@
               <div class="xs-pt-30">
                 <h2 class="column-title">{{ __('Комментарии') }}</h2>
 
-
-                {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
-                  <div class="form-group">
-                    <textarea name="text" class="form-control"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Комментировать</button>
-                  </div>
-                  <input hidden name="publication_id" value="{{ $fields->node_id }}" />
-                {{Form::close()}}
-
+                @if(Session::get('authUser'))
+                  {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
+                    <div class="form-group">
+                      <textarea name="text" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-primary" type="submit">Комментировать</button>
+                    </div>
+                    <input hidden name="publication_id" value="{{ $fields->node_id }}" />
+                  {{Form::close()}}
+                @else
+                  <a role="button" class="btn btn-primary" href="{{lPath('/auth/login')}}">{{__('Авторизируйтесь, что бы оставить комментарий')}}</a>
+                @endif
 
                 @foreach( $comments as $comment )
                   <div class="xs-pb-15">

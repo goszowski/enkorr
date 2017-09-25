@@ -50,7 +50,7 @@
                           <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple">
                               <img src="{{iPath($pinned_publications[$i]->image, '600px')}}" alt="">
                               <span class="publications-item-detail">
-                                  <span class="publication-theme">{{$pinned_publications[$i]->theme_id}}</span>
+                                  <span class="publication-theme">{{$pinned_publications[$i]->theme}}</span>
                                   <h2>{{$pinned_publications[$i]->name}}</h2>
                                   <time datetime="/* publication datetime */">
                                       {{PH::formatDateTime($pinned_publications[$i]->created_at, false, true)}}
@@ -64,7 +64,7 @@
                         <a href="#" data-ajax="true" class="ripple">
                             <img src="{{iPath($publication->image, '600px')}}" alt="">
                             <span class="publications-item-detail">
-                                <span class="publication-theme">{{$publication->theme_id}}</span>
+                                <span class="publication-theme">{{$publication->theme}}</span>
                                 <h2>{{$publication->name}}</h2>
                                 <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($publication->created_at, false, true)}}

@@ -20,7 +20,13 @@ class HomeController extends RSController
 
       $news = Model('new')->latest()->take(config('public.index.countnews'))->get();
       $publications = Model('publication')->where('pinned', false)->latest()->take(config('public.index.countnews'))->get();
-      $pinned_publications = Model('publication')->where('pinned', true)->latest()->take(config('public.inde.countspecialpub'))->get();
+      $pinned_publications = Model('publication')->where('pinned', true)->latest()->take(config('public.index.countspecialpub'))->get();
+      foreach ($publications as $key => $publication) {
+        $publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+      }
+      foreach ($pinned_publications as $key => $publication) {
+        $pinned_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+      }
       // $banners = Model('banner')->where('', '=', '')->get();
 
 

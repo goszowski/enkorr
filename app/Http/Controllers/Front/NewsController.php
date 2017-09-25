@@ -43,7 +43,9 @@ class NewsController extends RSController
       foreach ($random_tags as $key => $tag) {
         $similar_publications[$key] = Model('new')->where('tag_ids', 'Like', '%'.$tag->node_id.'%')->whereNotIn('node_id',$forbidden_node)->latest()->first();
         if(isset($similar_publications[$key]))
+        {
           $forbidden_node[$key+1] = $similar_publications[$key]->node_id;
+        }
       }
 
       return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications'));
