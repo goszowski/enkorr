@@ -43,11 +43,11 @@
               <h2 class="column-title visible-xs">{{trans('Публикации')}}</h2>
               <div class="row">
                 <? $i = 0; ?>
-                @if(count($publications))
+                @if(count($publications) and count($publications) > 4)
                   @foreach($publications as $k => $publication)
-                    @if($k% config('public.index.multiplicity') == 0 && count($pinned_publications) && isset($pinned_publications[$i]))
+                    @if($k% config('public.index.multiplicity') == 0 and count($pinned_publications) and isset($pinned_publications[$i]))
                       <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
-                          <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple">
+                          <a href="{{ lPath($pinned_publications[$i]->node->absolute_path) }}" data-ajax="true" class="ripple">
                               <img src="{{iPath($pinned_publications[$i]->image, '600px')}}" alt="">
                               <span class="publications-item-detail">
                                   <span class="publication-theme">{{$pinned_publications[$i]->theme}}</span>
@@ -73,6 +73,46 @@
                         </a>
                     </div>
                   @endforeach
+
+                @elseif(count($publications) and count($publications) <= 4)
+                  <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
+                      <a href="{{ lPath($pinned_publications[0]->node->absolute_path) }}" data-ajax="true" class="ripple">
+                          <img src="{{iPath($pinned_publications[0]->image, '600px')}}" alt="">
+                          <span class="publications-item-detail">
+                              <span class="publication-theme">{{$pinned_publications[0]->theme}}</span>
+                              <h2>{{$pinned_publications[0]->name}}</h2>
+                              <time datetime="/* publication datetime */">
+                                  {{PH::formatDateTime($pinned_publications[0]->pubdate, false, true)}}
+                              </time>
+                          </span>
+                      </a>
+                  </div>
+                  @foreach($publications as $k => $publication)
+                    <div class="col-md-6 publications-item xs-pb-15 sm-pb-30">
+                        <a href="#" data-ajax="true" class="ripple">
+                            <img src="{{iPath($publication->image, '600px')}}" alt="">
+                            <span class="publications-item-detail">
+                                <span class="publication-theme">{{$publication->theme}}</span>
+                                <h2>{{$publication->name}}</h2>
+                                <time datetime="/* publication datetime */">
+                                    {{PH::formatDateTime($publication->pubdate, false, true)}}
+                                </time>
+                            </span>
+                        </a>
+                    </div>
+                  @endforeach
+                  <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
+                      <a href="{{ lPath($pinned_publications[1]->node->absolute_path) }}" data-ajax="true" class="ripple">
+                          <img src="{{iPath($pinned_publications[1]->image, '600px')}}" alt="">
+                          <span class="publications-item-detail">
+                              <span class="publication-theme">{{$pinned_publications[1]->theme}}</span>
+                              <h2>{{$pinned_publications[1]->name}}</h2>
+                              <time datetime="/* publication datetime */">
+                                  {{PH::formatDateTime($pinned_publications[1]->pubdate, false, true)}}
+                              </time>
+                          </span>
+                      </a>
+                  </div>
                 @endif
               </div>
 
