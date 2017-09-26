@@ -28,7 +28,7 @@ class PublicationController extends RSController
             {
               $query->orWhere('theme_id', '=', $theme->node_id);
             }
-          })->latest()->paginate(config('public.pagination.publication'));
+          })->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->paginate(config('public.pagination.publication'));
 
         // Если нет, то просто передаем пустой массив- не будет отображатсья в дальнейшем шаблоне. Не очень красивое решение, но работающее.
         else
@@ -57,7 +57,7 @@ class PublicationController extends RSController
       $similar_publications = [];
       $forbidden_node[0] = [$this->fields->node_id][0];
       foreach ($random_tags as $key => $tag) {
-        $similar_publications[$key] = Model('publication')->where('tag_ids', 'Like', '%'.$tag->node_id.'%')->whereNotIn('node_id',$forbidden_node)->latest()->first();
+        $similar_publications[$key] = Model('publication')->where('tag_ids', 'Like', '%'.$tag->node_id.'%')->whereNotIn('node_id',$forbidden_node)->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->first();
         if(isset($similar_publications[$key]))
         {
           $forbidden_node[$key+1] = $similar_publications[$key]->node_id;

@@ -18,9 +18,9 @@ class HomeController extends RSController
       // и берем все "рекламные банеры" которые приписаны данной странице index..
 
 
-      $news = Model('new')->latest()->take(config('public.index.countnews'))->get();
-      $publications = Model('publication')->where('pinned', false)->latest()->take(config('public.index.countnews'))->get();
-      $pinned_publications = Model('publication')->where('pinned', true)->latest()->take(config('public.index.countspecialpub'))->get();
+      $news = Model('new')->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->take(config('public.index.countnews'))->get();
+      $publications = Model('publication')->where('pinned', false)->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->take(config('public.index.countnews'))->get();
+      $pinned_publications = Model('publication')->where('pinned', true)->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->take(config('public.index.countspecialpub'))->get();
       foreach ($publications as $key => $publication) {
         $publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
       }

@@ -21,8 +21,8 @@ class SearchController extends RSController
         }
         else
         {
-          $news = Model('new')->where('name', 'Like', '%'.$request->search.'%')->get();
-          $publications = Model('publication')->where('name', 'Like', '%'.$request->search.'%')->get();
+          $news = Model('new')->where('name', 'Like', '%'.$request->search.'%')->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->get();
+          $publications = Model('publication')->where('name', 'Like', '%'.$request->search.'%')->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->get();
         }
 
 

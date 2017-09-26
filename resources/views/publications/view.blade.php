@@ -42,7 +42,7 @@
                               <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
                               <h2>{{$publication->name}}</h2>
                               <time datetime="/* publication datetime */">
-                                {{PH::formatDateTime($publication->created_at, true, true)}}
+                                {{PH::formatDateTime($publication->pubdate, false, true)}}
                               </time>
                             </span>
                           </a>
@@ -73,7 +73,7 @@
                 @foreach( $comments as $comment )
                   <div class="xs-pb-15">
                     <b>{{ $comment->user_name }}</b><br>
-                    <small class="text-muted"><i class="fa fa-clock-o"></i> {{PH::formatDateTime($comment->created_at, true, true)}}</small>
+                    <small class="text-muted"><i class="fa fa-clock-o"></i> {{PH::formatDateTime($comment->created_at, false, true)}}</small>
                     {{ $comment->content }}
                   </div>
                 @endforeach

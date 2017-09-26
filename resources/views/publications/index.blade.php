@@ -12,7 +12,7 @@
                           <img src="{{iPath($publication->image,'600px')}}" alt="">
                           <span>
                               <time datetime="/* publication datetime */">
-                                  12 августа, <span>18:44</span>
+                                  {{PH::formatDateTime($publication->pubdate, false, true)}}
                               </time>
                               <b>{{ $publication->name }}</b>
                           </span>

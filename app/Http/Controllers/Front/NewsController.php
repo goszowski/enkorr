@@ -15,7 +15,7 @@ class NewsController extends RSController
     {
         // Берем все новости и кидаем их в пагинацию
 
-        $news = Model('new')->latest()->paginate(config('public.pagination.news'));
+        $news = Model('new')->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->paginate(config('public.pagination.news'));
 
 
         return $this->make_view('news.index', compact('news'));
@@ -41,12 +41,13 @@ class NewsController extends RSController
       $similar_publications = [];
       $forbidden_node[0] = [$this->fields->node_id][0];
       foreach ($random_tags as $key => $tag) {
-        $similar_publications[$key] = Model('new')->where('tag_ids', 'Like', '%'.$tag->node_id.'%')->whereNotIn('node_id',$forbidden_node)->latest()->first();
+        $similar_publications[$key] = Model('new')->where('tag_ids', 'Like', '%,'.$tag->node_id.'%')->whereNotIn('node_id',$forbidden_node)->where('pubdate', '<=', date('Y-m-d H;i;s'))->orderBy('pubdate', 'desc')->first();
         if(isset($similar_publications[$key]))
         {
           $forbidden_node[$key+1] = $similar_publications[$key]->node_id;
         }
       }
+
 
       return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications'));
     }

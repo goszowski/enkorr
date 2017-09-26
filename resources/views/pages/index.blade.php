@@ -15,7 +15,7 @@
                         <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                             <span>
                                 <time datetime="/* publication datetime */">
-                                    {{PH::formatDateTime($new->created_at, false, true)}}
+                                    {{PH::formatDateTime($new->pubdate, false, true)}}
                                     @if( $new->special )
                                       <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
                                     @endif
@@ -53,7 +53,7 @@
                                   <span class="publication-theme">{{$pinned_publications[$i]->theme}}</span>
                                   <h2>{{$pinned_publications[$i]->name}}</h2>
                                   <time datetime="/* publication datetime */">
-                                      {{PH::formatDateTime($pinned_publications[$i]->created_at, false, true)}}
+                                      {{PH::formatDateTime($pinned_publications[$i]->pubdate, false, true)}}
                                   </time>
                               </span>
                           </a>
@@ -67,7 +67,7 @@
                                 <span class="publication-theme">{{$publication->theme}}</span>
                                 <h2>{{$publication->name}}</h2>
                                 <time datetime="/* publication datetime */">
-                                    {{PH::formatDateTime($publication->created_at, false, true)}}
+                                    {{PH::formatDateTime($publication->pubdate, false, true)}}
                                 </time>
                             </span>
                         </a>

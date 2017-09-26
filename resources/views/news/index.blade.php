@@ -12,7 +12,7 @@
                           <img src="{{iPath($new->image,'600px')}}" alt="">
                           <span>
                               <time datetime="/* publication datetime */">
-                                  12 августа, <span>18:44</span>
+                                  {{PH::formatDateTime($new->pubdate, false, true)}}
                                   @if( $new->special )
                                     <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
                                   @endif

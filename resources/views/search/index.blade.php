@@ -12,7 +12,7 @@
                             <img src="{{iPath($publication->image,'600px')}}" alt="">
                             <span>
                                 <time datetime="/* publication datetime */">
-                                    {{PH::formatDateTime($publication->created_at, false, true)}}
+                                    {{PH::formatDateTime($publication->pubdate, false, true)}}
                                 </time>
                                 <b>{{ $publication->name }}</b>
                             </span>
@@ -32,7 +32,7 @@
                             <img src="{{iPath($new->image,'600px')}}" alt="">
                             <span>
                                 <time datetime="/* publication datetime */">
-                                    {{PH::formatDateTime($new->created_at, false, true)}}
+                                    {{PH::formatDateTime($new->pubdate, false, true)}}
                                 </time>
                                 <b>{{ $new->name }}</b>
                             </span>
