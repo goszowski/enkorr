@@ -7,7 +7,7 @@
 
 
           <section class="col-sm-6 col-md-4 col-lg-3 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
-              <h2 class="column-title">{{trans('Новости')}}</h2>
+              <h2 class="column-title">{{__('Новости')}}</h2>
               <ul class="sidebar-list">
                 @if(count( $news ))
                   @foreach( $news as $k => $new )
@@ -16,11 +16,11 @@
                             <span>
                                 <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($new->pubdate, false, true)}}
-                                    @if( $new->special )
+                                    @if( $new->pinned )
                                       <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
                                     @endif
                                 </time>
-                                @if( $new->special )
+                                @if( $new->pinned )
                                   {{ $new->name }}
                                 @else
                                   <b>{{ $new->name }}</b>
@@ -40,7 +40,7 @@
 
 
           <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications sticky sticky-sm sticky-lg">
-              <h2 class="column-title visible-xs">{{trans('Публикации')}}</h2>
+              <h2 class="column-title visible-xs">{{__('Публикации')}}</h2>
               <div class="row">
                 <? $i = 0; ?>
                 @if(count($publications) and count($publications) > 4)
@@ -61,7 +61,7 @@
                       <? $i++; ?>
                     @endif
                     <div class="col-md-6 publications-item xs-pb-15 sm-pb-30">
-                        <a href="#" data-ajax="true" class="ripple">
+                        <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
                             <img src="{{iPath($publication->image, '600px')}}" alt="">
                             <span class="publications-item-detail">
                                 <span class="publication-theme">{{$publication->theme}}</span>
@@ -89,7 +89,7 @@
                   </div>
                   @foreach($publications as $k => $publication)
                     <div class="col-md-6 publications-item xs-pb-15 sm-pb-30">
-                        <a href="#" data-ajax="true" class="ripple">
+                        <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
                             <img src="{{iPath($publication->image, '600px')}}" alt="">
                             <span class="publications-item-detail">
                                 <span class="publication-theme">{{$publication->theme}}</span>
@@ -117,7 +117,7 @@
               </div>
 
               <div class="form-group">
-                  <a href="{{lPath('/publications')}}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">Все публикации</a>
+                  <a href="{{lPath('/publications')}}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">{{__('Все публикации')}}</a>
               </div>
           </div>
 

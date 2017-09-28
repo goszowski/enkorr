@@ -28,7 +28,7 @@
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-success">{{__('Login')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('Login')}}</button>
                 <a href="{{url(lPath('/auth/register'))}}" class="btn btn-default">{{__('Register')}}</a>
               </div>
 

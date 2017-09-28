@@ -9,7 +9,7 @@
           <div class="alert alert-success">
             {{__('We have e-mailed your password reset link')}}
           </div>
-          <a href="{{url(lPath('/'))}}" class="btn btn-success">{{__('Okay')}}</a>
+          <a href="{{url(lPath('/'))}}" class="btn btn-primary">{{__('Okay')}}</a>
         </div>
       </div>
     </div>

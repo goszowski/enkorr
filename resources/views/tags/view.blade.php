@@ -3,7 +3,7 @@
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
         <section class="col-md-9 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
-            <h2 class="column-title">{{__('Результаты поиска')}}</h2>
+            <h2 class="column-title">{{__('Результаты поиска по тэгу '). '"'.$fields->name.'"'}}</h2>
             @if(count( $publications ))
               <ul class="sidebar-list">
                   @foreach( $publications as $k => $publication )
@@ -21,7 +21,7 @@
                   @endforeach
               </ul>
             @else
-              {{__('Публикаций по данному запросу не найдено')}}
+              {{__('Публикаций по данному тэгу не найдено')}}
             @endif
         </section>
 

@@ -23,7 +23,7 @@
                 <div class="col-md-4 text-right">
                   {{-- Filter publications by tag --}}
                   @foreach ($tags as $tag)
-                    <a href="#" class="label label-default">{{$tag->name}}</a>
+                    <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default">{{$tag->name}}</a>
                   @endforeach
                 </div>
               </div>
@@ -36,7 +36,7 @@
                     @foreach ($similar_publications as $publication)
                       @if(isset($publication))
                         <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
-                          <a href="#" data-ajax="true" class="ripple">
+                          <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
                             <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
                             <span class="publications-item-detail">
                               <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
@@ -56,18 +56,18 @@
               <div class="xs-pt-30">
                 <h2 class="column-title">{{ __('Комментарии') }}</h2>
 
-                @if(Session::get('authUser'))
-                  {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
-                    <div class="form-group">
-                      <textarea name="text" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <button class="btn btn-primary" type="submit">Комментировать</button>
-                    </div>
-                    <input hidden name="publication_id" value="{{ $fields->node_id }}" />
-                  {{Form::close()}}
-                @else
+                @if(empty(Session::get('authUser')))
                   <a role="button" class="btn btn-primary" href="{{lPath('/auth/login')}}">{{__('Авторизируйтесь, что бы оставить комментарий')}}</a>
+                @else
+                  {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
+                  <div class="form-group">
+                    <textarea name="text" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Комментировать</button>
+                  </div>
+                  <input hidden name="publication_id" value="{{ $fields->node_id }}" />
+                  {{Form::close()}}
                 @endif
 
                 @foreach( $comments as $comment )

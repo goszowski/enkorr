@@ -69,7 +69,7 @@
 
 
               <div class="form-group">
-                <button type="submit" class="btn btn-success">{{__('Update')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('Update')}}</button>
                 <a href="{{url(lPath('/auth/logout'))}}" class="btn btn-default">{{__('Logout')}}</a>
               </div>
 
