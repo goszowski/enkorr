@@ -31,7 +31,9 @@
     <body>
 
       <div class="brand-wall">
-        <!-- <div class="visible-lg" style="background-image: url(/assets/images/demo/brand-1.jpg); background-color: #000;"></div> -->
+        @if(isset($main_banner))
+          <div class="visible-lg" style="background-image: url({{iPath($main_banner->image, 'full')}}); background-color: #000;"></div>
+        @endif
       </div>
 
 
