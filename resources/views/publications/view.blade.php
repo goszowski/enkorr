@@ -8,6 +8,12 @@
               </h1>
               <p><b>{{ $fields->title }}</b></p>
 
+              <div class="publication-main-image">
+                  <p>
+                      <img src="{{ iPath($fields->image, 'full') }}" class="img-responsive" alt="{{ $fields->name }}">
+                  </p>
+              </div>
+
               <div class="publication-text">
 
                 {!! $fields->content !!}
@@ -37,7 +43,7 @@
                       @if(isset($publication))
                         <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
                           <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
-                            <img src="{{ asset('imglib/600px/0924852148078415-aykwhqa6lu-1505482244-wl2yx-554.jpg') }}" alt="">
+                            <img src="{{ iPath($publication->image, '600px') }}" alt="">
                             <span class="publications-item-detail">
                               <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
                               <h2>{{$publication->name}}</h2>
