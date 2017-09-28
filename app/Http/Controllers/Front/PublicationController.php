@@ -38,16 +38,24 @@ class PublicationController extends RSController
         // Берем баннеры в зависимости от страницы
         switch ($this->fields->node_id) {
           case config('public.sections.publication'):
-            $banners = Model('banner')->where('publ_bool', '=', 'true')->get();
+            $banners['up'] = Model('banner')->where('publ_bool', true)->where('up', true)->inRandomOrder()->first();
+            $banners['right'] = Model('banner')->where('publ_bool', true)->where('right', true)->inRandomOrder()->first();
+            $banners['down'] = Model('banner')->where('publ_bool', true)->where('down', true)->inRandomOrder()->first();
             break;
           case config('public.sections.new'):
-            $banners = Model('banner')->where('news_bool', '=', 'true')->get();
+            $banners['up'] = Model('banner')->where('news_bool', true)->where('up', true)->inRandomOrder()->first();
+            $banners['right'] = Model('banner')->where('news_bool', true)->where('right', true)->inRandomOrder()->first();
+            $banners['down'] = Model('banner')->where('news_bool', true)->where('down', true)->inRandomOrder()->first();
             break;
           case config('public.sections.experts'):
-            $banners = Model('banner')->where('experts_bool', '=', 'true')->get();
+            $banners['up'] = Model('banner')->where('experts_bool', true)->where('up', true)->inRandomOrder()->first();
+            $banners['right'] = Model('banner')->where('experts_bool', true)->where('right', true)->inRandomOrder()->first();
+            $banners['down'] = Model('banner')->where('experts_bool', true)->where('down', true)->inRandomOrder()->first();
             break;
           default:
-            $banners = [];
+            $banners['up'] = [];
+            $banners['right'] = [];
+            $banners['down'] = [];
             break;
         }
 
@@ -106,9 +114,17 @@ class PublicationController extends RSController
       //Баннеры страницы
 
       if($this->fields->theme_id == config('public.theme.news'))
-        $banners = Model('banner')->where('in_new_bool', true)->get();
+      {
+        $banners['up'] = Model('banner')->where('in_new_bool', true)->where('up', true)->inRandomOrder()->first();
+        $banners['right'] = Model('banner')->where('in_new_bool', true)->where('right', true)->inRandomOrder()->first();
+        $banners['down'] = Model('banner')->where('in_new_bool', true)->where('down', true)->inRandomOrder()->first();
+      }
       else
-        $banners = Model('banner')->where('in_publ_bool', true)->get();
+      {
+        $banners['up'] = Model('banner')->where('in_publ_bool', true)->where('up', true)->inRandomOrder()->first();
+        $banners['right'] = Model('banner')->where('in_publ_bool', true)->where('right', true)->inRandomOrder()->first();
+        $banners['down'] = Model('banner')->where('in_publ_bool', true)->where('down', true)->inRandomOrder()->first();
+      }
 
       return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications', 'banners'));
     }

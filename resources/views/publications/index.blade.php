@@ -1,4 +1,15 @@
 @extends('layouts.main')
+
+@section('top-banner')
+  @if(isset($banners['up']))
+    <div class="col-md-9 col-lg-9 text-right visible-md visible-lg">
+        <a href="{{$banners['up']->link}}" target="_blank" rel="nofollow">
+            <img src="{{iPath($banners['up']->image, 'full')}}" class="img-responsive" alt="">
+        </a>
+    </div>
+  @endif
+@endsection
+
 @section('section')
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
@@ -40,15 +51,26 @@
                 @endforeach
               @endif
             </ul>
+
+            @if(isset($banners['down']))
+                <div class="form-group">
+                  <a href="{{$banners['down']->link}}" target="_blank" rel="nofollow">
+                    <img src="{{iPath($banners['down']->image, 'full')}}" class="img-responsive" alt="">
+                  </a>
+                </div>
+            @endif
         </section>
 
         <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
+          @if(isset($banners['right']))
             <div class="form-group">
-                <a href="https://runsite.com.ua" target="_blank" rel="nofollow">
-                    <img src="/assets/images/demo/banner.jpg" class="img-responsive" alt="">
-                </a>
+              <a href="{{$banners['right']->link}}" target="_blank" rel="nofollow">
+                <img src="{{iPath($banners['right']->image, '600px')}}" class="img-responsive" alt="">
+              </a>
             </div>
+          @endif
         </div>
+
     </div>
 </div>
 @endsection

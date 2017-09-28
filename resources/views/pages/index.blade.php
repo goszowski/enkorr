@@ -1,4 +1,15 @@
 @extends('layouts.main')
+
+@section('top-banner')
+  @if(isset($banners['up']))
+    <div class="col-md-9 col-lg-9 text-right visible-md visible-lg">
+        <a href="{{$banners['up']->link}}" target="_blank" rel="nofollow">
+            <img src="{{iPath($banners['up']->image, 'full')}}" class="img-responsive" alt="">
+        </a>
+    </div>
+  @endif
+@endsection
+
 @section('section')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row" id="sticky-wrapper" style="position: relative;">
@@ -119,6 +130,14 @@
               <div class="form-group">
                   <a href="{{lPath('/publications')}}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">{{__('Все публикации')}}</a>
               </div>
+
+              @if(isset($banners['down']))
+                <div class="form-group">
+                    <a href="{{$banners['down']->link}}" target="_blank" rel="nofollow">
+                        <img src="{{iPath($banners['down']->image, '600px')}}" class="img-responsive" alt="">
+                    </a>
+                </div>
+              @endif
           </div>
 
 
@@ -129,11 +148,13 @@
 
 
           <div class="visible-lg col-lg-3 sticky sticky-lg xs-pt-30">
+            @if(isset($banners['right']))
               <div class="form-group">
-                  <a href="https://runsite.com.ua" target="_blank" rel="nofollow">
-                      <img src="/assets/images/demo/banner.jpg" class="img-responsive" alt="">
+                  <a href="{{$banners['right']->link}}" target="_blank" rel="nofollow">
+                      <img src="{{iPath($banners['right']->image, '600px')}}" class="img-responsive" alt="">
                   </a>
               </div>
+            @endif
 
               <div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
                   <h3 class="xs-pb-15">Как вы оцениваете действия Вецкаганса?</h3>
@@ -158,11 +179,6 @@
                   </form>
               </div>
 
-              <div class="form-group">
-                  <a href="https://runsite.com.ua" target="_blank" rel="nofollow">
-                      <img src="/assets/images/demo/banner.jpg" class="img-responsive" alt="">
-                  </a>
-              </div>
           </div>
 
 

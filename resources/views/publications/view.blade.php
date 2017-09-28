@@ -1,4 +1,15 @@
 @extends('layouts.main')
+
+@section('top-banner')
+  @if(isset($banners['up']))
+    <div class="col-md-9 col-lg-9 text-right visible-md visible-lg">
+        <a href="{{$banners['up']->link}}" target="_blank" rel="nofollow">
+            <img src="{{iPath($banners['up']->image, 'full')}}" class="img-responsive" alt="">
+        </a>
+    </div>
+  @endif
+@endsection
+
 @section('section')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row">
@@ -58,6 +69,14 @@
                 </div>
               @endif
 
+              @if(isset($banners['down']))
+                  <div class="form-group">
+                    <a href="{{$banners['down']->link}}" target="_blank" rel="nofollow">
+                      <img src="{{iPath($banners['down']->image, 'full')}}" class="img-responsive" alt="">
+                    </a>
+                  </div>
+              @endif
+
               <div class="xs-pt-30">
                 <h2 class="column-title">{{ __('Комментарии') }}</h2>
 
@@ -85,11 +104,13 @@
               </div>
           </div>
           <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
-            {{-- @if(count($banners))
-              @foreach ($banners as $key => $banner)
-
-              @endforeach
-            @endif --}}
+            @if(count($banners['right']))
+              <div class="form-group">
+                <a href="{{$banners['right']->link}}" target="_blank" rel="nofollow">
+                  <img src="{{iPath($banners['right']->image, '600px')}}" class="img-responsive" alt="">
+                </a>
+              </div>
+            @endif
             <div class="form-group sidebar">
               <h2 class="column-title">{{__('Публикации')}}</h2>
               <ul class="sidebar-list">

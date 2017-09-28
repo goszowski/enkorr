@@ -43,20 +43,18 @@
       <div class="container website-container xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
         <a href="https://runsite.com.ua" target="_blank" class="author" data-toggle="tooltip" title="Рансайт: Разработка и поддержка сайтов 2016-2017">Разработка и поддержка сайта: Рансайт ТОВ</a>
 
-        <!-- <div class="container-fluid xs-pt-30 xs-pb-30 visible-sm visible-md visible-lg">
+        <div class="container-fluid xs-pt-30 xs-pb-30 visible-sm visible-md visible-lg">
           <div class="row">
-            <div class="col-md-3 col-lg-3 md-pt-15 lg-pt-25">
+            {{-- <div class="col-md-3 col-lg-3 md-pt-15 lg-pt-25">
                 <a href="/" data-ajax="true">
                     <img src="/assets/images/logo.png" alt="Enkorr" class="img-responsive" style="max-width: 150px;">
                 </a>
-            </div>
-            <div class="col-md-9 col-lg-9 text-right visible-md visible-lg">
-                <a href="https://runsite.com.ua" target="_blank" rel="nofollow">
-                  <img src="/assets/images/demo/banner-header.gif" class="img-responsive" alt="alt">
-                </a>
-            </div>
+            </div> --}}
+
+            @yield('top-banner')
+
           </div>
-        </div> -->
+        </div>
 
         <div class="xs-pl-15 xs-pr-15 sm-pl-0 sm-pr-0">
           <div class="row main-nav-container sticky-all">
