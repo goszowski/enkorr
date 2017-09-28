@@ -8,8 +8,10 @@
               </h1>
               <p><b>{{ $fields->title }}</b></p>
 
-              <div class="xs-pt-30 xs-pb-30">
-                <img src="{{ iPath($fields->image, 'full') }}" class="img-responsive" alt="{{ $fields->name }}">
+              <div class="publication-main-image">
+                  <p>
+                      <img src="{{ iPath($fields->image, 'full') }}" class="img-responsive" alt="{{ $fields->name }}">
+                  </p>
               </div>
 
               <div class="publication-text">
