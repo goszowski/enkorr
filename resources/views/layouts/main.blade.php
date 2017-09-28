@@ -31,7 +31,7 @@
     <body>
 
       <div class="brand-wall">
-        <!-- <div class="visible-lg" style="background-image: url(/assets/images/demo/brand-1.jpg); background-color: #000;"></div> -->
+        <div class="visible-lg" style="background-image: url(/assets/images/demo/brand-1.jpg); background-color: #000;"></div>
       </div>
 
 
