@@ -38,10 +38,10 @@ return array(
 
         'development' => array(
             'scheme'    => 'ftp',
-            'host'      => 'yourdevserver.com',
-            'user'      => 'user',
-            'pass'      => 'myawesomepass',
-            'path'      => '/path/to/server/',
+            'host'      => 'brastoua.ftp.ukraine.com.ua',
+            'user'      => 'brastoua_ftp',
+            'pass'      => '2MVDll0c57',
+            'path'      => '/runsite.com.ua/enkorr/',
             'port'      => 21,
             'passive'   => true
         ),
