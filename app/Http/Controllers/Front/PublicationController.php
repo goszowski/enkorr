@@ -36,10 +36,22 @@ class PublicationController extends RSController
         // Если нет, то просто передаем пустой массив- не будет отображатсья в дальнейшем шаблоне. Не очень красивое решение, но работающее.
 
         // Берем баннеры в зависимости от страницы
+        switch ($this->fields->node_id) {
+          case config('public.sections.publication'):
+            $banners = Model('banner')->where('publ_bool', '=', 'true')->get();
+            break;
+          case config('public.sections.new'):
+            $banners = Model('banner')->where('news_bool', '=', 'true')->get();
+            break;
+          case config('public.sections.experts'):
+            $banners = Model('banner')->where('experts_bool', '=', 'true')->get();
+            break;
+          default:
+            $banners = [];
+            break;
+        }
 
-        // $banners = Model('banner')->where('main_bool', '=', 'true')->get();
-
-        return $this->make_view('publications.index', compact('publications'));
+        return $this->make_view('publications.index', compact('publications', 'banners'));
     }
 
     /**
@@ -91,7 +103,14 @@ class PublicationController extends RSController
                                 ->orderBy('pubdate', 'desc')
                                 ->get();
 
-      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications'));
+      //Баннеры страницы
+
+      if($this->fields->theme_id == config('public.theme.news'))
+        $banners = Model('banner')->where('in_new_bool', true)->get();
+      else
+        $banners = Model('banner')->where('in_publ_bool', true)->get();
+
+      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications', 'banners'));
     }
 
 }
