@@ -6,10 +6,11 @@ namespace App\Runsite;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Runsite\Libraries\PH;
+use Illuminate\Notifications\Notifiable;
 
 class Dynamic extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Notifiable;
 
     protected $table    = '';
     protected $fillable = [];
