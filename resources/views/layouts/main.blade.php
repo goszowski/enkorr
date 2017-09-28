@@ -32,7 +32,7 @@
 
       <div class="brand-wall">
         @if(isset($main_banner))
-          <div class="visible-lg" style="background-image: url({{iPath($main_banner->image, 'full')}}); background-color: #000;"></div>
+          <div class="visible-lg" style="background-image: url({{iPath($main_banner->image, 'full')}}); background-color: @if(isset($main_banner->color)) {{$main_banner->color}} @else #000 @endif;"></div>
         @endif
       </div>
 

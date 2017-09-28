@@ -35,6 +35,10 @@ class PublicationController extends RSController
 
         // Если нет, то просто передаем пустой массив- не будет отображатсья в дальнейшем шаблоне. Не очень красивое решение, но работающее.
 
+        // Берем баннеры в зависимости от страницы
+
+        // $banners = Model('banner')->where('main_bool', '=', 'true')->get();
+
         return $this->make_view('publications.index', compact('publications'));
     }
 
@@ -44,6 +48,10 @@ class PublicationController extends RSController
      */
     public function view()
     {
+      Model('publication')
+        ->where('node_id', $this->fields->node_id)
+        ->first()
+        ->increment('popular');
       $tag_ids = explode(',', $this->fields->tag_ids);
       $tags = Model('tag')->whereIn('node_id', $tag_ids)->get();
       $random_tag = Model('tag')->whereIn('node_id', $tag_ids)->inRandomOrder()->first();
@@ -68,7 +76,22 @@ class PublicationController extends RSController
         $similar_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
       }
 
-      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications'));
+      $latest_news = Model('publication')
+                      ->where('theme_id', '=', config('public.theme.news'))
+                      ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                      ->orderBy('pubdate', 'desc')
+                      ->limit(5)
+                      ->get();
+
+      $popular_publications = Model('publication')
+                                ->where('theme_id', '!=', config('public.theme.news'))
+                                ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                                ->orderBy('popular', 'desc')
+                                ->limit(5)
+                                ->orderBy('pubdate', 'desc')
+                                ->get();
+
+      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications'));
     }
 
 }

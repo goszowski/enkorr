@@ -4,6 +4,7 @@
     'sections' => [
       'publication' => 12,
       'new' => 11,
+      'experts' => 15,
     ],
     'pagination' => [
       'news' => 15,

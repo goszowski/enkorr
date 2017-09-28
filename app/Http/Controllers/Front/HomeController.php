@@ -32,7 +32,7 @@ class HomeController extends RSController
                         ->orderBy('pubdate', 'desc')
                         ->limit(config('public.index.countpub'))
                         ->get();
-                        
+
       $pinned_publications = Model('publication')
                         ->where('theme_id', '!=', config('public.theme.news'))
                         ->where('pinned', true)->where('pubdate', '<=', date('Y-m-d H;i;s'))
@@ -47,12 +47,12 @@ class HomeController extends RSController
       foreach ($pinned_publications as $key => $publication) {
         $pinned_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
       }
-      // $banners = Model('banner')->where('', '=', '')->get();
+      $banners = Model('banner')->where('main_bool', '=', 'true')->get();
 
 
       // Возвращаем нашу функцию и передаем в шаблон взятые данные
 
 
-      return $this->make_view('pages.index', compact('news', 'publications', 'pinned_publications'));
+      return $this->make_view('pages.index', compact('news', 'publications', 'pinned_publications', 'banners'));
     }
 }
