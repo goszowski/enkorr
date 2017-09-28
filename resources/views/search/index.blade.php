@@ -3,12 +3,12 @@
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
         <section class="col-md-9 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
-            <h2 class="column-title">{{trans('Публикации')}}</h2>
+            <h2 class="column-title">{{__('Результаты поиска')}}</h2>
             @if(count( $publications ))
               <ul class="sidebar-list">
                   @foreach( $publications as $k => $publication )
                     <li>
-                        <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                        <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                             <img src="{{iPath($publication->image,'600px')}}" alt="">
                             <span>
                                 <time datetime="/* publication datetime */">
@@ -22,26 +22,6 @@
               </ul>
             @else
               {{__('Публикаций по данному запросу не найдено')}}
-            @endif
-            <h2 class="column-title">{{trans('Новости')}}</h2>
-            @if(count( $news ))
-              <ul class="sidebar-list">
-                  @foreach( $news as $k => $new )
-                    <li>
-                        <a href="#" data-ajax="true" class="ripple" data-ripple-color="#eee">
-                            <img src="{{iPath($new->image,'600px')}}" alt="">
-                            <span>
-                                <time datetime="/* publication datetime */">
-                                    {{PH::formatDateTime($new->pubdate, false, true)}}
-                                </time>
-                                <b>{{ $new->name }}</b>
-                            </span>
-                        </a>
-                    </li>
-                  @endforeach
-              </ul>
-            @else
-              {{__('Новостей по данному запросу не найдено')}}
             @endif
         </section>
 

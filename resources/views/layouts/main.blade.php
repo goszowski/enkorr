@@ -83,8 +83,13 @@
 
 
                 <ul class="nav navbar-nav navbar-right text-uppercase">
-                  <li><a href="{{lPath('/auth/login')}}" data-ajax="true" class="ripple"><i class="fa fa-sign-in"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">Вход</span></a></li>
-                  <li><a href="{{lPath('/auth/register')}}" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">Регистрация</span></a></li>
+                  @if(empty(Session::get('authUser')))
+                    <li><a href="{{lPath('/auth/login')}}" data-ajax="true" class="ripple"><i class="fa fa-sign-in"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">{{__('Вход')}}</span></a></li>
+                    <li><a href="{{lPath('/auth/register')}}" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">{{__('Регистрация')}}</span></a></li>
+                  @else
+                    <li><a href="{{lPath(Session::get('authUser')->node->absolute_path)}}" data-ajax="true" class="ripple"><i class="fa fa-vcard-o"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">{{__('Аккаунт')}}</span></a></li>
+                    <li><a href="{{lPath('/auth/logout')}}" data-ajax="true" class="ripple"><i class="fa fa-user-times"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">{{__('Выход')}}</span></a></li>
+                  @endif
                 </ul>
 
                 {{Form::open(['url' => lPath('/search'), 'class' => 'navbar-form navbar-left  custom-search', 'method' => 'GET'])}}

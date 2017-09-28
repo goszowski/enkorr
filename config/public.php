@@ -3,6 +3,7 @@
   return [
     'sections' => [
       'publication' => 12,
+      'new' => 11,
     ],
     'pagination' => [
       'news' => 15,
@@ -13,5 +14,8 @@
       'countpub' => 8,
       'countspecialpub' => 2,
       'multiplicity' => 4,
+    ],
+    'theme' => [
+      'news' => 56,
     ],
   ];

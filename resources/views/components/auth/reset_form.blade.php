@@ -39,7 +39,7 @@
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-success">{{__('Reset')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('Reset')}}</button>
               </div>
             {{Form::close()}}
         </div>

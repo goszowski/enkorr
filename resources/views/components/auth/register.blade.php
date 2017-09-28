@@ -49,7 +49,7 @@
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-success">{{__('Register')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('Register')}}</button>
                 <a href="{{url(lPath('/auth/login'))}}" class="btn btn-default">{{__('Login')}}</a>
               </div>
             {{Form::close()}}

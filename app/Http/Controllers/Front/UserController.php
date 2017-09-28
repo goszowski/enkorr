@@ -192,7 +192,7 @@ class UserController extends RunsiteController
     public function logout()
     {
       Session::flash('authUser', false);
-      return redirect(lpath('/auth/login'));
+      return redirect(lPath('/auth/login'));
     }
 
 
