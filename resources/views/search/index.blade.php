@@ -25,13 +25,13 @@
             @endif
         </section>
 
-        <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
+        {{-- <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
             <div class="form-group">
                 <a href="https://runsite.com.ua" target="_blank" rel="nofollow">
                     <img src="/assets/images/demo/banner.jpg" class="img-responsive" alt="">
                 </a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 @endsection
