@@ -2,12 +2,12 @@
 
 @include('partials.seo2')
 
-@section('top-banner')
+{{-- @section('top-banner')
   @include('banners.up')
-@endsection
+@endsection --}}
 
 @section('section')
-@include('partials.title')
+{{-- @include('partials.title') --}}
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
         <section class="col-md-9 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
@@ -49,13 +49,13 @@
               @endif
             </ul>
 
-            @include('banners.down')
+            {{-- @include('banners.down') --}}
 
         </section>
 
         <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
 
-          @include('banners.right')
+          {{-- @include('banners.right') --}}
 
         </div>
 
