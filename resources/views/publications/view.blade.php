@@ -43,8 +43,7 @@
               <div class="row">
                 <div class="col-md-8">
                   {{-- Social sharing --}}
-                  {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, placeat! Quisquam velit neque doloribus repellendus aliquam, consequatur sunt, modi, ut, culpa ea rerum hic non animi cum itaque totam. Eum.</p>
+                  <div id="shareIconsCount" data-url="{{ lPath($node->absolute_path) }}" data-title="{{ $fields->name }}"></div>
                 </div>
                 <div class="col-md-4 text-right">
                   {{-- Filter publications by tag --}}

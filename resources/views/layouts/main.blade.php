@@ -22,6 +22,8 @@
       <link rel="stylesheet" href="{{asset('asset/css/bootstrap/stylesheets/bootstrap.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/sass-space/sass-space.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/ripple/ripple.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials-theme-minima.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
       <!-- / Vendor styles -->
 
       <!-- App styles -->
@@ -127,6 +129,7 @@
       <script src="{{ asset('asset/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js') }}"></script>
       <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
       <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/jssocials-1.4.0/jssocials.min.js') }}"></script>
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->
