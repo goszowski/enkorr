@@ -43,9 +43,16 @@
               <div class="row">
                 <div class="col-md-8">
                   {{-- Social sharing --}}
-                  {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, placeat! Quisquam velit neque doloribus repellendus aliquam, consequatur sunt, modi, ut, culpa ea rerum hic non animi cum itaque totam. Eum.</p>
 
+                  {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
+                  <div id="shareIconsCount" data-url="{{ lPath($node->absolute_path) }}" data-title="{{ $fields->name }}"></div>
+
+                </div>
+                <div class="col-md-4 text-right">
+                  {{-- Filter publications by tag --}}
+                  @foreach ($tags as $tag)
+                    <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default">{{$tag->name}}</a>
+                  @endforeach
                   <p>
                     {{__('Aвторы:')}}
                   </p>
@@ -54,12 +61,6 @@
                       <a href="{{lPath($author->node->absolute_path)}}" class="label label-default">{{$author->name}}</a>
                     @endforeach
                   @endif
-                </div>
-                <div class="col-md-4 text-right">
-                  {{-- Filter publications by tag --}}
-                  @foreach ($tags as $tag)
-                    <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default">{{$tag->name}}</a>
-                  @endforeach
                 </div>
               </div>
 

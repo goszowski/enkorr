@@ -22,17 +22,20 @@
       <link rel="stylesheet" href="{{asset('asset/css/bootstrap/stylesheets/bootstrap.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/sass-space/sass-space.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/ripple/ripple.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials-theme-minima.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?1')}}">
       <!-- / App styles -->
     </head>
     <body>
 
       <div class="brand-wall">
         @if(isset($main_banner))
-          <div class="visible-lg" style="background-image: url({{iPath($main_banner->image, 'full')}}); background-color: @if(isset($main_banner->color)) {{$main_banner->color}} @else #000 @endif;"></div>
+          {{-- TODO: position: fixed якшо банер закріплений --}}
+          <div class="visible-lg" style="position: fixed; background-image: url({{iPath($main_banner->image, 'full')}}); background-color: @if(isset($main_banner->color)) {{$main_banner->color}} @else #000 @endif;"></div>
         @endif
       </div>
 
@@ -127,6 +130,7 @@
       <script src="{{ asset('asset/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js') }}"></script>
       <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
       <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/jssocials-1.4.0/jssocials.min.js') }}"></script>
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->

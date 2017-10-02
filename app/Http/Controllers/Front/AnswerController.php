@@ -18,7 +18,7 @@ class AnswerController extends RSController
     protected function ip_rules($quiz)
     {
       return [
-        'name' => 'required|ip|unique:_class_answer,name,NULL,NULL,deleted_at,NULL,node_id,'.$quiz,
+        'name' => 'required|ip|unique:_class_answer,name,NULL,NULL,deleted_at,NULL,parent_id,'.$quiz,
       ];
     }
 

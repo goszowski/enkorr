@@ -32,4 +32,17 @@ function appBuild()
 
   $('.loader').removeClass('active');
 
+  $(document).find("#shareIconsCount").jsSocials({
+      url: $(this).data('url'),
+      text: $(this).data('title'),
+      showCount: true,
+      showLabel: false,
+      shares: [
+          "twitter",
+          "facebook",
+          "googleplus",
+      ]
+  });
+
+
 }
