@@ -16,7 +16,7 @@
                   <small class="text-muted">{{PH::formatDateTime($fields->pubdate, false, true)}}</small>
                 </time>
               </div>
-              <p><b>{{ $fields->title }}</b></p>
+              <p><b>{{ $fields->pub_title }}</b></p>
 
               <div class="publication-main-image publication-text">
                   <p>
