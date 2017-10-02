@@ -27,7 +27,7 @@
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?1')}}">
       <!-- / App styles -->
     </head>
     <body>
