@@ -3,9 +3,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Http\Controllers\RunsiteController;
+use App\Http\Controllers\RSController;
 
-class PageController extends RunsiteController
+class PageController extends RSController
 {
     public function view()
     {
@@ -15,6 +15,7 @@ class PageController extends RunsiteController
     public function author()
     {
       $publications = Model('publication')
+                        ->whereRaw("FIND_IN_SET('{$this->fields->node_id}', author_ids) > 0")
                         ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                         ->orderBy('pubdate', 'desc')
                         ->get();

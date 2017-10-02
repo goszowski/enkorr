@@ -95,7 +95,7 @@ class PublicationController extends RSController
                                   ->get();
 
         $similar_publications_auto = Model('publication')
-                                      ->where('tag_ids', 'Like', '%'.$random_tag->node_id.'%')
+                                      ->whereRaw("FIND_IN_SET('{$this->fields->node_id}', tag_ids) > 0")
                                       ->where('node_id', '!=', $this->fields->node_id)
                                       ->whereNotIn('node_id', $similar_publications->pluck('node_id'))
                                       ->where('pubdate', '<=', date('Y-m-d H:i:s'))
