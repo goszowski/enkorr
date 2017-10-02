@@ -26,10 +26,11 @@
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials-theme-minima.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.carousel.min.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.theme.default.min.css')}}">
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css?2')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?3')}}">
       <!-- / App styles -->
     </head>
     <body>
