@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('partials.seo2')
+
 @section('top-banner')
   @include('banners.up')
 @endsection

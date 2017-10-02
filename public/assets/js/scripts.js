@@ -1,6 +1,9 @@
 function appBuild()
 {
 
+  // var pageTitle = $(document).find('#page-title');
+  $('title').html($(document).find('#app #page-title').html());
+
     $(window).scrollTop(0);
 
   $('[data-toggle=tooltip]').tooltip();

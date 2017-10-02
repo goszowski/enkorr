@@ -4,11 +4,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-      <title>Enkorr</title>
-      <meta property="og:title" content="Enkorr">
+      <title>@yield('title')</title>
+      <meta property="og:title" content="@yield('title')">
       <meta property="og:type" content="website">
-      <meta property="og:url" content="{{ url('/') }}">
-      <meta property="og:image" content="{{ asset('assets/images/logo.png') }}">
+      <meta property="og:url" content="{{ lPath($node->absolute_path) }}">
+      <meta property="og:image" content="@yield('image')">
+      <meta name="description" content="@yield('description')">
 
       <link rel="manifest" href="{{ url('manifest.json') }}">
       <link rel="shortcut icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
