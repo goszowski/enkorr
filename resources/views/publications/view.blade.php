@@ -119,7 +119,8 @@
                 <h2 class="column-title">{{ __('Комментарии') }}</h2>
 
                 @if(empty(Session::get('authUser')))
-                  <a role="button" class="btn btn-primary" href="{{lPath('/auth/login')}}">{{__('Авторизируйтесь, что бы оставить комментарий')}}</a>
+                  <p>{{__('Авторизируйтесь, что бы оставить комментарий')}}</p>
+                  <a role="button" class="btn btn-primary" href="{{lPath('/auth/login')}}">{{ __('Авторизация') }}</a>
                 @else
                   {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
                   <div class="form-group">
