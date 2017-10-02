@@ -30,7 +30,7 @@
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css?3')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?4')}}">
       <!-- / App styles -->
     </head>
     <body>
@@ -126,8 +126,8 @@
                   <img src="{{ asset('assets/images/logo-white.png') }}" alt="Enkorr">
                 </div>
                 <div class="col-md-4 text-center footer-nav xs-pt-25 text-uppercase">
-                  <a href="#" data-ajax="true" class="xs-mr-20">{{ __('О проекте') }}</a>
-                  <a href="#" data-ajax="true" class="xs-ml-20">{{ __('Контакты') }}</a>
+                  <a href="{{ lPath('/o-proekte') }}" data-ajax="true" class="xs-mr-20">{{ __('О проекте') }}</a>
+                  <a href="{{ lPath('/contacts') }}" data-ajax="true" class="xs-ml-20">{{ __('Контакты') }}</a>
                 </div>
                 <div class="col-md-4 xs-pt-25 text-right">
                   <ul class="footer-social">
