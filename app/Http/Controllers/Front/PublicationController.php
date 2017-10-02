@@ -130,9 +130,7 @@ class PublicationController extends RSController
         $authors = [];
 
 
-      //Выбор фотографий данной публикации
 
-      $photoes = Model('photo')->where('parent_id', $this->fields->node_id)->get();
 
 
       // Выборка для списка справа
@@ -166,7 +164,16 @@ class PublicationController extends RSController
         $banners['down'] = Model('banner')->where('in_publ_bool', true)->where('down', true)->inRandomOrder()->first();
       }
 
-      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'similar_publications_auto', 'photoes', 'latest_news', 'popular_publications', 'banners', 'authors'));
+      //тексты и фотографии данной публикации
+
+      $texts = Model('text')->where('parent_id', $this->fields->node_id)->get();
+
+      //Выбор фотографий данной публикации
+      foreach ($texts as $key => $text) {
+        $texts[$key]['photoes'] = Model('photo')->where('parent_id', $text->node_id)->get();
+      }
+
+      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'similar_publications_auto', 'texts', 'latest_news', 'popular_publications', 'banners', 'authors'));
     }
 
 }

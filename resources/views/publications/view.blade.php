@@ -45,10 +45,14 @@
 
               <div class="publication-text">
 
-                {!! $fields->content !!}
+                @if(count($texts))
+                  @foreach ($texts as $key => $text)
+                    {!! $text->content !!}
+                    @include('partials.publication_gallery')
+                  @endforeach
+                @endif
 
 
-                @include('partials.publication_gallery')
 
               </div>
 
