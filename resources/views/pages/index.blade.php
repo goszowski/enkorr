@@ -7,6 +7,7 @@
 @endsection
 
 @section('section')
+  @include('partials.title')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row" id="sticky-wrapper" style="position: relative;">
 

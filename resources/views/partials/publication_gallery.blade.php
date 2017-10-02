@@ -14,7 +14,6 @@
 	</div>
 
 	<div class="owl-carousel publication-gallery-thumbs">
-		{{-- Thumbs --}}
 		@foreach( $photoes as $photo )
 			<div class="item">
 				<img src="{{iPath($photo->image, 'thumb')}}" alt="{{$photo->name}}">
