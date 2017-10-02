@@ -109,8 +109,8 @@
           </div>
           <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
 
-            @include('banner.right')
-            
+            @include('banners.right')
+
             <div class="form-group sidebar">
               <h2 class="column-title">{{__('Публикации')}}</h2>
               <ul class="sidebar-list">

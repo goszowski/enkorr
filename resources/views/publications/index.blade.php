@@ -46,13 +46,13 @@
               @endif
             </ul>
 
-            @include('banner.down')
+            @include('banners.down')
 
         </section>
 
         <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
 
-          @include('banner.right')
+          @include('banners.right')
 
         </div>
 

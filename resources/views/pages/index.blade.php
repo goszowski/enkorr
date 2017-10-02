@@ -131,7 +131,7 @@
                   <a href="{{lPath('/publications')}}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">{{__('Все публикации')}}</a>
               </div>
 
-              @include('banner.down')
+              @include('banners.down')
           </div>
 
 
@@ -143,7 +143,7 @@
 
           <div class="visible-lg col-lg-3 sticky sticky-lg xs-pt-30">
 
-            @include('banner.right')
+            @include('banners.right')
 
             @if(isset($quiz))
               <div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
