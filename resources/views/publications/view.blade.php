@@ -46,6 +46,9 @@
 
                 {!! $fields->content !!}
 
+
+                @include('partials.publication_gallery')
+
               </div>
 
               <div class="row">
@@ -61,6 +64,7 @@
                   @endforeach
                 </div>
               </div>
+
 
               @if(count($similar_publications))
                 <div class="xs-pt-30">

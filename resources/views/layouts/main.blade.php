@@ -24,10 +24,11 @@
       <link rel="stylesheet" href="{{asset('asset/vendor/ripple/ripple.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials-theme-minima.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.carousel.min.css')}}">
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css?1')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?2')}}">
       <!-- / App styles -->
     </head>
     <body>
@@ -157,10 +158,11 @@
       <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
       <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
       <script src="{{ asset('asset/vendor/jssocials-1.4.0/jssocials.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->
-      <script src="{{ asset('assets/js/scripts.js?1') }}"></script>
+      <script src="{{ asset('assets/js/scripts.js?2') }}"></script>
       <script type="text/javascript">
         $(function() {
 
