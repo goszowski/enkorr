@@ -45,7 +45,6 @@
 
       <div class="container website-container xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
         <a href="https://runsite.com.ua" target="_blank" class="author" data-toggle="tooltip" title="Рансайт: Разработка и поддержка сайтов 2016-2017">Разработка и поддержка сайта: Рансайт ТОВ</a>
-
         @yield('top-banner')
 
         <div class="xs-pl-15 xs-pr-15 sm-pl-0 sm-pr-0">
@@ -99,31 +98,41 @@
           </div>
 
 
-        <div class="loader active">
-          <div class="lds-css ng-scope">
-            <div style="width:100%;height:100%" class="lds-eclipse">
-              <div></div>
+          <div class="loader active">
+            <div class="lds-css ng-scope">
+              <div style="width:100%;height:100%" class="lds-eclipse">
+                <div></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="scroll-top-container">
-          <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
-        </div>
-
-        <div id="app">
-          @endif
-          @yield('section')
-          @if(!Input::get('ajax'))
-        </div>
-
-        <div class="row footer">
-          <div class="xs-pl-15 sm-pl-30 xs-pr-15 sm-pr-30">
-            {!! $footer !!}
+          <div class="scroll-top-container">
+            <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
           </div>
-        </div>
 
-      </div>
+          <div id="app">
+            @endif
+            @yield('section')
+            @if(!Input::get('ajax'))
+          </div>
+
+          <div class="row footer xs-mt-30">
+            <div class="xs-p-25 xs-pb-40">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="{{ asset('assets/images/logo-white.png') }}" alt="Enkorr">
+                </div>
+                <div class="col-md-4">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque veniam, corrupti, suscipit voluptates nemo debitis sequi a inventore dolor iste, velit ipsam delectus quaerat adipisci asperiores minus facilis maxime modi!</p>
+                </div>
+                <div class="col-md-4">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque veniam, corrupti, suscipit voluptates nemo debitis sequi a inventore dolor iste, velit ipsam delectus quaerat adipisci asperiores minus facilis maxime modi!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
         </div>
       <!-- Vendor scripts -->
       <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
