@@ -67,10 +67,11 @@
               </div>
 
 
-              @if(count($similar_publications))
+              @if(count($similar_publications) or count($similar_publications_auto))
                 <div class="xs-pt-30">
                   <h2 class="column-title">{{ __('Похожие публикации') }}</h2>
                   <div class="row publications">
+                    @if(count($similar_publications))
                       @foreach ($similar_publications as $publication)
                         @if(isset($publication))
                           <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
@@ -87,6 +88,25 @@
                           </div>
                         @endif
                       @endforeach
+                    @endif
+                    @if(count($similar_publications_auto))
+                      @foreach ($similar_publications_auto as $publication)
+                        @if(isset($publication))
+                          <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
+                            <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
+                              <img src="{{ iPath($publication->image, '600px') }}" alt="">
+                              <span class="publications-item-detail">
+                                <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
+                                <h2>{{$publication->name}}</h2>
+                                <time datetime="/* publication datetime */">
+                                  {{PH::formatDateTime($publication->pubdate, false, true)}}
+                                </time>
+                              </span>
+                            </a>
+                          </div>
+                        @endif
+                      @endforeach
+                    @endif
                   </div>
                 </div>
               @endif

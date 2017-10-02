@@ -84,24 +84,40 @@ class PublicationController extends RSController
 
 
       // Поиск подобных новостей
-      if(count($tags))
+      if( ($similar_array = explode(',', $this->fields->similar_publications) and count($similar_array)) or count($tags))
       {
         $similar_publications = Model('publication')
-                                  ->where('tag_ids', 'Like', '%'.$random_tag->node_id.'%')
+                                  ->whereIn('node_id', $similar_array)
                                   ->where('node_id', '!=', $this->fields->node_id)
                                   ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                                   ->orderBy('pubdate', 'desc')
                                   ->limit(3)
                                   ->get();
 
+        $similar_publications_auto = Model('publication')
+                                      ->where('tag_ids', 'Like', '%'.$random_tag->node_id.'%')
+                                      ->where('node_id', '!=', $this->fields->node_id)
+                                      ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                                      ->orderBy('pubdate', 'desc')
+                                      ->limit(3-count($similar_publications))
+                                      ->get();
+
 
         foreach ($similar_publications as $key => $publication)
         {
           $similar_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
         }
+
+        foreach ($similar_publications_auto as $key => $publication)
+        {
+          $similar_publications_auto[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+        }
       }
       else
+      {
         $similar_publications = [];
+        $similar_publications_auto = [];
+      }
 
 
       //Авторы статьи
@@ -145,7 +161,7 @@ class PublicationController extends RSController
         $banners['down'] = Model('banner')->where('in_publ_bool', true)->where('down', true)->inRandomOrder()->first();
       }
 
-      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications', 'banners', 'authors'));
+      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'similar_publications_auto', 'latest_news', 'popular_publications', 'banners', 'authors'));
     }
 
 }
