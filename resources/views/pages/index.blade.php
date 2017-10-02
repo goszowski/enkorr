@@ -46,6 +46,7 @@
                   @endforeach
                 @endif
               </ul>
+              <a href="{{ lPath('/news') }}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">{{ __('Все новости') }}</a>
           </section>
 
 
