@@ -90,18 +90,20 @@
                   @endforeach
 
                 @elseif(count($publications) and count($publications) <= 4)
-                  <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
-                      <a href="{{ lPath($pinned_publications[0]->node->absolute_path) }}" data-ajax="true" class="ripple">
-                          <img src="{{iPath($pinned_publications[0]->image, '600px')}}" alt="">
-                          <span class="publications-item-detail">
-                              <span class="publication-theme">{{$pinned_publications[0]->theme}}</span>
-                              <h2>{{$pinned_publications[0]->name}}</h2>
-                              <time datetime="/* publication datetime */">
-                                  {{PH::formatDateTime($pinned_publications[0]->pubdate, false, true)}}
-                              </time>
-                          </span>
-                      </a>
-                  </div>
+                  @if(empty($pinned_publications[0]) == false)
+                    <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
+                        <a href="{{ lPath($pinned_publications[0]->node->absolute_path) }}" data-ajax="true" class="ripple">
+                            <img src="{{iPath($pinned_publications[0]->image, '600px')}}" alt="">
+                            <span class="publications-item-detail">
+                                <span class="publication-theme">{{$pinned_publications[0]->theme}}</span>
+                                <h2>{{$pinned_publications[0]->name}}</h2>
+                                <time datetime="/* publication datetime */">
+                                    {{PH::formatDateTime($pinned_publications[0]->pubdate, false, true)}}
+                                </time>
+                            </span>
+                        </a>
+                    </div>
+                  @endif
                   @foreach($publications as $k => $publication)
                     <div class="col-md-6 publications-item xs-pb-15 sm-pb-30">
                         <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
@@ -116,18 +118,20 @@
                         </a>
                     </div>
                   @endforeach
-                  <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
-                      <a href="{{ lPath($pinned_publications[1]->node->absolute_path) }}" data-ajax="true" class="ripple">
-                          <img src="{{iPath($pinned_publications[1]->image, '600px')}}" alt="">
-                          <span class="publications-item-detail">
-                              <span class="publication-theme">{{$pinned_publications[1]->theme}}</span>
-                              <h2>{{$pinned_publications[1]->name}}</h2>
-                              <time datetime="/* publication datetime */">
-                                  {{PH::formatDateTime($pinned_publications[1]->pubdate, false, true)}}
-                              </time>
-                          </span>
-                      </a>
-                  </div>
+                  @if(empty($pinned_publications[1]) == false)
+                    <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
+                        <a href="{{ lPath($pinned_publications[1]->node->absolute_path) }}" data-ajax="true" class="ripple">
+                            <img src="{{iPath($pinned_publications[1]->image, '600px')}}" alt="">
+                            <span class="publications-item-detail">
+                                <span class="publication-theme">{{$pinned_publications[1]->theme}}</span>
+                                <h2>{{$pinned_publications[1]->name}}</h2>
+                                <time datetime="/* publication datetime */">
+                                    {{PH::formatDateTime($pinned_publications[1]->pubdate, false, true)}}
+                                </time>
+                            </span>
+                        </a>
+                    </div>
+                  @endif
                 @endif
               </div>
 
