@@ -28,9 +28,9 @@
               </div>
               <p><b>{{ $fields->title }}</b></p>
 
-              <div class="publication-main-image">
+              <div class="publication-main-image publication-text">
                   <p>
-                      <img src="{{ iPath($fields->image, 'full') }}" class="img-responsive" alt="{{ $fields->name }}">
+                      <img src="{{ iPath($fields->image, 'full') }}" class="img-responsive" alt="{{ $fields->name }}" title="{{ $fields->photo_text }}">
                   </p>
               </div>
 
