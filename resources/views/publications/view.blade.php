@@ -7,7 +7,7 @@
 @section('section')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row">
-          <div class="col-lg-9 sticky sticky-sm sticky-lg xs-pt-30">
+          <div class="col-md-9 sticky sticky-sm sticky-lg xs-pt-30">
               <h1 class="h3 xs-mt-0">
                   <b>{{ $fields->name }}</b>
               </h1>
@@ -115,7 +115,7 @@
                 @endforeach
               </div>
           </div>
-          <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
+          <div class="col-md-3 hidden-xs hidden-sm sticky sticky-lg xs-pt-30">
 
             @include('banners.right')
 
