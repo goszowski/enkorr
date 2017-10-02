@@ -58,7 +58,7 @@
               <h2 class="column-title visible-xs">{{__('Публикации')}}</h2>
               <div class="row">
                 @if(count($publications) and count($publications) > 4)
-                  
+
                   <? $i = 0; ?>
                   @foreach($publications as $k => $publication)
                     @if($k% config('public.index.multiplicity') == 0 and count($pinned_publications) and isset($pinned_publications[$i]))
@@ -68,9 +68,9 @@
                               <span class="publications-item-detail">
                                   <span class="publication-theme">{{$pinned_publications[$i]->theme}}</span>
                                   <h2>{{$pinned_publications[$i]->name}}</h2>
-                                  <time datetime="/* publication datetime */">
+                                  {{-- <time datetime="/* publication datetime */">
                                       {{PH::formatDateTime($pinned_publications[$i]->pubdate, false, true)}}
-                                  </time>
+                                  </time> --}}
                               </span>
                           </a>
                       </div>
@@ -82,9 +82,9 @@
                             <span class="publications-item-detail">
                                 <span class="publication-theme">{{$publication->theme}}</span>
                                 <h2>{{$publication->name}}</h2>
-                                <time datetime="/* publication datetime */">
+                                {{-- <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($publication->pubdate, false, true)}}
-                                </time>
+                                </time> --}}
                             </span>
                         </a>
                     </div>
@@ -98,9 +98,9 @@
                             <span class="publications-item-detail">
                                 <span class="publication-theme">{{$pinned_publications[0]->theme}}</span>
                                 <h2>{{$pinned_publications[0]->name}}</h2>
-                                <time datetime="/* publication datetime */">
+                                {{-- <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($pinned_publications[0]->pubdate, false, true)}}
-                                </time>
+                                </time> --}}
                             </span>
                         </a>
                     </div>
@@ -112,9 +112,9 @@
                             <span class="publications-item-detail">
                                 <span class="publication-theme">{{$publication->theme}}</span>
                                 <h2>{{$publication->name}}</h2>
-                                <time datetime="/* publication datetime */">
+                                {{-- <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($publication->pubdate, false, true)}}
-                                </time>
+                                </time> --}}
                             </span>
                         </a>
                     </div>
@@ -126,9 +126,9 @@
                             <span class="publications-item-detail">
                                 <span class="publication-theme">{{$pinned_publications[1]->theme}}</span>
                                 <h2>{{$pinned_publications[1]->name}}</h2>
-                                <time datetime="/* publication datetime */">
+                                {{-- <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($pinned_publications[1]->pubdate, false, true)}}
-                                </time>
+                                </time> --}}
                             </span>
                         </a>
                     </div>
