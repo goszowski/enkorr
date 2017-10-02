@@ -82,20 +82,27 @@ class PublicationController extends RSController
         $comments[$k]['user_name'] = Model('user')->where('node_id', $comment->user_id)->first()->name;
       }
 
-      $similar_publications = Model('publication')
-                                ->where('tag_ids', 'Like', '%'.$random_tag->node_id.'%')
-                                ->where('node_id', '!=', $this->fields->node_id)
-                                ->where('pubdate', '<=', date('Y-m-d H:i:s'))
-                                ->orderBy('pubdate', 'desc')
-                                ->limit(3)
-                                ->get();
 
-
-      foreach ($similar_publications as $key => $publication)
+      // Поиск подобных новостей
+      if(count($tags))
       {
-        $similar_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
-      }
+        $similar_publications = Model('publication')
+                                  ->where('tag_ids', 'Like', '%'.$random_tag->node_id.'%')
+                                  ->where('node_id', '!=', $this->fields->node_id)
+                                  ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                                  ->orderBy('pubdate', 'desc')
+                                  ->limit(3)
+                                  ->get();
 
+
+        foreach ($similar_publications as $key => $publication)
+        {
+          $similar_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+        }
+      }
+      else
+        $similar_publications = [];
+      // Выборка для баннера
       $latest_news = Model('publication')
                       ->where('theme_id', '=', config('public.theme.news'))
                       ->where('pubdate', '<=', date('Y-m-d H:i:s'))
