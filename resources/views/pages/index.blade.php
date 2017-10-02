@@ -166,13 +166,14 @@
                   {{Form::open(['route' => 'quizAnswer', 'method' => 'post'])}}
 
                       <input hidden name="quiz" value="{{$quiz->node_id}}">
-
-                      @foreach($answers as $k => $option)
-                        <div class="checkbox ripple" data-color="#ccc">
-                            <input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
-                            <label for="variant-{{$k}}">{{$option->name}}</label>
-                        </div>
-                      @endforeach
+                      @if(count($answers))
+                        @foreach($answers as $k => $option)
+                          <div class="checkbox ripple" data-color="#ccc">
+                              <input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
+                              <label for="variant-{{$k}}">{{$option->name}}</label>
+                          </div>
+                        @endforeach
+                      @endif
 
                       <button class="btn btn-primary btn-block">Голосовать</button>
                   {{Form::close()}}
