@@ -7,6 +7,7 @@
 @endsection
 
 @section('section')
+  @include('partials.title')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row" id="sticky-wrapper" style="position: relative;">
 
@@ -20,6 +21,7 @@
                   @foreach( $news as $k => $new )
                     <li>
                         <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                            <img src="{{ iPath($new->image, '600px') }}" alt="">
                             <span>
                                 <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($new->pubdate, false, true)}}

@@ -7,6 +7,7 @@
 @endsection
 
 @section('section')
+@include('partials.title')
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
         <section class="col-md-9 sidebar xs-pt-30 sticky sticky-sm sticky-lg">

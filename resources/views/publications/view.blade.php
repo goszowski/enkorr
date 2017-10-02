@@ -7,6 +7,7 @@
 @endsection
 
 @section('section')
+  @include('partials.title')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row">
           <div class="col-md-9 sticky sticky-sm sticky-lg xs-pt-30">
@@ -122,7 +123,8 @@
                 <h2 class="column-title">{{ __('Комментарии') }}</h2>
 
                 @if(empty(Session::get('authUser')))
-                  <a role="button" class="btn btn-primary" href="{{lPath('/auth/login')}}">{{__('Авторизируйтесь, что бы оставить комментарий')}}</a>
+                  <p>{{__('Авторизируйтесь, что бы оставить комментарий')}}</p>
+                  <a role="button" class="btn btn-primary" href="{{lPath('/auth/login')}}">{{ __('Авторизация') }}</a>
                 @else
                   {{Form::open(['url' => lPath('/comment/store'), 'method' => 'POST'])}}
                   <div class="form-group">

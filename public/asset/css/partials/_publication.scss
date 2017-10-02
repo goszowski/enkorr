@@ -81,6 +81,17 @@
         position: relative;
         overflow: hidden;
         cursor:e-resize;
+        height: 400px;
+        background: #eee;
+
+        img {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
 
         span {
             position: absolute;
@@ -97,6 +108,19 @@
             z-index: 2;
             font-size: 13px;
         }
+    }
+
+    .owl-nav [class*=owl-] {
+        background: #eb5c24;
+        color: #fff;
+    }
+
+    .owl-nav [class*=owl-]:hover {
+        background: darken(#eb5c24, 10);
+    }
+
+    .owl-dots .owl-dot.active span, .owl-dots .owl-dot:hover span {
+        background: #eb5c24;
     }
 }
 

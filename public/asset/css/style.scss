@@ -247,6 +247,10 @@ a {
   padding-left: 15px; padding-right: 14px;
 }
 
+.page-content {
+  min-height: 500px;
+}
+
 @import "partials/header";
 @import "partials/footer";
 @import "partials/sidebar";

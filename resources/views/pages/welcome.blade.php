@@ -4,7 +4,7 @@
 
 {{-- Page content --}}
 @section('content')
-
+	@include('partials.title')
 
 
 @endsection
