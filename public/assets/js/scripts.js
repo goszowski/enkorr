@@ -49,11 +49,13 @@ function appBuild()
 
   if($(document).find('.publication-gallery').length)
   {
-    $(document).find('.publication-gallery').owlCarousel({
-      items: 1,
-      nav: true,
-      dots: true,
-      navText: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
+    $(document).find('.publication-gallery').each(function() {
+      $(this).owlCarousel({
+        items: 1,
+        nav: true,
+        dots: true,
+        navText: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
+      });
     });
 
 
