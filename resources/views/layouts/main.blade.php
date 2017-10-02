@@ -4,11 +4,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-      <title>Enkorr</title>
-      <meta property="og:title" content="Enkorr">
+      <title>@yield('title')</title>
+      <meta property="og:title" content="@yield('title')">
       <meta property="og:type" content="website">
-      <meta property="og:url" content="{{ url('/') }}">
-      <meta property="og:image" content="{{ asset('assets/images/logo.png') }}">
+      <meta property="og:url" content="{{ lPath($node->absolute_path) }}">
+      <meta property="og:image" content="@yield('image')">
+      <meta name="description" content="@yield('description')">
 
       <link rel="manifest" href="{{ url('manifest.json') }}">
       <link rel="shortcut icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
@@ -24,10 +25,11 @@
       <link rel="stylesheet" href="{{asset('asset/vendor/ripple/ripple.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials-theme-minima.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.carousel.min.css')}}">
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css?1')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?2')}}">
       <!-- / App styles -->
     </head>
     <body>
@@ -45,7 +47,6 @@
 
       <div class="container website-container xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
         <a href="https://runsite.com.ua" target="_blank" class="author" data-toggle="tooltip" title="Рансайт: Разработка и поддержка сайтов 2016-2017">Разработка и поддержка сайта: Рансайт ТОВ</a>
-
         @yield('top-banner')
 
         <div class="xs-pl-15 xs-pr-15 sm-pl-0 sm-pr-0">
@@ -99,31 +100,58 @@
           </div>
 
 
-        <div class="loader active">
-          <div class="lds-css ng-scope">
-            <div style="width:100%;height:100%" class="lds-eclipse">
-              <div></div>
+          <div class="loader active">
+            <div class="lds-css ng-scope">
+              <div style="width:100%;height:100%" class="lds-eclipse">
+                <div></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="scroll-top-container">
-          <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
-        </div>
-
-        <div id="app">
-          @endif
-          @yield('section')
-          @if(!Input::get('ajax'))
-        </div>
-
-        <div class="row footer">
-          <div class="xs-pl-15 sm-pl-30 xs-pr-15 sm-pr-30">
-            {!! $footer !!}
+          <div class="scroll-top-container">
+            <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
           </div>
-        </div>
 
-      </div>
+          <div id="app">
+            @endif
+            @yield('section')
+            @if(!Input::get('ajax'))
+          </div>
+
+          <div class="row footer xs-mt-30">
+            <div class="xs-p-25 xs-pb-40">
+              <div class="row">
+                <div class="col-md-4 hidden-xs hidden-sm">
+                  <img src="{{ asset('assets/images/logo-white.png') }}" alt="Enkorr">
+                </div>
+                <div class="col-md-4 text-center footer-nav xs-pt-25 text-uppercase">
+                  <a href="#" data-ajax="true" class="xs-mr-20">{{ __('О проекте') }}</a>
+                  <a href="#" data-ajax="true" class="xs-ml-20">{{ __('Контакты') }}</a>
+                </div>
+                <div class="col-md-4 xs-pt-25 text-right">
+                  <ul class="footer-social">
+                    <li>
+                      <a href="" rel="nofollow" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" rel="nofollow" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" rel="nofollow" target="_blank">
+                        <i class="fa fa-google-plus"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
         </div>
       <!-- Vendor scripts -->
       <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
@@ -131,10 +159,11 @@
       <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
       <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
       <script src="{{ asset('asset/vendor/jssocials-1.4.0/jssocials.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->
-      <script src="{{ asset('assets/js/scripts.js?1') }}"></script>
+      <script src="{{ asset('assets/js/scripts.js?3') }}"></script>
       <script type="text/javascript">
         $(function() {
 

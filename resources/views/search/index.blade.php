@@ -1,4 +1,7 @@
 @extends('layouts.main')
+
+@include('partials.seo2')
+
 @section('section')
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">

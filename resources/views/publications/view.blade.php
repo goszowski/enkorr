@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@include('partials.seo2')
+
 @section('top-banner')
   @include('banners.up')
 @endsection
@@ -7,14 +9,31 @@
 @section('section')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row">
-          <div class="col-lg-9 sticky sticky-sm sticky-lg xs-pt-30">
+          <div class="col-md-9 sticky sticky-sm sticky-lg xs-pt-30">
               <h1 class="h3 xs-mt-0">
                   <b>{{ $fields->name }}</b>
               </h1>
-              <div class="xs-pb-15">
-                <time datetime="{{ $fields->pubdate }}">
-                  <small class="text-muted">{{PH::formatDateTime($fields->pubdate, false, true)}}</small>
-                </time>
+              <div class="row xs-pb-20">
+                <div class="col-xs-4">
+                    <time datetime="{{ $fields->pubdate }}">
+                      <small class="text-muted">{{PH::formatDateTime($fields->pubdate, false, true)}}</small>
+                    </time>
+                </div>
+                <div class="col-xs-8 text-right">
+                  @if(count($authors))
+                    <small class="text-muted">
+                      @if(count($authors) > 1)
+                        {{ __('Авторы') }}:
+                      @else
+                        {{ __('Автор') }}:
+                      @endif
+
+                      @foreach ($authors as $k=>$author)
+                        <a href="{{lPath($author->node->absolute_path)}}">{{$author->name}}</a>{{ (++$k < count($authors)) ? ',' : null }}
+                      @endforeach
+                    </small>
+                  @endif
+                </div>
               </div>
               <p><b>{{ $fields->pub_title }}</b></p>
 
@@ -28,13 +47,14 @@
 
                 {!! $fields->content !!}
 
+
+                @include('partials.publication_gallery')
+
               </div>
 
               <div class="row">
                 <div class="col-md-8">
                   {{-- Social sharing --}}
-
-                  {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
                   <div id="shareIconsCount" data-url="{{ lPath($node->absolute_path) }}" data-title="{{ $fields->name }}"></div>
 
                 </div>
@@ -43,16 +63,9 @@
                   @foreach ($tags as $tag)
                     <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default">{{$tag->name}}</a>
                   @endforeach
-                  <p>
-                    {{__('Aвторы:')}}
-                  </p>
-                  @if(count($authors))
-                    @foreach ($authors as $author)
-                      <a href="{{lPath($author->node->absolute_path)}}" class="label label-default">{{$author->name}}</a>
-                    @endforeach
-                  @endif
                 </div>
               </div>
+
 
               @if(count($similar_publications))
                 <div class="xs-pt-30">
@@ -107,7 +120,7 @@
                 @endforeach
               </div>
           </div>
-          <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
+          <div class="col-md-3 hidden-xs hidden-sm sticky sticky-lg xs-pt-30">
 
             @include('banners.right')
 
