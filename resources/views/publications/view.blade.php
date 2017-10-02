@@ -45,6 +45,7 @@
               </div>
 
               <div class="publication-text">
+                {!! $fields->content !!}
 
                 @if(count($texts))
                   @foreach ($texts as $key => $text)
