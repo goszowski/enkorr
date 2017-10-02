@@ -45,6 +45,15 @@
                   {{-- Social sharing --}}
                   {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, placeat! Quisquam velit neque doloribus repellendus aliquam, consequatur sunt, modi, ut, culpa ea rerum hic non animi cum itaque totam. Eum.</p>
+
+                  <p>
+                    {{__('Aвторы:')}}
+                  </p>
+                  @if(count($authors))
+                    @foreach ($authors as $author)
+                      <a href="{{lPath($author->node->absolute_path)}}" class="label label-default">{{$author->name}}</a>
+                    @endforeach
+                  @endif
                 </div>
                 <div class="col-md-4 text-right">
                   {{-- Filter publications by tag --}}

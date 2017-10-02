@@ -102,7 +102,19 @@ class PublicationController extends RSController
       }
       else
         $similar_publications = [];
-      // Выборка для баннера
+
+
+      //Авторы статьи
+      if($authors_array = explode(',', $this->fields->author_ids) and count($authors_array))
+      {
+        // $authors_array = explode(',', $this->fields->author_ids);
+        $authors = Model('author')->whereIn('node_id', $authors_array)->get();
+      }
+      else
+        $authors = [];
+
+
+      // Выборка для списка справа
       $latest_news = Model('publication')
                       ->where('theme_id', '=', config('public.theme.news'))
                       ->where('pubdate', '<=', date('Y-m-d H:i:s'))
@@ -133,7 +145,7 @@ class PublicationController extends RSController
         $banners['down'] = Model('banner')->where('in_publ_bool', true)->where('down', true)->inRandomOrder()->first();
       }
 
-      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications', 'banners'));
+      return $this->make_view('publications.view', compact('comments', 'tags', 'similar_publications', 'latest_news', 'popular_publications', 'banners', 'authors'));
     }
 
 }
