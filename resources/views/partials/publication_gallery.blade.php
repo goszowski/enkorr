@@ -7,7 +7,9 @@
 		{{-- Full images --}}
 		@foreach( $photoes as $photo )
 			<div class="item">
-				{{$photo->name}}
+				<span>
+					{{$photo->name}}
+				</span>
 				<img src="{{iPath($photo->image, 'full')}}" alt="{{$photo->name}}">
 			</div>
 		@endforeach
