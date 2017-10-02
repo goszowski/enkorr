@@ -1,17 +1,7 @@
 @extends('layouts.main')
 
 @section('top-banner')
-  <div class="container-fluid xs-pt-30 xs-pb-30 visible-sm visible-md visible-lg">
-    <div class="row">
-      @if(isset($banners['up']))
-        <div class="col-md-9 col-lg-9 text-right visible-md visible-lg">
-            <a href="{{$banners['up']->link}}" target="_blank" rel="nofollow">
-                <img src="{{iPath($banners['up']->image, 'full')}}" class="img-responsive" alt="">
-            </a>
-        </div>
-      @endif
-    </div>
-  </div>
+  @include('banners.up')
 @endsection
 
 @section('section')
@@ -141,13 +131,7 @@
                   <a href="{{lPath('/publications')}}" data-ajax="true" class="btn btn-block btn-primary btn-outline ripple" data-color="#eee">{{__('Все публикации')}}</a>
               </div>
 
-              @if(isset($banners['down']))
-                <div class="form-group">
-                    <a href="{{$banners['down']->link}}" target="_blank" rel="nofollow">
-                        <img src="{{iPath($banners['down']->image, '600px')}}" class="img-responsive" alt="">
-                    </a>
-                </div>
-              @endif
+              @include('banner.down')
           </div>
 
 
@@ -158,13 +142,8 @@
 
 
           <div class="visible-lg col-lg-3 sticky sticky-lg xs-pt-30">
-            @if(isset($banners['right']))
-              <div class="form-group">
-                  <a href="{{$banners['right']->link}}" target="_blank" rel="nofollow">
-                      <img src="{{iPath($banners['right']->image, '600px')}}" class="img-responsive" alt="">
-                  </a>
-              </div>
-            @endif
+
+            @include('banner.right')
 
             @if(isset($quiz))
               <div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
