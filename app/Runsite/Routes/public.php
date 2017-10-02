@@ -4,6 +4,8 @@ use App\Runsite\Nodes;
 use App\Runsite\Classes;
 use App\Runsite\Libraries\PH;
 
+Route::post('/quiz-answer', ['as' => 'quizAnswer', 'uses'=>'Front\AnswerController@setAnswer']);
+
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 

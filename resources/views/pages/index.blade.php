@@ -160,29 +160,24 @@
               </div>
             @endif
 
+            @if(isset($quiz))
               <div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
-                  <h3 class="xs-pb-15">Как вы оцениваете действия Вецкаганса?</h3>
-                  <form action="">
-                      <div class="checkbox ripple" data-color="#ccc">
-                          <input type="radio" name="name" id="variant-1" value="1">
-                          <label for="variant-1">на 5</label>
-                      </div>
+                  <h3 class="xs-pb-15">{{$quiz->name}}</h3>
+                  {{Form::open(['route' => 'quizAnswer', 'method' => 'post'])}}
 
-                      <div class="checkbox ripple" data-color="#ccc">
-                          <input type="radio" name="name" id="variant-2" value="2">
-                          <label for="variant-2">ненавижу его</label>
-                      </div>
+                      <input hidden name="quiz" value="{{$quiz->node_id}}">
 
-                      <div class="checkbox ripple" data-color="#ccc">
-                          <input type="radio" name="name" id="variant-3" value="3">
-                          <label for="variant-3">нормально</label>
-                      </div>
-
+                      @foreach($answers as $k => $option)
+                        <div class="checkbox ripple" data-color="#ccc">
+                            <input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
+                            <label for="variant-{{$k}}">{{$option->name}}</label>
+                        </div>
+                      @endforeach
 
                       <button class="btn btn-primary btn-block">Голосовать</button>
-                  </form>
+                  {{Form::close()}}
               </div>
-
+            @endif
           </div>
 
 

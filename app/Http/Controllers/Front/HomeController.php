@@ -47,14 +47,19 @@ class HomeController extends RSController
       foreach ($pinned_publications as $key => $publication) {
         $pinned_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
       }
+
+      //Баннеры
       $banners['up'] = Model('banner')->where('main_bool', true)->where('up', true)->inRandomOrder()->first();
       $banners['right'] = Model('banner')->where('main_bool', true)->where('right', true)->inRandomOrder()->first();
       $banners['down'] = Model('banner')->where('main_bool', true)->where('down', true)->inRandomOrder()->first();
 
 
+      //Опрос
+      $quiz = Model('quiz')->latest()->first();
+      $answers = Model('answer_option')->where('parent_id', $quiz->node_id)->get();
       // Возвращаем нашу функцию и передаем в шаблон взятые данные
 
 
-      return $this->make_view('pages.index', compact('news', 'publications', 'pinned_publications', 'banners'));
+      return $this->make_view('pages.index', compact('news', 'publications', 'pinned_publications', 'banners', 'quiz', 'answers'));
     }
 }
