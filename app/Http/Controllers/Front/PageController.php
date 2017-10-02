@@ -11,4 +11,13 @@ class PageController extends RunsiteController
     {
       return $this->make_view('pages.view');
     }
+
+    public function author()
+    {
+      $publications = Model('publication')
+                        ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                        ->orderBy('pubdate', 'desc')
+                        ->get();
+      return $this->make_view('pages.author', compact('publications'));
+    }
 }
