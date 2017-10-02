@@ -21,9 +21,11 @@
               <h1 class="h3 xs-mt-0">
                   <b>{{ $fields->name }}</b>
               </h1>
-              <time datetime="/* publication datetime */">
-                {{PH::formatDateTime($fields->pubdate, false, true)}}
-              </time>
+              <div class="xs-pb-15">
+                <time datetime="{{ $fields->pubdate }}">
+                  <small class="text-muted">{{PH::formatDateTime($fields->pubdate, false, true)}}</small>
+                </time>
+              </div>
               <p><b>{{ $fields->title }}</b></p>
 
               <div class="publication-main-image">
