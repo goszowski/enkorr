@@ -33,10 +33,10 @@
                                     <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
                                   @endif
                               </time>
-                              @if( $publication->pinned )
-                                {{ $publication->name }}
-                              @else
+                              @if( $publication->bold )
                                 <b>{{ $publication->name }}</b>
+                              @else
+                                {{ $publication->name }}
                               @endif
                           </span>
                       </a>

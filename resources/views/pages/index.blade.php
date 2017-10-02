@@ -35,10 +35,10 @@
                                       <i class="fa fa-star text-primary xs-ml-5 animated animated-xs bounceIn"></i>
                                     @endif
                                 </time>
-                                @if( $new->pinned )
-                                  {{ $new->name }}
-                                @else
+                                @if( $new->bold )
                                   <b>{{ $new->name }}</b>
+                                @else
+                                  {{ $new->name }}
                                 @endif
                             </span>
                         </a>
@@ -57,8 +57,9 @@
           <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications sticky sticky-sm sticky-lg">
               <h2 class="column-title visible-xs">{{__('Публикации')}}</h2>
               <div class="row">
-                <? $i = 0; ?>
                 @if(count($publications) and count($publications) > 4)
+                  
+                  <? $i = 0; ?>
                   @foreach($publications as $k => $publication)
                     @if($k% config('public.index.multiplicity') == 0 and count($pinned_publications) and isset($pinned_publications[$i]))
                       <div class="col-md-12 publications-item xs-pb-15 sm-pb-30">
