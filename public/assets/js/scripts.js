@@ -20,9 +20,13 @@ function appBuild()
 
   $(document).find('.publication-text img').each(function(){
     var image = $(this);
-    var code = '<span class="image-with-title"><img src="'+ image.attr('src') +'"><span class="image-caption"><i class="fa fa-camera"></i> '+ image.attr('title') +'</span></span>';
-    $(code).insertAfter(image);
-    image.hide();
+    if(image.attr('title'))
+    {
+      var code = '<span class="image-with-title"><img src="'+ image.attr('src') +'"><span class="image-caption"><i class="fa fa-camera"></i> '+ image.attr('title') +'</span></span>';
+      $(code).insertAfter(image);
+      image.hide();
+    }
+    
   });
 
 
