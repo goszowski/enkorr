@@ -1,11 +1,11 @@
 {{-- !!! WRAP IN CONDITION !!! --}}
 
-@if(count($photoes))
+@if(count($text->photoes))
 <div class="xs-pb-15 sm-pl-30 sm-pr-30">
 
 	<div class="owl-carousel owl-theme publication-gallery">
 		{{-- Full images --}}
-		@foreach( $photoes as $photo )
+		@foreach( $text->photoes as $photo )
 			<div class="item">
 				@if($photo->name)
 					<span>
@@ -18,7 +18,8 @@
 	</div>
 
 	{{-- <div class="owl-carousel publication-gallery-thumbs">
-		@foreach( $photoes as $photo )
+		{{-- Thumbs --}}
+		@foreach( $text->photoes as $photo )
 			<div class="item">
 				<img src="{{iPath($photo->image, 'thumb')}}" alt="{{$photo->name}}">
 			</div>
