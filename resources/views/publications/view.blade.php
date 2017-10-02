@@ -11,11 +11,29 @@
               <h1 class="h3 xs-mt-0">
                   <b>{{ $fields->name }}</b>
               </h1>
-              <div class="xs-pb-15">
-                <time datetime="{{ $fields->pubdate }}">
-                  <small class="text-muted">{{PH::formatDateTime($fields->pubdate, false, true)}}</small>
-                </time>
+              <div class="row xs-pb-20">
+                <div class="col-xs-4">
+                    <time datetime="{{ $fields->pubdate }}">
+                      <small class="text-muted">{{PH::formatDateTime($fields->pubdate, false, true)}}</small>
+                    </time>
+                </div>
+                <div class="col-xs-8 text-right">
+                  @if(count($authors))
+                    <small class="text-muted">
+                      @if(count($authors) > 1)
+                        {{ __('Авторы') }}:
+                      @else 
+                        {{ __('Автор') }}:
+                      @endif
+
+                      @foreach ($authors as $k=>$author)
+                        <a href="{{lPath($author->node->absolute_path)}}">{{$author->name}}</a>{{ (++$k < count($authors)) ? ',' : null }}
+                      @endforeach
+                    </small>
+                  @endif
+                </div>
               </div>
+              
               <p><b>{{ $fields->title }}</b></p>
 
               <div class="publication-main-image publication-text">
@@ -33,8 +51,6 @@
               <div class="row">
                 <div class="col-md-8">
                   {{-- Social sharing --}}
-
-                  {{-- Кнопка лайка ФБ, Кнопка ретвіта ФБ, Кнопка лайка G+, Кнопки поширення: Fb, Tw, G+, In --}}
                   <div id="shareIconsCount" data-url="{{ lPath($node->absolute_path) }}" data-title="{{ $fields->name }}"></div>
 
                 </div>
@@ -43,14 +59,6 @@
                   @foreach ($tags as $tag)
                     <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default">{{$tag->name}}</a>
                   @endforeach
-                  <p>
-                    {{__('Aвторы:')}}
-                  </p>
-                  @if(count($authors))
-                    @foreach ($authors as $author)
-                      <a href="{{lPath($author->node->absolute_path)}}" class="label label-default">{{$author->name}}</a>
-                    @endforeach
-                  @endif
                 </div>
               </div>
 
