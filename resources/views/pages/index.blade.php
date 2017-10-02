@@ -58,7 +58,7 @@
               <h2 class="column-title visible-xs">{{__('Публикации')}}</h2>
               <div class="row">
                 @if(count($publications) and count($publications) > 4)
-                  
+
                   <? $i = 0; ?>
                   @foreach($publications as $k => $publication)
                     @if($k% config('public.index.multiplicity') == 0 and count($pinned_publications) and isset($pinned_publications[$i]))
