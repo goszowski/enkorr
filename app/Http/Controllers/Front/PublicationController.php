@@ -97,6 +97,7 @@ class PublicationController extends RSController
         $similar_publications_auto = Model('publication')
                                       ->where('tag_ids', 'Like', '%'.$random_tag->node_id.'%')
                                       ->where('node_id', '!=', $this->fields->node_id)
+                                      ->whereNotIn('node_id', $similar_publications->pluck('node_id'))
                                       ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                                       ->orderBy('pubdate', 'desc')
                                       ->limit(3-count($similar_publications))
