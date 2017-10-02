@@ -39,7 +39,8 @@ class AnswerController extends RSController
       ]);
       $quiz = Model('quiz')->where('node_id', $request->quiz)->first();
       if(count($quiz))
-        return redirect(lPath($quiz->node->absolute_path));
+        return redirect()->back();
+        // redirect(lPath($quiz->node->absolute_path));
       else
         return redirect()->back();
     }
