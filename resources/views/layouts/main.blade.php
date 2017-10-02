@@ -119,14 +119,31 @@
           <div class="row footer xs-mt-30">
             <div class="xs-p-25 xs-pb-40">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 hidden-xs hidden-sm">
                   <img src="{{ asset('assets/images/logo-white.png') }}" alt="Enkorr">
                 </div>
-                <div class="col-md-4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque veniam, corrupti, suscipit voluptates nemo debitis sequi a inventore dolor iste, velit ipsam delectus quaerat adipisci asperiores minus facilis maxime modi!</p>
+                <div class="col-md-4 text-center footer-nav xs-pt-25 text-uppercase">
+                  <a href="#" data-ajax="true" class="xs-mr-20">{{ __('О проекте') }}</a>
+                  <a href="#" data-ajax="true" class="xs-ml-20">{{ __('Контакты') }}</a>
                 </div>
-                <div class="col-md-4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque veniam, corrupti, suscipit voluptates nemo debitis sequi a inventore dolor iste, velit ipsam delectus quaerat adipisci asperiores minus facilis maxime modi!</p>
+                <div class="col-md-4 xs-pt-25 text-right">
+                  <ul class="footer-social">
+                    <li>
+                      <a href="" rel="nofollow" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" rel="nofollow" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" rel="nofollow" target="_blank">
+                        <i class="fa fa-google-plus"></i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
