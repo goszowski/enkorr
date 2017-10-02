@@ -21,6 +21,7 @@
                   @foreach( $news as $k => $new )
                     <li>
                         <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
+                            <img src="{{ iPath($new->image, '600px') }}" alt="">
                             <span>
                                 <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($new->pubdate, false, true)}}
