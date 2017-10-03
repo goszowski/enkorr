@@ -15,7 +15,7 @@
 
         {!! Form::model($user, [
             'method' => 'PATCH',
-            'url' => ['panel-admin/users', $user->id],
+            'url' => ['/ru/panel-admin/users', $user->id],
             'class' => 'form-horizontal'
         ]) !!}
 
