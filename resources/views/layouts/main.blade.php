@@ -30,7 +30,7 @@
       <!-- / Vendor styles -->
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css?4')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?5')}}">
       <!-- / App styles -->
     </head>
     <body>
