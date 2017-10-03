@@ -10,8 +10,11 @@
 @include('partials.title')
 <div class="sm-pl-15 sm-pr-15">
     <div class="row all-publications">
-        <section class="col-md-9 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
-            <h2 class="column-title">{{$fields->name}}</h2>
+        <div class="col-xs-12 xs-pt-30">
+          <h2 class="column-title">{{$fields->name}}</h2>
+        </div>
+        <section class="col-md-9 sidebar sticky sticky-sm sticky-lg">
+            
             <ul class="sidebar-list">
               @if(count( $publications ))
                 @foreach( $publications as $k => $publication )
@@ -53,7 +56,7 @@
 
         </section>
 
-        <div class="col-lg-3 sticky sticky-sm sticky-lg xs-pt-30">
+        <div class="col-lg-3 sticky sticky-sm sticky-lg">
 
           @include('banners.right')
 
