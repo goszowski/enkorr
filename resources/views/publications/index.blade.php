@@ -9,10 +9,12 @@
 @section('section')
 @include('partials.title')
 <div class="sm-pl-15 sm-pr-15">
-    <div class="row all-publications">
+    <div class="row">
         <div class="col-xs-12 xs-pt-30">
           <h2 class="column-title">{{$fields->name}}</h2>
         </div>
+    </div>
+    <div class="row all-publications">
         <section class="col-md-9 sidebar sticky sticky-sm sticky-lg">
             
             <ul class="sidebar-list">
