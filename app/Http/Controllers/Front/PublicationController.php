@@ -74,7 +74,7 @@ class PublicationController extends RSController
         ->increment('popular');
       $tag_ids = explode(',', $this->fields->tag_ids);
       $tags = Model('tag')->whereIn('node_id', $tag_ids)->get();
-      $random_tag = Model('tag')->whereIn('node_id', $tag_ids)->inRandomOrder()->first();
+      $random_tag = Model('tag')->whereIn('node_id', $tag_ids)->inRandomOrder()->first()->node_id;
 
       $comments= Model('comment')->where('parent_id', '=', $this->fields->node_id)->latest()->get();
       foreach($comments as $k =>$comment)
@@ -95,7 +95,7 @@ class PublicationController extends RSController
                                   ->get();
 
         $similar_publications_auto = Model('publication')
-                                      ->whereRaw("FIND_IN_SET('{$this->fields->node_id}', tag_ids) > 0")
+                                      ->whereRaw("FIND_IN_SET('{$random_tag}', tag_ids) > 0")
                                       ->where('node_id', '!=', $this->fields->node_id)
                                       ->whereNotIn('node_id', $similar_publications->pluck('node_id'))
                                       ->where('pubdate', '<=', date('Y-m-d H:i:s'))
