@@ -131,25 +131,6 @@ class PublicationController extends RSController
         $authors = [];
 
 
-
-
-
-      // Выборка для списка справа
-      $latest_news = Model('publication')
-                      ->where('theme_id', '=', config('public.theme.news'))
-                      ->where('pubdate', '<=', date('Y-m-d H:i:s'))
-                      ->orderBy('pubdate', 'desc')
-                      ->limit(5)
-                      ->get();
-
-      $popular_publications = Model('publication')
-                                ->where('theme_id', '!=', config('public.theme.news'))
-                                ->where('pubdate', '<=', date('Y-m-d H:i:s'))
-                                ->orderBy('popular', 'desc')
-                                ->limit(5)
-                                ->orderBy('pubdate', 'desc')
-                                ->get();
-
       //Баннеры страницы
 
       if($this->fields->theme_id == config('public.theme.news'))
