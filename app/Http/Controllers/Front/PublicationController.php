@@ -74,7 +74,8 @@ class PublicationController extends RSController
         ->increment('popular');
       $tag_ids = explode(',', $this->fields->tag_ids);
       $tags = Model('tag')->whereIn('node_id', $tag_ids)->get();
-      $random_tag = Model('tag')->whereIn('node_id', $tag_ids)->inRandomOrder()->first()->node_id;
+      $random_tag = Model('tag')->whereIn('node_id', $tag_ids)->inRandomOrder()->first();
+      $random_tag = $random_tag ? $random_tag->node_id : null;
 
       $comments= Model('comment')->where('parent_id', '=', $this->fields->node_id)->latest()->get();
       foreach($comments as $k =>$comment)
