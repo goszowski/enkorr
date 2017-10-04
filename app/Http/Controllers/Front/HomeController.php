@@ -19,33 +19,27 @@ class HomeController extends RSController
 
 
       $news = Model('publication')
-                        ->where('theme_id', '=', config('public.theme.news'))
+                        ->where('parent_id', config('public.sections.news'))
                         ->where('pubdate', '<=', date('Y-m-d H;i;s'))
                         ->orderBy('pubdate', 'desc')
                         ->limit(config('public.index.countnews'))
                         ->get();
 
-      $publications = Model('publication')
-                        ->where('theme_id', '!=', config('public.theme.news'))
-                        ->where('pinned', false)
-                        ->where('pubdate', '<=', date('Y-m-d H;i;s'))
-                        ->orderBy('pubdate', 'desc')
-                        ->limit(config('public.index.countpub'))
-                        ->get();
-
-      $pinned_publications = Model('publication')
-                        ->where('theme_id', '!=', config('public.theme.news'))
-                        ->where('pinned', true)->where('pubdate', '<=', date('Y-m-d H;i;s'))
-                        ->orderBy('pubdate', 'desc')
-                        ->limit(config('public.index.countspecialpub'))
-                        ->get();
-
+      $publications_model = Model('main_pub')
+                              ->orderBy('orderby', 'asc')
+                              ->limit(config('public.index.countpub'))
+                              ->get();
+      if(count($publications_model))
+        foreach ($publications_model as $key => $publication)
+        {
+          $publications[$key] = Model('publication')
+                                  ->where('node_id', $publication->pub_id)
+                                  ->first();
+        }
+      else
+        $publications = [];
       foreach ($publications as $key => $publication) {
         $publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
-      }
-
-      foreach ($pinned_publications as $key => $publication) {
-        $pinned_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
       }
 
       //Баннеры
@@ -60,6 +54,6 @@ class HomeController extends RSController
       // Возвращаем нашу функцию и передаем в шаблон взятые данные
 
 
-      return $this->make_view('pages.index', compact('news', 'publications', 'pinned_publications', 'banners', 'quiz', 'answers'));
+      return $this->make_view('pages.index', compact('news', 'publications', 'banners', 'quiz', 'answers'));
     }
 }
