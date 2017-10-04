@@ -16,22 +16,34 @@ class PublicationController extends RSController
         // Берем все публикации которые относятся к данному разделу и кидаем их в пагинацию
         // Ищем нужные публикации по теме.
         // Есть ли темы соответствующие данному разделу?
-        if($this->fields->node_id == config('public.sections.publication'))
-          $themes = Model('theme')->where('section_id', '!=', config('public.sections.new'))->get();
-        else
+
           $themes = Model('theme')->where('section_id', '=', $this->fields->node_id)->get();
 
         // Если да то ищем публикации с данными темами
-        $publications = [];
-        if(isset($themes))
+        if(count($themes))
+
           $publications = Model('publication')->where(function($query) use($themes) {
             foreach($themes as $theme)
             {
               $query->orWhere('theme_id', '=', $theme->node_id);
             }
           })->where('pubdate', '<=', date('Y-m-d H:i:s'))
+            ->where('parent_id', '!=', config('public.sections.news'))
             ->orderBy('pubdate', 'desc')
             ->paginate(config('public.pagination.publication'));
+
+        // Если нет и это раздел новостей то ищем детей данного раздела
+        elseif($this->fields->node_id == config('public.sections.news'))
+
+          $publications = Model('publication')
+                            ->where('parent_id', config('public.sections.news'))
+                            ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                            ->orderBy('pubdate', 'desc')
+                            ->paginate(config('public.pagination.news'));
+
+        // Если и этого нет то видимо произошло что-то не то и не должно быть публикаций тут
+        else
+          $publications = [];
 
         // Если нет, то просто передаем пустой массив- не будет отображатсья в дальнейшем шаблоне. Не очень красивое решение, но работающее.
 
@@ -42,7 +54,7 @@ class PublicationController extends RSController
             $banners['right'] = Model('banner')->where('publ_bool', true)->where('right', true)->inRandomOrder()->first();
             $banners['down'] = Model('banner')->where('publ_bool', true)->where('down', true)->inRandomOrder()->first();
             break;
-          case config('public.sections.new'):
+          case config('public.sections.news'):
             $banners['up'] = Model('banner')->where('news_bool', true)->where('up', true)->inRandomOrder()->first();
             $banners['right'] = Model('banner')->where('news_bool', true)->where('right', true)->inRandomOrder()->first();
             $banners['down'] = Model('banner')->where('news_bool', true)->where('down', true)->inRandomOrder()->first();

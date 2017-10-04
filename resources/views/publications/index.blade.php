@@ -16,15 +16,15 @@
     </div>
     <div class="row all-publications">
         <section class="col-md-9 sidebar sticky sticky-sm sticky-lg">
-            
+
             <ul class="sidebar-list">
               @if(count( $publications ))
                 @foreach( $publications as $k => $publication )
                   <li>
-                    @if($publication->theme_id == config('public.theme.news'))
                       <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                           <img src="{{iPath($publication->image,'600px')}}" alt="">
                           <span>
+                            @if($publication->parent_id == config('public.sections.news'))
                               <time datetime="/* publication datetime */">
                                   {{PH::formatDateTime($publication->pubdate, false, true)}}
                                   @if( $publication->pinned )
@@ -36,19 +36,14 @@
                               @else
                                 {{ $publication->name }}
                               @endif
+                            @else
+                              <time datetime="/* publication datetime */">
+                                {{PH::formatDateTime($publication->pubdate, false, true)}}
+                              </time>
+                              <b>{{ $publication->name }}</b>
+                            @endif
                           </span>
                       </a>
-                    @else
-                      <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
-                        <img src="{{iPath($publication->image,'600px')}}" alt="">
-                        <span>
-                          <time datetime="/* publication datetime */">
-                            {{PH::formatDateTime($publication->pubdate, false, true)}}
-                          </time>
-                          <b>{{ $publication->name }}</b>
-                        </span>
-                      </a>
-                    @endif
                   </li>
                 @endforeach
               @endif

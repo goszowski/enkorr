@@ -3,7 +3,7 @@
   return [
     'sections' => [
       'publication' => 12,
-      'new' => 11,
+      'news' => 11,
       'experts' => 15,
     ],
     'pagination' => [
