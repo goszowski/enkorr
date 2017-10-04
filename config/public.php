@@ -12,9 +12,8 @@
     ],
     'index' =>[
       'countnews' => 10,
-      'countpub' => 8,
-      'countspecialpub' => 2,
-      'multiplicity' => 4,
+      'countpub' => 10,
+      'multiplicity' => 5,
     ],
     'theme' => [
       'news' => 56,

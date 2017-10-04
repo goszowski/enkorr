@@ -11,14 +11,14 @@ class WidgetComposer
   public function __construct()
   {
     $this->latest_news = Model('publication')
-                          ->where('theme_id', '=', config('public.theme.news'))
+                          ->where('parent_id', config('public.sections.news'))
                           ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                           ->orderBy('pubdate', 'desc')
                           ->limit(5)
                           ->get();
 
     $this->popular_publications = Model('publication')
-                                    ->where('theme_id', '!=', config('public.theme.news'))
+                                    ->where('parent_id', '!=', config('public.sections.news'))
                                     ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                                     ->orderBy('popular', 'desc')
                                     ->limit(5)
