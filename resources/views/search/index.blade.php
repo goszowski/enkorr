@@ -24,6 +24,7 @@
                     </li>
                   @endforeach
               </ul>
+              {{$publications->appends(['search' => \Request::get('search')])->links()}}
             @else
               {{__('Публикаций по данному запросу не найдено')}}
             @endif

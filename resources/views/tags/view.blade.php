@@ -24,6 +24,7 @@
                     </li>
                   @endforeach
               </ul>
+              {{$publications->links()}}
             @else
               {{__('Публикаций по данному тэгу не найдено')}}
             @endif

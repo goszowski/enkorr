@@ -18,7 +18,7 @@ class PageController extends RSController
                         ->whereRaw("FIND_IN_SET('{$this->fields->node_id}', author_ids) > 0")
                         ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                         ->orderBy('pubdate', 'desc')
-                        ->get();
+                        ->paginate(config('public.pagination.author'));
       return $this->make_view('pages.author', compact('publications'));
     }
 }

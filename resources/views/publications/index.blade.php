@@ -49,6 +49,8 @@
               @endif
             </ul>
 
+            {{$publications->links()}}
+
             @include('banners.down')
 
         </section>

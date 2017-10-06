@@ -25,7 +25,7 @@ class SearchController extends RSController
                             ->where('name', 'Like', '%'.$request->search.'%')
                             ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                             ->orderBy('pubdate', 'desc')
-                            ->get();
+                            ->paginate(config('public.pagination.search'));
         }
 
 

@@ -9,6 +9,9 @@
     'pagination' => [
       'news' => 15,
       'publication' => 15,
+      'tag' => 15,
+      'author' => 15,
+      'search' => 15,
     ],
     'index' =>[
       'countnews' => 10,
