@@ -126,7 +126,8 @@ class PublicationController extends RSController
         {
           foreach ($similar_publications_auto as $key => $publication)
           {
-            $similar_publications_auto[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+            $theme = Model('theme')->where('node_id', $publication->theme_id)->first();
+            isset($theme) ? $similar_publications_auto[$key]['theme'] = $theme->name : $similar_publications_auto[$key]['theme'] = __('Новость');
           }
         }
         else
