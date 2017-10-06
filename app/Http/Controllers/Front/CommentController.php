@@ -13,7 +13,7 @@ class CommentController extends RSController
 
     protected $rules = [
       'text' => 'required|string|max:512',
-      'publication_id' => 'required|integer',
+      'publication_id' => 'required|integer|exists:_class_publication,node_id',
     ];
 
     public function store(Request $request, Validator $validator)
@@ -30,7 +30,7 @@ class CommentController extends RSController
           ],
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', __('Ваш комментарий успешно добавлен'));
     }
 
 }

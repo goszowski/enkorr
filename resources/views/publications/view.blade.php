@@ -132,7 +132,7 @@
                     <textarea name="text" class="form-control"></textarea>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Комментировать</button>
+                    <button class="btn btn-primary" type="submit">{{__('Комментировать')}}</button>
                   </div>
                   <input hidden name="publication_id" value="{{ $fields->node_id }}" />
                   {{Form::close()}}
@@ -152,8 +152,13 @@
             @include('banners.right')
 
             @include('partials.publications')
-            
+
       </div>
   </div>
 </div>
+@if(Session::has('message'))
+  <div class="alert alert-success" role="alert">
+    {{ Session::get('message') }}
+  </div>
+@endif
 @endsection
