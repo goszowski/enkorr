@@ -8,8 +8,10 @@
     <div class="row">
 			<div class="col-md-9 sticky sticky-sm sticky-lg xs-pt-30">
 				@if($answer)
-					<div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
-						<h3 class="xs-pb-15">{{$fields->name}}</h3>
+
+					<h1 class="h3 xs-mt-0">
+							<b>{{ $fields->name }}</b>
+					</h1>
 						@foreach ($answers as $answer)
 							<p>
 								{{$answer->name}}
@@ -20,25 +22,30 @@
 								</div>
 							</div>
 						@endforeach
-					</div>
-			  @else
-					<div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
-						<h3 class="xs-pb-15">{{$fields->name}}</h3>
-						{{Form::open(['route' => 'pollAnswer', 'method' => 'post'])}}
 
-						<input hidden name="poll" value="{{$fields->node_id}}">
-						@if(count($answers))
-							@foreach($answers as $k => $option)
-								<div class="checkbox ripple" data-color="#ccc">
-									<input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
-									<label for="variant-{{$k}}">{{$option->name}}</label>
-								</div>
-							@endforeach
-						@endif
-						<button class="btn btn-primary">Голосовать</button>
+			  @else
+
+					<h1 class="h3 xs-mt-0">
+							<b>{{ $fields->name }}</b>
+					</h1>
+					<div class="form-group poll">
+						{{Form::open(['route' => 'pollAnswer', 'method' => 'post'])}}
+							<input hidden name="poll" value="{{$fields->node_id}}">
+							@if(count($answers))
+								@foreach($answers as $k => $option)
+									<div class="checkbox ripple" data-color="#ccc">
+										<input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
+										<label for="variant-{{$k}}">{{$option->name}}</label>
+									</div>
+								@endforeach
+							@endif
+							<button class="btn btn-primary">Голосовать</button>
 						{{Form::close()}}
 					</div>
 			  @endif
+			</div>
+			<div class="col-md-3 hidden-xs hidden-sm sticky sticky-lg xs-pt-30">
+				@include('partials.allpolls')
 			</div>
 		</div>
 	</div>

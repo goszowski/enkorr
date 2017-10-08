@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('Store', 'App\Runsite\Libraries\Store');
         View::composer('layouts.main', 'App\Http\Composers\GlobalComposer');
         View::composer('partials.publications', 'App\Http\Composers\WidgetComposer');
+        View::composer('partials.allpolls', 'App\Http\Composers\PollComposer');
     }
 
     /**
