@@ -12,6 +12,7 @@
       'tag' => 15,
       'author' => 15,
       'search' => 15,
+      'polls' => 10,
     ],
     'index' =>[
       'countnews' => 10,

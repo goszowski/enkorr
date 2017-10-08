@@ -49,11 +49,17 @@ class HomeController extends RSController
 
 
       //Опрос
-      $quiz = Model('quiz')->latest()->first();
-      $answers = Model('answer_option')->where('parent_id', $quiz->node_id)->get();
+      $poll = Model('poll')->latest()->first();
+      $poll['ipAnswer'] = empty(Model('answer')->where('parent_id', $poll->node_id)->where('name', \Request::ip())->first());
+      $answers = Model('answer_option')->where('parent_id', $poll->node_id)->get();
+      $answers_count = Model('answer')->where('parent_id', $poll->node_id)->count();
+      if(count($answers))
+        foreach ($answers as $key => $answer) {
+          $answers[$key]['count'] =  round(Model('answer')->where('parent_id', $poll->node_id)->where('link', $answer->node_id)->count()*100/$answers_count);
+        }
       // Возвращаем нашу функцию и передаем в шаблон взятые данные
 
 
-      return $this->make_view('pages.index', compact('news', 'publications', 'banners', 'quiz', 'answers'));
+      return $this->make_view('pages.index', compact('news', 'publications', 'banners', 'poll', 'answers'));
     }
 }
