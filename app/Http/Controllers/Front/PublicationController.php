@@ -119,7 +119,8 @@ class PublicationController extends RSController
 
         foreach ($similar_publications as $key => $publication)
         {
-          $similar_publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+          $theme = Model('theme')->where('node_id', $publication->theme_id)->first();
+          isset($theme) ? $similar_publications[$key]['theme'] = $theme->name : $similar_publications[$key]['theme'] = __('Новость');
         }
 
         if($this->fields->parent_id != config('public.sections.news'))
