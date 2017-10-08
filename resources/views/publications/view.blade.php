@@ -10,6 +10,11 @@
   @include('partials.title')
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row">
+        @if(Session::has('message'))
+          <div class="alert alert-success" role="alert">
+            {{ Session::get('message') }}
+          </div>
+        @endif
           <div class="col-md-9 sticky sticky-sm sticky-lg xs-pt-30">
               <h1 class="h3 xs-mt-0">
                   <b>{{ $fields->name }}</b>
@@ -156,9 +161,4 @@
       </div>
   </div>
 </div>
-@if(Session::has('message'))
-  <div class="alert alert-success" role="alert">
-    {{ Session::get('message') }}
-  </div>
-@endif
 @endsection
