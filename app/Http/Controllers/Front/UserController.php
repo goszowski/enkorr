@@ -23,8 +23,8 @@ class UserController extends RunsiteController
     {
       return new \Facebook\Facebook([
         'app_id' => '1483465915068749', // Replace {app-id} with your app id
-        'app_secret' => '3584f9fdffc2167ff52c02f43a15f9b1',
-        'default_graph_version' => 'v2.2',
+        'app_secret' => '5f4c06c8fe25b1ec2d9c589f2f6bef8f',
+        'default_graph_version' => 'v2.10',
         ]);
     }
 
