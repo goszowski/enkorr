@@ -29,6 +29,9 @@
       <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.theme.default.min.css')}}">
       <!-- / Vendor styles -->
 
+      <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/chart-js/chart.min.js') }}"></script>
+
       <!-- App styles -->
       <link rel="stylesheet" href="{{asset('asset/css/style.css?5')}}">
       <!-- / App styles -->
@@ -155,7 +158,6 @@
         </div>
         </div>
       <!-- Vendor scripts -->
-      <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
       <script src="{{ asset('asset/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js') }}"></script>
       <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
       <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
@@ -239,9 +241,13 @@
             }, 1000);
           });
 
+
+
         });
       </script>
       <!-- / App scripts  -->
+
+      @yield('js')
     </body>
   </html>
 @endif
