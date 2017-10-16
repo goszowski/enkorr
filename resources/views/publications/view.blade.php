@@ -11,7 +11,7 @@
   <div class="xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
       <div class="row">
         @if(Session::has('message'))
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-success xs-mt-15" role="alert">
             {{ Session::get('message') }}
           </div>
         @endif
