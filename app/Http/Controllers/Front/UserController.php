@@ -65,7 +65,7 @@ class UserController extends RunsiteController
 
       $helper = $fb->getRedirectLoginHelper();
 
-      $permissions = ['email']; // Optional permissions
+      $permissions = ['email', 'public_profile']; // Optional permissions
       $facebookLoginUrl = $helper->getLoginUrl(url('facebook/callback'), $permissions);
 
 
@@ -212,9 +212,96 @@ class UserController extends RunsiteController
       return redirect(lPath('/auth/login'));
     }
 
-    public function facebookCallback()
+    public function facebookCallback(Request $request)
     {
+      session_start(); //Session should be active
+      $fb = $this->getFB();
 
+      $helper = $fb->getRedirectLoginHelper();
+      if (isset($_GET['state'])) {
+          $helper->getPersistentDataHandler()->set('state', $_GET['state']);
+      }
+
+      // dd($helper->getAccessToken());
+      $accessToken = $helper->getAccessToken();
+
+      if (! isset($accessToken)) {
+        if ($helper->getError()) {
+          header('HTTP/1.0 401 Unauthorized');
+          echo "Error: " . $helper->getError() . "\n";
+          echo "Error Code: " . $helper->getErrorCode() . "\n";
+          echo "Error Reason: " . $helper->getErrorReason() . "\n";
+          echo "Error Description: " . $helper->getErrorDescription() . "\n";
+        } else {
+          header('HTTP/1.0 400 Bad Request');
+          echo 'Bad request';
+        }
+        exit;
+      }
+      
+
+      // The OAuth 2.0 client handler helps us manage access tokens
+      $oAuth2Client = $fb->getOAuth2Client();
+
+      // Get the access token metadata from /debug_token
+      $tokenMetadata = $oAuth2Client->debugToken($accessToken);
+
+      // Validation (these will throw FacebookSDKException's when they fail)
+      $tokenMetadata->validateAppId('1483465915068749'); // Replace {app-id} with your app id
+      // If you know the user ID this access token belongs to, you can validate it here
+      //$tokenMetadata->validateUserId('123');
+      $tokenMetadata->validateExpiration();
+
+      if (! $accessToken->isLongLived()) {
+        // Exchanges a short-lived access token for a long-lived one
+        try {
+          $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+        } catch (Facebook\Exceptions\FacebookSDKException $e) {
+          echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+          exit;
+        }
+
+
+      }
+
+      try {
+          // Returns a `Facebook\FacebookResponse` object
+          $response = $fb->get('/me?fields=id,name,email', $accessToken);
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+          echo 'Graph returned an error: ' . $e->getMessage();
+          exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+          echo 'Facebook SDK returned an error: ' . $e->getMessage();
+          exit;
+        }
+
+        $facebook_user = $response->getGraphUser();
+
+        $user = Model('user')->where('facebook_id', $facebook_user['id'])->first();
+        if(! count($user))
+        {
+          $userClass = Classes::where('shortname', 'user')->first();
+          $usersNode = Nodes::where('shortname', 'users')->first();
+          $userSlug = mt_rand(10,99).time().mt_rand(10,99).'-'.str_slug($facebook_user['name']);
+          $activeLocal = PH::getActiveLocalId();
+
+          Node::push($userClass->id, $usersNode->id, $userSlug, [
+            $activeLocal => [
+              'name' => $facebook_user['name'],
+              'is_active' => true,
+              'email' => $facebook_user['email'],
+              'facebook_id' => $facebook_user['id'],
+            ]
+          ]); 
+        }
+
+        $user = Model('user')->where('facebook_id', $facebook_user['id'])->first();
+        
+        Session::put('authUser', $user);
+
+        return redirect(lPath($user->node->absolute_path));
+
+       
     }
 
 
