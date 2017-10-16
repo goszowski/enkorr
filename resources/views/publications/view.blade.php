@@ -28,15 +28,29 @@
                 <div class="col-xs-8 text-right">
                   @if(count($authors))
                     <small class="text-muted">
-                      @if(count($authors) > 1)
+                      
+                      @if(count($authors) == 1)
+                        {{-- If one author - will be with photo --}}
+                        @foreach ($authors as $k=>$author)
+                          <a class="publication-author" href="{{lPath($author->node->absolute_path)}}">
+                            @if($author->image)
+                              <span class="author-image"><img src="{{ iPath($author->image, 'thumb') }}" alt="{{$author->name}}"></span>
+                            @endif
+                            <span class="author-info">
+                              <span class="author-name">{{$author->name}}</span><br>
+                              <span class="author-about">{{$author->about}}</span>
+                            </span>
+                          </a>
+                        @endforeach
+                      @else 
+                        {{-- If count of authors is more then one, must be inline style, without photos --}}
                         {{ __('Авторы') }}:
-                      @else
-                        {{ __('Автор') }}:
+                        @foreach ($authors as $k=>$author)
+                          <a href="{{lPath($author->node->absolute_path)}}">
+                            {{$author->name}}
+                          </a>{{ (++$k < count($authors)) ? ',' : null }}
+                        @endforeach
                       @endif
-
-                      @foreach ($authors as $k=>$author)
-                        <a href="{{lPath($author->node->absolute_path)}}">{{$author->name}}</a>{{ (++$k < count($authors)) ? ',' : null }}
-                      @endforeach
                     </small>
                   @endif
                 </div>
