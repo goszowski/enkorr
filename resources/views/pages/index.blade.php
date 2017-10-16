@@ -14,7 +14,7 @@
 
 
 
-          <section class="col-sm-6 col-md-4 col-lg-3 sidebar xs-pt-30 sticky sticky-sm sticky-lg">
+          <section class="col-sm-6 col-md-4 col-lg-3 sidebar xs-pt-30 ">
               <h2 class="column-title">{{__('Новости')}}</h2>
               <ul class="sidebar-list">
                 @if(count( $news ))
@@ -49,7 +49,7 @@
 
 
 
-          <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications sticky sticky-sm sticky-lg">
+          <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications ">
               <h2 class="column-title visible-xs">{{__('Публикации')}}</h2>
               <div class="row">
                 @if(count($publications))
@@ -84,7 +84,7 @@
 
 
 
-          <div class="visible-lg col-lg-3 sticky sticky-lg xs-pt-30">
+          <div class="visible-lg col-lg-3  xs-pt-30">
 
             @include('banners.right')
 
