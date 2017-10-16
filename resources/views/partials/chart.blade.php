@@ -2,7 +2,7 @@
   @php($text->chart())
 @endif
 
-<canvas class="publication-chart" id="chart-{{ $text->node_id }}"></canvas>
+<canvas class="publication-chart xs-mt-15 xs-mb-15" id="chart-{{ $text->node_id }}"></canvas>
 {{-- {{ dd($text->chart()->data) }} --}}
 <script>
   $(function() {
