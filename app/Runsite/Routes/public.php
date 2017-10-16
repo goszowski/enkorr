@@ -6,6 +6,10 @@ use App\Runsite\Libraries\PH;
 
 Route::post('/poll-answer', ['as' => 'pollAnswer', 'uses'=>'Front\PollController@setAnswer']);
 
+Route::group(['prefix'=>'facebook'], function() {
+  Route::get('callback', 'Front\UsersController@facebookCallback');
+});
+
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 

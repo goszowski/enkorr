@@ -19,6 +19,15 @@ use Notification;
 class UserController extends RunsiteController
 {
 
+    protected function getFB()
+    {
+      return new \Facebook\Facebook([
+        'app_id' => '1483465915068749', // Replace {app-id} with your app id
+        'app_secret' => '3584f9fdffc2167ff52c02f43a15f9b1',
+        'default_graph_version' => 'v2.2',
+        ]);
+    }
+
     protected $signInRules = [
       'email' => 'required|email|exists:_class_user|max:255',
       'password' => 'required|string|min:3|max:255',
@@ -52,7 +61,15 @@ class UserController extends RunsiteController
 
     public function loginForm()
     {
-      return $this->make_view('components.auth.login');
+      $fb = $this->getFB();
+
+      $helper = $fb->getRedirectLoginHelper();
+
+      $permissions = ['email']; // Optional permissions
+      $facebookLoginUrl = $helper->getLoginUrl(url('facebook/callback'), $permissions);
+
+
+      return $this->make_view('components.auth.login', compact('facebookLoginUrl'));
     }
 
     public function registerForm()
@@ -193,6 +210,11 @@ class UserController extends RunsiteController
     {
       Session::flash('authUser', false);
       return redirect(lPath('/auth/login'));
+    }
+
+    public function facebookCallback()
+    {
+
     }
 
 

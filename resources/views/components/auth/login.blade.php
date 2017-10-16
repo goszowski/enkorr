@@ -33,6 +33,9 @@
 
             <a href="{{url(lPath('/auth/reset'))}}">{{__('Reset password')}}</a>
           {{Form::close()}}
+
+          <br><br>
+          <a href="{{ $facebookLoginUrl }}">Login fb</a>
       </div>
     </div>
   </div>
