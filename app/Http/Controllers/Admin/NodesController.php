@@ -790,23 +790,24 @@ class NodesController extends Controller {
     $results = false;
     $s = \Input::get('q')['term'];
 
+    $nodes = Node::getU($linked_class);
+
     if($s and strlen($s) > 3) {
-      $nodes = Node::getU($linked_class)
-                    ->where('name', 'like', $s.'%');
+      $nodes->where('name', 'like', $s.'%');
+    }
 
-      if($parent_id) {
-        $nodes = $nodes->where('parent_id', $parent_id);
-      }
+    if($parent_id) {
+      $nodes = $nodes->where('parent_id', $parent_id);
+    }
 
-      $nodes = $nodes->get();
+    $nodes = $nodes->take(10)->orderBy('node_id', 'desc')->get();
 
-      if(count($nodes)) {
-        foreach($nodes as $node) {
-          $results[] = [
-            'id' => $node->node_id,
-            'text' => $node->name,
-          ];
-        }
+    if(count($nodes)) {
+      foreach($nodes as $node) {
+        $results[] = [
+          'id' => $node->node_id,
+          'text' => $node->name,
+        ];
       }
     }
 
