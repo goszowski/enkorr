@@ -9,7 +9,7 @@
         @endif
       </div>
     </div>
-    {{-- <div class="form-group">
+    <div class="form-group hidden">
       <div class="container-fluid">
         <div class="">
           <b>{{trans('admin/nodes.Після оновлення')}}:</b>
@@ -26,7 +26,7 @@
           {{trans('admin/nodes.do_after.go_up')}}
         </label>
       </div>
-    </div> --}}
+    </div>
   </div>
 </div>
 <!-- / Form controls -->
