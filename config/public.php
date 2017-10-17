@@ -15,8 +15,8 @@
       'polls' => 10,
     ],
     'index' =>[
-      'countnews' => 10,
-      'countpub' => 10,
+      'countnews' => 15,
+      'countpub' => 6,
       'multiplicity' => 5,
     ],
     'theme' => [
