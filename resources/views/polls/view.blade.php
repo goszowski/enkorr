@@ -29,18 +29,20 @@
 							<b>{{ $fields->name }}</b>
 					</h1>
 					<div class="form-group poll">
-						{{Form::open(['route' => 'pollAnswer', 'method' => 'post'])}}
-							<input hidden name="poll" value="{{$fields->node_id}}">
-							@if(count($answers))
-								@foreach($answers as $k => $option)
-									<div class="checkbox ripple" data-color="#ccc">
-										<input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
-										<label for="variant-{{$k}}">{{$option->name}}</label>
-									</div>
-								@endforeach
-							@endif
-							<button class="btn btn-primary">Голосовать</button>
-						{{Form::close()}}
+						<div class="xs-p-15">
+							{{Form::open(['route' => 'pollAnswer', 'method' => 'post'])}}
+								<input hidden name="poll" value="{{$fields->node_id}}">
+								@if(count($answers))
+									@foreach($answers as $k => $option)
+										<div class="checkbox ripple" data-color="#ccc">
+											<input type="radio" name="option" id="variant-{{$k}}" value="{{$option->node_id}}">
+											<label for="variant-{{$k}}">{{$option->name}}</label>
+										</div>
+									@endforeach
+								@endif
+								<button class="btn btn-primary">Голосовать</button>
+							{{Form::close()}}
+						</div>
 					</div>
 			  @endif
 			</div>
