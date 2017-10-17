@@ -255,6 +255,18 @@ a {
   color: #eb5c24;
 }
 
+.btn-facebook {
+  background: #3b5998;
+  border-color: darken(#3b5998, 10%);
+  color: #fff;
+
+  &:hover, &:focus, &:active {
+    background: darken(#3b5998, 10%)!important;
+    border-color: darken(#3b5998, 15%)!important;
+    color: #fff!important;
+  }
+}
+
 @import "partials/header";
 @import "partials/footer";
 @import "partials/sidebar";

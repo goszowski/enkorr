@@ -74,7 +74,13 @@ class UserController extends RunsiteController
 
     public function registerForm()
     {
-      return $this->make_view('components.auth.register');
+      $fb = $this->getFB();
+
+      $helper = $fb->getRedirectLoginHelper();
+
+      $permissions = ['email', 'public_profile']; // Optional permissions
+      $facebookLoginUrl = $helper->getLoginUrl(url('facebook/callback'), $permissions);
+      return $this->make_view('components.auth.register', compact('facebookLoginUrl'));
     }
 
     public function resetForm()

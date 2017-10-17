@@ -29,13 +29,12 @@
             <div class="form-group">
               <button type="submit" class="btn btn-primary">{{__('Login')}}</button>
               <a href="{{url(lPath('/auth/register'))}}" class="btn btn-default">{{__('Register')}}</a>
+              <a href="{{ $facebookLoginUrl }}" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
             </div>
 
             <a href="{{url(lPath('/auth/reset'))}}">{{__('Reset password')}}</a>
           {{Form::close()}}
-
-          <br><br>
-          <a href="{{ $facebookLoginUrl }}">Login fb</a>
+          
       </div>
     </div>
   </div>
