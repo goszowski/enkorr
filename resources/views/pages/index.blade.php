@@ -90,6 +90,9 @@
 
             @include('partials.poll')
 
+            @include('partials.indicators.prices_eu')
+            @include('partials.indicators.prices_ua')
+
           </div>
 
 

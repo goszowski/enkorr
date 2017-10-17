@@ -251,9 +251,14 @@ a {
   min-height: 500px;
 }
 
+.text-primary {
+  color: #eb5c24;
+}
+
 @import "partials/header";
 @import "partials/footer";
 @import "partials/sidebar";
 @import "partials/publication";
 @import "partials/scroll_top";
 @import "partials/poll";
+@import "partials/indicators";
