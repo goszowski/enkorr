@@ -16,7 +16,7 @@
 
           <section class="col-sm-6 col-md-4 col-lg-3 sidebar xs-pt-30 ">
               <h2 class="column-title">{{__('Новости')}}</h2>
-              <ul class="sidebar-list">
+              <ul class="sidebar-list first-image">
                 @if(count( $news ))
                   @foreach( $news as $k => $new )
                     <li>

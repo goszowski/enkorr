@@ -1,44 +1,7 @@
 .sidebar {
-    
 
-    ul.sidebar-list {
-        margin: 0; padding: 0;
-        list-style-type: none;
-
+    ul.sidebar-list.first-image {
         li {
-            display: block;
-            margin: 0; padding: 0;
-
-            +li {
-                border-top: 1px solid #eaeaea;
-            }
-
-            a {
-                display: block;
-                padding: 10px 0;
-                position: relative;
-                color: #212121;
-
-                &:hover {
-                    text-decoration: none;
-                    color: #eb5c24;
-                }
-
-                time {
-                    display: block;
-                    font-size: 12px;
-                    color: #454545;
-
-                    span {
-                        color: #bdbdbd;
-                    }
-                }
-
-                img {
-                    display: none;
-                }
-            }
-
             @media (max-width: 767px)
             {
                 &:first-child {
@@ -98,6 +61,48 @@
                     }
                 }
             }
+        }
+    }
+
+    ul.sidebar-list {
+        margin: 0; padding: 0;
+        list-style-type: none;
+
+        li {
+            display: block;
+            margin: 0; padding: 0;
+
+            +li {
+                border-top: 1px solid #eaeaea;
+            }
+
+            a {
+                display: block;
+                padding: 10px 0;
+                position: relative;
+                color: #212121;
+
+                &:hover {
+                    text-decoration: none;
+                    color: #eb5c24;
+                }
+
+                time {
+                    display: block;
+                    font-size: 12px;
+                    color: #454545;
+
+                    span {
+                        color: #bdbdbd;
+                    }
+                }
+
+                img {
+                    display: none;
+                }
+            }
+
+            
         }
     }
 }
@@ -228,8 +233,7 @@ h2.column-title, .h2.column-title {
 
 .all-publications {
     .sidebar {
-        ul.sidebar-list li {
-
+        ul.sidebar-list.first-image li {
             &:first-child {
                     a {
                         height: 350px;
@@ -290,7 +294,8 @@ h2.column-title, .h2.column-title {
                         }
                     }
                 }
-
+        }
+        ul.sidebar-list li {
                 a {
                 font-size: 18px;
             }

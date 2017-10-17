@@ -17,7 +17,7 @@
     <div class="row all-publications">
         <section class="col-md-9 sidebar sticky sticky-sm sticky-lg">
 
-            <ul class="sidebar-list">
+            <ul class="sidebar-list first-image">
               @if(count( $publications ))
                 @foreach( $publications as $k => $publication )
                   <li>
