@@ -97,8 +97,11 @@ class PublicationController extends RSController
 
 
       // Поиск подобных новостей
+      $similar_publications = [];
+      $similar_publications_auto = [];
       if( ($similar_array = explode(',', $this->fields->similar_publications) and count($similar_array)) or count($tags))
       {
+        $similar_publications_auto =[];
         $similar_publications = Model('publication')
                                   ->whereIn('node_id', $similar_array)
                                   ->where('node_id', '!=', $this->fields->node_id)
@@ -107,37 +110,32 @@ class PublicationController extends RSController
                                   ->limit(3)
                                   ->get();
 
-        $similar_publications_auto = Model('publication')
-                                      ->whereRaw("FIND_IN_SET('{$random_tag}', tag_ids) > 0")
-                                      ->where('node_id', '!=', $this->fields->node_id)
-                                      ->whereNotIn('node_id', $similar_publications->pluck('node_id'))
-                                      ->where('pubdate', '<=', date('Y-m-d H:i:s'))
-                                      ->orderBy('pubdate', 'desc')
-                                      ->limit(3-count($similar_publications))
-                                      ->get();
+        // $similar_publications_auto = Model('publication')
+        //                               ->whereRaw("FIND_IN_SET('{$random_tag}', tag_ids) > 0")
+        //                               ->where('node_id', '!=', $this->fields->node_id)
+        //                               ->whereNotIn('node_id', $similar_publications->pluck('node_id'))
+        //                               ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+        //                               ->orderBy('pubdate', 'desc')
+        //                               ->limit(3-count($similar_publications))
+        //                               ->get();
 
 
-        foreach ($similar_publications as $key => $publication)
-        {
-          $theme = Model('theme')->where('node_id', $publication->theme_id)->first();
-          isset($theme) ? $similar_publications[$key]['theme'] = $theme->name : $similar_publications[$key]['theme'] = __('Новость');
-        }
+        // foreach ($similar_publications as $key => $publication)
+        // {
+        //   $theme = Model('theme')->where('node_id', $publication->theme_id)->first();
+        //   isset($theme) ? $similar_publications[$key]['theme'] = $theme->name : $similar_publications[$key]['theme'] = __('Новость');
+        // }
 
-        if($this->fields->parent_id != config('public.sections.news'))
-        {
-          foreach ($similar_publications_auto as $key => $publication)
-          {
-            $theme = Model('theme')->where('node_id', $publication->theme_id)->first();
-            isset($theme) ? $similar_publications_auto[$key]['theme'] = $theme->name : $similar_publications_auto[$key]['theme'] = __('Новость');
-          }
-        }
-        else
-          $similar_publications_auto =[];
-      }
-      else
-      {
-        $similar_publications = [];
-        $similar_publications_auto = [];
+        // if($this->fields->parent_id != config('public.sections.news'))
+        // {
+        //   foreach ($similar_publications_auto as $key => $publication)
+        //   {
+        //     $theme = Model('theme')->where('node_id', $publication->theme_id)->first();
+        //     isset($theme) ? $similar_publications_auto[$key]['theme'] = $theme->name : $similar_publications_auto[$key]['theme'] = __('Новость');
+        //   }
+        // }
+        // else
+        //   $similar_publications_auto =[];
       }
 
 
