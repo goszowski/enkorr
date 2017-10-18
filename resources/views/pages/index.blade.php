@@ -19,7 +19,7 @@
               <ul class="sidebar-list first-image">
                 @if(count( $news ))
                   @foreach( $news as $k => $new )
-                    <li>
+                    <li class="{{ $k >= 12 ? 'visible-xs' : null }}">
                         <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
                             <img src="{{ iPath($new->image, '600px') }}" alt="">
                             <span>
