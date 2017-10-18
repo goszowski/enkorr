@@ -8,6 +8,23 @@
 
     blockquote {
         border-left-color: #eb5c24;
+
+        &.enkorr-blockquote-1 {
+            border-left: 0;
+            padding-left: 50px;
+            font-style: italic;
+            border-bottom: 2px solid #ccc;
+            position: relative;
+
+            &:before {
+                content: "\f10d";
+                position: absolute;
+                left: 0; top: 10px;
+                font-family: FontAwesome;
+                font-size: 25px;
+                color: #eb5c24;
+            }
+        }
     }
 
     .image-with-title {
