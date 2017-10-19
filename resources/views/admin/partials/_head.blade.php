@@ -51,7 +51,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="{{_asset('admin/hey-metro.css?1')}}" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="{{_asset('admin/app.css?1')}}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{_asset('admin/app.css?2')}}" media="screen" title="no title" charset="utf-8">
 
 
     <link rel="stylesheet" href="{{_asset('admin/jstree/themes/default-dark/style.css')}}" />
