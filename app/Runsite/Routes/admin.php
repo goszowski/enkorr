@@ -176,6 +176,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
           return \Illuminate\Support\Facades\View::make('editor');
       });
 
+      Route::group(['prefix'=>'gallery', 'namespace'=>'Gallery', 'as'=>'gallery.'], function() {
+        Route::resource('images', 'ImagesController');
+        Route::get('search-tag', ['as'=>'search-tag', 'uses'=>'TagsController@search']);
+      });
+
       // Show LFM
       // Route::get('/laravel-filemanager', '\Tsawler\Laravelfilemanager\controllers\LfmController@show');
       //

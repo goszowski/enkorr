@@ -54,6 +54,12 @@ return [
             'visibility' => 'public',
         ],
 
+        'gallery' => [
+            'driver' => 'local',
+            'root' => public_path('gallery'),
+            'visibility' => 'public',
+        ],
+
         'app' => [
             'driver' => 'local',
             'root' => app_path(),

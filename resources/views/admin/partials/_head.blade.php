@@ -103,6 +103,23 @@
           });
         });
 
+        $('.select2.tags').select2({
+          tags: true,
+        });
+
+        $('.select2.search-tags').select2({
+          ajax: {
+              url: "{{route('admin.gallery.search-tag')}}",
+              dataType: 'json',
+              cache: true,
+              data: function (term, page) {
+                return {
+                  q: term
+                }
+              }
+            }
+        });
+
         $('.select2-autocomplete').each(function() {
           var current = $(this);
           var linked_class = current.data('linked-class');
