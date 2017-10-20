@@ -74,6 +74,10 @@
                     @if($text->excel_file and $text->has('chart_type'))
                       @include('partials.chart')
                     @endif
+
+                    @if($text->code)
+                      {!! $text->code !!}
+                    @endif
                   @endforeach
                 @endif
 

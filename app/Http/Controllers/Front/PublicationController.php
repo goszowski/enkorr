@@ -166,7 +166,7 @@ class PublicationController extends RSController
 
       //тексты и фотографии данной публикации
 
-      $texts = Model('text')->where('parent_id', $this->fields->node_id)->get();
+      $texts = Model('text')->where('parent_id', $this->fields->node_id)->orderBy('orderby', 'asc')->get();
 
       //Выбор фотографий данной публикации
       foreach ($texts as $key => $text) {
