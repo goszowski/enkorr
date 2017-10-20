@@ -1,4 +1,17 @@
 .indicator {
 	background: #f3f3f3;
 	border: 1px solid #dadada;
+
+	table {
+		thead {
+			tr:first-child {
+				
+					th {
+					background: #222;
+					color: #fff;
+					border-color: #222;
+				}
+			}
+		}
+	}
 }
