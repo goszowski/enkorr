@@ -217,3 +217,17 @@
     }
     
 }
+
+.remote-code {
+    position: relative;
+    padding: 15px 0;
+
+    iframe, twitterwidget {
+        display: block;
+        margin: 0 auto;
+    }
+
+    iframe + p {
+        text-align: center;
+    }
+}

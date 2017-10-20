@@ -76,7 +76,9 @@
                     @endif
 
                     @if($text->code)
-                      {!! $text->code !!}
+                      <div class="remote-code">
+                        {!! $text->code !!}
+                      </div>
                     @endif
 
                     @if($text->excel_table)
