@@ -78,6 +78,10 @@
                     @if($text->code)
                       {!! $text->code !!}
                     @endif
+
+                    @if($text->excel_table)
+                      @include('partials.table')
+                    @endif
                   @endforeach
                 @endif
 

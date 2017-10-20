@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Runsite\Libraries\PH;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\Chart;
+use App\Traits\Table;
 
 class Dynamic extends Model
 {
-    use SoftDeletes, Notifiable, Chart;
+    use SoftDeletes, Notifiable, Chart, Table;
 
     protected $table    = '';
     protected $fillable = [];
