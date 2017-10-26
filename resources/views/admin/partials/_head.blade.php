@@ -66,7 +66,7 @@
 
     <link rel="stylesheet" href="{{_asset('admin/flag-icon-css-master/css/flag-icon.css')}}">
 
-    <script src="{{_asset('admin/ckeditor/ckeditor.js?1')}}"></script>
+    <script src="{{_asset('admin/ckeditor/ckeditor.js?2')}}"></script>
     <script src="{{_asset('admin/ckeditor/styles.js')}}"></script>
     <script src="{{_asset('admin/app.js')}}"></script>
     {{-- <script src="{{asset('admin/noty/promise.js')}}"></script> --}}

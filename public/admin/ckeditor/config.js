@@ -10,6 +10,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	config.skin = 'office2013';
+	config.extraPlugins = 'mediaembed';
+	config.allowedContent = true;
 
 
 	config.toolbar = 'full';
@@ -30,7 +32,7 @@ CKEDITOR.editorConfig = function( config ) {
 		'/',
 		{ name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
 		{ name: 'colors', items : [ 'TextColor','BGColor' ] },
-		{ name: 'tools', items : [ 'Maximize', 'ShowBlocks','-','About' ] }
+		{ name: 'tools', items : [ 'Maximize', 'ShowBlocks','-','About', 'Mediaembed' ] }
 	];
 
 	config.toolbar_standard = [
