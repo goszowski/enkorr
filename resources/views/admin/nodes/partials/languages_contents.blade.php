@@ -57,6 +57,7 @@
         <label class="col-md-2 control-label" style="padding-top: 0;"><div class="text-left text-xs">{{trans('admin/nodes.absolute_path')}}:</div></label>
         <div class="col-md-10 text-xs">
           {{$node->absolute_path}}
+          <a href="{{ lPath($node->absolute_path) }}?preview=true" target="_blank" class="btn btn-default btn-xs">Предпросмотр</a>
         </div>
       </div>
 

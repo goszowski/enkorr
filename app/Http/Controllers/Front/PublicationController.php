@@ -80,7 +80,7 @@ class PublicationController extends RSController
      */
     public function view()
     {
-      Model('publication')
+      ModelNoActive('publication')
         ->where('node_id', $this->fields->node_id)
         ->first()
         ->increment('popular');

@@ -10,6 +10,13 @@ function Model($name)
   return $model;
 }
 
+function ModelNoActive($name)
+{
+  $model = new Dynamic('_class_'.$name);
+  $model = $model->where('language_id', PH::getActiveLocalId());
+  return $model;
+}
+
 function ModelWithoutConditions($name)
 {
   return Node::getUniversal($name);

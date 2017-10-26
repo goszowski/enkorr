@@ -24,11 +24,12 @@ class RSController extends Controller {
     {
       $this->node = PH::getGlobal('RunsiteNode');
       $model = Classes::find($this->node->class_id) or abort(404);
-      $this->fields = Model($model->shortname)->where('node_id', $this->node->id)->first();
+      $this->fields = ModelNoActive($model->shortname)->where('node_id', $this->node->id)->first();
 
-      if(!isset($this->fields->is_active) or !$this->fields->is_active)
+      if((!isset($this->fields->is_active) or !$this->fields->is_active) and !request('preview'))
         return abort(404);
     }
+
 
   }
 
