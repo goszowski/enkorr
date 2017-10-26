@@ -47,7 +47,7 @@ CKEDITOR.editorConfig = function( config ) {
 	{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Strike', '-', 'RemoveFormat' ] },
 	{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
 	{ name: 'styles', items: [ 'Styles', 'Format' ] },
-	{ name: 'about', items: [ 'About' ] }
+	{ name: 'about', items: [ 'About', 'Mediaembed' ] }
 ];
 
 
@@ -67,6 +67,6 @@ config.toolbar_runsite = [
 
 	config.toolbar_basic =
 	[
-		['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About']
+		['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About', 'Mediaembed']
 	];
 };
