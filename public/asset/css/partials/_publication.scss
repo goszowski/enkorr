@@ -27,6 +27,37 @@
         }
     }
 
+    table {
+        width: 100%!important;
+        font-size: 14px;
+        clear: both;
+        float: none;
+        border-color: #cecece;
+
+        tr {
+            
+            &:hover {
+                td {
+                    background: #fadace;
+                    border-color: #e9a98f;
+                }
+            }
+
+            td {
+                padding: 5px;
+                border-color: #cecece;
+                transition: background-color 100ms, border-color 100ms;
+
+                p{
+                    margin-bottom: 0;
+                }
+        }
+        }
+
+        
+
+    }
+
     .image-with-title {
         position: relative;
         display: inline-block;

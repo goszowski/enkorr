@@ -33,7 +33,7 @@
       <script src="{{ asset('asset/vendor/chart-js/chart.min.js') }}"></script>
 
       <!-- App styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/style.css?7')}}">
+      <link rel="stylesheet" href="{{asset('asset/css/style.css?8')}}">
       <!-- / App styles -->
     </head>
     <body>
