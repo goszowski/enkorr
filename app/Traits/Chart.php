@@ -39,7 +39,9 @@ trait Chart {
 
 	public function chart()
 	{
-		$reader = Excel::load(public_path($this->excel_file))->get()[0]->toArray();
+		$reader = Excel::load(public_path($this->excel_file))->get()->first()->toArray();
+
+		dd($reader);
 
 		foreach($reader[0] as $label)
 		{
