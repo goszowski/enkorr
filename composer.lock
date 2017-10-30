@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6d5c4f37bb80a251c98c450dde9b787",
+    "content-hash": "428f5f22da1c0b37f0aa8b471cb874d0",
     "packages": [
         {
             "name": "appzcoder/crud-generator",
@@ -2762,16 +2762,16 @@
         },
         {
             "name": "runsite/laravel-filemanager",
-            "version": "0.6.3",
+            "version": "0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Runsite/laravel-filemanager.git",
-                "reference": "31e30623fbaf4ed467ac9713faa99e47b698e96d"
+                "reference": "f493ae0924bd5b5d8dc3bdcbcd2e399882108c44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Runsite/laravel-filemanager/zipball/31e30623fbaf4ed467ac9713faa99e47b698e96d",
-                "reference": "31e30623fbaf4ed467ac9713faa99e47b698e96d",
+                "url": "https://api.github.com/repos/Runsite/laravel-filemanager/zipball/f493ae0924bd5b5d8dc3bdcbcd2e399882108c44",
+                "reference": "f493ae0924bd5b5d8dc3bdcbcd2e399882108c44",
                 "shasum": ""
             },
             "require": {
@@ -2797,7 +2797,7 @@
                 }
             ],
             "description": "A file upload/editor intended for use with Laravel 5.3.* and CKEditor",
-            "time": "2016-12-18T09:54:13+00:00"
+            "time": "2017-10-30T13:04:39+00:00"
         },
         {
             "name": "snowfire/beautymail",
@@ -2805,12 +2805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Snowfire/Beautymail.git",
-                "reference": "c642c7927481a53cc84ca9459c1304bcaa5b535e"
+                "reference": "f0f9a7b55b2110c462270ce6a0cfa907a3ed489e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Snowfire/Beautymail/zipball/c642c7927481a53cc84ca9459c1304bcaa5b535e",
-                "reference": "c642c7927481a53cc84ca9459c1304bcaa5b535e",
+                "url": "https://api.github.com/repos/Snowfire/Beautymail/zipball/f0f9a7b55b2110c462270ce6a0cfa907a3ed489e",
+                "reference": "f0f9a7b55b2110c462270ce6a0cfa907a3ed489e",
                 "shasum": ""
             },
             "require": {
@@ -2840,7 +2840,7 @@
                 "html",
                 "laravel"
             ],
-            "time": "2017-04-05T13:17:37+00:00"
+            "time": "2017-10-26T21:36:17+00:00"
         },
         {
             "name": "studio-42/elfinder",

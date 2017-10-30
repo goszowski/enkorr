@@ -21,7 +21,7 @@
         "snowfire/beautymail": "dev-master",
         "barryvdh/laravel-elfinder": "^0.3.7",
         "atehnix/laravel-stubs": "^1.0",
-        "runsite/laravel-filemanager": "^0.6.3",
+        "runsite/laravel-filemanager": "0.6.4",
         "goszowski/blade-extended": "1.*",
         "facebook/graph-sdk": "^5.6"
     },
