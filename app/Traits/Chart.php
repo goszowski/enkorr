@@ -41,8 +41,6 @@ trait Chart {
 	{
 		$reader = Excel::load(public_path($this->excel_file))->get()->first()->toArray();
 
-		dd($reader);
-
 		foreach($reader[0] as $label)
 		{
 			$this->labels[] = $label;
