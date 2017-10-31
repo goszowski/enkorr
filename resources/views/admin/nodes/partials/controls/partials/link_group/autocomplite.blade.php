@@ -9,7 +9,36 @@
       @endif
     @endforeach
   @endif
+
+  @if($field_name == 'similar_publications' and !$field_value)
+    <?php 
+      $tags = explode(',', $values[$lang->id]->tag_ids);
+      $similar = [];
+      if(count($tags))
+      {
+        $similar = Model('publication');
+
+        foreach($tags as $k=>$tag)
+        {
+          $method = !$k ? 'whereRaw' : 'orWhereRaw';
+          $similar = $similar->{$method}("FIND_IN_SET('{$tag}', tag_ids) > 0");
+        }
+
+        $similar = $similar->orderby('pubdate', 'desc')->take(10)->get();
+      }
+    ?>
+
+    @if(count($similar))
+      @foreach($similar as $similarItem)
+        <option selected value="{{ $similarItem->node_id }}">{{ $similarItem->name }}</option>
+      @endforeach
+    @endif
+  @endif
+
+  
 </select>
+
+
 
 @if($field_value)
   <br>
