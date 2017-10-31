@@ -27,6 +27,7 @@
       <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.carousel.min.css')}}">
       <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.theme.default.min.css')}}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/pace/pace.theme.css')}}">
       <!-- / Vendor styles -->
 
       <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
@@ -163,6 +164,7 @@
       <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
       <script src="{{ asset('asset/vendor/jssocials-1.4.0/jssocials.min.js') }}"></script>
       <script src="{{ asset('asset/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
+      <script src="{{ asset('asset/vendor/pace/pace.min.js') }}"></script>
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->
