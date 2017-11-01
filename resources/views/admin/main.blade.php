@@ -144,11 +144,15 @@
                   <li><a href="{{url('panel-admin/users')}}" target="app_iframe">Users</a></li>
                 @endif
 
-                <li><a href="{{url('panel-admin/notify')}}" target="app_iframe">Notify</a></li>
-                <li><a href="{{url('panel-admin/events/list')}}" target="app_iframe">Events</a></li>
-                <li><a href="{{url('panel-admin/filemanager')}}" target="app_iframe">Filemanager</a></li>
-                <li><a href="{{url('panel-admin/languages')}}" target="app_iframe">Languages</a></li>
-                <li><a href="{{url('panel-admin/translations')}}" target="app_iframe">Translations</a></li>
+                @if(! \Auth::user()->is_limited)
+                  <li><a href="{{url('panel-admin/notify')}}" target="app_iframe">Notify</a></li>
+                  <li><a href="{{url('panel-admin/languages')}}" target="app_iframe">Languages</a></li>
+                  <li><a href="{{url('panel-admin/translations')}}" target="app_iframe">Translations</a></li>
+                @endif
+                
+                <li><a href="{{url('panel-admin/events/list')}}" target="app_iframe">События</a></li>
+                <li><a href="{{url('panel-admin/filemanager')}}" target="app_iframe">Файлы</a></li>
+                <li><a href="{{url('panel-admin/gallery/images')}}" target="app_iframe">Медиабанк</a></li>
               </ul>
 
             </div>
