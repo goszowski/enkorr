@@ -10,7 +10,7 @@
     @endforeach
   @endif
 
-  @if($field_name == 'similar_publications' and !$field_value and $values[$lang->id]->tag_ids)
+  @if($field_name == 'similar_publications' and !$field_value and isset($values) and $values[$lang->id]->tag_ids)
     <?php 
       $tags = explode(',', $values[$lang->id]->tag_ids);
       $similar = [];
