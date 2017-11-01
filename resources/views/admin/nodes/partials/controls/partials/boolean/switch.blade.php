@@ -5,4 +5,10 @@
     <input type="checkbox" name="langs[{{$field_lang}}][{{$field_name}}]" value="1" @if($field_value) checked @endif >
     <i></i>
   </label>
+
+  @if($hint)
+      <div class="text-muted">
+        <i class="fa fa-info" aria-hidden="true"></i> {{$hint}}
+      </div>
+    @endif
 </div>
