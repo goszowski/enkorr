@@ -177,12 +177,21 @@
                 </td>
                 @endforeach
 
-                @if(!$class->order_by)
+                @if(!$class->order_by or str_is('orderby*', $class->order_by))
                   <td class="text-center">
-                    <div class="btn-group" role="group">
-                      <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby <= 1 or !$k) disabled @endif><i class="fa fa-chevron-up"></i></a>
-                      <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
-                    </div>
+
+                    @if(str_is('*desc', $class->order_by))
+                      <div class="btn-group" role="group">
+                        <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-up"></i></a>
+                        <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby <= 1) disabled @endif><i class="fa fa-chevron-down"></i></a>
+                      </div>
+                    @else
+                      <div class="btn-group" role="group">
+                        <a href="{{route('admin.nodes.sort_up', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby <= 1 or !$k) disabled @endif><i class="fa fa-chevron-up"></i></a>
+                        <a href="{{route('admin.nodes.sort_down', ['id'=>$child->node_id, 'class_id'=>$class->id, 'parent_id'=>$node->id])}}" class="btn btn-xs btn-default" @if($child->orderby == $children_last_order) disabled @endif><i class="fa fa-chevron-down"></i></a>
+                      </div>
+                    @endif
+                    
                   </td>
                 @endif
                 <td class="text-right">

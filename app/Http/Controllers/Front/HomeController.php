@@ -26,7 +26,7 @@ class HomeController extends RSController
                         ->get();
 
       $publications_model = Model('main_pub')
-                              ->orderBy('orderby', 'asc')
+                              ->orderBy('orderby', 'desc')
                               ->limit(config('public.index.countpub'))
                               ->get();
       if(count($publications_model))
