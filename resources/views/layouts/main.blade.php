@@ -42,7 +42,7 @@
       <div class="brand-wall">
         @if(isset($main_banner))
           {{-- TODO: position: fixed якшо банер закріплений --}}
-          <div class="visible-lg" style="position: fixed; background-image: url({{iPath($main_banner->image, 'full')}}); background-color: @if(isset($main_banner->color)) {{$main_banner->color}} @else #000 @endif;"></div>
+          <div class="visible-lg" style="{{ $main_banner->fix ? 'position: fixed;' : null }} background-image: url({{iPath($main_banner->image, 'full')}}); background-color: @if(isset($main_banner->color)) {{$main_banner->color}} @else #000 @endif;"></div>
         @endif
       </div>
 
