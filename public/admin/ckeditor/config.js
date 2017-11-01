@@ -18,14 +18,15 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.toolbar_full =
 	[
-		{ name: 'tools', items : [ 'Maximize' ] },
+		{ name: 'tools', items : [ 'Maximize', 'Source' ] },
+		'/',
 		// { name: 'document', items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
 		{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-'] },
 		// { name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },
 		// { name: 'forms', items : [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
 	 //        'HiddenField' ] },
 		'/',
-		{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+		{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','-','RemoveFormat' ] },
 		{ name: 'paragraph', items : [ 'NumberedList','BulletedList','-', '-','Blockquote',
 		'-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
 		{ name: 'links', items : [ 'Link','Unlink' ] },
