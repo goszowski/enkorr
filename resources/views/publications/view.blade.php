@@ -75,12 +75,6 @@
                       @include('partials.chart')
                     @endif
 
-                    @if($text->code)
-                      <div class="remote-code">
-                        {!! $text->code !!}
-                      </div>
-                    @endif
-
                     @if($text->excel_table)
                       @include('partials.table')
                     @endif
