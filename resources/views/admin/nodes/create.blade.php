@@ -78,13 +78,13 @@
           <b>{{trans('admin/nodes.Після створення')}}:</b>
         </div>
         <label class="ui-checks" style="margin-right: 10px">
-          <input type="radio" name="do_after" value="stay" checked id="do_after">
+          <input type="radio" name="do_after" value="stay" id="do_after">
           <i></i>
           {{trans('admin/nodes.do_after.stay')}}
         </label>
 
         <label class="ui-checks" style="margin-right: 10px">
-          <input type="radio" name="do_after" value="go_up"  id="do_after">
+          <input type="radio" name="do_after" value="go_up" checked id="do_after">
           <i></i>
           {{trans('admin/nodes.do_after.go_up')}}
         </label>
