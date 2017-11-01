@@ -52,20 +52,24 @@
           <div class="col-sm-6 col-md-8 col-lg-6 xs-pt-30 publications ">
               <h2 class="column-title visible-xs">{{__('Публикации')}}</h2>
               <div class="row">
-                @if(count($publications))
-                  @foreach($publications as $k => $publication)
-                      <div class=" @if($k % config('public.index.multiplicity') == 0) col-md-12 @else col-md-6 @endif publications-item xs-pb-15 sm-pb-30">
-                          <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
-                              <img src="{{iPath($publication->image, '600px')}}" alt="">
-                              <span class="publications-item-detail">
-                                  <span class="publication-theme">{{$publication->theme}}</span>
-                                  <h2>{{$publication->name}}</h2>
-                                  {{-- <time datetime="/* publication datetime */">
-                                      {{PH::formatDateTime($publication->pubdate, false, true)}}
-                                  </time> --}}
-                              </span>
-                          </a>
-                      </div>
+                @if(count($homePubs))
+                  @foreach($homePubs as $k => $homePub)
+                      @if($homePub->has('publication'))
+                        <div class=" @if($k % config('public.index.multiplicity') == 0) col-md-12 @else col-md-6 @endif publications-item xs-pb-15 sm-pb-30">
+                            <a href="{{lPath($homePub->publication->node->absolute_path)}}" data-ajax="true" class="ripple">
+                                <img src="{{iPath($homePub->publication->image, '600px')}}" alt="">
+                                <span class="publications-item-detail">
+                                    @if($homePub->publication->has('theme'))
+                                      <span class="publication-theme">{{$homePub->publication->theme->name}}</span>
+                                    @endif
+                                    <h2>{{$homePub->publication->name}}</h2>
+                                    {{-- <time datetime="/* publication datetime */">
+                                        {{PH::formatDateTime($publication->pubdate, false, true)}}
+                                    </time> --}}
+                                </span>
+                            </a>
+                        </div>
+                      @endif
                   @endforeach
                 @endif
               </div>

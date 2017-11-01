@@ -25,22 +25,24 @@ class HomeController extends RSController
                         ->limit(config('public.index.countnews'))
                         ->get();
 
-      $publications_model = Model('main_pub')
-                              ->orderBy('orderby', 'desc')
-                              ->limit(config('public.index.countpub'))
-                              ->get();
-      if(count($publications_model))
-        foreach ($publications_model as $key => $publication)
-        {
-          $publications[$key] = Model('publication')
-                                  ->where('node_id', $publication->pub_id)
-                                  ->first();
-        }
-      else
-        $publications = [];
-      foreach ($publications as $key => $publication) {
-        $publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
-      }
+      // $publications_model = Model('main_pub')
+      //                         ->orderBy('orderby', 'desc')
+      //                         ->limit(config('public.index.countpub'))
+      //                         ->get();
+      // if(count($publications_model))
+      //   foreach ($publications_model as $key => $publication)
+      //   {
+      //     $publications[$key] = Model('publication')
+      //                             ->where('node_id', $publication->pub_id)
+      //                             ->first();
+      //   }
+      // else
+      //   $publications = [];
+      // foreach ($publications as $key => $publication) {
+      //   $publications[$key]['theme'] = Model('theme')->where('node_id', $publication->theme_id)->first()->name;
+      // }
+      
+      $homePubs = Model('main_pub')->orderBy('orderby', 'desc')->limit(config('public.index.countpub'))->get();
 
       //Баннеры
       $banners['up'] = Model('banner')->where('main_bool', true)->where('up', true)->inRandomOrder()->first();
@@ -60,6 +62,6 @@ class HomeController extends RSController
       // Возвращаем нашу функцию и передаем в шаблон взятые данные
 
 
-      return $this->make_view('pages.index', compact('news', 'publications', 'banners', 'poll', 'answers'));
+      return $this->make_view('pages.index', compact('news', 'homePubs', 'banners', 'poll', 'answers'));
     }
 }
