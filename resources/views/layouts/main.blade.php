@@ -243,6 +243,24 @@
             }, 1000);
           });
 
+          //перевіряємо чи є у кукі значення скролу, якщо так- переміщюємо і видаляємо кукі скролу
+          var cookie = document.cookie.split(';');
+          for (var i = 0; i < cookie.length; i++) {
+            var cookie_partials = cookie[i].split('=');
+            if(cookie_partials[0] == 'pollScroll') {
+              $(document).scrollTop(cookie_partials[1]);
+              var d = new Date();
+              d.setTime(d.getTime() - 1000);
+              document.cookie = "pollScroll=; expires=" + d.toUTCString() + ";path=/";
+            };
+          };
+
+          //додаємо у кукі значення скролу, якщо була нажата кнопка "голосовать"
+          $('#poll-button').on('click', function(el) {
+            var d = new Date();
+            d.setTime(d.getTime() + (60*1000));
+            document.cookie = "pollScroll=" + $(window).scrollTop() + ";expires="+ d.toUTCString() + ";path=/";
+          });
 
 
         });

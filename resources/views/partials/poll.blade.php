@@ -14,10 +14,10 @@
           @endforeach
         @endif
 
-        <button class="btn btn-primary btn-block">{{__('Голосовать')}}</button>
+        <button id="poll-button" class="btn btn-primary btn-block">{{__('Голосовать')}}</button>
         {{Form::close()}}
     @else
-        <a href="{{lPath('polls')}}">
+        <a href="{{lPath($poll->node->absolute_path)}}">
           <h3 class="xs-pb-15">{{$poll->name}}</h3>
         </a>
           @foreach ($answers as $answer)

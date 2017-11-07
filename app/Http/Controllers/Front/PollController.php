@@ -73,7 +73,7 @@ class PollController extends RSController
         ],
       ]);
       $poll = Model('poll')->where('node_id', $request->poll)->first();
-        return redirect(lPath($poll->node->absolute_path));
+        return redirect()->back();
 
     }
 }
