@@ -32,7 +32,7 @@
 
       <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
       <script src="{{ asset('asset/vendor/chart-js/chart.min.js') }}"></script>
-      <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+      <script src="{{ asset('asset/vendor/cookie/jquery.cookie.js')}}"></script>
 
       <!-- App styles -->
       <link rel="stylesheet" href="{{asset('asset/css/style.css?8')}}">
@@ -251,20 +251,16 @@
 
         //перевіряємо чи є у кукі значення скролу, якщо так- переміщюємо і видаляємо кукі скролу
         $(function(){
-          // var cookie = Cookie.get('pollScroll');
-          // $(window).scrollTop(cookie);
-
-          // для тесту
           setTimeout(function(){
-            $(window).scrollTop(300);
-          }, 150);
-          // alert('scroll value = ' + 5);
+            var pollScroll = $.cookie('pollScroll');
+            $(window).scrollTop(pollScroll);
+          }, 500);
+          $.removeCookie('pollScroll');
         });
 
         //додаємо у кукі значення скролу, якщо була натиснута кнопка "голосувати"
         $('#poll-button').on('click', function() {
-          Cookie.set('pollScroll', $(window).scrollTop());
-          alert('you voted, thanks')
+          $.cookie('pollScroll', $(window).scrollTop());
         });
       </script>
       <!-- / App scripts  -->
