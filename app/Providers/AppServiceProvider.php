@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use View;
 
+use App\Http\Composers\Indicator\EuropeComposer;
+use App\Http\Composers\Indicator\UkraineComposer;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('layouts.main', 'App\Http\Composers\GlobalComposer');
         View::composer('partials.publications', 'App\Http\Composers\WidgetComposer');
         View::composer('partials.allpolls', 'App\Http\Composers\PollComposer');
+
+        // indicators
+        View::composer('partials.indicators.prices_eu', EuropeComposer::class);
+        View::composer('partials.indicators.prices_ua', UkraineComposer::class);
     }
 
     /**
