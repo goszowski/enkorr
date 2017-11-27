@@ -10,6 +10,18 @@ Route::group(['prefix'=>'facebook', 'middleware'=>['web']], function() {
   Route::get('callback', 'Front\UserController@facebookCallback');
 });
 
+$path = \Request::path();
+if(str_is('a/*', $path))
+{
+  $nodeByOldPath = Model('publication')->where('old_path', '/'.$path)->first();
+  if($nodeByOldPath)
+  {
+    Route::get($path, function() use($nodeByOldPath) {
+      return redirect($nodeByOldPath->node->absolute_path);
+    });
+  }
+}
+
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect' ]], function()
 {
 

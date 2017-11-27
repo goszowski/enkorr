@@ -1,4 +1,4 @@
-@if(isset($poll))
+@if(isset($poll) and $poll)
   <div class="form-group poll xs-pl-10 xs-pr-15 xs-pt-15 xs-pb-15">
     @if($poll->ipAnswer)
         <h3 class="xs-pb-15">{{$poll->name}}</h3>

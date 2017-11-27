@@ -16,6 +16,8 @@ class Kernel extends ConsoleKernel
         Commands\Runsite::class,
         Commands\RunsiteComponent::class,
         Commands\Test::class,
+        Commands\ImportCommand::class,
+        Commands\ClearContent::class,
     ];
 
     /**
