@@ -59,7 +59,10 @@
 
               <div class="publication-main-image publication-text">
                   <p>
+                    @if($fields->image_from_gallery and $fields->image_from_gallery != 'asset/images/default_image.png')
                       <img src="{{ asset($fields->image_from_gallery) }}" class="img-responsive" alt="{{ $fields->name }}" title="{{ $fields->photo_text }}">
+                    @endif
+                      
                   </p>
               </div>
 

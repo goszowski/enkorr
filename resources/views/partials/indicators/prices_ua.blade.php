@@ -1,3 +1,4 @@
+@if(count($values))
 <div class="form-group">
 	<div class="indicator">
 		<table class="table">
@@ -43,3 +44,4 @@
 		</table>
 	</div>
 </div>
+@endif
