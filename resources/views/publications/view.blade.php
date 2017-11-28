@@ -32,7 +32,7 @@
                       @if(count($authors) == 1)
                         {{-- If one author - will be with photo --}}
                         @foreach ($authors as $k=>$author)
-                          <a class="publication-author" href="{{lPath($author->node->absolute_path)}}">
+                          <a class="publication-author" data-ajax="true" href="{{lPath($author->node->absolute_path)}}">
                             @if($author->image)
                               <span class="author-image"><img src="{{ iPath($author->image, 'thumb') }}" alt="{{$author->name}}"></span>
                             @endif
@@ -46,7 +46,7 @@
                         {{-- If count of authors is more then one, must be inline style, without photos --}}
                         {{ __('Авторы') }}:
                         @foreach ($authors as $k=>$author)
-                          <a href="{{lPath($author->node->absolute_path)}}">
+                          <a data-ajax="true" href="{{lPath($author->node->absolute_path)}}">
                             {{$author->name}}
                           </a>{{ (++$k < count($authors)) ? ',' : null }}
                         @endforeach
