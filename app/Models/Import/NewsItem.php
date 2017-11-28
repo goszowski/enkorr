@@ -103,7 +103,7 @@ class NewsItem extends BaseModel
     		$existsAuthor = Model('author')->where('name', $author->name)->first();
     		if(!$existsAuthor)
     		{
-    			$existsAuthor = (new Store)->node('author', $author->name, 63);
+    			$existsAuthor = (new Store)->node('author', $author->name, 98);
     			$existsAuthor->ru->name = $author->name;
     			$existsAuthor->ru->is_active = true;
     			$existsAuthor->ru->save();
