@@ -97,7 +97,7 @@
                 <div class="col-md-4 text-right">
                   {{-- Filter publications by tag --}}
                   @foreach ($tags as $tag)
-                    <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default">{{$tag->name}}</a>
+                    <a href="{{lPath($tag->node->absolute_path)}}" class="label label-default xs-mb-5" data-ajax="true" style="display: inline-block;">{{$tag->name}}</a>
                   @endforeach
                 </div>
               </div>
