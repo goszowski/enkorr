@@ -22,7 +22,7 @@
                 @foreach( $publications as $k => $publication )
                   <li>
                       <a href="{{ lPath($publication->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
-                          <img src="{{iPath($publication->image,'600px')}}" alt="">
+                          <img src="{{asset($publication->image_from_gallery)}}" alt="">
                           <span>
                             @if($publication->parent_id == config('public.sections.news'))
                               <time datetime="/* publication datetime */">

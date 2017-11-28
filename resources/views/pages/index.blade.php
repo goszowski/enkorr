@@ -21,7 +21,7 @@
                   @foreach( $news as $k => $new )
                     <li class="{{ $k >= 12 ? 'visible-xs' : null }}">
                         <a href="{{ lPath($new->node->absolute_path) }}" data-ajax="true" class="ripple" data-ripple-color="#eee">
-                            <img src="{{ iPath($new->image, '600px') }}" alt="">
+                            <img src="{{ asset($new->image_from_gallery) }}" alt="">
                             <span>
                                 <time datetime="/* publication datetime */">
                                     {{PH::formatDateTime($new->pubdate, false, true)}}
@@ -57,7 +57,7 @@
                       @if($homePub->has('publication'))
                         <div class=" @if($k % config('public.index.multiplicity') == 0) col-md-12 @else col-md-6 @endif publications-item xs-pb-15 sm-pb-30">
                             <a href="{{lPath($homePub->publication->node->absolute_path)}}" data-ajax="true" class="ripple">
-                                <img src="{{iPath($homePub->publication->image, '600px')}}" alt="">
+                                <img src="{{asset($homePub->publication->image_from_gallery)}}" alt="">
                                 <span class="publications-item-detail">
                                     @if($homePub->publication->has('theme'))
                                       <span class="publication-theme">{{$homePub->publication->theme->name}}</span>

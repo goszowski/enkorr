@@ -59,7 +59,7 @@
 
               <div class="publication-main-image publication-text">
                   <p>
-                      <img src="{{ iPath($fields->image, 'full') }}" class="img-responsive" alt="{{ $fields->name }}" title="{{ $fields->photo_text }}">
+                      <img src="{{ asset($fields->image_from_gallery) }}" class="img-responsive" alt="{{ $fields->name }}" title="{{ $fields->photo_text }}">
                   </p>
               </div>
 
@@ -109,7 +109,7 @@
                         @if(isset($publication))
                           <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
                             <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
-                              <img src="{{ iPath($publication->image, '600px') }}" alt="">
+                              <img src="{{ asset($publication->image_from_gallery) }}" alt="">
                               <span class="publications-item-detail">
                                 <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
                                 <h2>{{$publication->name}}</h2>
@@ -127,7 +127,7 @@
                         @if(isset($publication))
                           <div class="col-md-4 publications-item xs-pb-15 sm-pb-30">
                             <a href="{{lPath($publication->node->absolute_path)}}" data-ajax="true" class="ripple">
-                              <img src="{{ iPath($publication->image, '600px') }}" alt="">
+                              <img src="{{ asset($publication->image_from_gallery) }}" alt="">
                               <span class="publications-item-detail">
                                 <span class="publication-theme">@if($publication->theme_id) {{$publication->theme}} @endif</span>
                                 <h2>{{$publication->name}}</h2>
