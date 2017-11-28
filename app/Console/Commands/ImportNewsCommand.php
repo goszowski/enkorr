@@ -6,14 +6,14 @@ use Illuminate\Console\Command;
 use App\Models\Import\NewsItem;
 use App\Runsite\Libraries\Store;
 
-class ImportCommand extends Command
+class ImportNewsCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'import';
+    protected $signature = 'import:news';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class ImportCommand extends Command
      */
     public function handle()
     {
-        $news = NewsItem::where('is_published', true)->orderBy('published_at', 'desc')->skip(1200)->take(1000)->get();
+        $news = NewsItem::where('is_published', true)->orderBy('published_at', 'desc')->skip(3000)->take(3000)->get();
 
         foreach($news as $newsItem)
         {

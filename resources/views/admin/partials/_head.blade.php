@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{_asset('admin/jqueryfiletree-master/dist/jQueryFileTree.min.css')}}">
     <link rel="stylesheet" href="{{_asset('admin/runsite-input-progress/style.css')}}">
     <link rel="stylesheet" href="{{_asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.css')}}">
+    <link rel="stylesheet" href="{{_asset('admin/cropper/dist/cropper.min.css')}}">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="{{_asset('admin/bootstrap-3.3.6-dist/js/bootstrap.min.js')}}"></script>
@@ -41,6 +42,7 @@
     <script src="{{_asset('admin/runsite-input-progress/script.js')}}"></script>
     <script src="{{_asset('admin/admin-resources/bower_components/AdminLTE/plugins/select2/select2.js')}}"></script>
     <script src="{{_asset('admin/admin-resources/bower_components/AdminLTE/plugins/slimScroll/jquery.slimscroll.js')}}"></script>
+    <script src="{{_asset('admin/cropper/dist/cropper.min.js')}}"></script>
 
     {{-- <script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script> --}}
 

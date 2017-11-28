@@ -178,6 +178,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
       Route::group(['prefix'=>'gallery', 'namespace'=>'Gallery', 'as'=>'gallery.'], function() {
         Route::resource('images', 'ImagesController');
+        Route::get('images/crop/{id}', ['as'=>'images.crop-form', 'uses'=>'ImagesController@cropForm']);
+        Route::patch('images/crop/{id}', ['as'=>'images.crop', 'uses'=>'ImagesController@crop']);
         Route::get('search-tag', ['as'=>'search-tag', 'uses'=>'TagsController@search']);
       });
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Runsite\Gallery\Image;
 use App\Runsite\Gallery\Tag;
 use App\Runsite\Gallery\ImageTag;
+use Image as ImageMaker;
 
 class ImagesController extends Controller {
 
@@ -81,18 +82,30 @@ class ImagesController extends Controller {
             }
         }
 
-        return redirect(route('admin.gallery.images.index') . '?fieldname=' . request('fieldname'));
+        return redirect(route('admin.gallery.images.crop-form', $image->id) . '?fieldname=' . request('fieldname'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
+  
+    public function cropForm($id)
     {
-        //
+        $image = Image::findOrFail($id);
+        return view('admin.gallery.images.crop', compact('image'));
+    }
+
+    public function crop($id)
+    {
+        $image = Image::findOrFail($id);
+
+        $imageFile = ImageMaker::make(public_path('gallery/'.$image->image));
+
+        $imageFile->crop((int) request('width'), (int) request('height'), (int) request('x'), (int) request('y'));
+        $imageFile->resize(735, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        $imageFile->save(public_path('gallery/'.$image->image));
+
+        return redirect(route('admin.gallery.images.index') . '?fieldname=' . request('fieldname'));
     }
 
     /**

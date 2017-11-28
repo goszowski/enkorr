@@ -59,12 +59,12 @@ class Dynamic extends Model
 
     public function getImageFromGalleryAttribute($value)
     {
-        if(!$value or ! file_exists(public_path($value)))
+        if(!$value or ! file_exists(public_path('gallery/'.$value)))
         {
             return 'asset/images/default_image.png';
         }
 
-        return $value;
+        return 'gallery/'.$value;
     }
 
 

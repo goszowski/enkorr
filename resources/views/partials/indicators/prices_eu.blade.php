@@ -12,9 +12,9 @@
 					@if($value->has('fuel_type'))
 						<tr>
 							<td><small class="text-primary"><b>{{$value->fuel_type->name}}</b></small></td>
-							<td class="text-right"><small>{{$value->wholesale}}
+							<td class="text-right"><small>{{$value->retail}}
 								@if($oldValues->where('fuel_type_id', $value->fuel_type_id)->first())
-									@if($value->wholesale >= $oldValues->where('fuel_type_id', $value->fuel_type_id)->first()->wholesale)
+									@if($value->retail >= $oldValues->where('fuel_type_id', $value->fuel_type_id)->first()->retail)
 										<i class="fa fa-arrow-up text-success"></i>
 									@else 
 										<i class="fa fa-arrow-down text-danger"></i>
