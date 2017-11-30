@@ -23,9 +23,10 @@ class PublicationController extends RSController
         if(count($themes))
 
           $publications = Model('publication')->where(function($query) use($themes) {
-            foreach($themes as $theme)
+            foreach($themes as $k=>$theme)
             {
-              $query->orWhere('theme_id', '=', $theme->node_id);
+              $method = !$k ? 'where' : 'orWhere';
+              $query->{$method}('theme_id', '=', $theme->node_id);
             }
           })->where('pubdate', '<=', date('Y-m-d H:i:s'))
             ->where('parent_id', '!=', config('public.sections.news'))
