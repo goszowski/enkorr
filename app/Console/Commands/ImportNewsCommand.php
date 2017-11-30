@@ -39,22 +39,28 @@ class ImportNewsCommand extends Command
      */
     public function handle()
     {
-        $news = NewsItem::where('is_published', true)->orderBy('published_at', 'desc')->skip(3000)->take(3000)->get();
+        $news = NewsItem::where('is_published', true)->orderBy('published_at', 'desc')->skip(15000)->take(3000)->get();
 
-        foreach($news as $newsItem)
+        foreach($news as $k=>$newsItem)
         {
             if($newsItem->buildParentID())
             {
                 $data = $newsItem->buildData();
 
-                $node = (new Store)->node('publication', $data['name'], $newsItem->buildParentID());
-
-                foreach($data as $key=>$val)
+                if($data)
                 {
-                    $node->ru->{$key} = $val;
+                    $node = (new Store)->node('publication', $data['name'], $newsItem->buildParentID());
+
+                    foreach($data as $key=>$val)
+                    {
+                        $node->ru->{$key} = $val;
+                    }
+                    
+                    $node->ru->save();
+                    $this->comment('Last imported: ' . $k);
                 }
+
                 
-                $node->ru->save();
             }
         }
     }

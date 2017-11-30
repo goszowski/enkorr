@@ -68,10 +68,10 @@ class NewsItem extends BaseModel
 
     	foreach($tags as $k=>$tag)
     	{
-    		$existsTag = Model('tag')->where('name', $tag->name)->first();
+    		$existsTag = Model('tag')->where('name', trim($tag->name))->first();
     		if(!$existsTag)
     		{
-    			$existsTag = (new Store)->node('tag', $tag->name, 63);
+    			$existsTag = (new Store)->node('tag', trim($tag->name), 63);
     			$existsTag->ru->name = $tag->name;
     			$existsTag->ru->is_active = true;
     			$existsTag->ru->save();
@@ -100,10 +100,10 @@ class NewsItem extends BaseModel
 
     	foreach($authors as $k=>$author)
     	{
-    		$existsAuthor = Model('author')->where('name', $author->name)->first();
+    		$existsAuthor = Model('author')->where('name', trim($author->name))->first();
     		if(!$existsAuthor)
     		{
-    			$existsAuthor = (new Store)->node('author', $author->name, 98);
+    			$existsAuthor = (new Store)->node('author', trim($author->name), 98);
     			$existsAuthor->ru->name = $author->name;
     			$existsAuthor->ru->is_active = true;
     			$existsAuthor->ru->save();
@@ -127,13 +127,18 @@ class NewsItem extends BaseModel
 
     public function buildData()
     {
+        if(!$this->data)
+        {
+            return false;
+        }
+
     	return [
     		'name' => $this->data->title,
     		'is_active' => true,
     		'pub_title' => $this->data->announce,
     		'image_from_gallery' => '',
     		'photo_text' => '',
-    		'content' => $this->data->body,
+    		'content' => str_replace('http://oilnews.com.ua', 'http://enkorr.com.ua', $this->data->body),
     		'pinned' => false,
     		'bold' => false,
     		'theme_id' => $this->getThemeId(),
