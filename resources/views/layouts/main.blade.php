@@ -169,7 +169,7 @@
       <!-- / Vendor scripts -->
 
       <!-- App scripts -->
-      <script src="{{ asset('assets/js/scripts.js?4') }}"></script>
+      <script src="{{ asset('assets/js/scripts.js?5') }}"></script>
       <script type="text/javascript">
         $(function() {
 
