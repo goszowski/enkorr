@@ -59,3 +59,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
   }
 
 });
+
+if(env('FRONTEND_ENABLED') and env('FRONTEND_TEMPLATE'))
+{
+  Route::get('/', function() {
+    return view('templates.'.env('FRONTEND_TEMPLATE'));
+  });
+}
