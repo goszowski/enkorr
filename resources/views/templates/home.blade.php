@@ -1,206 +1,69 @@
 @extends('templates.layout')
 
 @section('page')
-<div class="container">
 
-	<div class="row">
-		<div class="home-blocks-wrapp xs-mt-30">
-			<div class="col-sm-7 sm-padd-right-zero">
-				<a href="#" class="home-block">
-					<img src="{{ asset('/asset/img/homebl.jpg') }}">
-					<div class="home-block__descr">
-						<span class="btn btn-warning home-block-btn">новини</span>
-						<h2 class="home-block__title">Україна очолила рейтинг боротьби з корупцією</h2>
-						<p class="home-block-date"><time>20.05.2018</time></p>
-					</div>
-				</a>
-			</div>
-			<div class="col-sm-5">
-				<a href="#" class="home-block home-block-small">
-					<img src="{{ asset('/asset/img/homebl.jpg') }}">
-					<div class="home-block__descr">
-						<span class="btn btn-warning home-block-btn">новини</span>
-						<h2 class="home-block__title">Україна очолила рейтинг боротьби з корупцією</h2>
-						<p class="home-block-date"><time>20.05.2018</time></p>
-					</div>
-				</a>
-				<a href="#" class="home-block home-block-small xs-mt-10">
-					<img src="{{ asset('/asset/img/homebl.jpg') }}">
-					<div class="home-block__descr">
-						<span class="btn btn-warning home-block-btn">новини</span>
-						<h2 class="home-block__title">Україна очолила рейтинг боротьби з корупцією</h2>
-						<p class="home-block-date"><time>20.05.2018</time></p>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>	
-	
-	<div class="square-blocks-wrapp md-mt-30">
-		<a href="#" class="square-block">
-			<img src="{{ asset('/asset/img/shape-1.png') }}" alt="img1">
-			<p class="square-block__title">Контроль за діяльністю за НАБУ</p>
-		</a>
-		<a href="#" class="square-block">
-			<img src="{{ asset('/asset/img/shape-2.png') }}" alt="img1">
-			<p class="square-block__title">Контроль за діяльністю за НАБУ</p>
-		</a>
-		<a href="#" class="square-block">
-			<img src="{{ asset('/asset/img/shape-3.png') }}" alt="img1">
-			<p class="square-block__title">Контроль за діяльністю за НАБУ</p>
-		</a>
-	</div>
-	
-	<div class="row xs-mt-30 xs-mb-30 sm-mb-70 md-mb-90 md-mt-40">
+<div class="container-fluid grey-bg xs-pb-30 xs-pt-20">
+	<div class="container">
 
-		<div class="col-md-8">
-			<div class="title-wrapp title-left xs-mb-20">
-				<h1 class="section-title">Новини</h1>
-			</div>
-			<div class="home-news">
-				<a href="#" class="news-item">
-					<div class="row">
-						<div class="col-md-5 col-lg-4">
-							<div class="news-item__img-wrapp">
-								<img src="{{ asset('/asset/img/news/item1.jpg') }}">
-							</div>
-						</div>
-						<div class="col-md-7 col-lg-8">
-							<div class="news-item__description xs-mt-20 md-mt-0">
-								<h2 class="news-item__description_title ">Розпорядження N145-р від 25 січня 2018 року</h2>
-								<p class="author">Автор:<object><a href="http://google.com.ua" target="_blank" class="author-name">Маша Кривоніс</a></object> - <span><time class="item-time">14.45</time></span></p>
-								<p class="news-item-description_text">Розпорядженням Директора Національного антикорупційного бюро України від 25 січня 2018 року N145-р оголошено конкурс на зайняття вакантної посади в Національному антикорупційному бюро України (далі – Національне бюро).</p>
-								<span class="btn btn-lg has-arrow-right btn-transparent">Читати більше<i class="fa fa-long-arrow-right"></i></span>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="#" class="news-item">
-					<div class="row">
-						<div class="col-md-5 col-lg-4">
-							<div class="news-item__img-wrapp">
-								<img src="{{ asset('/asset/img/news/item1.jpg') }}">
-							</div>
-						</div>
-						<div class="col-md-7 col-lg-8">
-							<div class="news-item__description xs-mt-20 md-mt-0">
-								<h2 class="news-item__description_title ">Розпорядження N145-р від 25 січня 2018 року</h2>
-								<p class="author">Автор:<object><a href="http://google.com.ua" target="_blank" class="author-name">Маша Кривоніс</a></object> - <span><time class="item-time">14.45</time></span></p>
-								<p class="news-item-description_text">Розпорядженням Директора Національного антикорупційного бюро України від 25 січня 2018 року N145-р оголошено конкурс на зайняття вакантної посади в Національному антикорупційному бюро України (далі – Національне бюро).</p>
-								<span class="btn btn-lg has-arrow-right btn-transparent">Читати більше<i class="fa fa-long-arrow-right"></i></span>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="#" class="news-item">
-					<div class="row">
-						<div class="col-md-5 col-lg-4">
-							<div class="news-item__img-wrapp">
-								<img src="{{ asset('/asset/img/news/item1.jpg') }}">
-							</div>
-						</div>
-						<div class="col-md-7 col-lg-8">
-							<div class="news-item__description xs-mt-20 md-mt-0">
-								<h2 class="news-item__description_title ">Розпорядження N145-р від 25 січня 2018 року</h2>
-								<p class="author">Автор:<object><a href="http://google.com.ua" target="_blank" class="author-name">Маша Кривоніс</a></object> - <span><time class="item-time">14.45</time></span></p>
-								<p class="news-item-description_text">Розпорядженням Директора Національного антикорупційного бюро України від 25 січня 2018 року N145-р оголошено конкурс на зайняття вакантної посади в Національному антикорупційному бюро України (далі – Національне бюро).</p>
-								<span class="btn btn-lg has-arrow-right btn-transparent">Читати більше<i class="fa fa-long-arrow-right"></i></span>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="#" class="news-item">
-					<div class="row">
-						<div class="col-md-5 col-lg-4">
-							<div class="news-item__img-wrapp">
-								<img src="{{ asset('/asset/img/news/item1.jpg') }}">
-							</div>
-						</div>
-						<div class="col-md-7 col-lg-8">
-							<div class="news-item__description xs-mt-20 md-mt-0">
-								<h2 class="news-item__description_title ">Розпорядження N145-р від 25 січня 2018 року</h2>
-								<p class="author">Автор:<object><a href="http://google.com.ua" target="_blank" class="author-name">Маша Кривоніс</a></object> - <span><time class="item-time">14.45</time></span></p>
-								<p class="news-item-description_text">Розпорядженням Директора Національного антикорупційного бюро України від 25 січня 2018 року N145-р оголошено конкурс на зайняття вакантної посади в Національному антикорупційному бюро України (далі – Національне бюро).</p>
-								<span class="btn btn-lg has-arrow-right btn-transparent">Читати більше<i class="fa fa-long-arrow-right"></i></span>
-							</div>
-						</div>
-					</div>
-				</a>
-			</div>
-			<a href="#" class="btn btn-warning btn-block home-btn-transp xs-mt-20">Всі новини та блоги</a>
-		</div>
+		<div class="row">
 
-		<div class="col-md-4 xs-mt-40 md-mt-0">
-			<div class="title-wrapp title-left xs-mb-20">
-				<h1 class="section-title">Події</h1>
-			</div>
-			
-			<div class="home-sidebar__wrapp">
-					
-				<div class="home-sidebar__items_wrapp">
-					
-					<a href="#" class="home-sidebar__item">
-						<img class="hidden-xs hidden-sm" src="{{ asset('/asset/img/homebl.jpg') }}" alt="imgg">
-						<div class="row">
-							<div class="col-xs-4">
-								<div class="home-sidebar__item_date_wrapp">
-									<p class="home-sidebar__item_date">08</p>
-									<p class="home-sidebar__item_date">листопада</p>
-									<p class="home-sidebar__item_date">Початок о <time>16.00</time></p>
-								</div>
-							</div>
-							<div class="col-xs-8 padd-left-zero">
-								<div class="home-sidebar__item_descr">
-									<p class="home-sidebar__item_descr_text">Загальна зустріч з Остапом Семераком, Міністром екології та природних ресурсів України</p>
-									<span class="btn btn-lg has-arrow-right btn-transparent btn-blue">детальніше <i class="fa fa-long-arrow-right"></i></span>
-								</div>
-							</div>
+			<div class="home-last-news">
+				<div class="col-md-6">
+					<a href="#" class="last-news__big">
+						<img src="{{ asset('/asset/img/home/gaz1.png') }}" alt="news1">
+						<div class="last-news__big_description">
+							<h2 class="last-news__big_descr_title text-uppercase">Цены на СУГ приблизились до абсолютного максимума</h2>
+							<p class="last-news__big_descr_text">С начала недели автомобильные партии сжиженного газа подорожали на 1 550 грн/т, до 22 240 грн/т. Об этом OilNews рассказали в «Консалтинговой группе А-95» по итогам ежедневного мониторинга цен на оптовом рынке <span class="load">...</span></p>
 						</div>
 					</a>
-
-					<a href="#" class="home-sidebar__item">
-						<div class="row">
-							<div class="col-xs-4">
-								<div class="home-sidebar__item_date_wrapp">
-									<p class="home-sidebar__item_date">08</p>
-									<p class="home-sidebar__item_date">листопада</p>
-									<p class="home-sidebar__item_date">Початок о <time>16.00</time></p>
-								</div>
-							</div>
-							<div class="col-xs-8 padd-left-zero">
-								<div class="home-sidebar__item_descr">
-									<p class="home-sidebar__item_descr_text">Загальна зустріч</p>
-									<span class="btn btn-lg has-arrow-right btn-transparent btn-blue">детальніше <i class="fa fa-long-arrow-right"></i></span>
-								</div>
-							</div>
-						</div>
-					</a>
-					
-					<a href="#" class="home-sidebar__item">
-						<div class="row">
-							<div class="col-xs-4">
-								<div class="home-sidebar__item_date_wrapp">
-									<p class="home-sidebar__item_date">08</p>
-									<p class="home-sidebar__item_date">листопада</p>
-									<p class="home-sidebar__item_date">Початок о <time>16.00</time></p>
-								</div>
-							</div>
-							<div class="col-xs-8 padd-left-zero">
-								<div class="home-sidebar__item_descr">
-									<p class="home-sidebar__item_descr_text">Загальна зустріч з Остапом Семераком</p>
-									<span class="btn btn-lg has-arrow-right btn-transparent btn-blue">детальніше <i class="fa fa-long-arrow-right"></i></span>
-								</div>
-							</div>
-						</div>
-					</a>
-
-					
+				</div>
+				<div class="col-md-6 xs-mt-30 md-mt-0">
+					<div class="block-title">
+						<h2 class="block-title_text">Последние новости</h2>
+					</div>
+					<div class="last-news-items-wrapp">
+						<a href="#" class="last-news_item">
+							<p class="last-news_item_text">Россия хочет обязать белорусские НПЗ экспортировать нефтепродукты через свои порты <span class="load">...</span></p>
+							<span class="last-news-item_time"><time>16.25</time></span>
+						</a>
+						<a href="#" class="last-news_item">
+							<p class="last-news_item_text">Россия хочет обязать белорусские НПЗ экспортировать нефтепродукты через свои порты <span class="load">...</span></p>
+							<span class="last-news-item_time"><time>16.25</time></span>
+						</a>
+						<a href="#" class="last-news_item">
+							<p class="last-news_item_text">Россия хочет обязать белорусские НПЗ экспортировать нефтепродукты через свои порты <span class="load">...</span></p>
+							<span class="last-news-item_time"><time>16.25</time></span>
+						</a>
+						<a href="#" class="last-news_item">
+							<p class="last-news_item_text">Россия хочет обязать белорусские НПЗ экспортировать нефтепродукты через свои порты <span class="load">...</span></p>
+							<span class="last-news-item_time"><time>16.25</time></span>
+						</a>
+						<a href="#" class="last-news_item">
+							<p class="last-news_item_text">Россия хочет обязать белорусские НПЗ экспортировать нефтепродукты через свои порты <span class="load">...</span></p>
+							<span class="last-news-item_time"><time>16.25</time></span>
+						</a>
+					</div>
+					<div class="last-news-btn-wrapp text-center xs-mt-30 sm-mt-40">
+						<a href="#" class="btn btn-warning big-btn text-uppercase">Перейти в раздел</a>
+					</div>
 				</div>
 			</div>
-			<a href="#" class="btn btn-warning btn-block home-btn-transp xs-mt-20">Всі події</a>
+
+		</div>
+		<div class="baner-wrapp text-center xs-mt-30 md-mt-25 xs-mb-15">
+			<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
 		</div>
 	</div>
-
-
 </div>
+
+<div class="container">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
 @endsection

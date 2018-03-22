@@ -7584,12 +7584,20 @@ button.close {
 
 /*# sourceMappingURL=sass-space.css.map */
 @font-face {
-  font-family: "Arial-MT";
-  src: url("https://nomail.com.ua/files/eot/a27c5975a1a88dcd17c7c606902044d9.eot?#iefix") format("embedded-opentype"), url("https://nomail.com.ua/files/woff/a27c5975a1a88dcd17c7c606902044d9.woff") format("woff"), url("https://nomail.com.ua/files/woff2/a27c5975a1a88dcd17c7c606902044d9.woff2") format("woff2"); }
+  font-family: "Arial";
+  src: url("../../fonts/arial.ttf"); }
 
 @font-face {
-  font-family: 'Georgia-Pro';
-  src: url("https://nomail.com.ua/files/eot/3464c522d4cb1ae7f651d631f3df922b.eot?#iefix") format("embedded-opentype"), url("https://nomail.com.ua/files/woff/3464c522d4cb1ae7f651d631f3df922b.woff") format("woff"), url("https://nomail.com.ua/files/woff2/3464c522d4cb1ae7f651d631f3df922b.woff2") format("woff2"); }
+  font-family: "Arial-Bold";
+  src: url("../../fonts/arialbd.ttf"); }
+
+@font-face {
+  font-family: "Georgia-Pro";
+  src: url("../../fonts/georgia.ttf"); }
+
+@font-face {
+  font-family: "Georgia-Pro-Bold";
+  src: url("../../fonts/georgia-bold.ttf"); }
 
 html, body {
   overflow-x: hidden; }
@@ -7647,10 +7655,13 @@ body {
   font-size: 14px;
   min-width: 320px;
   position: relative;
-  line-height: 1.6;
+  line-height: 1.4;
   overflow-x: hidden;
   opacity: 1;
-  color: #454545; }
+  color: #000; }
+
+.navbar {
+  margin-bottom: 0; }
 
 .navbar-toggle {
   margin-top: 35px;
@@ -7707,7 +7718,7 @@ body {
 
 .navbar-collapse {
   letter-spacing: 0.45px;
-  font-family: "Arial-MT"; }
+  font-family: "Arial"; }
   .navbar-collapse .main-nav {
     float: none;
     display: inline-block; }
@@ -7726,17 +7737,95 @@ body {
     padding-bottom: 5px;
     transition: color 0.20s ease; }
 
-.collapse .top-menu {
-  font-size: 12px; }
-  .collapse .top-menu a {
-    padding-top: 10px;
-    padding-bottom: 10px; }
+.navbar .top-menu li a {
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 .menu-line {
   width: 100%;
   height: 47px; }
 
 /*-----Кастомний стиль кнопки-------*/
+.big-btn {
+  padding: 7px 35px;
+  letter-spacing: 0.25px;
+  font-size: 10px;
+  font-family: "Arial"; }
+
+/*===========Home=========*/
+.grey-bg {
+  background-color: #f6f6f6; }
+
+.last-news__big {
+  color: #000;
+  transition: all 0.2s ease;
+  display: block; }
+  .last-news__big img {
+    width: 100%;
+    transition: all 0.2s ease; }
+  .last-news__big:hover img {
+    opacity: 0.9; }
+
+.last-news__big_descr_title {
+  letter-spacing: 1.5px;
+  font-size: 26px;
+  font-family: "Arial-Bold";
+  margin-top: 25px;
+  font-weight: 700; }
+
+.last-news__big_descr_text {
+  margin-top: 15px;
+  font-size: 16px; }
+
+.load {
+  color: #f37021; }
+
+.block-title {
+  position: relative; }
+  .block-title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 18px;
+    background-color: #f37021; }
+
+.block-title_text {
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+  font-family: "Arial";
+  font-size: 18px;
+  margin: 0;
+  padding-left: 10px; }
+
+.last-news_item {
+  padding-top: 20px;
+  display: block;
+  color: #000;
+  border-bottom: 1px solid #b9b9b9; }
+  .last-news_item:hover .last-news_item_text {
+    text-decoration: underline; }
+  .last-news_item:hover .load {
+    text-decoration: none; }
+
+.last-news-item_time {
+  letter-spacing: 0.25px;
+  font-size: 10px;
+  font-family: "Arial";
+  color: #777777; }
+
+.last-news_item_text {
+  font-weight: 700;
+  font-family: "Georgia-Pro-Bold";
+  margin-bottom: 10px;
+  transition: all 0.2s ease; }
+
+.baner-wrapp img, .baner-wrapp iframe {
+  width: auto;
+  max-width: 100%; }
+
 /*------Media requests------*/
 /* Medium Devices, Desktops */
 /* Small Devices, Tablets */
@@ -7754,7 +7843,13 @@ body {
   .menu-line {
     height: auto; }
   .navbar-header {
-    min-height: 101px; } }
+    min-height: 101px; }
+  .last-news__big_descr_title {
+    font-size: 24px; }
+  .main-nav-right {
+    margin-top: 0; }
+  .navbar-collapse .navbar-right li:last-child a {
+    padding-right: 15px; } }
 
 @media only screen and (min-width: 766px) {
   .menu-line {
@@ -7769,6 +7864,10 @@ body {
     padding-bottom: 7px; } }
 
 /* Custom, iPhone Retina */
+@media (max-width: 450px) {
+  .last-news__big_descr_title {
+    font-size: 20px; } }
+
 .text-xs-left {
   text-align: left; }
 

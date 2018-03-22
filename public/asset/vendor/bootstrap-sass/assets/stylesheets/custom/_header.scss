@@ -1,3 +1,6 @@
+.navbar {
+	margin-bottom: 0;
+}
 
 .navbar-toggle {
 	margin-top: 35px;
@@ -66,7 +69,7 @@
 
 .navbar-collapse {
 	letter-spacing: 0.45px;
-	font-family: "Arial-MT";
+	font-family: "Arial";
 	.main-nav {
 		float: none;
 		display: inline-block;
@@ -96,9 +99,9 @@
 }
 
 
-.collapse .top-menu {
-	font-size: 12px;
-	a {
+.navbar .top-menu {
+	li a {
+		font-size: 12px;
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
