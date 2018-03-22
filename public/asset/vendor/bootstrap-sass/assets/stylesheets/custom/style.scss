@@ -1,0 +1,205 @@
+
+@font-face {
+	font-family: "Arial-MT";
+	src : url('https://nomail.com.ua/files/eot/a27c5975a1a88dcd17c7c606902044d9.eot?#iefix') format('embedded-opentype'),
+	url('https://nomail.com.ua/files/woff/a27c5975a1a88dcd17c7c606902044d9.woff') format('woff'),
+	url('https://nomail.com.ua/files/woff2/a27c5975a1a88dcd17c7c606902044d9.woff2') format('woff2');
+}
+
+
+@font-face {
+	font-family: 'Georgia-Pro';
+	src: url('https://nomail.com.ua/files/eot/3464c522d4cb1ae7f651d631f3df922b.eot?#iefix') format('embedded-opentype'),
+			url('https://nomail.com.ua/files/woff/3464c522d4cb1ae7f651d631f3df922b.woff') format('woff'),
+			url('https://nomail.com.ua/files/woff2/3464c522d4cb1ae7f651d631f3df922b.woff2') format('woff2');
+}
+
+
+
+html, body {
+	overflow-x: hidden;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	&:before, &:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+}
+
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+::selection {
+  background: $brand-success; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: $brand-success; /* Gecko Browsers */
+  color: #fff;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+	color: #666;
+}
+body input:required:valid,
+body textarea:required:valid {
+	color: #666;
+}
+
+a, a:active, a:hover, a:focus {
+	outline: none!important;
+	text-decoration: none!important;
+	color: #f37021;
+}
+
+
+body {
+	font-family: 'Georgia-Pro', sans-serif;
+	font-size: 14px;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.6;
+	overflow-x: hidden;
+	opacity: 1;
+	color: #454545;
+}
+
+
+
+@import 'header';
+@import 'slider';
+/*-----Кастомний стиль кнопки-------*/
+
+
+
+
+
+/*------Media requests------*/
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 1200px) {
+	
+}
+
+@media only screen and (max-width : 1200px) {
+
+}
+
+
+@media only screen and (max-width : 992px)
+{
+	
+}
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 992px)
+{
+	.navbar-collapse .menu-line {
+			padding-left: 0;
+			text-align: center;
+		}
+		.navbar .navbar-collapse .main-nav li a {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+		.main-nav {
+			margin-right: 0px;
+		}
+}
+
+
+@media only screen and (max-width : 766px)
+{
+	.menu-line {
+		height: auto;
+	}
+	.navbar-header {
+		min-height: 101px;
+	}
+}
+
+@media only screen and (min-width : 766px) {
+	.menu-line {
+		padding-left: 180px;
+		text-align: right;
+	}
+	.navbar-collapse .main-nav li a {
+		padding-right: 12px;
+		padding-left: 12px;
+	}
+	.main-nav {
+		margin-right: -30px;
+	}	
+	.navbar {
+		padding-bottom: 7px;
+	}
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+{
+	
+}
+
+ @media (max-width: 450px) 
+{
+	
+}
+
+
+.text-xs-left { text-align: left; }
+.text-xs-right { text-align: right; }
+.text-xs-center { text-align: center; }
+.text-xs-justify { text-align: justify; }
+
+@media (min-width: $screen-sm-min) {
+    .text-sm-left { text-align: left; }
+    .text-sm-right { text-align: right; }
+    .text-sm-center { text-align: center; }
+    .text-sm-justify { text-align: justify; }
+}
+
+@media (min-width: $screen-md-min) {
+    .text-md-left { text-align: left; }
+    .text-md-right { text-align: right; }
+    .text-md-center { text-align: center; }
+    .text-md-justify { text-align: justify; }
+}
+
+@media (min-width: $screen-lg-min) {
+   .text-lg-left { text-align: left; }
+   .text-lg-right { text-align: right; }
+   .text-lg-center { text-align: center; }
+   .text-lg-justify { text-align: justify; }
+}
+
+
+
+@import 'footer';
+

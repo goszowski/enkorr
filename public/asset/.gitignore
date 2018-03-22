@@ -1,0 +1,6 @@
+!.girignore
+node_modules
+old
+!vendor/
+vendor/*
+!vendor/bootstrap-sass
