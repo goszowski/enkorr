@@ -9,9 +9,7 @@
 	
 
 	<link rel="stylesheet" href="{{ asset('asset/vendor/font-awesome/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('asset/vendor/jssocials/dist/jssocials.css') }}">
-	<link rel="stylesheet" href="{{ asset('asset/vendor/jssocials/dist/jssocials-theme-flat.css') }}">
-	<link rel="stylesheet" href="{{ asset('asset/vendor/select2/dist/css/select2.min.css') }}">
+	<link rel="stylesheet" href="{{asset('asset/vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap.min.css') }}">
 </head>
 
@@ -74,16 +72,86 @@
 	
 
 
-<script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
-<script src="{{ asset('asset/libs/pace/pace.min.js') }}"></script>
-<script src="{{asset('asset/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js')}}"></script>
+	<script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
+	<script src="{{asset('asset/libs/pace/pace.min.js') }}"></script>
+	<script src="{{asset('asset/vendor/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+	<script src="{{asset('asset/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js')}}"></script>
 
 
 
-<!-- Latest compiled and minified JavaScript -->
-<script>
-	
-</script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script>
+		$(document).ready(function(){
+			$('.owl-carousel-home').owlCarousel({
+				loop:false,
+				margin:0,
+				//navText: ['',''],
+				nav:false,
+				dots: false,
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:1
+					},
+					1000:{
+						items:1
+					}
+				}
+			});
+
+			var owl = $('.owl-carousel-home');
+			owl.owlCarousel();
+
+			$('.customNextBtn').click(function() {
+				owl.trigger('next.owl.carousel');
+			});
+
+			$('.customPrevBtn').click(function() {
+				owl.trigger('prev.owl.carousel', [300]);
+			});
+
+			var equalizeColumns = function(selector) {
+				var maxDisplayPoint = 959;
+				var columns = $(selector);
+				var maxHeight = 0;
+				if($(window).width() >= maxDisplayPoint)
+				{
+					columns.each(function(){
+						$(this).height('auto');
+					});
+					columns.each(function(){
+						var curentHeight = $(this).height();
+
+						if(curentHeight > maxHeight){
+							maxHeight = curentHeight;
+						}
+
+					});
+
+					$(selector).height(maxHeight);
+				}
+				else
+				{
+					columns.css('height','auto');
+				}
+			}
+
+			$(function(){
+				var selector = '.equal-block';
+				setTimeout(function(){
+					equalizeColumns(selector);
+				}, 50);
+
+				$(window).on('resize', function(){
+					equalizeColumns(selector);
+				});
+
+			});
+			
+		});
+	</script>
 
 
 </body>
