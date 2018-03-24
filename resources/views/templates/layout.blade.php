@@ -83,14 +83,14 @@
 						<form>
 							<p class="email-label xs-mt-15 sm-mt-0">Подпишитесь на еженедельную рассылку:</p>
 							<div class="form-group footer-form">
-								<input type="email" class="form-control footer-email md-mt-15" id="email" placeholder="Email">
+								<input type="email" class="form-control footer-email md-mt-20" id="email" placeholder="Email">
 								<button class="submit-email"><i class="fa fa-long-arrow-right"></i></button>
 							</div>
 						</form>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-5">
-					<p class="footer-text md-ml-35 xs-mt-20">При перепечатке материалов сайта гиперссылка на enkorr.com.ua обязательна. Все материалы, размещенные на enkorr.com.ua со ссылкой на ИА “Интерфакс-Украина”, не подлежат дальнейшему распространению, кроме как с письменного разрешения ИА.</p>
+					<p class="footer-text md-ml-35 xs-mt-20 md-mt-20">При перепечатке материалов сайта гиперссылка на enkorr.com.ua обязательна. Все материалы, размещенные на enkorr.com.ua со ссылкой на ИА “Интерфакс-Украина”, не подлежат дальнейшему распространению, кроме как с письменного разрешения ИА.</p>
 				</div>
 			</div>
 			<div class="footer-bottom-line row sm-mt-60 xs-mt-20">
