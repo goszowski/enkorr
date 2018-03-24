@@ -69,7 +69,44 @@
 
 
 	@yield('page')
-	
+
+	<footer class="xs-pt-30 xs-pb-20 sm-pb-35 sm-pt-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-3">
+					<div class="footer-logo-wrapp sm-mt-15">
+						<img src="{{ asset('/asset/img/footer-logo.png') }}">
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="footer-form">
+						<form>
+							<p class="email-label xs-mt-15 sm-mt-0">Подпишитесь на еженедельную рассылку:</p>
+							<div class="form-group footer-form">
+								<input type="email" class="form-control footer-email md-mt-15" id="email" placeholder="Email">
+								<button class="submit-email"><i class="fa fa-long-arrow-right"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-5">
+					<p class="footer-text md-ml-35 xs-mt-20">При перепечатке материалов сайта гиперссылка на enkorr.com.ua обязательна. Все материалы, размещенные на enkorr.com.ua со ссылкой на ИА “Интерфакс-Украина”, не подлежат дальнейшему распространению, кроме как с письменного разрешения ИА.</p>
+				</div>
+			</div>
+			<div class="footer-bottom-line row sm-mt-60 xs-mt-20">
+				<div class="col-sm-6">
+					<p class="license text-uppercase">© EnKorr 2017. Все права защищены</p>
+				</div>
+				<div class="col-sm-6 text-md-right">
+					<ul class="footer-social">
+						<li><a href="#" class="fb-color"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 
 
 	<script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -149,7 +186,7 @@
 				});
 
 			});
-			
+
 		});
 	</script>
 

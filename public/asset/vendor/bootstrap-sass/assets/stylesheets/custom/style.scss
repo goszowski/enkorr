@@ -467,12 +467,142 @@ body {
 	}
 }
 
-
 .small-logo {
 	position: absolute;
 	width: 100%;
 	bottom: 10px;
 	right: 10px;
+}
+
+
+.analitic-content_title {
+	letter-spacing: 0.55px;
+	font-family: 'Arial';
+	font-size: 22px;
+}
+
+
+.table > tbody > tr > td {
+	border-top: 2px solid #fff;
+	background-color: #f6f6f6;
+}
+
+.table > thead > tr > th {
+	border-bottom: none;
+	padding-bottom: 3px;
+}
+
+.price-title {
+	font-family: "Arial";
+	vertical-align: middle;
+}
+
+.fix-width {
+	width: 75px;
+}
+
+.price-value {
+	position: relative;
+	font-family: "Arial-Bold";
+	.fa {
+		position: absolute;
+		right: 5px;
+		top: 4px;
+		font-size: 26px;
+	}
+}
+
+.fa-style {
+	.fa {
+		right: auto;
+		margin-left: 7px;
+	}
+}
+
+.field-name {
+	letter-spacing: 0.25px;
+	font-family: "Arial";
+	font-size: 10px;
+}
+
+.email-label {
+	letter-spacing: 0.35px;
+	font-family: "Arial";
+	font-weight: 700;
+}
+
+.footer-form {
+	max-width: 340px;
+}
+
+.footer-email {
+	margin-top: 5px;
+	box-shadow: none;
+	border: none;
+	padding-left: 0;
+	border-bottom: 2px solid #000;
+	&::placeholder {
+		color: #000;
+	}
+}
+
+.submit-email {
+	box-shadow: none;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: absolute;
+	bottom: 0px;
+	right: 0;
+	outline: none;
+	transition: all 0.2s ease;
+	&:hover, &:focus {
+		background-color: lighten(#000, 15%);
+	}
+}
+
+.form-group {
+	position: relative;
+}
+
+.footer-text {
+	font-size: 10px;
+	color: #777777;
+	font-family: "Arial";
+}
+
+
+.license {
+	color: #777777;
+	letter-spacing: 0.25px;
+	font-size: 10px;
+	font-family: "Arial";
+}
+
+.footer-social {
+	margin: 0;
+	//margin-top: -30px;
+	padding: 0;
+	li {
+		list-style-type: none;
+		display: inline-block;
+		a {
+			display: block;
+			font-size: 40px;
+		}
+	}
+}
+
+.fb-color {
+	color: #465892;
+}
+
+.footer-email:focus {
+	border-color: $brand-warning;
+	box-shadow: none;
+	outline: none;
 }
 
 /*------Media requests------*/
@@ -520,8 +650,10 @@ body {
 	.small-logo {
 		position: relative;
 	}
+	.fix-width {
+		width: 100px;
+	}
 }
-
 
 
 /* Small Devices, Tablets */
@@ -547,11 +679,13 @@ body {
 
 @media only screen and (max-width : 766px)
 {
-	
+
 }
 
 @media only screen and (min-width : 766px) {
-	
+	.footer-social {
+		margin-top: -32px;
+	}
 }
 
 

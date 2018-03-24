@@ -153,8 +153,8 @@
 					
 				</div>
 				<div class="text-right xs-pb-10 small-logo">
-						<img src="{{ asset('/asset/img/small-logo.png') }}">
-					</div>
+					<img src="{{ asset('/asset/img/small-logo.png') }}">
+				</div>
 			</div>
 			<div class="btn-wrapp text-center xs-mt-20">
 				<a href="#" class="btn btn-default big-btn black-border text-uppercase bold">Перейти в раздел</a>
@@ -256,16 +256,66 @@
 	</div>
 </div>
 
-<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-</ul>
+<div class="container xs-pt-20 xs-pb-40">
+	<div class="block-title">
+		<h2 class="block-title_text">Аналитика</h2>
+	</div>
+	<div class="row analitic-content xs-mt-30">
+		<div class="col-md-4">
+			<p class="analitic-content_title">Цены в Европе (вчера)</p>
+			<table class="table xs-mt-35">
+				<tbody>
+					<tr>
+						<td class="price-title">RBOB Gasoline (NYMEX), $/Gall</td>
+						<td class="text-left price-value fix-width">1.6212 <i class="fa fa-caret-down text-danger"></i></td>
+					</tr>
+					<tr>
+						<td class="price-title">RBOB Gasoline (NYMEX), $/Gall</td>
+						<td class="text-left  price-value fix-width">1.62 <i class="fa fa-caret-up text-success"></i></td>
+					</tr>
+					<tr>
+						<td class="price-title">RBOB Gasoline (NYMEX), $/Gall</td>
+						<td class="text-left  price-value fix-width">1.62 <i class="fa fa-caret-up text-success"></i></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<p class="analitic-content_title">Цены в Украине (вчера)</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th class="field-name">Опт, грн/т</th>
+						<th class="field-name">Розница, грн/л</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="price-title">А-95</td>
+						<td class="price-value fa-style">285752<i class="fa fa-caret-up text-success"></i></td>
+						<td class="text-left price-value fa-style">1.6212 <i class="fa fa-caret-down text-danger"></i></td>
+					</tr>
+					<tr>
+						<td class="price-title">А-95</td>
+						<td class="price-value fa-style">285752</td>
+						<td class="text-left price-value fa-style">1.6212 <i class="fa fa-caret-down text-danger"></i></td>
+					</tr>
+					<tr>
+						<td class="price-title">А-95</td>
+						<td class="price-value fa-style">285752</td>
+						<td class="text-left price-value fa-style">1.6212 <i class="fa fa-caret-down text-danger"></i></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			16.25
+		</div>
+	</div>
+	<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
+		<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
+	</div>
+</div>
+
 @endsection
