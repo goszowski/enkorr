@@ -605,6 +605,26 @@ body {
 	outline: none;
 }
 
+.owl-carousel-home{
+	.owl-dots {
+		text-align: center;
+		.owl-dot {
+			display: inline-block;
+			width: 8px;
+			border-radius: 50%;
+			height: 8px;
+			margin: 0 3px;
+			background-color: #fff;
+			z-index: 5;
+			outline: none;
+		}
+		.active {
+			background-color: #b9b9b9;
+		}
+	}
+}
+
+
 /*------Media requests------*/
 
 /* Medium Devices, Desktops */
@@ -668,7 +688,6 @@ body {
 /* Small Devices, Tablets */
 @media only screen and (min-width : 960px)
 {
-	
 	.menu-line {
 		padding-left: 180px;
 		text-align: center;
@@ -682,6 +701,11 @@ body {
 	}	
 	.navbar {
 		padding-bottom: 7px;
+	}
+	.owl-carousel-home{
+		.owl-dots {
+			display: none;
+		}
 	}
 }
 
