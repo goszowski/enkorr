@@ -138,6 +138,15 @@
 				}
 			});
 
+			var navMain = $(".navbar-collapse");
+				navMain.on("click", "a:not([data-toggle])", null, function () {
+					navMain.collapse('hide');
+				});
+
+				$(document).on('click',function(){
+	$('.collapse').collapse('hide');
+})
+
 			var owl = $('.owl-carousel-home');
 			owl.owlCarousel();
 

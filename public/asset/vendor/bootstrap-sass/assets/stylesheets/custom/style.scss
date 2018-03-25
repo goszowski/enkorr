@@ -653,6 +653,15 @@ body {
 	.fix-width {
 		width: 100px;
 	}
+	.navbar .top-menu li a {
+		padding-top: 6px;
+		padding-bottom: 6px;
+	}
+	.navbar-collapse .main-nav li a, .navbar-collapse .main-nav-right li a {
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+
 }
 
 
