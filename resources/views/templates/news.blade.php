@@ -5,16 +5,12 @@
 <div class="container-fluid grey-bg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 xs-mt-20 sm-mt-60">
 
+			<div class="col-md-8 xs-mt-20 ">
+				<p class="comment-text_time text-uppercase small-text"><time>05 марта 2018, 15:02</time></p>
+				<h1 class="page-news_title">Названа возможная стоимость билетов на поезда Hyperloop в Украине</h1>
 				<div class="publication-img_wrapp">
 					<img src="{{ asset('/asset/img/hyp.png') }}" alt="hyperloop">
-					<div class="publication-img_descr xs-pl-10 sm-pl-40 sm-pb-20">
-						<h1 class="page-publication_title">Названа возможная стоимость билетов на поезда Hyperloop в Украине</h1>
-						<p class="publication-page_time text-uppercase">
-							<time>05 марта 2018, 15:02</time>
-						</p>
-					</div>
 				</div>
 
 				<div class="publication-page_text">
@@ -96,32 +92,31 @@
 			</div>
 			<div class="col-md-4">
 				<div class="sidebar-block xs-mt-20">
-					<div class="block-title xs-mb-20">
-						<h2 class="block-title_text">Публикации</h2>
+					<div class="block-title xs-mb-20 sm-mb-30">
+						<h2 class="block-title_text">последние новости</h2>
 					</div>
-					<a href="#" class="publication-sidebar_item xs-mt-10">
-						<div class="sidebar_item__img">
-							<img src="{{ asset('/asset/img/hyp.png') }}" alt="ss">
-							<span class="text-uppercase exclusive-public">Эксклюзив</span>
-						</div>
-						<div class="publication-sidebar_item__descr">
-							<h3 class="publication-sidebar_item__title">Названа возможная стоимость билетов на поезда Hyperloop в Украине						</h3>
-							<p class="publication-sidebar_item__text xs-mt-15">Стоимость проезда между Киевом и Одессой в случае реализации проекта Hyperloop в Украине составит около $150 (примерно 4 000 грн по текущему курсу).</p>
-							<p class="comment-text_time text-uppercase"><time>05 марта 2018, 15:02</time></p>
-						</div>
-					</a>
-					<a href="#" class="publication-sidebar_item xs-mt-10">
-						<div class="publication-sidebar_item__descr">
-							<h3 class="publication-sidebar_item__title">Названа возможная стоимость билетов на поезда Hyperloop в Украине						</h3>
-							<p class="publication-sidebar_item__text xs-mt-15">Стоимость проезда между Киевом и Одессой в случае реализации проекта Hyperloop в Украине составит около $150 (примерно 4 000 грн по текущему курсу).</p>
-							<p class="comment-text_time text-uppercase"><time>05 марта 2018, 15:02</time></p>
+					<a href="#" class="main-news_sidebar xs-pb-10 xs-mt-20">
+						<div class="row">
+							<div class="col-sm-1 col-md-2">
+								<p class="comment-text_time text-uppercase small-text"><time>15:02</time></p>
+							</div>
+							<div class="col-sm-11 col-md-10">
+								<h3 class="main-news_sidebar__title xs-mt-0">
+									Названа возможная стоимость билетов на поезда Hyperloop в Украине
+								</h3>
+							</div>
 						</div>
 					</a>
-					<a href="#" class="publication-sidebar_item xs-mt-10">
-						<div class="publication-sidebar_item__descr">
-							<h3 class="publication-sidebar_item__title">Названа возможная стоимость билетов на поезда Hyperloop в Украине						</h3>
-							<p class="publication-sidebar_item__text xs-mt-15">Стоимость проезда между Киевом и Одессой в случае реализации проекта Hyperloop в Украине составит около $150 (примерно 4 000 грн по текущему курсу).</p>
-							<p class="comment-text_time text-uppercase"><time>05 марта 2018, 15:02</time></p>
+					<a href="#" class="main-news_sidebar xs-pb-10 xs-mt-20">
+						<div class="row">
+							<div class="col-sm-1 col-md-2">
+								<p class="comment-text_time text-uppercase small-text"><time>15:02</time></p>
+							</div>
+							<div class="col-sm-11 col-md-10">
+								<h3 class="main-news_sidebar__title xs-mt-0">
+									Названа возможная стоимость билетов на поезда Hyperloop в Украине
+								</h3>
+							</div>
 						</div>
 					</a>
 				</div>
