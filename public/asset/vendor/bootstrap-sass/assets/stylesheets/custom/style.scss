@@ -836,7 +836,26 @@ body {
 	border-left: 1px solid #000;
 }
 
+.comments-block {
+	textarea {
+		resize: none;
+	}
+}
 
+.comment-author {
+	font-weight: bold;
+	font-family: "Arial";
+	margin: 0;
+	margin-bottom: 3px;
+}
+
+.comment-text_time {
+	color: #777;
+	font-family: "Arial";
+	.fa {
+		margin-right: 5px;
+	}
+}
 
 /*------Media requests------*/
 

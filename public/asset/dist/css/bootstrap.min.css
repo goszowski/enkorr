@@ -2319,10 +2319,10 @@ output {
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
   .form-control:focus {
-    border-color: #66afe9;
+    border-color: #f37021;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(243, 112, 33, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(243, 112, 33, 0.6); }
   .form-control::-moz-placeholder {
     color: #999;
     opacity: 1; }
@@ -8313,6 +8313,21 @@ body {
 
 .publication-page_nav .border:nth-child(2) {
   border-left: 1px solid #000; }
+
+.comments-block textarea {
+  resize: none; }
+
+.comment-author {
+  font-weight: bold;
+  font-family: "Arial";
+  margin: 0;
+  margin-bottom: 3px; }
+
+.comment-text_time {
+  color: #777;
+  font-family: "Arial"; }
+  .comment-text_time .fa {
+    margin-right: 5px; }
 
 /*------Media requests------*/
 /* Medium Devices, Desktops */
