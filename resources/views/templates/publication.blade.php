@@ -5,7 +5,7 @@
 <div class="container-fluid grey-bg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-8 xs-mt-20 sm-mt-60">
 
 				<div class="publication-img_wrapp">
 					<img src="{{ asset('/asset/img/hyp.png') }}" alt="hyperloop">
@@ -76,26 +76,81 @@
 						<div class="comments-item xs-mt-15 xs-mb-10">
 							<p class="comment-author">Георгий</p>
 							<p class="comment-text"><span class="comment-text_time"><i class="fa fa-clock-o"></i><time class="xs-mr-10">28 марта 2018, 18.03</time></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 						<div class="comments-item xs-mt-15 xs-mb-10">
 							<p class="comment-author">Георгий</p>
 							<p class="comment-text"><span class="comment-text_time"><i class="fa fa-clock-o"></i><time class="xs-mr-10">28 марта 2018, 18.03</time></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-
+				<div class="sidebar-block xs-mt-20">
+					<div class="block-title xs-mb-20">
+						<h2 class="block-title_text">Публикации</h2>
+					</div>
+					<a href="#" class="publication-sidebar_item xs-mt-10">
+						<div class="sidebar_item__img">
+							<img src="{{ asset('/asset/img/hyp.png') }}" alt="ss">
+							<span class="text-uppercase exclusive-public">Эксклюзив</span>
+						</div>
+						<div class="publication-sidebar_item__descr">
+							<h3 class="publication-sidebar_item__title">Названа возможная стоимость билетов на поезда Hyperloop в Украине						</h3>
+							<p class="publication-sidebar_item__text xs-mt-15">Стоимость проезда между Киевом и Одессой в случае реализации проекта Hyperloop в Украине составит около $150 (примерно 4 000 грн по текущему курсу).</p>
+							<p class="comment-text_time text-uppercase"><time>05 марта 2018, 15:02</time></p>
+						</div>
+					</a>
+					<a href="#" class="publication-sidebar_item xs-mt-10">
+						<div class="publication-sidebar_item__descr">
+							<h3 class="publication-sidebar_item__title">Названа возможная стоимость билетов на поезда Hyperloop в Украине						</h3>
+							<p class="publication-sidebar_item__text xs-mt-15">Стоимость проезда между Киевом и Одессой в случае реализации проекта Hyperloop в Украине составит около $150 (примерно 4 000 грн по текущему курсу).</p>
+							<p class="comment-text_time text-uppercase"><time>05 марта 2018, 15:02</time></p>
+						</div>
+					</a>
+					<a href="#" class="publication-sidebar_item xs-mt-10">
+						<div class="publication-sidebar_item__descr">
+							<h3 class="publication-sidebar_item__title">Названа возможная стоимость билетов на поезда Hyperloop в Украине						</h3>
+							<p class="publication-sidebar_item__text xs-mt-15">Стоимость проезда между Киевом и Одессой в случае реализации проекта Hyperloop в Украине составит около $150 (примерно 4 000 грн по текущему курсу).</p>
+							<p class="comment-text_time text-uppercase"><time>05 марта 2018, 15:02</time></p>
+						</div>
+					</a>
+				</div>
+				<div class="sidebar-block xs-mt-40">
+					<div class="block-title xs-mb-20">
+						<h2 class="block-title_text">главные новости</h2>
+					</div>
+					<a href="#" class="main-news_sidebar xs-pb-10">
+						<div class="sidebar_item__img">
+							<img src="{{ asset('/asset/img/hyp.png') }}" alt="dd">
+						</div>
+						<h3 class="main-news_sidebar__title">
+							Названа возможная стоимость билетов на поезда Hyperloop в Украине
+						</h3>
+					</a>
+					<a href="#" class="main-news_sidebar xs-pb-10">
+						<h3 class="main-news_sidebar__title">
+							Названа возможная стоимость билетов на поезда Hyperloop в Украине
+						</h3>
+					</a>
+					<a href="#" class="main-news_sidebar xs-pb-10">
+						<h3 class="main-news_sidebar__title">
+							Названа возможная стоимость билетов на поезда Hyperloop в Украине
+						</h3>
+					</a>
+				</div>
+				<div class="baner-wrapp text-center xs-mt-40 xs-mb-40">
+					<img src="{{ asset('/asset/img/sidebar-baner.png') }}" alt="cc">
+				</div>
 			</div>
 		</div>
 
