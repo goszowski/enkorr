@@ -10,6 +10,8 @@
 
 	<link rel="stylesheet" href="{{ asset('asset/vendor/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{asset('asset/vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials.css') }}">
+	<link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials-theme-flat.css') }}">
 	<link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap.min.css') }}">
 </head>
 
@@ -112,6 +114,7 @@
 	<script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
 	<script src="{{asset('asset/libs/pace/pace.min.js') }}"></script>
 	<script src="{{asset('asset/vendor/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+	<script src="{{asset('asset/vendor/jssocials/dist/jssocials.min.js') }}"></script>
 	<script src="{{asset('asset/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js')}}"></script>
 
 
@@ -139,13 +142,13 @@
 			});
 
 			var navMain = $(".navbar-collapse");
-				navMain.on("click", "a:not([data-toggle])", null, function () {
-					navMain.collapse('hide');
-				});
+			navMain.on("click", "a:not([data-toggle])", null, function () {
+				navMain.collapse('hide');
+			});
 
-				$(document).on('click',function(){
-	$('.collapse').collapse('hide');
-})
+			$(document).on('click',function(){
+				$('.collapse').collapse('hide');
+			})
 
 			var owl = $('.owl-carousel-home');
 			owl.owlCarousel();
@@ -195,7 +198,9 @@
 				});
 
 			});
-
+			$("#share").jsSocials({
+				shares: ["twitter", "facebook"]
+			});
 		});
 	</script>
 

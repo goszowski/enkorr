@@ -21,6 +21,20 @@
 	src : url("../../fonts/georgia-bold.ttf");
 }
 
+@font-face {
+	font-family: "Georgia-Pro-CondBold";
+	src : url("../../fonts/GeorgiaPro-CondBold.ttf");
+}
+
+@font-face {
+	font-family: "Georgia-Pro-CondRegular";
+	src : url("../../fonts/GeorgiaPro-CondRegular.ttf");
+}
+
+@font-face {
+	font-family: "Georgia-Pro-CondSemiBoldItalic";
+	src : url("../../fonts/GeorgiaPro-CondSemiBoldItalic.ttf");
+}
 
 
 
@@ -625,6 +639,205 @@ body {
 }
 
 
+/*=======Сторінка Публікації======*/
+
+.publication-img_wrapp {
+	margin-top: 20px;
+	position: relative;
+	img {
+		width: 100%;
+		obhect-fit: cover;
+	}
+}
+
+.publication-img_descr {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	padding-top: 10%;
+	width: 100%;
+	background-image: linear-gradient(to top, #0b0b0b 0%, rgba(11, 11, 11, 0) 100%);
+}
+
+.page-publication_title {
+	letter-spacing: 0.6px;
+	font-size: 24px;
+	color: #fff;
+	font-weight: 700;
+}
+
+.publication-page_time {
+	letter-spacing: 0.25px;
+	font-size: 10px;
+	color: #fff;
+	font-family: "Arial";
+}
+
+.publication-page_text {
+	p {
+		margin-top: 30px;
+		line-height: 18px;
+		letter-spacing: 0.35px;
+		font-family: "Georgia-Pro-CondRegular";
+	}
+	blockquote {
+		position: relative;
+		padding: 40px 0 0;
+		margin-top: 20px;
+		border: none;
+		font-size: 18px;
+		font-family: "Georgia-Pro-CondSemiBoldItalic";
+		letter-spacing: 0.45px;
+		&:before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			content: "\f10d";
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: 28px;
+		}
+	}
+	h2 {
+		margin-top: 50px;
+		margin-bottom: 0;
+		font-size: 28px;
+		letter-spacing: 0.7px;
+		margin-bottom: 40px;
+	}
+	img, iframe {
+		width: 100%;
+	}
+	p img, p iframe {
+		margin: 10px auto;
+		width: 100%;
+	}
+	p a {
+		text-decoration: underline!important;
+		transition: color 0.2s ease;
+		&:hover {
+			color: darken($brand-warning, 15%);
+		}
+	}
+}
+
+.publication-print {
+	display: block;
+	font-family: "Arial-Bold";
+	font-size: 10px;
+	color: #000;
+	border-bottom: 1px solid #777;
+}
+
+.tag-title {
+	font-family: "Arial";
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.publication-page_tags {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	li {
+		display: inline-block;
+		list-style-type: none;
+		a {
+			font-size: 12px;
+			color: #000;
+			margin-left: 2px;
+			transition: all 0.2s ease;
+			&:hover, &:focus {
+				color: $brand-warning;
+			}
+			&:after {
+				content: ","
+			}
+		}
+	}
+}
+
+.publication-page_tags li:last-child a {
+	&:after {
+		content: '';
+	}
+}
+
+.publication-prev, .publication-next {
+	text-transform: uppercase;
+	color: #000;
+	position: relative;
+	font-family: "Arial";
+	font-weight: 600;
+	transition: color 0.2s ease;
+}
+
+.publication-prev {
+	&:before {
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		border: 8px solid transparent;
+		border-right: 12px solid #000;
+		transition: all 0.2s ease;
+	}
+	&:hover, &:focus {
+		&:before {
+			border-right: 12px solid $brand-warning;
+		}
+	}
+}
+
+.publication-next {
+	&:before {
+		position: absolute;
+		content: '';
+		right: 0;
+		top: 0;
+		border: 8px solid transparent;
+		border-left: 12px solid #000;
+		transition: all 0.2s ease;
+	}
+	&:hover, &:focus {
+		&:before {
+			border-left: 12px solid $brand-warning;
+		}
+	}
+}
+
+
+.publication-prev.disabled {
+	color: #c7c7c7;
+	&:before {
+		border-right: 12px solid #c7c7c7;
+	}
+	&:hover, &:focus {
+		&:before {
+			border-right: 12px solid #c7c7c7;
+		}
+	}
+	cursor: not-allowed;
+}
+
+.publication-next.disabled {
+	color: #c7c7c7;
+	&:before {
+		border-left: 12px solid #c7c7c7;
+	}
+	&:hover, &:focus {
+		&:before {
+			border-left: 12px solid #c7c7c7;
+		}
+	}
+	cursor: not-allowed;
+}
+
+.publication-page_nav .border:nth-child(2) {
+	border-left: 1px solid #000;
+}
+
+
+
 /*------Media requests------*/
 
 /* Medium Devices, Desktops */
@@ -681,7 +894,7 @@ body {
 		padding-top: 8px;
 		padding-bottom: 8px;
 	}
-
+	
 }
 
 
@@ -707,12 +920,28 @@ body {
 			display: none;
 		}
 	}
+	.publication-page_text {
+		blockquote {
+			margin-top: 30px;
+			float: left;
+			max-width: 40%;
+			padding: 40px 20px 40px 0;
+		}
+	}
 }
 
 
 @media only screen and (max-width : 766px)
 {
-
+	.publication-page_nav .border:nth-child(2) {
+		border-left: none;
+	}
+	.page-publication_title {
+		font-size: 22px;
+	}
+	.publication-page_text h2 {
+		font-size: 22px;
+	}
 }
 
 @media only screen and (min-width : 766px) {
@@ -732,6 +961,13 @@ body {
 {
 	.last-news__big_descr_title {
 		font-size: 20px;
+	}
+	.page-publication_title {
+		font-size: 18px;
+	}
+	.publication-page_text h2 {
+		margin-top: 30px;
+		margin-bottom: 20px;
 	}
 }
 
