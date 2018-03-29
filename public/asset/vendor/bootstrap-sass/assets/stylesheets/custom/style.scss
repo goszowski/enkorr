@@ -78,11 +78,11 @@ b, strong {
 }
 
 ::selection {
-  background: $brand-success; /* WebKit/Blink Browsers */
+  background: $brand-warning; /* WebKit/Blink Browsers */
   color: #fff;
 }
 ::-moz-selection {
-  background: $brand-success; /* Gecko Browsers */
+  background: $brand-warning; /* Gecko Browsers */
   color: #fff;
 }
 
@@ -1084,7 +1084,7 @@ body {
 		}
 
 		&.active {
-			top: 75px;
+			top: 20px;
 		}
 	}
 }
@@ -1146,7 +1146,12 @@ body {
 		padding-top: 8px;
 		padding-bottom: 8px;
 	}
-	
+	.top-menu {
+		text-align: center;
+		li {
+			display: inline-block;
+		}
+	}
 }
 
 

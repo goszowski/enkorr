@@ -5,7 +5,7 @@
 <div class="container-fluid grey-bg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 xs-mt-20 sm-mt-60">
+			<div class="col-md-8 xs-mt-20">
 
 				<div class="publication-img_wrapp">
 					<img src="{{ asset('/asset/img/hyp.png') }}" alt="hyperloop">
