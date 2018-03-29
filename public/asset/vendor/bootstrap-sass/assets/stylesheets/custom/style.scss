@@ -42,6 +42,10 @@ html, body {
 	overflow-x: hidden;
 }
 
+b, strong {
+	font-family: "Georgia-Pro-CondBold";
+}
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -952,6 +956,8 @@ body {
 	font-family: "Georgia-Pro-CondBold"
 }
 
+
+
 /*=======Publication-list page=======*/
 
 .publication-list-img {
@@ -989,6 +995,58 @@ body {
 }
 
 
+/*=====News list page========*/
+
+.news-list-item {
+	position: relative;
+	transition: all 0s ease;
+	.news-list-title  {
+		font-family: "Georgia-Pro";
+		//font-weight: 700;
+	}
+	&:hover, &:focus {
+		.news-list-title {
+			text-decoration: underline!important;
+		}
+	}
+}
+
+.news-exclusive {
+	top: -1px;
+	left: 0;
+	right: auto;
+	font-size: 10px;
+	padding: 3px 7px;
+	bottom: auto;
+}
+
+.news-list_date__wrapp {
+	width: 100%;
+	border-bottom: 1px solid #000;
+	margin: 25px 0 15px;
+}
+
+.news-list_date {
+	display: inline-block;
+	background-color: #000;
+	color: #fff;
+	padding: 5px 10px;
+	letter-spacing: 0.3px;
+	font-size: 12px;
+	font-family: "Arial";
+	text-transform: uppercase;
+}
+
+.news-list_oneday .news-list-item:last-child {
+	border-bottom: none;
+}
+
+.news-list_wrapp .news-list_oneday:last-child .news-list-item:last-child {
+	border-bottom: 1px solid #b9b9b9;
+	&:hover, &:focus {
+		border-bottom: 1px solid $brand-warning;
+	}
+}
 
 
 
