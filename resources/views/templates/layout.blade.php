@@ -65,7 +65,9 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-
+		<div class="scroll-top-container">
+			<div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
+		</div>
 	</header>
 
 
@@ -201,6 +203,31 @@
 			$("#share").jsSocials({
 				shares: ["twitter", "facebook"]
 			});
+
+			var lastScrollTop = 0;
+			$(window).scroll(function(event){
+				var st = $(this).scrollTop();
+				if (st > lastScrollTop){
+					$('.scroll-top').removeClass('active');
+				} else {
+					if($(window).scrollTop() >= 150)
+					{
+						$('.scroll-top').addClass('active');
+					}
+					else
+					{
+						$('.scroll-top').removeClass('active');
+					}
+				}
+				lastScrollTop = st;
+			});
+
+
+			$('.scroll-top').on('click', function() {
+				$('html, body').scrollTop(0);
+				$(this).removeClass('active');
+			});
+
 		});
 	</script>
 

@@ -7583,6 +7583,97 @@ button.close {
     margin-left: 100px; } }
 
 /*# sourceMappingURL=sass-space.css.map */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none; }
+
+.pace-inactive {
+  display: none; }
+
+.pace .pace-progress {
+  background: #f37021;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 3px; }
+
+.pace .pace-progress-inner {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #f37021, 0 0 5px #f37021;
+  opacity: 1.0;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -moz-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  -o-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px); }
+
+.pace .pace-activity {
+  display: block;
+  position: fixed;
+  z-index: 2000;
+  top: 15px;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  border: solid 2px transparent;
+  border-top-color: #f37021;
+  border-left-color: #f37021;
+  border-radius: 10px;
+  -webkit-animation: pace-spinner 400ms linear infinite;
+  -moz-animation: pace-spinner 400ms linear infinite;
+  -ms-animation: pace-spinner 400ms linear infinite;
+  -o-animation: pace-spinner 400ms linear infinite;
+  animation: pace-spinner 400ms linear infinite; }
+
+@-webkit-keyframes pace-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-moz-keyframes pace-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-o-keyframes pace-spinner {
+  0% {
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-ms-keyframes pace-spinner {
+  0% {
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes pace-spinner {
+  0% {
+    transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
 @font-face {
   font-family: "Arial";
   src: url("../../fonts/arial.ttf"); }
@@ -8467,6 +8558,37 @@ body {
   border-bottom: 1px solid #b9b9b9; }
   .news-list_wrapp .news-list_oneday:last-child .news-list-item:last-child:hover, .news-list_wrapp .news-list_oneday:last-child .news-list-item:last-child:focus {
     border-bottom: 1px solid #f37021; }
+
+/*===Кнопка скол ту топ=====*/
+.scroll-top-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 4; }
+  .scroll-top-container .scroll-top {
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    transform: translate(-50%, 0);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #eb5c24;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #ca4612;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    transition: top 200ms; }
+    .scroll-top-container .scroll-top:hover {
+      background-color: #ed6d3b; }
+    .scroll-top-container .scroll-top:active {
+      background-color: #e14e15; }
+    .scroll-top-container .scroll-top span {
+      font-size: 12px; }
+    .scroll-top-container .scroll-top.active {
+      top: 75px; }
 
 /*------Media requests------*/
 /* Medium Devices, Desktops */
