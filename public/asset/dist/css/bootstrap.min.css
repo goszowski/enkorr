@@ -8335,13 +8335,16 @@ body {
   transition: all 0.2s ease; }
   .publication-sidebar_item:hover, .publication-sidebar_item:focus {
     color: #f37021; }
+    .publication-sidebar_item:hover img, .publication-sidebar_item:focus img {
+      opacity: 0.9; }
 
 .sidebar_item__img {
   display: block;
   position: relative; }
   .sidebar_item__img img {
     width: 100%;
-    object-fit: cover; }
+    object-fit: cover;
+    transition: all 0.2s ease; }
 
 .exclusive-public {
   background-color: #f37021;
@@ -8375,6 +8378,8 @@ body {
   transition: all 0.2s ease; }
   .main-news_sidebar:hover, .main-news_sidebar:focus {
     border-bottom: 1px solid #f37021; }
+    .main-news_sidebar:hover img, .main-news_sidebar:focus img {
+      opacity: 0.9; }
   .main-news_sidebar .small-text {
     margin-top: 2px; }
 
@@ -8396,6 +8401,29 @@ body {
   letter-spacing: 0.6px;
   font-size: 24px;
   font-family: "Georgia-Pro-CondBold"; }
+
+/*=======Publication-list page=======*/
+.publication-list-img img {
+  height: 170px; }
+
+.publication-list_item__descr {
+  height: auto;
+  position: relative; }
+
+.big-publication {
+  display: block;
+  color: #000;
+  transition: all 0.2s ease; }
+  .big-publication:hover img, .big-publication:focus img {
+    opacity: 0.9; }
+
+.big-publication_img img {
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s ease; }
+
+.big-pb_descr_title {
+  font-size: 20px; }
 
 /*------Media requests------*/
 /* Medium Devices, Desktops */
@@ -8451,7 +8479,9 @@ body {
     margin-top: 30px;
     float: left;
     max-width: 40%;
-    padding: 40px 20px 40px 0; } }
+    padding: 40px 20px 40px 0; }
+  .big-pb_descr_title {
+    font-size: 24px; } }
 
 @media only screen and (max-width: 766px) {
   .publication-page_nav .border:nth-child(2) {
@@ -8463,7 +8493,21 @@ body {
 
 @media only screen and (min-width: 766px) {
   .footer-social {
-    margin-top: -32px; } }
+    margin-top: -32px; }
+  .publication-list_item__descr {
+    height: 235px; }
+    .publication-list_item__descr .comment-text_time {
+      position: absolute;
+      bottom: 20px;
+      left: 20px; }
+  .sm-md-padd-r-0 {
+    padding-right: 0; }
+  .sm-md-padd-l-0 {
+    padding-left: 0; }
+  .big-pb_descr {
+    height: 300px; }
+  .big-publication_img img {
+    height: 300px; } }
 
 /* Custom, iPhone Retina */
 @media (max-width: 450px) {
