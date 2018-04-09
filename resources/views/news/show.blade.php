@@ -16,7 +16,7 @@
 				</div>
 				<a href="javascript:print()" class="publication-print xs-pb-25 xs-mt-40 sm-mt-70 text-right">
 					<img src="{{ asset('/asset/img/printer.png') }}">
-					<span class="text-uppercase xs-ml-5">Печать</span>
+					<span class="text-uppercase xs-ml-5">{{ __('Печать') }}</span>
 				</a>
 
 				<div class="xs-mt-10">
