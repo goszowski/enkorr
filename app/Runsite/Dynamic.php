@@ -9,6 +9,8 @@ use App\Runsite\Libraries\PH;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\Chart;
 use App\Traits\Table;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 
 class Dynamic extends Model
 {
@@ -65,6 +67,16 @@ class Dynamic extends Model
         }
 
         return 'gallery/'.$value;
+    }
+
+    public function scopePublished(Builder $builder)
+    {
+        return $builder->where('pubdate', '<=', Carbon::now());
+    }
+
+    public function scopeOrdered(Builder $builder)
+    {
+        return $builder->orderBy('pubdate', 'desc');
     }
 
 
