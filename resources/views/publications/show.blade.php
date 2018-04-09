@@ -13,8 +13,11 @@
 						<h1 class="page-publication_title">{{ $fields->name }}</h1>
 						<p class="publication-page_time text-uppercase">
 							<time>{{ $fields->pubdate->format('d.m.Y, H:i') }}</time>
-							@if($fields->has('speaker'))
-								 - <a href="{{ lPath($fields->speaker->node->absolute_path) }}">{{ $fields->speaker->name }}</a>
+							@if($fields->hasMore('authors'))
+								 - 
+								@foreach($fields->authors as $k=>$author)
+									<a href="{{ lPath($author->node->absolute_path) }}">{{ $author->name . (++$k < count($fields->authors) ? ', ' : null) }}</a>
+								@endforeach
 							@endif
 						</p>
 					</div>
