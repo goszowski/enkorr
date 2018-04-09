@@ -232,6 +232,7 @@ return [
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Menu'        => App\Runsite\Libraries\Menu::class,
         'Store' => App\Runsite\Facades\Store::class,
+        'Carbon' => Carbon\Carbon::class,
 
     ],
 

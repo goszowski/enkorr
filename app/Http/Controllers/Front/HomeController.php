@@ -25,6 +25,8 @@ class HomeController extends RSController
                         ->limit(config('public.index.countnews'))
                         ->get();
 
+      $first_news_item = $news->first();
+
       // $publications_model = Model('main_pub')
       //                         ->orderBy('orderby', 'desc')
       //                         ->limit(config('public.index.countpub'))
@@ -67,6 +69,6 @@ class HomeController extends RSController
       
 
 
-      return $this->make_view('pages.index', compact('news', 'homePubs', 'banners', 'poll', 'answers'));
+      return $this->make_view('pages.index', compact('news', 'first_news_item', 'homePubs', 'banners', 'poll', 'answers'));
     }
 }
