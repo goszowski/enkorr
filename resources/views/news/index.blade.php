@@ -44,12 +44,13 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="baner-wrapp text-center xs-mt-50">
-					<img src="{{ asset('/asset/img/sidebar-baner.png') }}" alt="cc">
-				</div>
-				<div class="baner-wrapp text-center xs-pt-25 xs-mb-40">
-					<img src="{{ asset('/asset/img/sidebar-baner.png') }}" alt="cc">
-				</div>
+				@foreach($banners as $banner)
+					<div class="baner-wrapp text-center xs-mt-50">
+						<a href="{{ $banner->link }}" rel="nofollow" target="_blank">
+							<img src="{{ iPath($banner->image, '600px') }}" alt="{{ $banner->name }}">
+						</a>
+					</div>
+				@endforeach
 			</div>
 		</div>
 	</div>

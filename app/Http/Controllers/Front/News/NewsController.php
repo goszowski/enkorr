@@ -14,8 +14,9 @@ class NewsController extends RSController
 	public function index()
 	{
 		$news = Model('news_item')->published()->ordered()->paginate();
+		$banners = Model('banner')->where('right', true)->where('news_bool', true)->orderBy('orderby', 'asc')->get();
 
-		return $this->make_view('news.index', compact('news'));
+		return $this->make_view('news.index', compact('news', 'banners'));
 	}
 
 	/**
