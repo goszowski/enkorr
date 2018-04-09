@@ -7734,12 +7734,12 @@ b, strong {
   opacity: 1; }
 
 ::selection {
-  background: #5cb85c;
+  background: #f37021;
   /* WebKit/Blink Browsers */
   color: #fff; }
 
 ::-moz-selection {
-  background: #5cb85c;
+  background: #f37021;
   /* Gecko Browsers */
   color: #fff; }
 
@@ -8588,7 +8588,7 @@ body {
     .scroll-top-container .scroll-top span {
       font-size: 12px; }
     .scroll-top-container .scroll-top.active {
-      top: 75px; }
+      top: 20px; }
 
 /*------Media requests------*/
 /* Medium Devices, Desktops */
@@ -8624,7 +8624,11 @@ body {
     padding-bottom: 6px; }
   .navbar-collapse .main-nav li a, .navbar-collapse .main-nav-right li a {
     padding-top: 8px;
-    padding-bottom: 8px; } }
+    padding-bottom: 8px; }
+  .top-menu {
+    text-align: center; }
+    .top-menu li {
+      display: inline-block; } }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: 960px) {
