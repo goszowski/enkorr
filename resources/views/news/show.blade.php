@@ -44,9 +44,15 @@
 						</div>
 					</div>
 				</div>
-				<div class="baner-wrapp text-center xs-mt-10 xs-mb-20">
-					<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
-				</div>
+
+				@foreach($banners_under_text as $banner)
+					<div class="baner-wrapp text-center xs-mt-10 xs-mb-20">
+						<a href="{{ $banner->link }}" rel="nofollow" target="_blank">
+							<img src="{{ iPath($banner->image, '600px') }}" alt="{{ $banner->name }}">
+						</a>
+					</div>
+				@endforeach
+				
 
 				@if(count($materials))
 					<div class="news-list_oneday xs-pb-5 xs-pt-30">
@@ -138,9 +144,15 @@
 						</a>
 					@endforeach
 				</div>
-				<div class="baner-wrapp text-center xs-mt-40 xs-mb-40">
-					<img src="{{ asset('/asset/img/sidebar-baner.png') }}" alt="cc">
-				</div>
+
+				@foreach($banners_right_side as $banner)
+					<div class="baner-wrapp text-center xs-mt-40 xs-mb-40">
+						<a href="{{ $banner->link }}" rel="nofollow" target="_blank">
+							<img src="{{ iPath($banner->image, '600px') }}" alt="{{ $banner->name }}">
+						</a>
+					</div>
+				@endforeach
+				
 			</div>
 		</div>
 

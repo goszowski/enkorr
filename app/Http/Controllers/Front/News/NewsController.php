@@ -70,7 +70,11 @@ class NewsController extends RSController
 			->take(3)
 			->get();
 
-		return $this->make_view('news.show', compact('prev', 'next', 'materials', 'comments', 'last_news', 'main_news'));
+		// Банери
+		$banners_right_side = Model('banner')->where('right', true)->where('in_new_bool', true)->orderBy('orderby', 'asc')->get();
+		$banners_under_text = Model('banner')->where('down', true)->where('in_new_bool', true)->orderBy('orderby', 'asc')->get();
+
+		return $this->make_view('news.show', compact('prev', 'next', 'materials', 'comments', 'last_news', 'main_news', 'banners_right_side', 'banners_under_text'));
 	}
 
 }
