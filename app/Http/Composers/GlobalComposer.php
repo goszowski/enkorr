@@ -9,6 +9,7 @@ class GlobalComposer
   protected $footer;
   protected $socials;
   protected $main_banner;
+  protected $additional_menu;
 
   public function __construct()
   {
@@ -16,6 +17,7 @@ class GlobalComposer
     $this->footer = Model('index')->first()->footer;
     $this->socials = Model('menu_item')->where('parent_id', '=', 5)->orderBy('orderby', 'asc')->get();
     $this->main_banner = Model('main_banner')->where('parent_id', 1)->inRandomOrder()->first();
+    $this->additional_menu = Model('menu_item')->where('parent_id', '=', 47253)->orderBy('orderby', 'asc')->get();
   }
 
   public function compose(View $view)
@@ -23,6 +25,7 @@ class GlobalComposer
     $view->with('sections', $this->sections)
          ->with('footer', $this->footer)
          ->with('socials', $this->socials)
-         ->with('main_banner', $this->main_banner);
+         ->with('main_banner', $this->main_banner)
+         ->with('additional_menu', $this->additional_menu);
   }
 }

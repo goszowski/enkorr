@@ -15,19 +15,11 @@
       <link rel="shortcut icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
       <link rel="icon" href="{{asset('/favicon.ico')}}" type="image/x-icon">
 
-      <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
-      <!-- Vendor styles -->
-      <link rel="stylesheet" href="{{asset('asset/css/bootstrap/stylesheets/bootstrap.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/sass-space/sass-space.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/ripple/ripple.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials-theme-minima.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials-1.4.0/jssocials.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.carousel.min.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/owl-carousel/owl.theme.default.min.css')}}">
-      <link rel="stylesheet" href="{{asset('asset/vendor/pace/pace.theme.css')}}">
+      <link rel="stylesheet" href="{{ asset('asset/vendor/font-awesome/css/font-awesome.min.css') }}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials.css') }}">
+      <link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials-theme-flat.css') }}">
+      <link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap.min.css') }}">
       <!-- / Vendor styles -->
 
       <script src="{{ asset('asset/vendor/jquery/jquery-3.2.1/jquery.min.js') }}"></script>
@@ -47,171 +39,204 @@
         @endif
       </div>
 
+      <header>
 
+        <nav class="navbar navbar-inverse">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle x collapsed" data-toggle="collapse" data-target="#navbar-collapse-x">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ lPath('/') }}"><img src="{{ asset('/asset/img/logo.png') }}" alt="logo"></a>
+            </div>
 
-
-
-      <div class="container website-container xs-pl-0 xs-pr-0 sm-pl-15 sm-pr-15">
-        <a href="https://runsite.com.ua" target="_blank" class="author" data-toggle="tooltip" title="Рансайт: Разработка и поддержка сайтов 2016-2017">Разработка и поддержка сайта: Рансайт ТОВ</a>
-        @yield('top-banner')
-
-        <div class="xs-pl-15 xs-pr-15 sm-pl-0 sm-pr-0">
-          <div class="row main-nav-container sticky-all">
-            <nav class="navbar navbar-inverse xs-mb-0">
-              <div class="navbar-header">
-                <a class="navbar-brand ripple xs-pl-10 sm-pl-20" href="{{ lPath('/') }}" data-ajax="true">
-                    <img src="{{asset('/imglib/touch/48x48.png')}}" alt="enkorr"> <b>enkorr</b>
-                </a>
-                <button type="button" class="navbar-toggle collapsed ripple xs-mr-10" id="main-nav-toggle" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-x">
+              <div class="menu-line">
+                <ul class="nav navbar-nav navbar-right top-menu">
+                  @foreach($additional_menu as $additional_menu_item)
+                    <li class=""><a href="{{ lPath($additional_menu_item->link) }}">{{ $additional_menu_item->name }}</a></li>
+                  @endforeach
+                </ul>
               </div>
+              <div class="menu-line text-center">
 
-              <div class="collapse navbar-collapse" id="main-nav">
-                <ul class="nav navbar-nav text-uppercase">
-                  @if(count( $sections ))
-                    @foreach( $sections as $section)
-                      <li><a href="{{lPath($section->link)}}" data-ajax="true" class="ripple"><span class="">{{$section->name}}</span></a></li>
-                    @endforeach
-                  @endif
+
+                <ul class="nav navbar-nav main-nav">
+                  @foreach($sections as $section)
+                    <li class=""><a href="{{ lPath($section->link) }}">{{ $section->name }}</a></li>
+                  @endforeach
                 </ul>
 
-
-
-                <ul class="nav navbar-nav navbar-right text-uppercase">
-                  @if(empty(Session::get('authUser')))
-                    <li><a href="{{lPath('/auth/login')}}" data-ajax="true" class="ripple"><i class="fa fa-sign-in"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">{{__('Вход')}}</span></a></li>
-                    <li><a href="{{lPath('/auth/register')}}" data-ajax="true" class="ripple"><i class="fa fa-user-plus"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">{{__('Регистрация')}}</span></a></li>
-                  @else
-                    <li><a href="{{lPath(Session::get('authUser')->node->absolute_path)}}" data-ajax="true" class="ripple"><i class="fa fa-user"></i> <span class="visible-xs-inline visible-md-inline visible-lg-inline">{{__('Аккаунт')}}</span></a></li>
-                    <li><a href="{{lPath('/auth/logout')}}" class="ripple"><i class="fa fa-sign-out" aria-hidden="true"></i> <span class="visible-xs-inline visible-lg-inline sm-pr-15">{{__('Выход')}}</span></a></li>
-                  @endif
+                <ul class="nav navbar-nav navbar-right main-nav-right">
+                  <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                  <li><a href="{{ lPath('/auth/login') }}">{{ __('Войти') }}</a></li>
                 </ul>
+              </div>
+              
+              
 
-                {{Form::open(['url' => lPath('/search'), 'class' => 'navbar-form navbar-left  custom-search', 'method' => 'GET'])}}
-                <div class="">
-                  <div class="form-group has-feedback">
-                    <input name="search" type="text" class="form-control sm-pl-20" placeholder="{{__('Поиск')}}">
-                    <button type="submit" class="fa fa-search form-control-feedback sm-pr-30" aria-hidden="true"></button>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <div class="scroll-top-container">
+          <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
+        </div>
+      </header>
+
+      @yield('section')
+
+      <footer class="xs-pt-30 xs-pb-20 sm-pb-35 sm-pt-50">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="footer-logo-wrapp sm-mt-15">
+                <img src="{{ asset('/asset/img/footer-logo.png') }}">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="footer-form">
+                <form>
+                  <p class="email-label xs-mt-15 sm-mt-0">Подпишитесь на еженедельную рассылку:</p>
+                  <div class="form-group footer-form">
+                    <input type="email" class="form-control footer-email md-mt-20" id="email" placeholder="Email">
+                    <button class="submit-email"><i class="fa fa-long-arrow-right"></i></button>
                   </div>
-                </div>
-                {{Form::close()}}
-
-
-              </div>
-            </nav>
-          </div>
-
-
-          <div class="loader active">
-            <div class="lds-css ng-scope">
-              <div style="width:100%;height:100%" class="lds-eclipse">
-                <div></div>
+                </form>
               </div>
             </div>
-          </div>
-
-          <div class="scroll-top-container">
-            <div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
-          </div>
-
-          <div id="app">
-            @endif
-            @yield('section')
-            @if(!Input::get('ajax'))
-          </div>
-
-          <div class="row footer xs-mt-30">
-            <div class="xs-p-25 xs-pb-40">
-              <div class="row">
-                <div class="col-md-4 hidden-xs hidden-sm">
-                  <img src="{{ asset('assets/images/logo-white.png') }}" alt="Enkorr">
-                </div>
-                <div class="col-md-4 text-center footer-nav xs-pt-25 text-uppercase">
-                  <a href="{{ lPath('/o-proekte') }}" data-ajax="true" class="xs-mr-20">{{ __('О проекте') }}</a>
-                  <a href="{{ lPath('/contacts') }}" data-ajax="true" class="xs-ml-20">{{ __('Контакты') }}</a>
-                </div>
-                <div class="col-md-4 xs-pt-25 text-right">
-                  <ul class="footer-social">
-                    <li>
-                      <a href="" rel="nofollow" target="_blank">
-                        <i class="fa fa-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" rel="nofollow" target="_blank">
-                        <i class="fa fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" rel="nofollow" target="_blank">
-                        <i class="fa fa-google-plus"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div class="col-sm-12 col-md-5">
+              <p class="footer-text md-ml-35 xs-mt-20 md-mt-20">При перепечатке материалов сайта гиперссылка на enkorr.com.ua обязательна. Все материалы, размещенные на enkorr.com.ua со ссылкой на ИА “Интерфакс-Украина”, не подлежат дальнейшему распространению, кроме как с письменного разрешения ИА.</p>
             </div>
           </div>
-
+          <div class="footer-bottom-line row sm-mt-60 xs-mt-20">
+            <div class="col-sm-6">
+              <p class="license text-uppercase">© EnKorr 2017. Все права защищены</p>
+            </div>
+            <div class="col-sm-6 text-md-right">
+              <ul class="footer-social">
+                <li><a href="#" class="fb-color"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        </div>
-      <!-- Vendor scripts -->
-      <script src="{{ asset('asset/vendor/goszowski/ajax-navigation-1.0.0/ajax-navigation.js') }}"></script>
-      <script src="{{ asset('asset/vendor/twbs/bootstrap-3.3.7-dist/js/bootstrap.js') }}"></script>
-      <script src="{{ asset('asset/vendor/sticky-kit/jquery.sticky-kit.min.js') }}"></script>
-      <script src="{{ asset('asset/vendor/jssocials-1.4.0/jssocials.min.js') }}"></script>
-      <script src="{{ asset('asset/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
-      <script src="{{ asset('asset/vendor/pace/pace.min.js') }}"></script>
-      <!-- / Vendor scripts -->
-
-      <!-- App scripts -->
-      <script src="{{ asset('assets/js/scripts.js?5') }}"></script>
-      <script type="text/javascript">
-        $(function() {
-
-          appBuild();
-          // Ajax navigation
-          var navigation = new AjaxNavigation;
-          navigation.onPageLoad(function() {
-            // Calling after page load
-            appBuild();
-          });
+      </footer>
 
 
-          $(document).on('click', '.image-with-title', function() {
-            $(this).toggleClass('hidden-caption');
-          });
 
-          $(document).on('click', '#main-nav ul li a, .navbar-brand', function() {
-            if(! $('#main-nav-toggle').hasClass('collapsed'))
-            {
-              $('#main-nav-toggle').click();
+
+      <script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
+      <script src="{{asset('asset/libs/pace/pace.min.js') }}"></script>
+      <script src="{{asset('asset/vendor/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+      <script src="{{asset('asset/vendor/jssocials/dist/jssocials.min.js') }}"></script>
+      <script src="{{asset('asset/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js')}}"></script>
+
+
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script>
+        $(document).ready(function(){
+          $('.owl-carousel-home').owlCarousel({
+            loop:false,
+            margin:0,
+            //navText: ['',''],
+            nav:false,
+            dots: true,
+            responsive:{
+              0:{
+                items:1
+              },
+              600:{
+                items:1
+              },
+              1000:{
+                items:1
+              }
             }
           });
 
+          var navMain = $(".navbar-collapse");
+          navMain.on("click", "a:not([data-toggle])", null, function () {
+            navMain.collapse('hide');
+          });
 
+          $(document).on('click',function(){
+            $('.collapse').collapse('hide');
+          })
 
+          var owl = $('.owl-carousel-home');
+          owl.owlCarousel();
+
+          $('.customNextBtn').click(function() {
+            owl.trigger('next.owl.carousel');
+          });
+
+          $('.customPrevBtn').click(function() {
+            owl.trigger('prev.owl.carousel', [300]);
+          });
+
+          var equalizeColumns = function(selector) {
+            var maxDisplayPoint = 959;
+            var columns = $(selector);
+            var maxHeight = 0;
+            if($(window).width() >= maxDisplayPoint)
+            {
+              columns.each(function(){
+                $(this).height('auto');
+              });
+              columns.each(function(){
+                var curentHeight = $(this).height();
+
+                if(curentHeight > maxHeight){
+                  maxHeight = curentHeight;
+                }
+
+              });
+
+              $(selector).height(maxHeight);
+            }
+            else
+            {
+              columns.css('height','auto');
+            }
+          }
+
+          $(function(){
+            var selector = '.equal-block';
+            setTimeout(function(){
+              equalizeColumns(selector);
+            }, 50);
+
+            $(window).on('resize', function(){
+              equalizeColumns(selector);
+            });
+
+          });
+          $("#share").jsSocials({
+            shares: ["twitter", "facebook"]
+          });
 
           var lastScrollTop = 0;
           $(window).scroll(function(event){
-             var st = $(this).scrollTop();
-             if (st > lastScrollTop){
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop){
+              $('.scroll-top').removeClass('active');
+            } else {
+              if($(window).scrollTop() >= 150)
+              {
+                $('.scroll-top').addClass('active');
+              }
+              else
+              {
                 $('.scroll-top').removeClass('active');
-             } else {
-                if($(window).scrollTop() >= 150)
-                {
-                  $('.scroll-top').addClass('active');
-                }
-                else
-                {
-                  $('.scroll-top').removeClass('active');
-                }
-             }
-             lastScrollTop = st;
+              }
+            }
+            lastScrollTop = st;
           });
 
 
@@ -220,50 +245,8 @@
             $(this).removeClass('active');
           });
 
-
-
-
-          /* Ripple efect */
-          $(document).on('click', '.ripple', function (e) {
-            //e.preventDefault();
-            var $div = $('<div/>'),
-              btnOffset = $(this).offset(),
-              xPos = e.pageX - btnOffset.left,
-              yPos = e.pageY - btnOffset.top;
-            $div.addClass('ripple-effect');
-            var $ripple = $('.ripple-effect');
-            $ripple.css('height', $(this).height());
-            $ripple.css('width', $(this).height());
-            $div.css({
-              top: yPos - $ripple.height() / 2,
-              left: xPos - $ripple.width() / 2,
-              background: $(this).data('ripple-color')
-            }).appendTo($(this));
-            window.setTimeout(function () {
-              $div.remove();
-            }, 1000);
-          });
-
         });
       </script>
-
-      <script type="text/javascript">
-
-        //перевіряємо чи є у кукі значення скролу, якщо так- переміщюємо і видаляємо кукі скролу
-        $(function(){
-          setTimeout(function(){
-            var pollScroll = $.cookie('pollScroll');
-            $(window).scrollTop(pollScroll);
-          }, 500);
-          $.removeCookie('pollScroll');
-        });
-
-        //додаємо у кукі значення скролу, якщо була натиснута кнопка "голосувати"
-        $('#poll-button').on('click', function() {
-          $.cookie('pollScroll', $(window).scrollTop());
-        });
-      </script>
-      <!-- / App scripts  -->
 
       @yield('js')
     </body>
