@@ -29,7 +29,7 @@
           </div>
           <div class="last-news-items-wrapp">
             @foreach($news->slice(1,count($news)) as $news_item)
-              <a href="#" class="last-news_item">
+              <a href="{{ lPath($news_item->node->absolute_path) }}" class="last-news_item">
                 <p class="last-news_item_text">{{ $news_item->name }}</p>
                 <span class="last-news-item_time">
                   <time datetime="{{ $news_item->pubdate }}">
@@ -62,23 +62,19 @@
       
       <div class="equal-block">
         <div class="block-title">
-          <h2 class="block-title_text">Главные новости</h2>
+          <h2 class="block-title_text">{{ __('Главные новости') }}</h2>
         </div>
         <div class="equal-block_content">
-          <a href="#" class="main-news_item">
-            <p class="main-news_item__text">Компания из орбиты «Трейд Коммодити» пытается растаможить 17 тыс. т нефтепродуктов без уплаты акциза?</p>
-          </a>
-          <a href="#" class="main-news_item">
-            <p class="main-news_item__text">Компания из орбиты «Трейд Коммодити» пытается растаможить 17 тыс. т нефтепродуктов без уплаты акциза?</p>
-          </a>
-          <a href="#" class="main-news_item">
-            <p class="main-news_item__text">Компания из орбиты «Трейд Коммодити» пытается растаможить 17 тыс. т нефтепродуктов без уплаты акциза?</p>
-          </a>
+          @foreach($main_news as $main_news_item)
+            <a href="{{ lPath($main_news_item->node->absolute_path) }}" class="main-news_item">
+              <p class="main-news_item__text">{{ $main_news_item->name }}</p>
+            </a>
+          @endforeach
         </div>
       </div>
 
       <div class="btn-wrapp text-center xs-mt-20">
-        <a href="#" class="btn btn-default big-btn black-border text-uppercase bold">Перейти в раздел</a>
+        <a href="{{ lPath('/news') }}" class="btn btn-default big-btn black-border text-uppercase bold">{{ __('Перейти в раздел') }}</a>
       </div>
 
     </div>

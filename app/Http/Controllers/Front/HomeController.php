@@ -20,12 +20,20 @@ class HomeController extends RSController
 
       $news = Model('publication')
                         ->where('parent_id', config('public.sections.news'))
-                        ->where('pubdate', '<=', date('Y-m-d H;i;s'))
+                        ->where('pubdate', '<=', date('Y-m-d H:i:s'))
                         ->orderBy('pubdate', 'desc')
                         ->limit(config('public.index.countnews'))
                         ->get();
 
       $first_news_item = $news->first();
+
+      $main_news = Model('publication')
+                        ->where('parent_id', config('public.sections.news'))
+                        ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                        ->where('is_main', true)
+                        ->orderBy('pubdate', 'desc')
+                        ->limit(3)
+                        ->get();
 
       // $publications_model = Model('main_pub')
       //                         ->orderBy('orderby', 'desc')
@@ -69,6 +77,6 @@ class HomeController extends RSController
       
 
 
-      return $this->make_view('pages.index', compact('news', 'first_news_item', 'homePubs', 'banners', 'poll', 'answers'));
+      return $this->make_view('pages.index', compact('news', 'first_news_item', 'main_news', 'homePubs', 'banners', 'poll', 'answers'));
     }
 }
