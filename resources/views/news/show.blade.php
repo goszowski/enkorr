@@ -111,7 +111,7 @@
 						<h2 class="block-title_text">{{ __('Последние новости') }}</h2>
 					</div>
 					@foreach($last_news as $last_news_item)
-						<a href="#" class="main-news_sidebar xs-pb-10 xs-mt-20">
+						<a href="{{ lPath($last_news_item->node->absolute_path) }}" class="main-news_sidebar xs-pb-10 xs-mt-20">
 							<div class="row">
 								<div class="col-sm-1 col-md-2">
 									<p class="comment-text_time text-uppercase small-text"><time>{{ $last_news_item->pubdate->format('H:i') }}</time></p>
@@ -130,7 +130,7 @@
 						<h2 class="block-title_text">{{ __('Главные новости') }}</h2>
 					</div>
 					@foreach($main_news as $k=>$main_news_item)
-						<a href="#" class="main-news_sidebar xs-pb-10">
+						<a href="{{ lPath($main_news_item->node->absolute_path) }}" class="main-news_sidebar xs-pb-10">
 
 							@if(! $k)
 								<div class="sidebar_item__img">
