@@ -81,27 +81,22 @@
     <div class="col-md-4">
       <div class="equal-block">
         <div class="block-title">
-          <h2 class="block-title_text has-rs-icon">Публикации</h2>
+          <h2 class="block-title_text has-rs-icon">{{ __('Публикации') }}</h2>
         </div>
 
         <div class="equal-block_content">
-          <a href="#" class="publication-item">
-            <img src="{{ asset('/asset/img/home/gaz1.png') }}">
-            <p class="publication-item_text">Батарейки, нефть и Украина</p>
-          </a>
-          <a href="#" class="publication-item">
-            <p class="publication-item_text">Стоп-кран для формулы цены</p>
-          </a>
-          <a href="#" class="publication-item">
-            <p class="publication-item_text">Батарейки, нефть и Украина</p>
-          </a>
-          <a href="#" class="publication-item">
-            <p class="publication-item_text">Стоп-кран для формулы цены</p>
-          </a>
+          @foreach($publications as $k=>$publication)
+            <a href="{{ lPath($publication->node->absolute_path) }}" class="publication-item">
+              @if(! $k)
+                <img src="{{ asset($publication->image_from_gallery) }}">
+              @endif
+              <p class="publication-item_text">{{ $publication->name }}</p>
+            </a>
+          @endforeach
         </div>
       </div>
       <div class="btn-wrapp text-center xs-mt-20">
-        <a href="#" class="btn btn-default big-btn black-border text-uppercase bold">Перейти в раздел</a>
+        <a href="{{ lPath('/publications') }}" class="btn btn-default big-btn black-border text-uppercase bold">{{ __('Перейти в раздел') }}</a>
       </div>
     </div>
     <div class="col-md-4">
@@ -111,33 +106,17 @@
         </div>
         <div class="equal-block_content">
           <div class="owl-carousel owl-carousel-home">
-            <a href="#" class="home-carousel_item">
-              <div class="home-carousel_item__img">
-                <img src="{{ asset('/asset/img/home/gaz1.png') }}">
-              </div>
-              <div class="home-carousel_item__descr">
-                <p class="xs-mt-5">Игорь Щуцкий</p>
-                <p>«Карпатнефтехим» через полтора месяца выйдет на 98% мощности</p>
-              </div>
-            </a>
-            <a href="#" class="home-carousel_item">
-              <div class="home-carousel_item__img">
-                <img src="{{ asset('/asset/img/home/gaz1.png') }}">
-              </div>
-              <div class="home-carousel_item__descr">
-                <p class="xs-mt-5">Игорь Щуцкий</p>
-                <p>Quod, harum. Incidunt sunt laboriosam architecto, exercitationem optio, id culpa assumenda omnis.</p>
-              </div>
-            </a>
-            <a href="#" class="home-carousel_item">
-              <div class="home-carousel_item__img">
-                <img src="{{ asset('/asset/img/home/gaz1.png') }}">
-              </div>
-              <div class="home-carousel_item__descr">
-                <p class="xs-mt-5">Игорь Щуцкий</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, voluptas?</p>
-              </div>
-            </a>
+            @foreach($interviews as $interview)
+              <a href="#" class="home-carousel_item">
+                <div class="home-carousel_item__img">
+                  <img src="{{ asset($interview->image_from_gallery) }}">
+                </div>
+                <div class="home-carousel_item__descr">
+                  <p class="xs-mt-5">Игорь Щуцкий</p>
+                  <p>«Карпатнефтехим» через полтора месяца выйдет на 98% мощности</p>
+                </div>
+              </a>
+            @endforeach
           </div>
 
           <div class="cust-nav hidden-xs visible-md visible-lg">

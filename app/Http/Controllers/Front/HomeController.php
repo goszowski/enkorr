@@ -35,6 +35,21 @@ class HomeController extends RSController
                         ->limit(3)
                         ->get();
 
+      $publications = Model('publication')
+                        ->where('parent_id', 12)
+                        ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                        ->orderBy('pubdate', 'desc')
+                        ->limit(5)
+                        ->get();
+
+      $interviews = Model('publication')
+                        ->where('parent_id', 12)
+                        ->where('pubdate', '<=', date('Y-m-d H:i:s'))
+                        ->where('theme_id', 25)
+                        ->orderBy('pubdate', 'desc')
+                        ->limit(5)
+                        ->get();
+
       // $publications_model = Model('main_pub')
       //                         ->orderBy('orderby', 'desc')
       //                         ->limit(config('public.index.countpub'))
@@ -77,6 +92,6 @@ class HomeController extends RSController
       
 
 
-      return $this->make_view('pages.index', compact('news', 'first_news_item', 'main_news', 'homePubs', 'banners', 'poll', 'answers'));
+      return $this->make_view('pages.index', compact('news', 'first_news_item', 'main_news', 'publications', 'interviews', 'homePubs', 'banners', 'poll', 'answers'));
     }
 }
