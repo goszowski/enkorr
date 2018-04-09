@@ -12,7 +12,7 @@
 
   @if($field_name == 'similar_publications' and !$field_value and isset($values) and $values[$lang->id]->tag_ids)
     <?php 
-      $tags = explode(',', $values[$lang->id]->tag_ids);
+      $tags = explode(',', $values[$lang->id]->tags);
       $similar = [];
       if(count($tags))
       {
@@ -21,7 +21,7 @@
         foreach($tags as $k=>$tag)
         {
           $method = !$k ? 'whereRaw' : 'orWhereRaw';
-          $similar = $similar->{$method}("FIND_IN_SET('{$tag}', tag_ids) > 0");
+          $similar = $similar->{$method}("FIND_IN_SET('{$tag}', tags) > 0");
         }
 
         $similar = $similar->orderby('pubdate', 'desc')->take(10)->get();
