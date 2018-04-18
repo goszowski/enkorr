@@ -54,7 +54,7 @@
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right main-nav-right">
-							<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+							<li><a href="{{ lPath('/search/news') }}"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 							<li><a href="#">Войти</a></li>
 						</ul>
 					</div>
