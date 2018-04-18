@@ -99,7 +99,7 @@ class ImagesController extends Controller {
         $imageFile = ImageMaker::make(public_path('gallery/'.$image->image));
 
         $imageFile->crop((int) request('width'), (int) request('height'), (int) request('x'), (int) request('y'));
-        $imageFile->resize(735, null, function ($constraint) {
+        $imageFile->resize(620, null, function ($constraint) {
             $constraint->aspectRatio();
         });
 

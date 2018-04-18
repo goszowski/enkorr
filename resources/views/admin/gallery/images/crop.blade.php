@@ -35,8 +35,8 @@
 <script>
 	$(function() {
 		$('#image').cropper({
-		  aspectRatio: 735 / 350,
-		  minCropBoxWidth: 735,
+		  aspectRatio: 620 / 350,
+		  minCropBoxWidth: 620,
 		  minCropBoxHeight: 350,
 		  zoomable: false,
 		  center: true,
