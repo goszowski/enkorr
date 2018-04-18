@@ -39,8 +39,9 @@
 				<div class="collapse navbar-collapse" id="navbar-collapse-x">
 					<div class="menu-line">
 						<ul class="nav navbar-nav navbar-right top-menu">
-							<li><a href="#">О проекте</a></li>
-							<li><a href="#">Контакты</a></li>
+							@foreach($additional_menu as $additional_menu_item)
+								<li class=""><a href="{{ lPath($additional_menu_item->link) }}">{{ $additional_menu_item->name }}</a></li>
+							@endforeach
 						</ul>
 					</div>
 					<div class="menu-line text-center">
