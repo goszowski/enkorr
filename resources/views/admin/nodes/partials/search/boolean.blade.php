@@ -1,4 +1,4 @@
-{{Form::open(['url'=>url('panel-admin/nodes/edit/'.$node->id), 'method'=>'get'])}}
+{{Form::open(['url'=>url('ru/panel-admin/nodes/edit/'.$node->id), 'method'=>'get'])}}
 <input type="hidden" name="class" value="{{$class->id}}">
 <div class="input-group">
   {{-- <input type="text" class="form-control input-sm" name="filter_value" value="{{$filter_value}}"> --}}

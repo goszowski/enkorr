@@ -1,4 +1,4 @@
-{{Form::open(['url'=>url('panel-admin/nodes/edit/'.$node->id.'?class='.$class->id), 'method'=>'get'])}}
+{{Form::open(['url'=>url('ru/panel-admin/nodes/edit/'.$node->id.'?class='.$class->id), 'method'=>'get'])}}
 {{-- <input type="hidden" name="condition" value="like"> --}}
 <div class="input-group">
   <input type="text" class="form-control input-sm" name="filter_value" value="{{$filter == $field->shortname ? $filter_value : ''}}">
