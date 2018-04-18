@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Http\Composers\Layouts\SearchComposer;
 use View;
 
 use App\Http\Composers\Indicator\EuropeComposer;
@@ -20,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('Store', 'App\Runsite\Libraries\Store');
         View::composer('layouts.main', 'App\Http\Composers\GlobalComposer');
         View::composer('partials.publications', 'App\Http\Composers\WidgetComposer');
-        View::composer('partials.allpolls', 'App\Http\Composers\PollComposer');
+        // View::composer('partials.allpolls', 'App\Http\Composers\PollComposer');
+
+        View::composer('layouts.search', SearchComposer::class);
 
         // indicators
         View::composer('_partials.indicators.eu', EuropeComposer::class);

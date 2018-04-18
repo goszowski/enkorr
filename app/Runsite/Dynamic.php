@@ -79,5 +79,10 @@ class Dynamic extends Model
         return $builder->orderBy('pubdate', 'desc');
     }
 
+    public function resultsAmount()
+    {
+        return Model($this->model)->where('name', 'like', '%'.request('term').'%')->count();
+    }
+
 
 }
