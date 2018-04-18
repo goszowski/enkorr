@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('partials.allpolls', 'App\Http\Composers\PollComposer');
 
         // indicators
-        View::composer('partials.indicators.prices_eu', EuropeComposer::class);
-        View::composer('partials.indicators.prices_ua', UkraineComposer::class);
+        View::composer('_partials.indicators.eu', EuropeComposer::class);
+        View::composer('_partials.indicators.ua', UkraineComposer::class);
     }
 
     /**
