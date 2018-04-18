@@ -452,21 +452,21 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
 //
 //##
 
-$pagination-color:                     $link-color !default;
-$pagination-bg:                        #fff !default;
-$pagination-border:                    #ddd !default;
+$pagination-color:                     #000 !default;
+$pagination-bg:                        transparent !default;
+$pagination-border:                    transparent !default;
 
-$pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  $gray-lighter !default;
-$pagination-hover-border:              #ddd !default;
+$pagination-hover-color:               $brand-warning !default;
+$pagination-hover-bg:                  transparent !default;
+$pagination-hover-border:              #000 !default;
 
-$pagination-active-color:              #fff !default;
-$pagination-active-bg:                 $brand-primary !default;
-$pagination-active-border:             $brand-primary !default;
+$pagination-active-color:              #000 !default;
+$pagination-active-bg:                 transparent !default;
+$pagination-active-border:             #000 !default;
 
 $pagination-disabled-color:            $gray-light !default;
-$pagination-disabled-bg:               #fff !default;
-$pagination-disabled-border:           #ddd !default;
+$pagination-disabled-bg:               transparent !default;
+$pagination-disabled-border:           transparent !default;
 
 
 //== Pager
@@ -676,20 +676,20 @@ $progress-bar-info-bg:        $brand-info !default;
 //** Background color on `.list-group-item`
 $list-group-bg:                 #fff !default;
 //** `.list-group-item` border color
-$list-group-border:             #ddd !default;
+$list-group-border:             $brand-warning !default;
 //** List group border radius
 $list-group-border-radius:      $border-radius-base !default;
 
 //** Background color of single list items on hover
-$list-group-hover-bg:           #f5f5f5 !default;
+$list-group-hover-bg:           $brand-warning !default;
 //** Text color of active list items
-$list-group-active-color:       $component-active-color !default;
+$list-group-active-color:       #fff !default;
 //** Background color of active list items
-$list-group-active-bg:          $component-active-bg !default;
+$list-group-active-bg:          $brand-warning !default;
 //** Border color of active list elements
 $list-group-active-border:      $list-group-active-bg !default;
 //** Text color for content within active list items
-$list-group-active-text-color:  lighten($list-group-active-bg, 40%) !default;
+$list-group-active-text-color:  #fff !default;
 
 //** Text color of disabled list items
 $list-group-disabled-color:      $gray-light !default;
@@ -699,7 +699,7 @@ $list-group-disabled-bg:         $gray-lighter !default;
 $list-group-disabled-text-color: $list-group-disabled-color !default;
 
 $list-group-link-color:         #555 !default;
-$list-group-link-hover-color:   $list-group-link-color !default;
+$list-group-link-hover-color:   #fff !default;
 $list-group-link-heading-color: #333 !default;
 
 
@@ -776,10 +776,10 @@ $well-border:                 darken($well-bg, 7%) !default;
 $badge-color:                 #fff !default;
 //** Linked badge text color on hover
 $badge-link-hover-color:      #fff !default;
-$badge-bg:                    $gray-light !default;
+$badge-bg:                    $brand-warning !default;
 
 //** Badge text color in active nav link
-$badge-active-color:          $link-color !default;
+$badge-active-color:          $brand-warning !default;
 //** Badge background color in active nav link
 $badge-active-bg:             #fff !default;
 

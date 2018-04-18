@@ -1090,6 +1090,28 @@ body {
 }
 
 
+.pagination {
+	font-family: "Arial";
+	font-size: 16px;
+	letter-spacing: 0.4px;
+}
+
+.pagination li:first-child span, .pagination li:first-child a {
+	margin-right: 15px;
+	&:hover, &:focus {
+		border-color: transparent;
+	}
+}
+
+.pagination li:last-child span, .pagination li:last-child a {
+	margin-left: 15px;
+	&:hover, &:focus {
+		border-color: transparent;
+	}
+}
+
+
+
 /*------Media requests------*/
 
 /* Medium Devices, Desktops */

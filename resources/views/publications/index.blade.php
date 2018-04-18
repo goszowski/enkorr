@@ -52,7 +52,9 @@
 			@endforeach
 		</div>
 
-		{!! $publications->render() !!}
+		<div class="pagination-wrapp text-center xs-mt-40">
+			{!! $publications->render() !!}
+		</div>
 	</div>
 </div>
 
