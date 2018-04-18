@@ -32,7 +32,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#"><img src="{{ asset('/asset/img/logo.png') }}" alt="logo"></a>
+					<a class="navbar-brand" href="{{ lPath('/') }}"><img src="{{ asset('/asset/img/logo.png') }}" alt="logo"></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,11 +47,9 @@
 
 
 						<ul class="nav navbar-nav main-nav">
-							<li class="active"><a href="http://google.com.ua" target="_blank">Публикации</a></li>
-							<li><a href="#">Интервью</a></li>
-							<li><a href="#">Колонки</a></li>
-							<li><a href="#">Новости</a></li>
-							<li><a href="#">Видео</a></li>
+							@foreach($sections as $section)
+								<li class=""><a href="{{ lPath($section->link) }}">{{ $section->name }}</a></li>
+							@endforeach
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right main-nav-right">
