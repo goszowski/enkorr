@@ -52,7 +52,7 @@ class ImagesController extends Controller {
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image' => 'required|image|dimensions:min_width=735',
+            'image' => 'required|image|dimensions:min_width=620',
         ]);
 
         $extension = $request->image->extension();
