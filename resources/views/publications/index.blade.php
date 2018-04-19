@@ -17,7 +17,7 @@
 				<div class="col-sm-4 sm-md-padd-l-0">
 					<div class="publication-sidebar_item__descr publication-list_item__descr big-pb_descr">
 						<h3 class="publication-sidebar_item__title big-pb_descr_title">{{ $first_publication->name }}</h3>
-						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_publication->announce, 130) }}</p>
+						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_publication->pub_title, 130) }}</p>
 						<p class="comment-text_time text-uppercase"><time>{{ $first_publication->pubdate->format('d.m.Y, H:i') }}</time></p>
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 						</div>
 						<div class="publication-sidebar_item__descr publication-list_item__descr">
 							<h3 class="publication-sidebar_item__title">{{ $publication->name }}</h3>
-							<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($publication->announce, 130) }}</p>
+							<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($publication->pub_title, 130) }}</p>
 							<p class="comment-text_time text-uppercase"><time>{{ $publication->pubdate->format('d.m.Y, H:i') }}</time></p>
 						</div>
 					</a>
