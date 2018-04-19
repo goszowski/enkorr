@@ -31,7 +31,7 @@
 				<div class="publication-page_text">
 					{!! $fields->content !!}
 				</div>
-				<a href="javascript:print()" class="publication-print xs-pb-25 xs-mt-40 sm-mt-70 text-right">
+				<a href="javascript:print()" class="publication-print xs-pb-25 xs-mt-40 sm-mt-70 text-right hidden-print">
 					<img src="{{ asset('/asset/img/printer.png') }}">
 					<span class="text-uppercase xs-ml-5">{{ __('Печать') }}</span>
 				</a>
@@ -48,11 +48,11 @@
 								</ul>
 							@endif
 						</div>
-						<div class="col-sm-6 text-sm-right">
+						<div class="col-sm-6 text-sm-right hidden-print">
 							<div id="share"></div>
 						</div>
 					</div>
-					<div class="row publication-page_nav xs-mt-40 xs-mb-40 sm-mt-80 sm-mb-80">
+					<div class="row publication-page_nav xs-mt-40 xs-mb-40 sm-mt-80 sm-mb-80 hidden-print">
 						<div class="col-xs-6 text-right border">
 							<a href="{{ $prev ? lPath($prev->node->absolute_path) : '#' }}" class="publication-prev xs-pl-30 sm-pl-60 sm-pr-10 {{ ! $prev ? 'disabled' : null }}">{{ __('Предыдущая') }}</a>
 						</div>
@@ -63,7 +63,7 @@
 				</div>
 
 				@foreach($banners_under_text as $banner)
-					<div class="baner-wrapp text-center xs-mt-10 xs-mb-20">
+					<div class="baner-wrapp text-center xs-mt-10 xs-mb-20 hidden-print">
 						<a href="{{ $banner->link }}" rel="nofollow" target="_blank">
 							<img src="{{ iPath($banner->image, '600px') }}" alt="{{ $banner->name }}">
 						</a>
@@ -72,7 +72,7 @@
 				
 
 				@if(count($materials))
-					<div class="news-list_oneday xs-pb-5 xs-pt-30">
+					<div class="news-list_oneday xs-pb-5 xs-pt-30 hidden-print">
 						<div class="block-title">
 							<h2 class="block-title_text">{{ __('Материалы по теме') }}</h2>
 						</div>
@@ -97,13 +97,13 @@
 					</div>
 
 					@if(empty(Session::get('authUser')))
-						<div class="xs-pt-15">
+						<div class="xs-pt-15 hidden-print">
 							<p>{{__('Авторизируйтесь, что бы оставить комментарий')}}</p>
 							<a role="button" class="btn btn-warning" href="{{lPath('/auth/login')}}">{{ __('Авторизация') }}</a>
 						</div>
 					@else
 						{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}
-							<textarea class="form-control xs-mt-20" rows="3"></textarea>
+							<textarea class="form-control xs-mt-20 hidden-print" rows="3"></textarea>
 							<button class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
 						{!! Form::close() !!}
 					@endif
@@ -122,7 +122,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 hidden-print">
 				<div class="sidebar-block xs-mt-20">
 					<div class="block-title xs-mb-20">
 						<h2 class="block-title_text">{{ __('Последние публикации') }}</h2>

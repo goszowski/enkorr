@@ -57,7 +57,7 @@
 	
 	<header>
 
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-inverse hidden-print">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -99,7 +99,7 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		<div class="scroll-top-container">
+		<div class="scroll-top-container hidden-print">
 			<div class="scroll-top text-uppercase"><i class="fa fa-arrow-circle-up"></i> <span>{{__('Вверх')}}</span></div>
 		</div>
 	</header>
@@ -108,7 +108,7 @@
 
 	@yield('page')
 
-	<footer class="xs-pt-30 xs-pb-20 sm-pb-35 sm-pt-50">
+	<footer class="xs-pt-30 xs-pb-20 sm-pb-35 sm-pt-50 hidden-print">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
