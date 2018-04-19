@@ -1,6 +1,6 @@
 @extends('layouts.main')
-@include('partials.seo')
-@section('section')
+@include('_partials.seo2')
+@section('page')
 <div class="row xs-pt-50">
   <div class="col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
     <div class="panel panel-default">
@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">{{__('Register')}}</button>
+              <button type="submit" class="btn btn-warning">{{__('Register')}}</button>
               <a href="{{url(lPath('/auth/login'))}}" class="btn btn-default">{{__('Login')}}</a>
               <a href="{{ $facebookLoginUrl }}" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
             </div>

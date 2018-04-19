@@ -1,6 +1,6 @@
 @extends('layouts.main')
-@include('partials.seo')
-@section('section')
+@include('_partials.seo2')
+@section('page')
 <div class="row xs-pt-50">
   <div class="col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
     <div class="panel panel-default">
@@ -68,7 +68,7 @@
 
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">{{__('Update')}}</button>
+              <button type="submit" class="btn btn-warning">{{__('Update')}}</button>
               <a href="{{url(lPath('/auth/logout'))}}" class="btn btn-default">{{__('Logout')}}</a>
             </div>
 

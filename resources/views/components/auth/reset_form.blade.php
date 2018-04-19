@@ -1,6 +1,6 @@
 @extends('layouts.main')
-@include('partials.seo')
-@section('section')
+@include('_partials.seo2')
+@section('page')
 <div class="row xs-pt-50">
   <div class="col-md-6 col-md-push-3 col-lg-4 col-lg-push-4">
     <div class="panel panel-default">
@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">{{__('Reset')}}</button>
+              <button type="submit" class="btn btn-warning">{{__('Reset')}}</button>
             </div>
           {{Form::close()}}
       </div>
