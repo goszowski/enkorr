@@ -170,7 +170,7 @@
 					<div class="column-item xs-mt-40 md-mt-20 xs-mb-10">
 
 						@if($column->has('expert'))
-							<a href="#" class="column-item_author">
+							<a href="{{ lPath($column->expert->node->absolute_path) }}" class="column-item_author">
 								<div class="row">
 									<div class="col-md-4">
 										<div class="column-item_author__img">
