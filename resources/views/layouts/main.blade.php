@@ -23,8 +23,9 @@
 			padding-top: 25px;
 		}
 
-		.publication-page_text {
-			font-size: 15px;
+		.publication-page_text p {
+			font-size: 16px;
+			line-height: 1.4;
 		}
 
 		.image-with-title {
