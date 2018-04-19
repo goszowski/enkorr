@@ -7,9 +7,12 @@
 			<div class="col-md-8 xs-mt-20 ">
 				<p class="comment-text_time text-uppercase small-text"><time>{{ $fields->pubdate->format('d.m.Y, H:i') }}</time></p>
 				<h1 class="page-news_title">{{ $fields->name }}</h1>
-				<div class="publication-img_wrapp">
-					<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
-				</div>
+
+				@if($fields->image)
+					<div class="publication-img_wrapp">
+						<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
+					</div>
+				@endif
 
 				<div class="publication-page_text">
 					{!! $fields->content !!}
