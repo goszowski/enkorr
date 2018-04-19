@@ -19,13 +19,19 @@ class HomeController extends RSController
 		$interviews = Model('interview')->orderBy('pubdate', 'desc')->take(5)->get();
 		$columns = Model('column')->orderBy('pubdate', 'desc')->take(3)->get();
 
+		$banners[1] = Model('banner')->where('home_1', true)->orderBy('orderby', 'asc')->get();
+		$banners[2] = Model('banner')->where('home_2', true)->orderBy('orderby', 'asc')->get();
+		$banners[3] = Model('banner')->where('home_3', true)->orderBy('orderby', 'asc')->get();
+		$banners[4] = Model('banner')->where('home_4', true)->orderBy('orderby', 'asc')->get();
+
 		return $this->make_view('roots.show', compact(
 			'first_main_news_item',
 			'main_news',
 			'news',
 			'publications',
 			'interviews',
-			'columns'
+			'columns',
+			'banners'
 		));
 	}
 

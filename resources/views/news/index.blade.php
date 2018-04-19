@@ -13,11 +13,11 @@
 
 					@foreach($news as $news_item)
 
-						@php($day_visibled[$news_item->pubdate->format('Ymd')] = false)
+						@php(!isset($day_visibled[$news_item->pubdate->format('Ymd')]) ? $day_visibled[$news_item->pubdate->format('Ymd')] = false : null)
 
 						@if(! $day_visibled[$news_item->pubdate->format('Ymd')])
 							<div class="news-list_date__wrapp">
-								<span class="news-list_date"><time>{{ $news_item->pubdate->format('d.m.Y') }}</time></span>
+								<span class="news-list_date"><time datetime="{{ $news_item->pubdate }}">{{ $news_item->pubdate->format('d') }} {{ trans('public.months.'.$news_item->pubdate->format('m')) }} {{ $news_item->pubdate->format('Y') }}</time></span>
 							</div>
 
 							@php($day_visibled[$news_item->pubdate->format('Ymd')] = true)
@@ -41,6 +41,10 @@
 							</div>
 						</a>
 					@endforeach
+				</div>
+
+				<div class="pagination-wrapp text-center xs-mt-40">
+					{!! $news->render() !!}
 				</div>
 			</div>
 			<div class="col-sm-4">

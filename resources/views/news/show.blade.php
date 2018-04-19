@@ -135,7 +135,7 @@
 					@foreach($main_news as $k=>$main_news_item)
 						<a href="{{ lPath($main_news_item->node->absolute_path) }}" class="main-news_sidebar xs-pb-10">
 
-							@if(! $k)
+							@if(! $k and $main_news_item->image)
 								<div class="sidebar_item__img">
 									<img src="{{ asset('gallery/' . $main_news_item->image) }}" alt="{{ $main_news_item->name }}">
 								</div>

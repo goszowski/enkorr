@@ -58,7 +58,7 @@ class NewsController extends RSController
 			->published()
 			->where('node_id', '!=', $this->fields->node_id) // Прибираємо з виборки поточну публікацію
 			->ordered()
-			->take(2)
+			->take(3)
 			->get();
 
 		// Головні новини

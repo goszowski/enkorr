@@ -13,6 +13,20 @@
 	<link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials.css') }}">
 	<link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials-theme-flat.css') }}">
 	<link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap.min.css') }}">
+
+	<style>
+		.news-list_date__wrapp {
+			background: #f6f6f6;
+			position: relative;
+			top: -1px;
+			margin-top: 0;
+			padding-top: 25px;
+		}
+
+		.publication-page_text {
+			font-size: 15px;
+		}
+	</style>
 </head>
 
 

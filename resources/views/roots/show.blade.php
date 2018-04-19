@@ -46,9 +46,17 @@
 			</div>
 
 		</div>
-		<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
-			<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
-		</div>
+
+		@if(count($banners[1]))
+			@foreach($banners[1] as $banner)
+				<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
+					<a href="{{ $banner->link }}" target="_blank" rel="nofollow">
+						<img src="{{ iPath($banner->image, 'full') }}" style="max-width: 728px;">
+					</a>
+				</div>
+			@endforeach
+		@endif
+		
 	</div>
 </div>
 
@@ -140,9 +148,15 @@
 			</div>
 		</div>
 	</div>
-	<div class="baner-wrapp text-center xs-mt-30 xs-mb-15 sm-mb-30">
-		<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
-	</div>
+	@if(count($banners[2]))
+		@foreach($banners[2] as $banner)
+			<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
+				<a href="{{ $banner->link }}" target="_blank" rel="nofollow">
+					<img src="{{ iPath($banner->image, 'full') }}" style="max-width: 728px;">
+				</a>
+			</div>
+		@endforeach
+	@endif
 </div>
 
 <div class="container-fluid black-bg xs-pt-25 xs-pb-30">
@@ -185,9 +199,15 @@
 		<div class="btn-wrapp text-center xs-mt-20">
 			<a href="{{ lPath('/columns') }}" class="btn btn-default big-btn white-border text-uppercase bold">{{ __('Перейти в раздел') }}</a>
 		</div>
-		<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
-			<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
-		</div>
+		@if(count($banners[3]))
+			@foreach($banners[3] as $banner)
+				<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
+					<a href="{{ $banner->link }}" target="_blank" rel="nofollow">
+						<img src="{{ iPath($banner->image, 'full') }}" style="max-width: 728px;">
+					</a>
+				</div>
+			@endforeach
+		@endif
 	</div>
 </div>
 
@@ -206,9 +226,15 @@
 			... код информера ...
 		</div>
 	</div>
-	<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
-		<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
-	</div>
+	@if(count($banners[4]))
+		@foreach($banners[4] as $banner)
+			<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
+				<a href="{{ $banner->link }}" target="_blank" rel="nofollow">
+					<img src="{{ iPath($banner->image, 'full') }}" style="max-width: 728px;">
+				</a>
+			</div>
+		@endforeach
+	@endif
 </div>
 
 @endsection
