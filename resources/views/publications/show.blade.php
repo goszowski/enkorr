@@ -8,7 +8,12 @@
 			<div class="col-md-8 xs-mt-20">
 
 				<div class="publication-img_wrapp">
-					<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
+					@if($fields->image)
+						<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
+					@else
+						<img src="{{ asset('asset/images/default_image.png') }}" alt="{{ $fields->name }}">
+					@endif
+					
 					<div class="publication-img_descr xs-pl-10 sm-pl-40 sm-pb-20">
 						<h1 class="page-publication_title">{{ $fields->name }}</h1>
 						<p class="publication-page_time text-uppercase">
