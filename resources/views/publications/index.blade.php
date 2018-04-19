@@ -11,7 +11,11 @@
 			<div class="row">
 				<div class="col-sm-8 sm-md-padd-r-0">
 					<div class="publication-list-img big-publication_img">
-						<img src="{{ asset('gallery/' . $first_publication->image) }}" alt="{{ $first_publication->name }}">
+						@if($first_publication->image)
+							<img src="{{ asset('gallery/' . $first_publication->image) }}" alt="{{ $first_publication->name }}">
+						@else
+							<img src="{{ asset('asset/images/default_image.png') }}" alt="{{ $first_publication->name }}">
+						@endif
 					</div>
 				</div>
 				<div class="col-sm-4 sm-md-padd-l-0">
@@ -36,7 +40,9 @@
 				<div class="col-sm-6 col-md-4">
 					<a href="{{ lPath($publication->node->absolute_path) }}" class="publication-sidebar_item xs-mt-20">
 						<div class="sidebar_item__img publication-list-img">
-							<img src="{{ asset('gallery/' . $publication->image) }}" alt="{{ $publication->name }}">
+							@if($publication->image)
+								<img src="{{ asset('gallery/' . $publication->image) }}" alt="{{ $publication->name }}">
+							@endif
 
 							@if($publication->is_exclusive)
 								<span class="text-uppercase exclusive-public">{{ __('Эксклюзив') }}</span>
