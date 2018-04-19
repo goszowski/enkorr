@@ -183,7 +183,7 @@
 			@endforeach
 		</div>
 		<div class="btn-wrapp text-center xs-mt-20">
-			<a href="{{ lPath('/experts') }}" class="btn btn-default big-btn white-border text-uppercase bold">{{ __('Перейти в раздел') }}</a>
+			<a href="{{ lPath('/columns') }}" class="btn btn-default big-btn white-border text-uppercase bold">{{ __('Перейти в раздел') }}</a>
 		</div>
 		<div class="baner-wrapp text-center xs-mt-30 xs-mb-15">
 			<img src="{{ asset('/asset/img/banner.png') }}" alt="news1">
