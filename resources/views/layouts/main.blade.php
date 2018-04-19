@@ -26,6 +26,27 @@
 		.publication-page_text {
 			font-size: 15px;
 		}
+
+		.image-with-title {
+			position: relative;
+			display: block;
+			margin: 10px auto;
+		}
+
+		.publication-page_text p img {
+			margin: 0;
+			width:auto!important;
+			max-width: 100%!important;
+			height: auto!important;
+		}
+
+		.image-with-title .image-caption {
+			position: absolute;
+			left: 0; bottom: 0; right: 0;
+			background: rgba(0,0,0, .5);
+			color: #fff;
+			padding: 10px;
+		}
 	</style>
 </head>
 
@@ -239,6 +260,17 @@
 			$('.scroll-top').on('click', function() {
 				$('html, body').scrollTop(0);
 				$(this).removeClass('active');
+			});
+
+			$('.publication-page_text img').each(function(){
+				var image = $(this);
+				if(image.attr('title'))
+				{
+				  var code = '<span class="image-with-title"><img src="'+ image.attr('src') +'"><span class="image-caption"><i class="fa fa-camera"></i> '+ image.attr('title') +'</span></span>';
+				  $(code).insertAfter(image);
+				  image.hide();
+				}
+				
 			});
 
 		});
