@@ -111,17 +111,17 @@
 			<div class="col-md-4 hidden-print">
 				<div class="sidebar-block xs-mt-20">
 					<div class="block-title xs-mb-20 sm-mb-30">
-						<h2 class="block-title_text">{{ __('Последние новости') }}</h2>
+						<h2 class="block-title_text">{{ __('Популярные новости') }}</h2>
 					</div>
-					@foreach($last_news as $last_news_item)
-						<a href="{{ lPath($last_news_item->node->absolute_path) }}" class="main-news_sidebar xs-pb-10 xs-mt-20">
+					@foreach($popular_news as $popular_news_item)
+						<a href="{{ lPath($popular_news_item->node->absolute_path) }}" class="main-news_sidebar xs-pb-10 xs-mt-20">
 							<div class="row">
 								<div class="col-sm-1 col-md-2">
-									<p class="comment-text_time text-uppercase small-text"><time>{{ $last_news_item->pubdate->format('H:i') }}</time></p>
+									<p class="comment-text_time text-uppercase small-text"><time>{{ $popular_news_item->pubdate->format('H:i') }}</time></p>
 								</div>
 								<div class="col-sm-11 col-md-10">
 									<h3 class="main-news_sidebar__title xs-mt-0">
-										{{ $last_news_item->name }}
+										{{ $popular_news_item->name }}
 									</h3>
 								</div>
 							</div>

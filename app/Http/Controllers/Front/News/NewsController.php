@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\News;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\RSController;
+use Carbon\Carbon;
 
 class NewsController extends RSController
 {
@@ -25,6 +26,7 @@ class NewsController extends RSController
 	 */
 	public function show()
 	{
+		Model('news_item')->where('node_id', $this->node->id)->increment('popular');
 		// Попередня і наступна публікації
 		$prev = Model('news_item')->where('pubdate', '<', $this->fields->pubdate)->orderBy('pubdate', 'desc')->first();
 		$next = Model('news_item')->where('pubdate', '>', $this->fields->pubdate)->orderBy('pubdate', 'asc')->first();
@@ -53,11 +55,12 @@ class NewsController extends RSController
 		// Коментарі публікації
 		$comments = Model('comment')->where('parent_id', $this->fields->node_id)->orderBy('created_at', 'asc')->get();
 
-		// Останні новини
-		$last_news = Model('news_item')
+		// Популярні новини
+		$popular_news = Model('news_item')
 			->published()
 			->where('node_id', '!=', $this->fields->node_id) // Прибираємо з виборки поточну публікацію
-			->ordered()
+			->where('pubdate', '>=', Carbon::now()->subDays(30))
+			->orderBy('popular', 'asc')
 			->take(3)
 			->get();
 
@@ -74,7 +77,7 @@ class NewsController extends RSController
 		$banners_right_side = Model('banner')->where('right', true)->where('in_new_bool', true)->orderBy('orderby', 'asc')->get();
 		$banners_under_text = Model('banner')->where('down', true)->where('in_new_bool', true)->orderBy('orderby', 'asc')->get();
 
-		return $this->make_view('news.show', compact('prev', 'next', 'materials', 'comments', 'last_news', 'main_news', 'banners_right_side', 'banners_under_text'));
+		return $this->make_view('news.show', compact('prev', 'next', 'materials', 'comments', 'popular_news', 'main_news', 'banners_right_side', 'banners_under_text'));
 	}
 
 }
