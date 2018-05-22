@@ -118,7 +118,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
 					<div class="footer-logo-wrapp sm-mt-15">
-						<img src="{{ asset('/asset/img/footer-logo.png') }}">
+						<img src="{{ asset('/asset/images/enkorr-logo-wog-gray.svg') }}" style="width: 160px;">
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
