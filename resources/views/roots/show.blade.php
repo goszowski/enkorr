@@ -156,6 +156,8 @@
 				</a>
 			</div>
 		@endforeach
+	@else
+		<div class="xs-pt-30"></div>
 	@endif
 </div>
 
