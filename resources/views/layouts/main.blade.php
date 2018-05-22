@@ -89,7 +89,7 @@
 
 						<ul class="nav navbar-nav main-nav">
 							@foreach($sections as $section)
-								<li class=""><a href="{{ lPath($section->link) }}">{{ $section->name }}</a></li>
+								<li class="{{ str_is($section->link.'*', $node->absolute_path) ? 'active' : null }}"><a href="{{ lPath($section->link) }}">{{ $section->name }}</a></li>
 							@endforeach
 						</ul>
 
