@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 
 	<link rel="stylesheet" href="{{ asset('asset/vendor/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{asset('asset/vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
@@ -16,6 +16,9 @@
 	<link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap.min.css') }}">
 
 	<style>
+		html, body {
+			font-weight: 300;
+		}
 		.news-list_date__wrapp {
 			background: #f6f6f6;
 			position: relative;
