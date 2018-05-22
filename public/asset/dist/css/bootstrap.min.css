@@ -7674,12 +7674,12 @@ button.close {
     transform: rotate(360deg);
     transform: rotate(360deg); } }
 
-@font-face {
+/*@font-face {
   font-family: "Arial";
   src: url("../../fonts/arial.ttf"); }
 
 @font-face {
-  font-family: "Arial-Bold";
+  font-family: "Arial";
   src: url("../../fonts/arialbd.ttf"); }
 
 @font-face {
@@ -7700,13 +7700,13 @@ button.close {
 
 @font-face {
   font-family: "Georgia-Pro-CondSemiBoldItalic";
-  src: url("../../fonts/GeorgiaPro-CondSemiBoldItalic.ttf"); }
+  src: url("../../fonts/GeorgiaPro-CondSemiBoldItalic.ttf"); }*/
 
 html, body {
   overflow-x: hidden; }
 
 b, strong {
-  font-family: "Georgia-Pro-CondBold"; }
+  font-family: "Merriweather"; font-weight: bold; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -7757,7 +7757,7 @@ a, a:active, a:hover, a:focus {
   color: #f37021; }
 
 body {
-  font-family: 'Georgia-Pro', sans-serif;
+  font-family: 'Merriweather', sans-serif;
   font-size: 14px;
   min-width: 320px;
   position: relative;
@@ -7877,7 +7877,7 @@ body {
 .last-news__big_descr_title {
   letter-spacing: 1.5px;
   font-size: 26px;
-  font-family: "Arial-Bold";
+  font-family: "Arial";
   margin-top: 25px;
   font-weight: 700; }
 
@@ -7925,7 +7925,7 @@ body {
 
 .last-news_item_text {
   font-weight: 700;
-  font-family: "Georgia-Pro-Bold";
+  font-family: "Merriweather";
   margin-bottom: 10px;
   transition: all 0.2s ease; }
 
@@ -7955,7 +7955,7 @@ body {
   transition: all 0.2s ease;
   letter-spacing: 0.55px;
   font-weight: 700;
-  font-family: "Georgia-Pro-Bold"; }
+  font-family: "Merriweather"; }
 
 .equal-block_content .main-news_item:last-child {
   border-bottom: none; }
@@ -7992,7 +7992,7 @@ body {
   position: relative;
   margin: 0;
   margin-left: 20px;
-  font-family: "Georgia-Pro-Bold";
+  font-family: "Merriweather";
   letter-spacing: 0.35px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -8162,7 +8162,7 @@ body {
 
 .price-value {
   position: relative;
-  font-family: "Arial-Bold"; }
+  font-family: "Arial"; }
   .price-value .fa {
     position: absolute;
     right: 5px;
@@ -8286,7 +8286,7 @@ body {
   margin-top: 30px;
   line-height: 18px;
   letter-spacing: 0.35px;
-  font-family: "Georgia-Pro-CondRegular"; }
+  font-family: "Merriweather"; }
 
 .publication-page_text blockquote {
   position: relative;
@@ -8294,7 +8294,7 @@ body {
   margin-top: 20px;
   border: none;
   font-size: 18px;
-  font-family: "Georgia-Pro-CondSemiBoldItalic";
+  font-family: "Merriweather";
   letter-spacing: 0.45px; }
   .publication-page_text blockquote:before {
     position: absolute;
@@ -8326,7 +8326,7 @@ body {
 
 .publication-print {
   display: block;
-  font-family: "Arial-Bold";
+  font-family: "Arial";
   font-size: 10px;
   color: #000;
   border-bottom: 1px solid #777; }
@@ -8448,13 +8448,13 @@ body {
   right: 0;
   bottom: 0;
   letter-spacing: 0.35px;
-  font-family: "Arial-Bold"; }
+  font-family: "Arial"; }
 
 .publication-sidebar_item__title {
   font-size: 16px;
   letter-spacing: 0.4px;
   margin: 0;
-  font-family: "Georgia-Pro-CondBold"; }
+  font-family: "Merriweather"; }
 
 .publication-sidebar_item__descr {
   background-color: #fff;
@@ -8467,7 +8467,7 @@ body {
 .main-news_sidebar {
   display: block;
   color: #000;
-  font-family: "Georgia-Pro-CondBold";
+  font-family: "Merriweather";
   border-bottom: 1px solid #b9b9b9;
   transition: all 0.2s ease; }
   .main-news_sidebar:hover, .main-news_sidebar:focus {
@@ -8494,7 +8494,7 @@ body {
   margin: 20px 0;
   letter-spacing: 0.6px;
   font-size: 24px;
-  font-family: "Georgia-Pro-CondBold"; }
+  font-family: "Merriweather"; font-weight: bold; }
 
 /*=======Publication-list page=======*/
 .publication-list-img img {
@@ -8524,7 +8524,7 @@ body {
   position: relative;
   transition: all 0s ease; }
   .news-list-item .news-list-title {
-    font-family: "Georgia-Pro"; }
+    font-family: "Merriweather"; }
   .news-list-item:hover .news-list-title, .news-list-item:focus .news-list-title {
     text-decoration: underline !important; }
 

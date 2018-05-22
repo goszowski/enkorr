@@ -6,7 +6,8 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 
 	<link rel="stylesheet" href="{{ asset('asset/vendor/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{asset('asset/vendor/owl.carousel/dist/assets/owl.carousel.min.css') }}">
@@ -24,8 +25,8 @@
 		}
 
 		.publication-page_text p {
-			font-size: 16px;
-			line-height: 1.4;
+			font-size: 15px;
+			line-height: 1.6;
 		}
 
 		.image-with-title {
