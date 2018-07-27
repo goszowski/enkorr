@@ -49,8 +49,8 @@ class PublicationsController extends RSController
 				->get();
 		}
 
-		// Коментарі публікації
-		$comments = Model('comment')->where('parent_id', $this->fields->node_id)->orderBy('created_at', 'asc')->get();
+		// Коментарі публікації, тільки модеровані
+		$comments = Model('comment')->where('parent_id', $this->fields->node_id)->where('is_moderated', true)->orderBy('created_at', 'asc')->get();
 
 		// Останні публікації
 		$last_publications = Model('publication')

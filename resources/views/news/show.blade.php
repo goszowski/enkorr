@@ -5,6 +5,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 xs-mt-20 ">
+				@if(Session::has('message'))
+					<div class="alert alert-success">
+						{{ Session::get('message') }}
+					</div>
+				@endif
 				<p class="comment-text_time text-uppercase small-text"><time>{{ $fields->pubdate->format('d.m.Y, H:i') }}</time></p>
 				<h1 class="page-news_title">{{ $fields->name }}</h1>
 
@@ -89,8 +94,9 @@
 						</div>
 					@else
 						{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}
-							<textarea class="form-control xs-mt-20" rows="3"></textarea>
-							<button class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
+							<input type="hidden" name="publication_id" value="{{ $fields->node_id }}">
+							<textarea class="form-control xs-mt-20" name="text" rows="3"></textarea>
+							<button type="submit" class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
 						{!! Form::close() !!}
 					@endif
 					

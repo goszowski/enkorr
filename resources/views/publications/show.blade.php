@@ -7,6 +7,12 @@
 		<div class="row">
 			<div class="col-md-8 xs-mt-20">
 
+				@if(Session::has('message'))
+					<div class="alert alert-success">
+						{{ Session::get('message') }}
+					</div>
+				@endif
+
 				<div class="publication-img_wrapp">
 					@if($fields->image)
 						<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
@@ -103,8 +109,9 @@
 						</div>
 					@else
 						{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}
-							<textarea class="form-control xs-mt-20 hidden-print" rows="3"></textarea>
-							<button class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
+							<input type="hidden" name="publication_id" value="{{ $fields->node_id }}">
+							<textarea class="form-control xs-mt-20" name="text" rows="3"></textarea>
+							<button type="submit" class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
 						{!! Form::close() !!}
 					@endif
 					

@@ -7,6 +7,12 @@
 		<div class="row">
 			<div class="col-md-8 xs-mt-20">
 
+				@if(Session::has('message'))
+					<div class="alert alert-success">
+						{{ Session::get('message') }}
+					</div>
+				@endif
+
 				<div class="publication-img_wrapp">
 					<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
 					<div class="publication-img_descr xs-pl-10 sm-pl-40 sm-pb-20">
@@ -94,10 +100,11 @@
 							<a role="button" class="btn btn-warning" href="{{lPath('/auth/login')}}">{{ __('Авторизация') }}</a>
 						</div>
 					@else
-						{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}
-							<textarea class="form-control xs-mt-20" rows="3"></textarea>
-							<button class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
-						{!! Form::close() !!}
+					{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}
+						<input type="hidden" name="publication_id" value="{{ $fields->node_id }}">
+						<textarea class="form-control xs-mt-20" name="text" rows="3"></textarea>
+						<button type="submit" class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
+					{!! Form::close() !!}
 					@endif
 					
 					<div class="comments xs-mt-20 xs-mb-50 sm-mb-70">
