@@ -52,6 +52,28 @@
 			color: #fff;
 			padding: 10px;
 		}
+
+		.publication-page_text table {
+			width: 100%!important;
+			border: 1px solid #e9a990!important;
+		}
+
+		.publication-page_text table td {
+			padding: 5px;
+		}
+
+		.publication-page_text table td p {
+			margin: 0!important;
+		}
+
+		.publication-page_text table tr:nth-of-type(odd) {
+			background: #efe3de!important;
+		}
+		
+		.publication-page_text table tr:hover {
+			border-color: #d35f32;
+			background: #e2c3b7!important;
+		}
 	</style>
 </head>
 
