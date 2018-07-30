@@ -25,11 +25,11 @@
 									<input {{ (request('titles') or (!request('titles') and !request('announces') and !request('texts'))) ? 'checked' : null }} type="checkbox" name="titles"> {{ __('Заголовки') }}
 								</label>
 							</div>
-							<div class="col-xs-4">
+							{{-- <div class="col-xs-4">
 								<label>
 									<input {{ request('announces') ? 'checked' : null }} type="checkbox" name="announces"> {{ __('Описание') }}
 								</label>
-							</div>
+							</div> --}}
 							<div class="col-xs-4">
 								<label>
 									<input {{ request('texts') ? 'checked' : null }} type="checkbox" name="texts"> {{ __('Текст') }}
