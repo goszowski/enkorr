@@ -74,6 +74,26 @@
 			border-color: #d35f32;
 			background: #e2c3b7!important;
 		}
+
+		.publication-gallery .owl-nav {
+			text-align: center;
+		}
+
+		.publication-gallery .owl-nav button {
+			margin: 5px 15px;
+		}
+
+		.publication-gallery .item {
+			position: relative;
+		}
+
+		.publication-gallery .item span {
+			position: absolute;
+			left: 0; right: 0; bottom: 0;
+			padding: 15px;
+			background: rgba(0,0,0, .5);
+			color: #fff;
+		}
 	</style>
 </head>
 
@@ -299,6 +319,18 @@
 				}
 				
 			});
+
+			if($(document).find('.publication-gallery').length)
+			{
+				$(document).find('.publication-gallery').each(function() {
+					$(this).owlCarousel({
+						items: 1,
+						nav: true,
+						dots: true,
+						navText: ['<i class="fa fa-arrow-left" aria-hidden="true"></i>', '<i class="fa fa-arrow-right" aria-hidden="true"></i>'],
+					});
+				});
+			}
 
 		});
 	</script>

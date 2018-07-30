@@ -73,7 +73,9 @@ class PublicationsController extends RSController
 		$banners_right_side = Model('banner')->where('right', true)->where('publ_bool', true)->orderBy('orderby', 'asc')->get();
 		$banners_under_text = Model('banner')->where('down', true)->where('publ_bool', true)->orderBy('orderby', 'asc')->get();
 
-		return $this->make_view('publications.show', compact('prev', 'next', 'materials', 'comments', 'last_publications', 'main_news', 'banners_right_side', 'banners_under_text'));
+		$texts = Model('text')->where('parent_id', $this->fields->node_id)->orderBy('orderby', 'asc')->get();
+
+		return $this->make_view('publications.show', compact('prev', 'next', 'materials', 'comments', 'last_publications', 'main_news', 'banners_right_side', 'banners_under_text', 'texts'));
 	}
 
 }

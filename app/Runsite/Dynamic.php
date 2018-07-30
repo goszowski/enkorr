@@ -110,5 +110,10 @@ class Dynamic extends Model
         return $res->count();
     }
 
+    public function getPhotoesAttribute()
+    {
+        return Model('photo')->where('parent_id', $this->node_id)->orderBy('orderby', 'asc')->get();;
+    }
+
 
 }

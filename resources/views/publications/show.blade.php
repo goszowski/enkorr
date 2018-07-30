@@ -36,6 +36,21 @@
 
 				<div class="publication-page_text">
 					{!! $fields->content !!}
+
+					@if(count($texts))
+						@foreach ($texts as $key => $text)
+							{!! $text->content !!}
+							@include('_partials.publication_gallery')
+
+							@if($text->excel_file and $text->has('chart_type'))
+							@include('_partials.chart')
+							@endif
+
+							@if($text->excel_table)
+							@include('_partials.table')
+							@endif
+						@endforeach
+					@endif
 				</div>
 				<a href="javascript:print()" class="publication-print xs-pb-25 xs-mt-40 sm-mt-70 text-right hidden-print">
 					<img src="{{ asset('/asset/img/printer.png') }}">
