@@ -15,6 +15,9 @@
 	<link rel="stylesheet" href="{{asset('asset/vendor/jssocials/dist/jssocials-theme-flat.css') }}">
 	<link rel="stylesheet" href="{{ asset('asset/dist/css/bootstrap.min.css') }}">
 
+	<script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
+	<script src="{{ asset('asset/vendor/chart-js/chart.min.js') }}"></script>
+
 	<style>
 		html, body {
 			font-weight: 300;
@@ -194,7 +197,7 @@
 
 
 
-	<script src="{{asset('asset/vendor/jquery/dist/jquery.min.js')}}"></script>
+	
 	<script src="{{asset('asset/libs/pace/pace.min.js') }}"></script>
 	<script src="{{asset('asset/vendor/owl.carousel/dist/owl.carousel.min.js') }}"></script>
 	<script src="{{asset('asset/vendor/jssocials/dist/jssocials.min.js') }}"></script>
