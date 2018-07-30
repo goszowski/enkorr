@@ -81,7 +81,33 @@ class Dynamic extends Model
 
     public function resultsAmount()
     {
-        return Model($this->model)->where('name', 'like', '%'.request('term').'%')->count();
+        $titles = request('titles') ? true : ((!request('announces') and !request('texts')) ? true : false);
+		$announces = request('announces') ? true : false;
+        $texts = request('texts') ? true : false;
+        
+        $method = 'where';
+
+        $res = Model($this->model);
+
+		if($titles)
+		{
+            $res = $res->{$method}('name', 'like', '%'.request('term').'%');
+            $method = 'orWhere';
+		}
+
+		if($announces)
+		{
+            $res = $res->{$method}($this->node->id == 47274 ? 'pub_title' : 'announce', 'like', '%'.request('term').'%');
+            $method = 'orWhere';
+		}
+
+		if($texts)
+		{
+            $res = $res->{$method}('content', 'like', '%'.request('term').'%');
+            $method = 'orWhere';
+        }
+        
+        return $res->count();
     }
 
 

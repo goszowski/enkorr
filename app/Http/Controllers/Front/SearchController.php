@@ -8,7 +8,33 @@ class SearchController extends RSController
 {
 	private function results($model_name)
 	{
-		return Model($model_name)->where('name', 'like', '%'.request('term').'%')->orderBy('pubdate', 'desc')->paginate();
+		$titles = request('titles') ? true : ((!request('announces') and !request('texts')) ? true : false);
+		$announces = request('announces') ? true : false;
+		$texts = request('texts') ? true : false;
+
+		$method = 'where';
+
+		$results = Model($model_name);
+
+		if($titles)
+		{
+			$results = $results->{$method}('name', 'like', '%'.request('term').'%');
+			$method = 'orWhere';
+		}
+
+		if($announces)
+		{
+			$results = $results->{$method}($this->node->id == 47274 ? 'pub_title' : 'announce', 'like', '%'.request('term').'%');
+			$method = 'orWhere';
+		}
+
+		if($texts)
+		{
+			$results = $results->{$method}('content', 'like', '%'.request('term').'%');
+			$method = 'orWhere';
+		}
+
+		return $results->orderBy('pubdate', 'desc')->paginate();
 	}
 
 	/**
