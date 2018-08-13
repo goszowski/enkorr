@@ -31,7 +31,11 @@
 							<a href="{{ lPath($news_item->node->absolute_path) }}" class="last-news_item">
 								
 								<p class="last-news_item_text">
+									@if($news_item->is_important)
+									<b>{{ str_limit($news_item->name, 100) }}</b>
+									@else
 									{{ str_limit($news_item->name, 100) }}
+									@endif
 									@if($news_item->is_exclusive)
 										<span class="text-uppercase label label-warning">{{ __('Эксклюзив') }}</span>
 									@endif

@@ -118,6 +118,10 @@
 			font-size: 12px;
 			border-radius: 0;
 		}
+
+		.last-news_item_text {
+			font-weight: normal;
+		}
 	</style>
 </head>
 
