@@ -16,8 +16,15 @@
 				</div>
 				<div class="col-sm-4 sm-md-padd-l-0">
 					<div class="publication-sidebar_item__descr publication-list_item__descr big-pb_descr">
+						@if($first_interview->has('speaker'))
+							<div class="xs-pb-10">
+								<div class="label label-warning">
+									{{ $first_interview->speaker->name }}
+								</div>
+							</div>
+						@endif
 						<h3 class="publication-sidebar_item__title big-pb_descr_title">{{ $first_interview->name }}</h3>
-						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_interview->announce, 130) }}</p>
+						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_interview->announce, 80) }}</p>
 						<p class="comment-text_time text-uppercase"><time>{{ $first_interview->pubdate->format('d.m.Y, H:i') }}</time></p>
 					</div>
 				</div>
@@ -35,8 +42,15 @@
 							@endif
 						</div>
 						<div class="publication-sidebar_item__descr publication-list_item__descr">
+							@if($first_interview->has('speaker'))
+								<div class="xs-pb-10">
+									<div class="label label-warning">
+										{{ $first_interview->speaker->name }}
+									</div>
+								</div>
+							@endif
 							<h3 class="publication-sidebar_item__title">{{ $interview->name }}</h3>
-							<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($interview->announce, 130) }}</p>
+							<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($interview->announce, 80) }}</p>
 							<p class="comment-text_time text-uppercase"><time>{{ $interview->pubdate->format('d.m.Y, H:i') }}</time></p>
 						</div>
 					</a>

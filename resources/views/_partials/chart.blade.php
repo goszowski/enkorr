@@ -11,6 +11,11 @@
 
     var myChart{{ $text->node_id }} = new Chart(ctx, {
         type: '{{ $text->chart_type->system_name }}',
+        options: {
+          legend: {
+            position: '{{ $text->has('legend_position') ? $text->legend_position->system_name : 'top' }}'
+          },
+        },
 
 
         data: {

@@ -28,11 +28,14 @@
 					</div>
 					<div class="last-news-items-wrapp">
 						@foreach($news as $news_item)
-							<a href="{{ lPath($news_item->node->absolute_path) }}" class="last-news_item" style="{{ $news_item->is_exclusive ? 'position: relative; margin-top: 15px; padding-top: 20px;' : null }}">
-								@if($news_item->is_exclusive)
-									<span class="text-uppercase exclusive-public news-exclusive">{{ __('Эксклюзив') }}</span>
-								@endif
-								<p class="last-news_item_text">{{ str_limit($news_item->name, 100) }}</p>
+							<a href="{{ lPath($news_item->node->absolute_path) }}" class="last-news_item">
+								
+								<p class="last-news_item_text">
+									{{ str_limit($news_item->name, 100) }}
+									@if($news_item->is_exclusive)
+										<span class="text-uppercase label label-warning">{{ __('Эксклюзив') }}</span>
+									@endif
+								</p>
 
 								@if($news_item->pubdate->isToday())
 									<span class="last-news-item_time"><time datetime="{{ $news_item->pubdate }}">{{ $news_item->pubdate->format('H:i') }}</time></span>
@@ -74,10 +77,15 @@
 				<div class="equal-block_content">
 					@foreach($main_news as $main_news_item)
 						<a href="{{ lPath($main_news_item->node->absolute_path) }}" class="main-news_item" style="{{ $main_news_item->is_exclusive ? 'position:relative; padding-top: 20px; margin-top: 10px;' : null }}">
-							@if($main_news_item->is_exclusive)
+							{{-- @if($main_news_item->is_exclusive)
 								<span class="text-uppercase exclusive-public news-exclusive">{{ __('Эксклюзив') }}</span>
-							@endif
-							<p class="main-news_item__text">{{ $main_news_item->name }}</p>
+							@endif --}}
+							<p class="main-news_item__text">
+								{{ $main_news_item->name }}
+								@if($news_item->is_exclusive)
+									<span class="text-uppercase label label-warning">{{ __('Эксклюзив') }}</span>
+								@endif
+							</p>
 						</a>
 					@endforeach
 				</div>
@@ -127,7 +135,9 @@
 								</div>
 								<div class="home-carousel_item__descr">
 									@if($interview->has('speaker'))
-										<p class="xs-mt-5">{{ $interview->speaker->name }}</p>
+										<p class="xs-mt-5" style="font-size: 15px;">
+											<b>{{ $interview->speaker->name }}</b>
+										</p>
 									@endif
 									
 									<p>{{ $interview->name }}</p>
@@ -178,7 +188,7 @@
 					<div class="column-item xs-mt-40 md-mt-20 xs-mb-10">
 
 						@if($column->has('expert'))
-							<a href="{{ lPath($column->expert->node->absolute_path) }}" class="column-item_author">
+							<a href="{{ lPath($column->node->absolute_path) }}" class="column-item_author">
 								<div class="row">
 									<div class="col-md-4">
 										<div class="column-item_author__img">

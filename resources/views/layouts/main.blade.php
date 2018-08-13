@@ -97,6 +97,27 @@
 			background: rgba(0,0,0, .5);
 			color: #fff;
 		}
+		
+		.last-news_item {
+			padding-top: 15px;
+		}
+		.last-news_item .last-news_item_text .label, .main-news_item__text .label {
+			display: inline-block;
+			padding-top: 5px;
+			border-radius: 0;
+		}
+		.last-news_item:hover .last-news_item_text .label {
+			text-decoration: none!important;
+		}
+		
+		.publication-page_text p {
+			margin-top: 15px;
+		}
+
+		.publication-sidebar_item .label, .publication-sidebar_item__descr .label {
+			font-size: 12px;
+			border-radius: 0;
+		}
 	</style>
 </head>
 

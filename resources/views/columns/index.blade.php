@@ -16,9 +16,20 @@
 				</div>
 				<div class="col-sm-4 sm-md-padd-l-0">
 					<div class="publication-sidebar_item__descr publication-list_item__descr big-pb_descr">
-						<h3 class="publication-sidebar_item__title big-pb_descr_title">{{ $first_column->name }}</h3>
+						@if($first_column->has('expert'))
+							<div class="xs-pb-10">
+								<div class="label label-warning">
+									{{ $first_column->expert->name }}
+								</div>
+							</div>
+						@endif
+						<h3 class="publication-sidebar_item__title big-pb_descr_title">
+							{{ $first_column->name }}
+						</h3>
 						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_column->announce, 130) }}</p>
-						<p class="comment-text_time text-uppercase"><time>{{ $first_column->pubdate->format('d.m.Y, H:i') }}</time></p>
+						<p class="comment-text_time text-uppercase">
+							<time>{{ $first_column->pubdate->format('d.m.Y, H:i') }}</time>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -35,8 +46,17 @@
 							@endif
 						</div>
 						<div class="publication-sidebar_item__descr publication-list_item__descr">
-							<h3 class="publication-sidebar_item__title">{{ $column->name }}</h3>
-							<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($column->announce, 130) }}</p>
+							@if($column->has('expert'))
+								<div class="xs-pb-10">
+									<div class="label label-warning">
+										{{ $column->expert->name }}
+									</div>
+								</div>
+							@endif
+							<h3 class="publication-sidebar_item__title">
+								{{ $column->name }}
+							</h3>
+							<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($column->announce, 70) }}</p>
 							<p class="comment-text_time text-uppercase"><time>{{ $column->pubdate->format('d.m.Y, H:i') }}</time></p>
 						</div>
 					</a>
