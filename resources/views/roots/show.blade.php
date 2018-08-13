@@ -86,7 +86,7 @@
 							@endif --}}
 							<p class="main-news_item__text">
 								{{ $main_news_item->name }}
-								@if($news_item->is_exclusive)
+								@if($main_news_item->is_exclusive)
 									<span class="text-uppercase label label-warning">{{ __('Эксклюзив') }}</span>
 								@endif
 							</p>
