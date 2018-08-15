@@ -13,7 +13,7 @@
 					</div>
 				@endif
 
-				<div class="publication-img_wrapp">
+				{{-- <div class="publication-img_wrapp">
 					<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
 					<div class="publication-img_descr xs-pl-10 sm-pl-40 sm-pb-20">
 						<h1 class="page-publication_title">{{ $fields->name }}</h1>
@@ -23,6 +23,22 @@
 								 - <a href="{{ lPath($fields->expert->node->absolute_path) }}">{{ $fields->expert->name }}</a>
 							@endif
 						</p>
+					</div>
+				</div> --}}
+
+				<div class="row">
+					<div class="col-xs-5">
+						<div class="column-image-wrap" style="background-image: url({{ asset('gallery/' . $fields->image) }})">
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-7">
+						<h1 class="h2">{{ $fields->name }}</h1>
+						<div class="xs-pt-30">
+								<time>{{ $fields->pubdate->format('d.m.Y, H:i') }}</time>
+								@if($fields->has('expert'))
+										- <a href="{{ lPath($fields->expert->node->absolute_path) }}">{{ $fields->expert->name }}</a>
+								@endif
+						</div>
 					</div>
 				</div>
 

@@ -122,6 +122,17 @@
 		.last-news_item_text {
 			font-weight: normal;
 		}
+
+		.column-image-wrap {
+			position: relative;
+			width: 100%;
+			padding: 50% 0;
+			overflow: hidden;
+			border-radius: 50%;
+			background-color: #ccc;
+			background-position: center;
+			background-size: cover;
+		}
 	</style>
 </head>
 
