@@ -80,15 +80,15 @@
 				</div>
 				<div class="equal-block_content">
 					@foreach($main_news as $main_news_item)
-						<a href="{{ lPath($main_news_item->node->absolute_path) }}" class="main-news_item" style="{{ $main_news_item->is_exclusive ? 'position:relative; padding-top: 20px; margin-top: 10px;' : null }}">
+						<a href="{{ lPath($main_news_item->node->absolute_path) }}" class="main-news_item">
 							{{-- @if($main_news_item->is_exclusive)
 								<span class="text-uppercase exclusive-public news-exclusive">{{ __('Эксклюзив') }}</span>
 							@endif --}}
 							<p class="main-news_item__text">
 								{{ $main_news_item->name }}
-								@if($main_news_item->is_exclusive)
+								{{-- @if($main_news_item->is_exclusive)
 									<span class="text-uppercase label label-warning">{{ __('Эксклюзив') }}</span>
-								@endif
+								@endif --}}
 							</p>
 						</a>
 					@endforeach
