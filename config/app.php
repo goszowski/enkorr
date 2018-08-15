@@ -172,6 +172,7 @@ return [
         Illuminate\Notifications\NotificationServiceProvider::class,
         Runsite\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Goszowski\BladeExtended\BladeExtendedServiceProvider::class,
+        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
 
     ],
 

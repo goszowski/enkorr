@@ -6,6 +6,8 @@
     <div class="panel panel-default">
       <div class="panel-body">
           {{Form::open(['url'=>lPath('/auth/reset-action'), 'method'=>'post'])}}
+
+          {!! app('captcha')->render(); !!}
             <input type="hidden" name="reset_token" value="{{$request->input('token')}}">
             <div class="form-group {{$errors->has('email') ? ' has-error' : ''}}">
               <label for="email">{{__('Email')}}</label>

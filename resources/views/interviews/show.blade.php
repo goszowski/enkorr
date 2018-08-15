@@ -101,6 +101,7 @@
 						</div>
 					@else
 					{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}
+						{!! app('captcha')->render(); !!}
 						<input type="hidden" name="publication_id" value="{{ $fields->node_id }}">
 						<textarea class="form-control xs-mt-20" name="text" rows="3"></textarea>
 						<button type="submit" class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>

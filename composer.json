@@ -23,7 +23,8 @@
         "atehnix/laravel-stubs": "^1.0",
         "runsite/laravel-filemanager": "0.6.4",
         "goszowski/blade-extended": "1.*",
-        "facebook/graph-sdk": "^5.6"
+        "facebook/graph-sdk": "^5.6",
+        "albertcht/invisible-recaptcha": "^1.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

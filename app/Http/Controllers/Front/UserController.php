@@ -29,11 +29,13 @@ class UserController extends RunsiteController
     }
 
     protected $signInRules = [
+      'g-recaptcha-response' => 'required|captcha',
       'email' => 'required|email|exists:_class_user|max:255',
       'password' => 'required|string|min:3|max:255',
     ];
 
     protected $signUpRules = [
+      'g-recaptcha-response' => 'required|captcha',
       'name' => 'required|string|max:255',
       'email' => 'required|email|unique:_class_user,email,NULL,id,deleted_at,NULL',
       'password' => 'required|string|min:3|max:255|confirmed:password_confirmation',
@@ -41,16 +43,19 @@ class UserController extends RunsiteController
     ];
 
     protected $resetRequestRules = [
+      'g-recaptcha-response' => 'required|captcha',
       'email' => 'required|email|exists:_class_user|max:255',
     ];
 
     protected $resetRules = [
+      'g-recaptcha-response' => 'required|captcha',
       'password' => 'required|string|min:3|max:255|confirmed:password_confirmation',
       'password_confirmation' => 'required|string|min:3|max:255',
     ];
 
     protected function updateRules($user) {
       return [
+        'g-recaptcha-response' => 'required|captcha',
         'name' => 'required|string|max:255',
         'email' => 'required|email|unique:_class_user,email,'.$user->node_id.',node_id,deleted_at,NULL',
         'old_password' => 'sometimes|required|string|min:3|max:255',

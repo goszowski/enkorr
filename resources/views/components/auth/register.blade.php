@@ -6,6 +6,8 @@
     <div class="panel panel-default">
       <div class="panel-body">
           {{Form::open(['url'=>lPath('/auth/sign-up'), 'method'=>'post'])}}
+
+          {!! app('captcha')->render(); !!}
             <div class="form-group {{$errors->has('name') ? ' has-error' : ''}}">
               <label for="name">{{__('Your Name')}}</label>
               <input class="form-control" type="text" name="name" id="name" value="{{old('name')}}">

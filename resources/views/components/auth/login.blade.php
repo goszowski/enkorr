@@ -6,6 +6,8 @@
     <div class="panel panel-default">
       <div class="panel-body">
           {{Form::open(['url'=>lPath('/auth/sign-in'), 'method'=>'post'])}}
+
+          {!! app('captcha')->render(); !!}
             <div class="form-group {{$errors->has('email') ? ' has-error' : ''}}">
               <label for="email">{{__('Email')}}</label>
               <input class="form-control" type="text" name="email" id="email" value="{{old('email')}}">

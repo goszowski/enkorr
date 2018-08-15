@@ -6,6 +6,8 @@
       <div class="panel panel-default">
         <div class="panel-body">
             {{Form::open(['url'=>lPath('/auth/send-reset-request'), 'method'=>'post'])}}
+
+            {!! app('captcha')->render(); !!}
               <div class="alert alert-success">
                 {{__('Enter Email Address')}}
               </div>
