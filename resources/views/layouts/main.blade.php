@@ -133,6 +133,10 @@
 			background-position: center;
 			background-size: cover;
 		}
+
+		.home-carousel_item__descr {
+			font-family: "Merriweather";
+		}
 	</style>
 </head>
 
