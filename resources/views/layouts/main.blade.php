@@ -165,7 +165,12 @@
 
 						<ul class="nav navbar-nav navbar-right main-nav-right">
 							<li><a href="{{ lPath('/search/news') }}"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-							<li><a href="{{ lPath('/auth/login') }}">Войти</a></li>
+							@if($authUser)
+							<li><a href="{{ lPath($authUser->node->absolute_path) }}"><i class="fa fa-user"></i></a></li>
+							@else 
+								<li><a href="{{ lPath('/auth/login') }}">Войти</a></li>
+							@endif
+							
 						</ul>
 					</div>
 					
