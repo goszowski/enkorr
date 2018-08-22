@@ -36,7 +36,7 @@
 						<div class="xs-pt-30">
 								<time>{{ $fields->pubdate->format('d.m.Y, H:i') }}</time>
 								@if($fields->has('expert'))
-										- <a href="{{ lPath($fields->expert->node->absolute_path) }}">{{ $fields->expert->name }}</a>
+										<br> <a href="{{ lPath($fields->expert->node->absolute_path) }}">{{ $fields->expert->name }}</a>, {{ $fields->expert->info }}
 								@endif
 						</div>
 					</div>
