@@ -201,7 +201,7 @@
 									</div>
 									<div class="col-md-8">
 										<p class="column-item_author__name">{{ $column->expert->name }}</p>
-										<p class="column-item_author__work">{{ $column->expert->info }}</p>
+										{{-- <p class="column-item_author__work">{{ $column->expert->info }}</p> --}}
 									</div>
 								</div>
 							</a>
