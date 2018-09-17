@@ -1,6 +1,7 @@
 @extends('layouts.search')
 
 @section('search')
+@include('_partials.seo2')
 	@if(! request('term'))
 		<div class="alert alert-warning xs-mt-30">
 			<i class="fa fa-info"></i> {{ __('Введите фразу для поиска') }}

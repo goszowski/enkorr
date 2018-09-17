@@ -44,6 +44,18 @@ class ClearContent extends Command
         $this->removeModel($publications);
         unset($publications);
 
+        $news = ModelNoActive('news_item')->take(2000)->withTrashed()->get();
+        $this->removeModel($news);
+        unset($news);
+
+        $columns = ModelNoActive('column')->take(2000)->withTrashed()->get();
+        $this->removeModel($columns);
+        unset($columns);
+
+        $interviews = ModelNoActive('interview')->take(2000)->withTrashed()->get();
+        $this->removeModel($interviews);
+        unset($interviews);
+
         $tags = ModelNoActive('tag')->take(2000)->withTrashed()->get();
         $this->removeModel($tags);
         unset($tags);

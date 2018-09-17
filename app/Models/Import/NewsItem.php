@@ -15,8 +15,8 @@ class NewsItem extends BaseModel
 
     protected $categoryIds = [
     	13 => 12, // publications - publications
-    	14 => 12, // inteviews - experts
-    	14 => 15, // columns - experts
+    	14 => 47252, // inteviews - experts
+    	15 => 15, // columns - experts
     	16 => 11, // news - news
     ];
 
@@ -24,7 +24,14 @@ class NewsItem extends BaseModel
     	13 => 23,
     	14 => 25,
     	14 => 122,
-    ];
+	];
+	
+	protected $models = [
+		13 => 'publication',
+		14 => 'interview',
+		15 => 'column',
+		16 => 'news_item',
+	];
 
     public function category()
     {
@@ -123,7 +130,12 @@ class NewsItem extends BaseModel
     public function getThemeId()
     {
     	return $this->themes[$this->category->id] ?? null;
-    }
+	}
+	
+	public function getModelName()
+	{
+		return $this->models[$this->category->id] ?? null;
+	}
 
     public function buildData()
     {
@@ -132,24 +144,40 @@ class NewsItem extends BaseModel
             return false;
         }
 
-    	return [
+    	$result = [
     		'name' => $this->data->title,
     		'is_active' => true,
-    		'pub_title' => $this->data->announce,
-    		'image_from_gallery' => '',
-    		'photo_text' => '',
+			// ($this->category_id == 13) ? 'pub_title' : 'announce' => $this->data->announce,
+    		'image' => '',
+    		// 'photo_text' => '',
     		'content' => str_replace('http://oilnews.com.ua', 'http://enkorr.com.ua', $this->data->body),
-    		'pinned' => false,
-    		'bold' => false,
-    		'theme_id' => $this->getThemeId(),
-    		'tag_ids' => $this->buildTags(),
+    		// 'pinned' => false,
+    		// 'bold' => false,
+    		// 'theme_id' => $this->getThemeId(),
+    		'tags' => $this->buildTags(),
     		'pubdate' => $this->published_at,
-    		'popular' => $this->number_views,
-    		'author_ids' => $this->buildAuthors(),
-    		'similar_publications' => '',
+    		
     		'description' => $this->data->announce,
     		'title' => $this->data->title,
     		'old_path' => $this->buildPath(),
-    	];
+		];
+		
+		if($this->category->id == 13)
+		{
+			$result['authors'] = $this->buildAuthors();
+			$result['similar_publications'] = '';
+			$result['pub_title'] = $this->data->announce;
+		}
+		else
+		{
+			$result['announce'] = $this->data->announce;
+		}
+
+		if($this->category->id == 13 or $this->category->id == 16)
+		{
+			$result['popular'] = $this->number_views;
+		}
+
+		return $result;
     }
 }

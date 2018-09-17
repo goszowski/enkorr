@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('page')
+@include('_partials.seo2')
 <div class="container-fluid grey-bg">
 	<div class="container">
 		<div class="row">

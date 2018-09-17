@@ -39,7 +39,8 @@ class ImportNewsCommand extends Command
      */
     public function handle()
     {
-        $news = NewsItem::where('is_published', true)->orderBy('published_at', 'desc')->skip(15000)->take(3000)->get();
+      $skip = 45000;
+        $news = NewsItem::where('is_published', true)->orderBy('published_at', 'desc')->skip($skip)->take(5000)->get();
 
         foreach($news as $k=>$newsItem)
         {
@@ -47,9 +48,11 @@ class ImportNewsCommand extends Command
             {
                 $data = $newsItem->buildData();
 
+                $this->comment($newsItem->getModelName());
+
                 if($data)
                 {
-                    $node = (new Store)->node('publication', $data['name'], $newsItem->buildParentID());
+                    $node = (new Store)->node($newsItem->getModelName(), $data['name'], $newsItem->buildParentID());
 
                     foreach($data as $key=>$val)
                     {
@@ -63,5 +66,7 @@ class ImportNewsCommand extends Command
                 
             }
         }
+
+        $this->comment('--- ' . $skip);
     }
 }

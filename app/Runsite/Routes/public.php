@@ -14,10 +14,27 @@ $path = \Request::path();
 if(str_is('a/*', $path))
 {
   $nodeByOldPath = Model('publication')->where('old_path', '/'.$path)->first();
+
+  if(!$nodeByOldPath)
+  {
+    $nodeByOldPath = Model('news_item')->where('old_path', '/'.$path)->first();
+  }
+
+  if(!$nodeByOldPath)
+  {
+    $nodeByOldPath = Model('column')->where('old_path', '/'.$path)->first();
+  }
+
+  if(!$nodeByOldPath)
+  {
+    $nodeByOldPath = Model('interview')->where('old_path', '/'.$path)->first();
+  }
+
+
   if($nodeByOldPath)
   {
     Route::get($path, function() use($nodeByOldPath) {
-      return redirect($nodeByOldPath->node->absolute_path);
+      return redirect($nodeByOldPath->node->absolute_path, 301);
     });
   }
 }

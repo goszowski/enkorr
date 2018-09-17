@@ -70,7 +70,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'pra.mysql.ukraine.com.ua'),
             'port' => env('DB_PORT', '3306'),
-            'database' => 'enkorr_old',
+            'database' => 'enkorr-old',
             'username' => env('DB_USERNAME', 'pra_enkorr'),
             'password' => env('DB_PASSWORD', '8rtm5ky5'),
             'charset' => 'utf8',

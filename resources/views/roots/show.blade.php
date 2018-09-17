@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('page')
-
+@include('_partials.seo2')
 <div class="container-fluid grey-bg xs-pb-30 xs-pt-20">
 	<div class="container">
 
@@ -245,7 +245,7 @@
 			@include('_partials.indicators.ua')
 		</div>
 		<div class="col-md-4">
-			... код информера ...
+			<script type="text/javascript" src="https://ueex.com.ua/informer_ugd.js?width=300&width_type=px&lang=rus&n=1&encoding=utf&noborder=0&currency=uah&pluscolor=green&showcurrencies=1"></script>
 		</div>
 	</div>
 	@if(count($banners[4]))

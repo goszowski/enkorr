@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>@yield('title'){{ request('page') > 1 ? (' - ' . __('Страница') . ' ' . (request('page'))) : null }}</title>
+	<!--[if IE]>
+	 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta name="description" content="@yield('description')">
+
+	{{-- Open Graph Sections --}}
+	<meta property="og:type"  content="website" />
+	<meta property="og:title"  content="@yield('og:title')" />
+	<meta property="og:image"  content="@yield('og:image')" />
+	{{-- [END] Open Graph Sections --}}
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

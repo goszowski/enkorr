@@ -12,7 +12,7 @@ class PublicationsController extends RSController
 	 */
 	public function index()
 	{
-		$publications = Model('publication')->published()->ordered()->paginate();
+		$publications = Model('publication')->published()->ordered()->paginate(16);
 		$first_publication = $publications->first();
 
 		return $this->make_view('publications.index', compact('publications', 'first_publication'));
