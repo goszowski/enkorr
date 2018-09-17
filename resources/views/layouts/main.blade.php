@@ -249,7 +249,7 @@
 			</div>
 			<div class="footer-bottom-line row sm-mt-60 xs-mt-20">
 				<div class="col-sm-6">
-					<p class="license text-uppercase">© EnKorr 2017. Все права защищены</p>
+					<p class="license text-uppercase">© EnKorr {{ date('Y') }}. Все права защищены. Разработка сайта: <a href="https://runsite.com.ua/uk" target="_blank" title="ТОВ Рансайт - Разработка и поддержка сайтов 2016-{{ date('Y') }}">ТОВ Рансайт</a></p>
 				</div>
 				<div class="col-sm-6 text-md-right">
 					<ul class="footer-social">
