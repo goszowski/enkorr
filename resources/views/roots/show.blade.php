@@ -137,7 +137,7 @@
 								<div class="home-carousel_item__img">
 									<img src="{{ asset('gallery/' . $interview->image) }}">
 								</div>
-								<div class="home-carousel_item__descr">
+								<div class="home-carousel_item__descr xs-pt-15">
 									@if($interview->has('speaker'))
 										<p class="xs-mt-5" style="font-size: 15px;">
 											<b>{{ $interview->speaker->name }}</b>
