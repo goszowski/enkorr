@@ -196,7 +196,7 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="column-item_author__img">
-											<img src="{{ asset('gallery/' . $column->expert->image) }}" alt="{{ $column->expert->name }}">
+											<img src="{{ asset('gallery/' . $column->image) }}" alt="{{ $column->expert->name }}">
 										</div>
 									</div>
 									<div class="col-md-8">
