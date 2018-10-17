@@ -63,7 +63,7 @@ class Dynamic extends Model
     {
         if(!$value or ! file_exists(public_path('gallery/'.$value)))
         {
-            return 'asset/images/default_image.png';
+            return 'asset/images/enkorr_noimage.jpg';
         }
 
         return 'gallery/'.$value;
