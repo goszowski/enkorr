@@ -41,8 +41,8 @@
                     </div>
                 </div>
 
-                <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
-                  {!! Form::label('password', 'Password: ', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="form-group {{ $errors->has('is_limited') ? 'has-error' : ''}}">
+                  {!! Form::label('is_limited', 'Is limited: ', ['class' => 'col-sm-3 control-label']) !!}
                   <div class="col-sm-6">
                     <label class="ui-switch ui-switch-md bg-primary m-t-xs m-r">
                       <input type="hidden" name="is_limited" value="0">
