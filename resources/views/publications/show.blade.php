@@ -155,7 +155,9 @@
 						<a href="{{ lPath($last_publication->node->absolute_path) }}" class="publication-sidebar_item xs-mt-10">
 							@if(! $k)
 								<div class="sidebar_item__img">
-									<img src="{{ asset('gallery/' . $last_publication->image) }}" alt="{{ $last_publication->name }}">
+                                    @if($last_publication->image)
+                                    <img src="{{ asset('gallery/' . $last_publication->image) }}" alt="{{ $last_publication->name }}">
+                                    @endif
 									@if($last_publication->is_exclusive)
 										<span class="text-uppercase exclusive-public">{{ __('Эксклюзив') }}</span>
 									@endif
