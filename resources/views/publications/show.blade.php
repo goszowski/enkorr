@@ -17,7 +17,7 @@
 					@if($fields->image)
 						<img src="{{ asset('gallery/' . $fields->image) }}" alt="{{ $fields->name }}">
 					@else
-						<img src="{{ asset('asset/images/default_image.png') }}" alt="{{ $fields->name }}">
+						<img src="{{ asset('asset/images/enkorr_noimage.jpg') }}" alt="{{ $fields->name }}">
 					@endif
 					
 					<div class="publication-img_descr xs-pl-10 sm-pl-40 sm-pb-20">

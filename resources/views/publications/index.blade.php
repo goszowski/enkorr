@@ -14,7 +14,7 @@
 						@if($first_publication->image)
 							<img src="{{ asset('gallery/' . $first_publication->image) }}" alt="{{ $first_publication->name }}">
 						@else
-							<img src="{{ asset('asset/images/default_image.png') }}" alt="{{ $first_publication->name }}">
+							<img src="{{ asset('asset/images/enkorr_noimage.jpg') }}" alt="{{ $first_publication->name }}">
 						@endif
 					</div>
 				</div>
