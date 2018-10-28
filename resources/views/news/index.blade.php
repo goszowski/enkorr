@@ -36,7 +36,11 @@
 								</div>
 								<div class="col-sm-11">
 									<h3 class="main-news_sidebar__title news-list-title xs-mt-0">
-										<b>{{ $news_item->name }}</b>
+                                        @if($news_item->is_important)
+                                        <b>{{ $news_item->name }}</b>
+                                        @else
+                                        {{ $news_item->name }}
+                                        @endif
 									</h3>
 								</div>
 							</div>
