@@ -23,7 +23,7 @@
 
 
               <div class="form-group">
-                <button type="submit" class="btn btn-warning">{{__('Send request')}}</button>
+                <button type="submit" class="ladda-button btn btn-warning">{{__('Send request')}}</button>
                 <a href="{{url(lPath('/auth/login'))}}" class="btn btn-default">{{__('Login')}}</a>
               </div>
 

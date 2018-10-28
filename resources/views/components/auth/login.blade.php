@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-warning">{{__('Login')}}</button>
+              <button type="submit" class="ladda-button btn btn-warning">{{__('Login')}}</button>
               <a href="{{url(lPath('/auth/register'))}}?back={{ request('back') }}" class="btn btn-default">{{__('Register')}}</a>
               {{-- <a href="{{ $facebookLoginUrl }}" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a> --}}
             </div>

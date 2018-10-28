@@ -69,8 +69,8 @@
 
 
             <div class="form-group">
-              <button type="submit" class="btn btn-warning">{{__('Update')}}</button>
-              <a href="{{url(lPath('/auth/logout'))}}" class="btn btn-default">{{__('Logout')}}</a>
+              <button type="submit" class="ladda-button btn btn-warning">{{__('Update')}}</button>
+              <a href="{{url(lPath('/auth/logout'))}}" class="ladda-button btn btn-default">{{__('Logout')}}</a>
             </div>
 
           {{Form::close()}}

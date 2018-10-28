@@ -40,7 +40,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-warning">{{__('Reset')}}</button>
+              <button type="submit" class="ladda-button btn btn-warning">{{__('Reset')}}</button>
             </div>
           {{Form::close()}}
       </div>
