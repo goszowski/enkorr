@@ -20,7 +20,7 @@ class HomeController extends RSController
 		// Останні новини, бе позначки is_main
 		$news = Model('news_item')->where('is_main', false)->orderBy('pubdate', 'desc')->take(6)->get();
 
-		$publications = Model('publication')->orderBy('pubdate', 'desc')->take(4)->get();
+		$publications = Model('publication')->orderBy('pubdate', 'desc')->take(3)->get();
 		$interviews = Model('interview')->orderBy('pubdate', 'desc')->take(5)->get();
 		$columns = Model('column')->orderBy('pubdate', 'desc')->take(3)->get();
 
