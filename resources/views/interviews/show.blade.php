@@ -104,7 +104,7 @@
 						{!! app('captcha')->render(); !!}
 						<input type="hidden" name="publication_id" value="{{ $fields->node_id }}">
 						<textarea class="form-control xs-mt-20" name="text" rows="3"></textarea>
-						<button type="submit" class="btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
+						<button type="submit" class="ladda-button btn btn-warning xs-mt-15">{{ __('Коментировать') }}</button>
 					{!! Form::close() !!}
 					@endif
 					
