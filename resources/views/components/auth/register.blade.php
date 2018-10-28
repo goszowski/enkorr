@@ -53,7 +53,7 @@
             <div class="form-group">
               <button type="submit" class="ladda-button btn btn-warning">{{__('Register')}}</button>
               <a href="{{url(lPath('/auth/login'))}}?back={{ request('back') }}" class="btn btn-default">{{__('Login')}}</a>
-              <a href="{{ $facebookLoginUrl }}" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
+              {{-- <a href="{{ $facebookLoginUrl }}" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a> --}}
             </div>
           {{Form::close()}}
       </div>
