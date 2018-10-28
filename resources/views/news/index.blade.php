@@ -39,7 +39,7 @@
                                         @if($news_item->is_important)
                                         <b>{{ $news_item->name }}</b>
                                         @else
-                                        {{ $news_item->name }}
+                                        <span style="font-weight: normal;">{{ $news_item->name }}</span>
                                         @endif
 									</h3>
 								</div>
