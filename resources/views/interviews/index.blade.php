@@ -11,7 +11,11 @@
 			<div class="row">
 				<div class="col-sm-8 sm-md-padd-r-0">
 					<div class="publication-list-img big-publication_img">
-						<img src="{{ asset('gallery/' . $first_interview->image) }}" alt="{{ $first_interview->name }}">
+                        @if($first_interview->image)
+                        <img src="{{ asset('gallery/' . $first_interview->image) }}" alt="{{ $first_interview->name }}">
+                        @else 
+                        <img src="{{ asset('asset/images/enkorr_noimage.jpg') }}" alt="{{ $first_interview->name }}">
+                        @endif
 					</div>
 				</div>
 				<div class="col-sm-4 sm-md-padd-l-0">
@@ -35,7 +39,9 @@
 				<div class="col-sm-6 col-md-4">
 					<a href="{{ lPath($interview->node->absolute_path) }}" class="publication-sidebar_item xs-mt-20">
 						<div class="sidebar_item__img publication-list-img">
-							<img src="{{ asset('gallery/' . $interview->image) }}" alt="{{ $interview->name }}">
+                            @if($interview->image)
+                            <img src="{{ asset('gallery/' . $interview->image) }}" alt="{{ $interview->name }}">
+                            @endif
 
 							@if($interview->is_exclusive)
 								<span class="text-uppercase exclusive-public">{{ __('Эксклюзив') }}</span>
