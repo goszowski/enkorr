@@ -51,7 +51,7 @@
   $(function() {
     var root_add = '{{ \App\Runsite\Field_settings::pull($settings, 'custom_path') }}';
 
-    $('#mFiles{{$field_lang}}-{{$field_name}}-list').fileTree({ root: '/public/files/' + root_add, script: '/admin/jqueryfiletree-master/dist/connectors/jqueryFileTree.php',}, function(file) {
+    $('#mFiles{{$field_lang}}-{{$field_name}}-list').fileTree({ root: '/files/' + root_add, script: '/admin/jqueryfiletree-master/dist/connectors/jqueryFileTree.php',}, function(file) {
 
       file = file.split("/public").pop()
 
