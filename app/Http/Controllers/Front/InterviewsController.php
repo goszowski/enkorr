@@ -12,7 +12,7 @@ class InterviewsController extends RSController
 	 */
 	public function index()
 	{
-		$interviews = Model('interview')->published()->ordered()->paginate();
+		$interviews = Model('interview')->published()->ordered()->paginate(16);
 		$first_interview = $interviews->first();
 
 		return $this->make_view('interviews.index', compact('interviews', 'first_interview'));

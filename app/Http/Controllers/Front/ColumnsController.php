@@ -12,7 +12,7 @@ class ColumnsController extends RSController
      */
     public function index()
     {
-        $columns = Model('column')->published()->ordered()->paginate();
+        $columns = Model('column')->published()->ordered()->paginate(16);
         $first_column = $columns->first();
 
         return $this->make_view('columns.index', compact('columns', 'first_column'));
