@@ -7,6 +7,8 @@
       <div class="panel-body">
           {{Form::open(['url'=>lPath('/auth/sign-up'), 'method'=>'post'])}}
 
+          <input type="hidden" name="back" value="{{ request('back') }}">
+
           {!! app('captcha')->render(); !!}
             <div class="form-group {{$errors->has('name') ? ' has-error' : ''}}">
               <label for="name">{{__('Your Name')}}</label>
@@ -50,7 +52,7 @@
 
             <div class="form-group">
               <button type="submit" class="btn btn-warning">{{__('Register')}}</button>
-              <a href="{{url(lPath('/auth/login'))}}" class="btn btn-default">{{__('Login')}}</a>
+              <a href="{{url(lPath('/auth/login'))}}?back={{ request('back') }}" class="btn btn-default">{{__('Login')}}</a>
               <a href="{{ $facebookLoginUrl }}" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
             </div>
           {{Form::close()}}

@@ -113,7 +113,7 @@
 					@if(empty(Session::get('authUser')))
 						<div class="xs-pt-15">
 							<p>{{__('Авторизируйтесь, что бы оставить комментарий')}}</p>
-							<a role="button" class="btn btn-warning" href="{{lPath('/auth/login')}}">{{ __('Авторизация') }}</a>
+							<a role="button" class="btn btn-warning" href="{{lPath('/auth/login?back='.$fields->node->absolute_path)}}">{{ __('Авторизация') }}</a>
 						</div>
 					@else
 					{!! Form::open(['url' => lPath('/comment/store'), 'method' => 'POST']) !!}

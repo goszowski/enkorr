@@ -34,6 +34,11 @@ class UserController extends RunsiteController
       'password' => 'required|string|min:3|max:255',
     ];
 
+    protected $signInRulesAfterRegistration = [
+        'email' => 'required|email|exists:_class_user|max:255',
+        'password' => 'required|string|min:3|max:255',
+      ];
+
     protected $signUpRules = [
       'g-recaptcha-response' => 'required|captcha',
       'name' => 'required|string|max:255',
@@ -102,9 +107,17 @@ class UserController extends RunsiteController
       return $this->make_view('components.auth.view');
     }
 
-    public function signIn(Request $request)
+    public function signIn(Request $request, $is_registered=false)
     {
-      $this->validate($request, $this->signInRules);
+        if($is_registered)
+        {
+            $this->validate($request, $this->signInRulesAfterRegistration);
+        }
+        else 
+        {
+            $this->validate($request, $this->signInRules);
+        }
+      
 
       $user = Model('user')->where('email', $request->input('email'))->first();
 
@@ -116,6 +129,11 @@ class UserController extends RunsiteController
 
       if(\Input::get('continue')) {
         return redirect(\Input::get('continue'));
+      }
+
+      if(request('back'))
+      {
+          return redirect(lPath(request('back')));
       }
       return redirect(lPath($user->node->absolute_path));
     }
@@ -142,7 +160,7 @@ class UserController extends RunsiteController
       $user = Model('user')->where('email', $request->input('email'))->first();
       Notification::send($user, new AuthData($user->email, $request->input('password')));
 
-      return $this->signIn($request);
+      return $this->signIn($request, true);
 
     }
 
