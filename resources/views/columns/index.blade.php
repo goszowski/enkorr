@@ -11,8 +11,10 @@
 			<div class="row">
 				<div class="col-sm-8 sm-md-padd-r-0">
 					<div class="publication-list-img big-publication_img">
-                        @if($first_column->image)
-                        <img src="{{ asset('gallery/' . $first_column->image) }}" alt="{{ $first_column->name }}">
+                        @if($first_column->image_min)
+                            <img src="{{ asset('gallery/' . $first_column->image_min) }}" alt="{{ $first_column->name }}">
+                        @elseif($first_column->image)
+                            <img src="{{ asset('gallery/' . $first_column->image) }}" alt="{{ $first_column->name }}">
                         @else
                         <img src="{{ asset('asset/images/enkorr_noimage.jpg') }}" alt="{{ $first_column->name }}">
                         @endif
@@ -43,8 +45,10 @@
 				<div class="col-sm-6 col-md-4">
 					<a href="{{ lPath($column->node->absolute_path) }}" class="publication-sidebar_item xs-mt-20">
 						<div class="sidebar_item__img publication-list-img">
-                            @if($column->image)
-                            <img src="{{ asset('gallery/' . $column->image) }}" alt="{{ $column->name }}">
+                            @if($column->image_min)
+                                <img src="{{ asset('gallery/' . $first_column->image_min) }}" alt="{{ $column->name }}">
+                            @elseif($column->image)
+                                <img src="{{ asset('gallery/' . $column->image) }}" alt="{{ $column->name }}">
                             @endif
 
 							@if($column->is_exclusive)

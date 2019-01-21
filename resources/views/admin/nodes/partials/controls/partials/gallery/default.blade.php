@@ -12,7 +12,7 @@
         {{-- @if($field_value)
           <a href="{{$field_value}}" class="btn btn-default" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> Переглянути</a>
         @endif --}}
-        <button type="button" class="btn btn-primary image-gallery" data-fieldname="field_{{ $field_name }}_{{ $field_lang }}"><i class="fa fa-server" aria-hidden="true"></i> Выбрать фотографию</button>
+        <button type="button" class="btn btn-primary image-gallery" data-fieldname="field_{{ $field_name }}_{{ $field_lang }}" id="btn_{{ $field_name }}_{{ $field_lang }}"><i class="fa fa-server" aria-hidden="true"></i> Выбрать фотографию</button>
       </span>
     </div>
 
@@ -30,7 +30,7 @@
 
 <script>
   $(function() {
-    $('.image-gallery').on('click', function() {
+    $('#btn_{{ $field_name }}_{{ $field_lang }}').on('click', function() {
       window.open('{{ route('admin.gallery.images.index') }}?fieldname='+$(this).data('fieldname'), '', "width=800,height=500");
     });
   });
