@@ -50,7 +50,11 @@
 							@include('_partials.table')
 							@endif
 						@endforeach
-					@endif
+                    @endif
+                    
+                    @if($fields->source_name and $fields->source_link)
+                    <b>{{ __('Источник') }}: <a href="{{ $fields->source_link }}" rel="nofollow" target="_blank">{{ $fields->source_name }}</a></b>
+                    @endif
 				</div>
 				<a href="javascript:print()" class="publication-print xs-pb-25 xs-mt-40 sm-mt-70 text-right hidden-print">
 					<img src="{{ asset('/asset/img/printer.png') }}">
