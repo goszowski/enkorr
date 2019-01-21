@@ -28,7 +28,7 @@
 							</div>
 						@endif
 						<h3 class="publication-sidebar_item__title big-pb_descr_title">
-							{{ str_limit($first_column->name, 80) }}
+							{{ str_limit($first_column->name, 70) }}
 						</h3>
 						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_column->announce, 90) }}</p>
 						<p class="comment-text_time text-uppercase">
