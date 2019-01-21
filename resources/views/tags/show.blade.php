@@ -32,8 +32,6 @@
 				</div>
 			@endforeach
 		</div>
-
-		{!! $publications->render() !!}
 	</div>
 </div>
 

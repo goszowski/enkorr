@@ -15,25 +15,25 @@ class TagsController extends RSController
 		$publications = Model('publication')
 			->published()
 			->whereRaw("FIND_IN_SET('{$this->fields->node_id}', tags) > 0")
-			->ordered()
+			->orderBy('pubdate', 'desc')
 			->paginate()->toBase();
 
 		$news_items = Model('news_item')
 			->published()
 			->whereRaw("FIND_IN_SET('{$this->fields->node_id}', tags) > 0")
-			->ordered()
+			->orderBy('pubdate', 'desc')
 			->paginate()->toBase();
 
 		$interviews = Model('interview')
 			->published()
 			->whereRaw("FIND_IN_SET('{$this->fields->node_id}', tags) > 0")
-			->ordered()
+			->orderBy('pubdate', 'desc')
 			->paginate()->toBase();
 
 		$columns = Model('column')
 			->published()
 			->whereRaw("FIND_IN_SET('{$this->fields->node_id}', tags) > 0")
-			->ordered()
+			->orderBy('pubdate', 'desc')
 			->paginate()->toBase();
 
 		$publications = $publications->merge($news_items);
