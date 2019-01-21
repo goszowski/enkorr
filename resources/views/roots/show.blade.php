@@ -196,7 +196,11 @@
 								<div class="row">
 									<div class="col-md-4">
 										<div class="column-item_author__img">
-											<img src="{{ asset('gallery/' . $column->image) }}" alt="{{ $column->expert->name }}">
+                                            @if($column->image_circle)
+                                            <img src="{{ asset('gallery/' . $column->image_circle) }}" alt="{{ $column->expert->name }}">
+                                            @else
+                                            <img src="{{ asset('gallery/' . $column->image) }}" alt="{{ $column->expert->name }}">
+                                            @endif
 										</div>
 									</div>
 									<div class="col-md-8">

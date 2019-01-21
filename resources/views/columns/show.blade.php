@@ -28,8 +28,13 @@
 
 				<div class="row">
 					<div class="col-xs-5">
+                        @if($fields->image_circle)
+                        <div class="column-image-wrap" style="background-image: url({{ asset('gallery/' . $fields->image_circle) }})">
+                        </div>
+                        @else 
 						<div class="column-image-wrap" style="background-image: url({{ asset('gallery/' . $fields->image) }})">
-						</div>
+                        </div>
+                        @endif
 					</div>
 					<div class="col-xs-12 col-sm-7">
 						<h1 class="h2">{{ $fields->name }}</h1>
