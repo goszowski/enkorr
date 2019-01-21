@@ -148,6 +148,11 @@
 		.home-carousel_item__descr {
 			font-family: "Merriweather";
 		}
+
+        .column-item_author__img img {
+            width: 100px;
+            height: 100px;
+        }
 	</style>
 </head>
 
