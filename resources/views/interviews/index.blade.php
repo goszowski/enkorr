@@ -29,7 +29,7 @@
 								</div>
 							</div>
 						@endif
-						<h3 class="publication-sidebar_item__title big-pb_descr_title">{{ $first_interview->name }}</h3>
+						<h3 class="publication-sidebar_item__title big-pb_descr_title">{{ str_limit($first_interview->name, 70) }}</h3>
 						<p class="publication-sidebar_item__text xs-mt-15">{{ str_limit($first_interview->announce, 80) }}</p>
 						<p class="comment-text_time text-uppercase"><time>{{ $first_interview->pubdate->format('d.m.Y, H:i') }}</time></p>
 					</div>
