@@ -103,7 +103,7 @@
 		<div class="col-md-4">
 			<div class="equal-block">
 				<div class="block-title">
-					<h2 class="block-title_text has-rs-icon">{{ __('Публикации') }}</h2>
+					<h2 class="block-title_text">{{ __('Публикации') }}</h2>
 				</div>
 
 				<div class="equal-block_content">
