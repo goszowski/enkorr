@@ -52,10 +52,10 @@
 							@endif
 						</div>
 						<div class="publication-sidebar_item__descr publication-list_item__descr">
-							@if($first_interview->has('speaker'))
+							@if($interview->has('speaker'))
 								<div class="xs-pb-10">
 									<div class="label label-warning">
-										{{ $first_interview->speaker->name }}
+										{{ $interview->speaker->name }}
 									</div>
 								</div>
 							@endif
