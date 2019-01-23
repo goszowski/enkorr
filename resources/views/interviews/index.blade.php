@@ -11,9 +11,7 @@
 			<div class="row">
 				<div class="col-sm-8 sm-md-padd-r-0">
 					<div class="publication-list-img big-publication_img">
-                        @if($first_interview->image_min)
-                            <img src="{{ asset('gallery/' . $first_interview->image_min) }}" alt="{{ $first_interview->name }}">
-                        @elseif($first_interview->image)
+                        @if($first_interview->image)
                             <img src="{{ asset('gallery/' . $first_interview->image) }}" alt="{{ $first_interview->name }}">
                         @else
                         <img src="{{ asset('asset/images/enkorr_noimage.jpg') }}" alt="{{ $first_interview->name }}">
