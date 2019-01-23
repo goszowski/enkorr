@@ -11,9 +11,7 @@
 			<div class="row">
 				<div class="col-sm-8 sm-md-padd-r-0">
 					<div class="publication-list-img big-publication_img">
-                        @if($first_column->image_min)
-                            <img src="{{ asset('gallery/' . $first_column->image_min) }}" alt="{{ $first_column->name }}">
-                        @elseif($first_column->image)
+                        @if($first_column->image)
                             <img src="{{ asset('gallery/' . $first_column->image) }}" alt="{{ $first_column->name }}">
                         @else
                         <img src="{{ asset('asset/images/enkorr_noimage.jpg') }}" alt="{{ $first_column->name }}">
